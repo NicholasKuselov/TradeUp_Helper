@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TradeUpHelper.Resources.Colors" xmlns:v="http://schemas.microsoft.com/netfx/2009/xaml/presentation">
+
+    <v:SolidColorBrush x:Key="Color_WindowControlButtonsFocus" Color="#66FFFFFF"/>
+    <v:SolidColorBrush x:Key="Color_WindowControlButtonsPressed" Color="#CCFFFFFF"/>
+
+    <v:SolidColorBrush x:Key="Color_WindowTopBar" Color="#2b2843"/>
+    <v:SolidColorBrush x:Key="Color_WindowBackground" Color="#282544"/>
+
+    <Color x:Key="SelectedBackgroundColor">#FFC5CBF9</Color>
+</ResourceDictionary>

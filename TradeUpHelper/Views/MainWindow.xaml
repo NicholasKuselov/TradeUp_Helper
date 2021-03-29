@@ -1,0 +1,95 @@
+﻿<Window x:Class="TradeUpHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TradeUpHelper" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels" xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" AllowsTransparency="False" ResizeMode="CanResizeWithGrip" WindowStyle="None">
+
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="shell:WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <shell:WindowChrome CaptionHeight="0"
+                                        CornerRadius="0"
+                                        GlassFrameThickness="0,0,0,0"
+                                        NonClientFrameEdges="None"
+                                        ResizeBorderThickness="5"
+                                        UseAeroCaptionButtons="false"
+                                        />
+
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Style>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/WindowControlButtons.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/FloatTextBoxStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <viewmodels:MainWindowVM/>
+    </Window.DataContext>
+    
+    
+    <Grid Background="Red">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="{DynamicResource Color_WindowTopBar}">
+            <Button Width="50" Command="{Binding CloseWindowCommand}" Height="30" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ExitButton}" />
+            <Button Width="50" Command="{Binding MaximizeWindowCommand}" Height="30" Margin="0,0,50,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MaximizeButton}" />
+            <Button Width="50" Command="{Binding MinimizeWindowCommand}" Height="30" Margin="0,0,100,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MinimizeButton}" />
+        </Grid>
+        
+        <Grid Grid.Row="1" Background="{DynamicResource Color_WindowBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBox Grid.Row="0" Grid.Column="0" Style="{DynamicResource FloatTextBoxStyle}"/>
+                <TextBox Grid.Row="1" Grid.Column="0" Style="{DynamicResource FloatTextBoxStyle}"/>
+                <TextBox Grid.Row="2" Grid.Column="0" Style="{DynamicResource FloatTextBoxStyle}"/>
+                <TextBox Grid.Row="3" Grid.Column="0" Style="{DynamicResource FloatTextBoxStyle}"/>
+                <TextBox Grid.Row="4" Grid.Column="0" Style="{DynamicResource FloatTextBoxStyle}"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource FloatTextBoxStyle}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource FloatTextBoxStyle}"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Style="{DynamicResource FloatTextBoxStyle}"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Style="{DynamicResource FloatTextBoxStyle}"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Style="{DynamicResource FloatTextBoxStyle}"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                
+            </Grid>
+            
+            
+
+        </Grid>
+        
+        
+    </Grid>
+</Window>
