@@ -29,7 +29,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/Styles/WindowControlButtons.xaml"/>
-                <ResourceDictionary Source="/Resources/Styles/FloatTextBoxStyle.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/TextBoxesStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/LabelsStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -70,16 +71,68 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <TextBox Grid.Row="0" Grid.Column="0" Style="{DynamicResource FloatTextBoxStyle}"/>
-                <TextBox Grid.Row="1" Grid.Column="0" Style="{DynamicResource FloatTextBoxStyle}"/>
-                <TextBox Grid.Row="2" Grid.Column="0" Style="{DynamicResource FloatTextBoxStyle}"/>
-                <TextBox Grid.Row="3" Grid.Column="0" Style="{DynamicResource FloatTextBoxStyle}"/>
-                <TextBox Grid.Row="4" Grid.Column="0" Style="{DynamicResource FloatTextBoxStyle}"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource FloatTextBoxStyle}"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource FloatTextBoxStyle}"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Style="{DynamicResource FloatTextBoxStyle}"/>
-                <TextBox Grid.Row="3" Grid.Column="1" Style="{DynamicResource FloatTextBoxStyle}"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Style="{DynamicResource FloatTextBoxStyle}"/>
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
+                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal">
+                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
+                </StackPanel>
+               
+
+
             </Grid>
 
             <Grid Grid.Row="1">

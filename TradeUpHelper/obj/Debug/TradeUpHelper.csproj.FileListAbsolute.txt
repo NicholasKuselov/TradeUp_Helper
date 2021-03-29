@@ -30,5 +30,5 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.c
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.csproj.CopyComplete
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.exe
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.pdb
-C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Resources\Styles\WindowControlButtons.baml
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Resources\Styles\TextBoxStyle.baml
