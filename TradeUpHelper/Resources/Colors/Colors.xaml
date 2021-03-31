@@ -5,8 +5,8 @@
     <v:SolidColorBrush x:Key="Color_WindowControlButtonsFocus" Color="#66FFFFFF"/>
     <v:SolidColorBrush x:Key="Color_WindowControlButtonsPressed" Color="#CCFFFFFF"/>
 
-    <v:SolidColorBrush x:Key="Color_WindowTopBar" Color="#2b2843"/>
-    <v:SolidColorBrush x:Key="Color_WindowBackground" Color="#282544"/>
+    <v:SolidColorBrush x:Key="Color_WindowTopBar" Color="#1f272a"/>
+    <v:SolidColorBrush x:Key="Color_WindowBackground" Color="#262d35"/>
 
     <Color x:Key="SelectedBackgroundColor">#FFC5CBF9</Color>
 </ResourceDictionary>

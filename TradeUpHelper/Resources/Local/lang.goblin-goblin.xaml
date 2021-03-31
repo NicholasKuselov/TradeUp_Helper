@@ -3,5 +3,33 @@
                     xmlns:local="clr-namespace:TradeUpHelper.Resources.Local" xmlns:v="clr-namespace:System;assembly=mscorlib">
 
 
-    <v:String x:Key="ProgramName">Smart Timetable</v:String>
+    <v:String x:Key="ProgramName">TradeUp Helper</v:String>
+
+    <v:String x:Key="Float">Float</v:String>
+    <v:String x:Key="Price">Цена</v:String>
+
+    <v:String x:Key="dontKnow">ХЗ</v:String>
+
+    <!--Wear-->
+    <v:String x:Key="WearFactoryNew">Прямо с завода</v:String>
+    <v:String x:Key="WearMinimalWear">Немного поношенное</v:String>
+    <v:String x:Key="WearFieldTested">После половых</v:String>
+    <v:String x:Key="WearWellWorn">Поношенное</v:String>
+    <v:String x:Key="WearBattleScared">Закаленное</v:String>
+
+    <!--WearShort-->
+    <v:String x:Key="WearFactoryNewShort">FN</v:String>
+    <v:String x:Key="WearMinimalWearShort">MW</v:String>
+    <v:String x:Key="WearFieldTestedShort">FT</v:String>
+    <v:String x:Key="WearWellWornShort">WW</v:String>
+    <v:String x:Key="WearBattleScaredShort">BS</v:String>
+
+    <!--Info-->
+    <v:String x:Key="InfoFloat">Float :</v:String>
+    <v:String x:Key="InfoPrice">Цена :</v:String>
+    <v:String x:Key="InfoWear">Износ :</v:String>
+    <v:String x:Key="InfoThreshold">Порог</v:String>
+    
+    <v:String x:Key="bClear">Очистить</v:String>
+    
 </ResourceDictionary>

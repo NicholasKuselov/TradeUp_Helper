@@ -3,7 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TradeUpHelper" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels" xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        xmlns:local="clr-namespace:TradeUpHelper"
+        xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
+        xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        xmlns:converters="clr-namespace:TradeUpHelper.DataConverters"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" AllowsTransparency="False" ResizeMode="CanResizeWithGrip" WindowStyle="None">
 
@@ -27,10 +30,12 @@
 
     <Window.Resources>
         <ResourceDictionary>
+            <converters:ShortWearConverter x:Key="shortWearConverter"/>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/Styles/WindowControlButtons.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/TextBoxesStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/LabelsStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/ButtonsStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -38,8 +43,8 @@
     <Window.DataContext>
         <viewmodels:MainWindowVM/>
     </Window.DataContext>
-    
-    
+
+    <Border BorderThickness="1" BorderBrush="{Binding ThresholdResultColor}">
     <Grid Background="Red">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
@@ -50,6 +55,7 @@
             <Button Width="50" Command="{Binding CloseWindowCommand}" Height="30" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ExitButton}" />
             <Button Width="50" Command="{Binding MaximizeWindowCommand}" Height="30" Margin="0,0,50,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MaximizeButton}" />
             <Button Width="50" Command="{Binding MinimizeWindowCommand}" Height="30" Margin="0,0,100,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MinimizeButton}" />
+            <Label Content="{DynamicResource ProgramName}" HorizontalAlignment="Left" Foreground="White" Margin="10,0,0,0" Width="100"/>
         </Grid>
         
         <Grid Grid.Row="1" Background="{DynamicResource Color_WindowBackground}">
@@ -71,72 +77,175 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
-                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
-                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
-                </StackPanel>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Grid.Column="0" Content="{Binding float1,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox x:Name="tb_float1" Grid.Column="1" Text="{Binding float1}" Style="{DynamicResource FloatTextBoxStyle}" TextChanged="tb_float_TextChanged"/>
+                    <TextBox Grid.Column="2" Text="{Binding price1}" Style="{DynamicResource PriceTextBoxStyle}"/>
+                </Grid>
 
-                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
-                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
-                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
-                </StackPanel>
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
-                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
-                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
-                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
-                </StackPanel>
+                    <Label Grid.Column="0" Content="{Binding float2,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox Grid.Column="1" Text="{Binding float2}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox Grid.Column="2" Text="{Binding price2}" Style="{DynamicResource PriceTextBoxStyle}"/>
+                </Grid>
 
-                <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
-                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
-                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
-                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
-                </StackPanel>
+                <Grid Grid.Row="2" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal">
-                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
-                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
-                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
-                </StackPanel>
+                    <Label Grid.Column="0" Content="{Binding float3,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox Grid.Column="1" Text="{Binding float3}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox Grid.Column="2" Text="{Binding price3}" Style="{DynamicResource PriceTextBoxStyle}"/>
+                </Grid>
 
-                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
-                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
-                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
-                </StackPanel>
+                <Grid Grid.Row="3" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
-                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
-                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
-                </StackPanel>
+                    <Label Grid.Column="0" Content="{Binding float4,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox Grid.Column="1" Text="{Binding float4}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox Grid.Column="2" Text="{Binding price4}" Style="{DynamicResource PriceTextBoxStyle}"/>
+                </Grid>
 
-                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
-                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
-                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
-                </StackPanel>
+                <Grid Grid.Row="4" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
-                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
-                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
-                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
-                </StackPanel>
+                    <Label Grid.Column="0" Content="{Binding float5,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox Grid.Column="1" Text="{Binding float5}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox Grid.Column="2" Text="{Binding price5}" Style="{DynamicResource PriceTextBoxStyle}"/>
+                </Grid>
 
-                <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
-                    <Label Style="{DynamicResource ShortWearLabelStyle}"/>
-                    <TextBox  Style="{DynamicResource FloatTextBoxStyle}"/>
-                    <TextBox  Style="{DynamicResource PriceTextBoxStyle}"/>
-                </StackPanel>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Content="{Binding float6,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox Grid.Column="1" Text="{Binding float6}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox Grid.Column="2" Text="{Binding price6}" Style="{DynamicResource PriceTextBoxStyle}"/>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Content="{Binding float7,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox Grid.Column="1" Text="{Binding float7}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox Grid.Column="2" Text="{Binding price7}" Style="{DynamicResource PriceTextBoxStyle}"/>
+                </Grid>
+
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Content="{Binding float8,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox Grid.Column="1" Text="{Binding float8}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox Grid.Column="2" Text="{Binding price8}" Style="{DynamicResource PriceTextBoxStyle}"/>
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Content="{Binding float9,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox Grid.Column="1" Text="{Binding float9}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox Grid.Column="2" Text="{Binding price9}" Style="{DynamicResource PriceTextBoxStyle}"/>
+                </Grid>
+
+                <Grid Grid.Row="4" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Content="{Binding float10,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
+                    <TextBox Grid.Column="1" Text="{Binding float10}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                    <TextBox Grid.Column="2" Text="{Binding price10}" Style="{DynamicResource PriceTextBoxStyle}"/>
+                </Grid>
                
 
 
             </Grid>
 
             <Grid Grid.Row="1">
-                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                    <Label Content="{DynamicResource InfoFloat}" Style="{DynamicResource InfoHeaderLabelStyle}" Width="65"/>
+                    <Label Content="{Binding resultFloat}" Style="{DynamicResource InfoValueLabelStyle}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                        <Label Content="{DynamicResource InfoWear}" Style="{DynamicResource InfoHeaderLabelStyle}" Width="65"/>
+                    <Label Content="{Binding resultFloat, ConverterParameter=long, Converter={StaticResource shortWearConverter}}" Style="{DynamicResource InfoValueLabelStyle}"/>
+                </StackPanel>
+
+                <Grid Grid.Row="2" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="{DynamicResource InfoThreshold}" Style="{DynamicResource InfoHeaderLabelStyle}" Width="60"/>
+                    <TextBox Grid.Column="1" Text="{Binding threshold}" Style="{DynamicResource ThresholdTextBoxStyle}" Margin="15,0,0,0"/>
+                </Grid>
+
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                    <Label Content="{DynamicResource InfoPrice}" Style="{DynamicResource InfoHeaderLabelStyle}"/>
+                    <Label Content="{Binding resultPrice}" Style="{DynamicResource InfoValueLabelStyle}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Visibility="Hidden">
+                    <Label Content="test" Style="{DynamicResource InfoHeaderLabelStyle}"/>
+                    <Label Content="test" Style="{DynamicResource InfoValueLabelStyle}"/>
+                </StackPanel>
+
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Button Content="{DynamicResource bClear}" Command="{Binding bClear}" Template="{DynamicResource ClearButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1" FontSize="16" />
+                </Grid>
+
+
             </Grid>
             
             
@@ -145,4 +254,5 @@
         
         
     </Grid>
+    </Border>
 </Window>
