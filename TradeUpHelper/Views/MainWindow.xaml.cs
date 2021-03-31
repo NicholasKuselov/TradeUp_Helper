@@ -32,7 +32,7 @@ namespace TradeUpHelper
         private void tb_float_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-            if(tb_float1.Text.Length>2) ((MainWindowVM)DataContext).float1 = tb_float1.Text;
+            //if(tb_float1.Text.Length>2) ((MainWindowVM)DataContext).float1 = tb_float1.Text;
         }
     }
 }

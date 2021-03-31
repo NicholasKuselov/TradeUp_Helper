@@ -56,7 +56,8 @@
             <Button Width="50" Command="{Binding MaximizeWindowCommand}" Height="30" Margin="0,0,50,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MaximizeButton}" />
             <Button Width="50" Command="{Binding MinimizeWindowCommand}" Height="30" Margin="0,0,100,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MinimizeButton}" />
             <Label Content="{DynamicResource ProgramName}" HorizontalAlignment="Left" Foreground="White" Margin="10,0,0,0" Width="100"/>
-        </Grid>
+            <Label Content="{DynamicResource Version}" HorizontalAlignment="Left" Foreground="White" Margin="100,0,0,0" Width="100"/>
+            </Grid>
         
         <Grid Grid.Row="1" Background="{DynamicResource Color_WindowBackground}">
             <Grid.RowDefinitions>

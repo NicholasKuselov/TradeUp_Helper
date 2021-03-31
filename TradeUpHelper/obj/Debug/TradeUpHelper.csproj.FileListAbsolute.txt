@@ -39,3 +39,5 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\TradeUpHelper.e
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\TradeUpHelper.application
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.exe.manifest
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.application
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\InfoWindow.g.cs
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\InfoWindow.baml

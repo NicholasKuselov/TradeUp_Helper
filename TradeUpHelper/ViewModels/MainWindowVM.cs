@@ -460,7 +460,8 @@ namespace TradeUpHelper.ViewModels
 
   
             _resultPrice = totalPrice;
-            resultPrice = totalPrice.ToString();
+            if (totalPrice == 0.0) resultPrice = "";
+            else resultPrice = totalPrice.ToString();
         }
 
         double ConvertFloatToDouble(string Float)
@@ -474,21 +475,13 @@ namespace TradeUpHelper.ViewModels
                     newFloat = newFloat + Float[i];
                 }
             }
-            if (newFloat.Length <3) return 0.0;
+            if (newFloat.Length == 0) return 0.0;
             return Convert.ToDouble(newFloat);
         }
 
         void Clear() {
-            List<string> prices = new List<string>() { price1, price2, price3, price4, price5, price6, price7, price8, price9, price10 };
-            List<string> floats = new List<string>() { float1, float2, float3, float4, float5, float6, float7, float8, float9, float10 };
-            for (int i = 0; i < prices.Count; i++)
-            {
-                prices[i] = "";
-            }
-            for (int i = 0; i < floats.Count; i++)
-            {
-                floats[i] = "";
-            }
+            price1 = ""; price2 = ""; price3 = ""; price4 = ""; price5 = ""; price6 = ""; price7 = ""; price8 = ""; price9 = ""; price10 = "";
+            float1 = ""; float2 = ""; float3 = ""; float4 = ""; float5 = ""; float6 = ""; float7 = ""; float8 = ""; float9 = ""; float10 = "";
         }
     }
 }

@@ -4,6 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
+    <v:String x:Key="Version">v0.3</v:String>
 
     <v:String x:Key="Float">Float</v:String>
     <v:String x:Key="Price">Цена</v:String>
@@ -31,5 +32,10 @@
     <v:String x:Key="InfoThreshold">Порог</v:String>
     
     <v:String x:Key="bClear">Очистить</v:String>
-    
+
+    <v:String x:Key="FAQ">
+        Инструкция
+        В программе есть 10 полей Флоата и 10 полей цены
+        
+    </v:String>
 </ResourceDictionary>
