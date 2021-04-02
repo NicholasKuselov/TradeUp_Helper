@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Deployment;
+using System.Deployment.Application;
+using System.IO;
+using System.Diagnostics;
+using System.Xml;
+using System.Net;
+using System.ComponentModel;
 
 namespace TradeUpHelper.ViewModels
 {
@@ -47,17 +54,18 @@ namespace TradeUpHelper.ViewModels
         public string wear9 { get; set; }
         public string wear10 { get; set; }
 
-        public string float1 { 
-            get 
+        public string float1
+        {
+            get
             {
                 if (_float1.Equals(0.0)) return "";
                 return _float1.ToString();
-            } 
-            set 
+            }
+            set
             {
                 _float1 = ConvertFloatToDouble(value);
                 OnFloatUpdate();
-            } 
+            }
         }
 
         public string float2
@@ -338,7 +346,8 @@ namespace TradeUpHelper.ViewModels
 
 
         private double _threshold = 0.0;
-        public string threshold {
+        public string threshold
+        {
             get
             {
                 return _threshold.ToString();
@@ -360,7 +369,28 @@ namespace TradeUpHelper.ViewModels
             }
         }
 
+        public ICommand UpdateProgram
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    checkUpdates();
 
+                });
+            }
+        }
+
+        public ICommand ShowChangeLog
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    MessageBox.Show(((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n'), (string)Application.Current.Resources["bChangeLog"], MessageBoxButton.OK, MessageBoxImage.Information);
+                });
+            }
+        }
 
         public ICommand CloseWindowCommand
         {
@@ -368,12 +398,12 @@ namespace TradeUpHelper.ViewModels
             {
                 return new RelayCommand(() =>
                 {
-                    if(MessageBox.Show("Tochno?", "Zakrit okno", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    if (MessageBox.Show("Tochno?", "Zakrit okno", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                     {
                         Application.Current.MainWindow.Close();
                     }
-                    
-                    
+
+
                 });
             }
         }
@@ -435,7 +465,7 @@ namespace TradeUpHelper.ViewModels
             _resultFloat = totalFloat;
             resultFloat = totalFloat.ToString();
 
-            if(_threshold>0.0 && floatCount!=0)
+            if (_threshold > 0.0 && floatCount != 0)
             {
                 if (_resultFloat < _threshold) ThresholdResultColor = Brushes.LightGreen;
                 else ThresholdResultColor = Brushes.Red;
@@ -450,7 +480,7 @@ namespace TradeUpHelper.ViewModels
         {
             List<double> prices = new List<double>() { _price1, _price2, _price3, _price4, _price5, _price6, _price7, _price8, _price9, _price10 };
 
-          
+
             double totalPrice = 0.0;
 
             foreach (double item in prices)
@@ -458,7 +488,7 @@ namespace TradeUpHelper.ViewModels
                 totalPrice += item;
             }
 
-  
+
             _resultPrice = totalPrice;
             if (totalPrice == 0.0) resultPrice = "";
             else resultPrice = totalPrice.ToString();
@@ -479,9 +509,158 @@ namespace TradeUpHelper.ViewModels
             return Convert.ToDouble(newFloat);
         }
 
-        void Clear() {
+        void Clear()
+        {
             price1 = ""; price2 = ""; price3 = ""; price4 = ""; price5 = ""; price6 = ""; price7 = ""; price8 = ""; price9 = ""; price10 = "";
             float1 = ""; float2 = ""; float3 = ""; float4 = ""; float5 = ""; float6 = ""; float7 = ""; float8 = ""; float9 = ""; float10 = "";
         }
+
+        private void InstallUpdateSyncWithInfo()
+        {
+            UpdateCheckInfo info = null;
+
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                ApplicationDeployment ad = ApplicationDeployment.CurrentDeployment;
+
+                try
+                {
+                    info = ad.CheckForDetailedUpdate();
+
+                }
+                catch (DeploymentDownloadException dde)
+                {
+                    MessageBox.Show("The new version of the application cannot be downloaded at this time. \n\nPlease check your network connection, or try again later. Error: " + dde.Message);
+                    return;
+                }
+                catch (InvalidDeploymentException ide)
+                {
+                    MessageBox.Show("Cannot check for a new version of the application. The ClickOnce deployment is corrupt. Please redeploy the application and try again. Error: " + ide.Message);
+                    return;
+                }
+                catch (InvalidOperationException ioe)
+                {
+                    MessageBox.Show("This application cannot be updated. It is likely not a ClickOnce application. Error: " + ioe.Message);
+                    return;
+                }
+
+                if (info.UpdateAvailable)
+                {
+                    Boolean doUpdate = true;
+
+                    if (!info.IsUpdateRequired)
+                    {
+                        MessageBoxResult dr = MessageBox.Show("An update is available. Would you like to update the application now?", "Update Available", MessageBoxButton.OKCancel);
+                        if (!(MessageBoxResult.OK == dr))
+                        {
+                            doUpdate = false;
+                        }
+                    }
+                    else
+                    {
+                        // Display a message that the app MUST reboot. Display the minimum required version.
+                        MessageBox.Show("This application has detected a mandatory update from your current " +
+                            "version to version " + info.MinimumRequiredVersion.ToString() +
+                            ". The application will now install the update and restart.",
+                            "Update Available", MessageBoxButton.OK,
+                            MessageBoxImage.Information);
+                    }
+
+                    if (doUpdate)
+                    {
+                        try
+                        {
+                            ad.Update();
+                            MessageBox.Show("The application has been upgraded, and will now restart.");
+                            Application.Current.Shutdown();
+                        }
+                        catch (DeploymentDownloadException dde)
+                        {
+                            MessageBox.Show("Cannot install the latest version of the application. \n\nPlease check your network connection, or try again later. Error: " + dde);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void checkUpdates()
+        {
+            XmlDocument docRemoteVersion = new XmlDocument();
+            docRemoteVersion.Load(@"http://b80994.hostua01.fornex.org/TradeUpHelper/version.xml");
+
+            XmlDocument docLocalVersion = new XmlDocument();
+            docLocalVersion.LoadXml(File.ReadAllText("version.xml"));
+
+            Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("version")[0].InnerText);
+            Version localVersion = new Version(docLocalVersion.GetElementsByTagName("version")[0].InnerText);
+            if (localVersion < remoteVersion)
+            {
+
+                if (MessageBoxResult.No.Equals(MessageBox.Show((string)Application.Current.Resources["UpdateNewVersion"], (string)Application.Current.Resources["bCheckUpdate"], MessageBoxButton.YesNo, MessageBoxImage.Information))) return;
+                try
+                {
+
+                    if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
+                    Download();
+
+                }
+                catch (Exception)
+                {
+                    if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
+                    Download();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show((string)Application.Current.Resources["UpdateNoVersion"], (string)Application.Current.Resources["bCheckUpdate"], MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void Download()
+        {
+            try
+            {
+                if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
+
+                WebClient client = new WebClient();
+                // client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler(download_Completed);
+                client.DownloadFileAsync(new Uri(@"http://b80994.hostua01.fornex.org/TradeUpHelper/TradeUpHelper.exe"), "TradeUpHelper.update");
+
+            }
+            catch (Exception) { }
+        }
+
+        //private void download_ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        //progressBar1.Value = e.ProgressPercentage;
+        //    }
+        //    catch (Exception) { }
+        //}
+
+        private void download_Completed(object sender, AsyncCompletedEventArgs e)
+        {
+            using (WebClient wb = new WebClient())
+            {
+                File.WriteAllText("version.xml", wb.DownloadString("http://b80994.hostua01.fornex.org/TradeUpHelper/version.xml"));
+            }
+
+            Process.Start("updater.exe", "TradeUpHelper.update TradeUpHelper.exe");
+            Process.GetCurrentProcess().Kill();
+            //try
+            //{
+            //    Process.Start("updater/updater.exe", "TradeUpHelper.update TradeUpHelper.exe");
+            //    Process.GetCurrentProcess().Kill();
+            //}
+            //catch (Exception) { }
+        }
+
+        public string testbt { get; set; } = "ffff";
+
+
     }
 }

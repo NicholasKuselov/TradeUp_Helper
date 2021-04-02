@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v0.3</v:String>
+    <v:String x:Key="Version">v0.4.1</v:String>
 
     <v:String x:Key="Float">Float</v:String>
     <v:String x:Key="Price">Цена</v:String>
@@ -32,10 +32,24 @@
     <v:String x:Key="InfoThreshold">Порог</v:String>
     
     <v:String x:Key="bClear">Очистить</v:String>
+    <v:String x:Key="bChangeLog">Что нового?</v:String>
+    <v:String x:Key="bCheckUpdate">Обновление</v:String>
+    <v:String x:Key="UpdateNewVersion">Есть новая версия, oбновить?</v:String>
+    <v:String x:Key="UpdateNoVersion">Новых версий нет</v:String>
+
 
     <v:String x:Key="FAQ">
         Инструкция
         В программе есть 10 полей Флоата и 10 полей цены
         
+    </v:String>
+
+    
+    
+    <v:String x:Key="ChangeLog">
+        v0.4.1|
+        - Кнопка "Что нового"|
+        - Автообновление|
+
     </v:String>
 </ResourceDictionary>

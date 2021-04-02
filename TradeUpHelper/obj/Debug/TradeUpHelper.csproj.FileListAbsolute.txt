@@ -34,7 +34,6 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.c
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.exe
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.pdb
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Resources\Styles\ButtonsStyles.baml
-C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\TradeUpHelper.exe.manifest
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\TradeUpHelper.application
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.exe.manifest

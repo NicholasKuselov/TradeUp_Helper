@@ -20,20 +20,20 @@ namespace TradeUpHelper.DataConverters
 
                 if (parameter != null && parameter.ToString() == "long")
                 {
-                    if (_value > 0.0 && _value <= 0.07) return "Прямо с завода";
-                    else if (_value > 0.07 && _value <= 0.15) return "Немного поношенное";
-                    else if (_value > 0.15 && _value <= 0.38) return "После полевых испытаний";
-                    else if (_value > 0.38 && _value <= 0.45) return "Поношенное";
-                    else if (_value > 0.45 && _value <= 1) return "Закаленное в боях";
+                    if (_value > 0.0 && _value <= 0.07) return (string)Application.Current.Resources["WearFactoryNew"];
+                    else if (_value > 0.07 && _value <= 0.15) return (string)Application.Current.Resources["WearMinimalWear"];
+                    else if (_value > 0.15 && _value <= 0.38) return (string)Application.Current.Resources["WearFieldTested"];
+                    else if (_value > 0.38 && _value <= 0.45) return (string)Application.Current.Resources["WearWellWorn"];
+                    else if (_value > 0.45 && _value <= 1) return (string)Application.Current.Resources["WearBattleScared"];
                     else return "";
                 }
                 else
                 {
-                    if (_value > 0.0 && _value <= 0.07) return "FN";
-                    else if (_value > 0.07 && _value <= 0.15) return "MW";
-                    else if (_value > 0.15 && _value <= 0.38) return "FT";
-                    else if (_value > 0.38 && _value <= 0.45) return "WW";
-                    else if (_value > 0.45 && _value <= 1) return "BS";
+                    if (_value > 0.0 && _value <= 0.07) return (string)Application.Current.Resources["WearFactoryNewShort"];
+                    else if (_value > 0.07 && _value <= 0.15) return (string)Application.Current.Resources["WearMinimalWearShort"];
+                    else if (_value > 0.15 && _value <= 0.38) return (string)Application.Current.Resources["WearFieldTestedShort"];
+                    else if (_value > 0.38 && _value <= 0.45) return (string)Application.Current.Resources["WearWellWornShort"];
+                    else if (_value > 0.45 && _value <= 1) return (string)Application.Current.Resources["WearBattleScaredShort"];
                     else return "";
                 }
             }
