@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace TradeUpHelper.Models
+namespace TradeUpHelper.Controllers
 {
     public static class WindowSizing
     {

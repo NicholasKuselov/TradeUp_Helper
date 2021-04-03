@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\App.xaml
-9-686791777
+10540979936
 
-9-1569187111
+16-604878411
 124866675913
-Resources\Colors\Colors.xaml;Resources\Icons\Icons.xaml;Resources\Local\lang.goblin-goblin.xaml;Resources\Styles\ButtonsStyles.xaml;Resources\Styles\LabelsStyles.xaml;Resources\Styles\TextBoxesStyles.xaml;Resources\Styles\WindowControlButtons.xaml;Views\InfoWindow.xaml;Views\MainWindow.xaml;
+Resources\Colors\Colors.xaml;Resources\Icons\Icons.xaml;Resources\Local\lang.goblin-goblin.xaml;Resources\Styles\ButtonsStyles.xaml;Resources\Styles\LabelsStyles.xaml;Resources\Styles\TextBoxesStyles.xaml;Resources\Styles\WindowControlButtons.xaml;Views\InfoWindow.xaml;Views\MainWindow.xaml;Views\PriceCalcWindow.xaml;
 
 False
 

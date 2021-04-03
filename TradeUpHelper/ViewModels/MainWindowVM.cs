@@ -15,6 +15,8 @@ using System.Diagnostics;
 using System.Xml;
 using System.Net;
 using System.ComponentModel;
+using TradeUpHelper.Views;
+using TradeUpHelper.Controllers;
 
 namespace TradeUpHelper.ViewModels
 {
@@ -369,13 +371,25 @@ namespace TradeUpHelper.ViewModels
             }
         }
 
+        public ICommand OpenPriceCalcWindow
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    new PriceCalcWindow().Show();
+                });
+            }
+        }
+
+
         public ICommand UpdateProgram
         {
             get
             {
                 return new RelayCommand(() =>
                 {
-                    checkUpdates();
+                    Updater.checkUpdates();
 
                 });
             }
@@ -387,7 +401,8 @@ namespace TradeUpHelper.ViewModels
             {
                 return new RelayCommand(() =>
                 {
-                    MessageBox.Show(((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n'), (string)Application.Current.Resources["bChangeLog"], MessageBoxButton.OK, MessageBoxImage.Information);
+                    
+                    MessageBox.Show(((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n').Replace('/',' '), (string)Application.Current.Resources["bChangeLog"], MessageBoxButton.OK, MessageBoxImage.Information);
                 });
             }
         }
@@ -584,80 +599,7 @@ namespace TradeUpHelper.ViewModels
             }
         }
 
-        public void checkUpdates()
-        {
-            XmlDocument docRemoteVersion = new XmlDocument();
-            docRemoteVersion.Load(@"http://b80994.hostua01.fornex.org/TradeUpHelper/version.xml");
-
-            XmlDocument docLocalVersion = new XmlDocument();
-            docLocalVersion.LoadXml(File.ReadAllText("version.xml"));
-
-            Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("version")[0].InnerText);
-            Version localVersion = new Version(docLocalVersion.GetElementsByTagName("version")[0].InnerText);
-            if (localVersion < remoteVersion)
-            {
-
-                if (MessageBoxResult.No.Equals(MessageBox.Show((string)Application.Current.Resources["UpdateNewVersion"], (string)Application.Current.Resources["bCheckUpdate"], MessageBoxButton.YesNo, MessageBoxImage.Information))) return;
-                try
-                {
-
-                    if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
-                    Download();
-
-                }
-                catch (Exception)
-                {
-                    if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
-                    Download();
-                }
-
-            }
-            else
-            {
-                MessageBox.Show((string)Application.Current.Resources["UpdateNoVersion"], (string)Application.Current.Resources["bCheckUpdate"], MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-
-        private void Download()
-        {
-            try
-            {
-                if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
-
-                WebClient client = new WebClient();
-                // client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                client.DownloadFileCompleted += new AsyncCompletedEventHandler(download_Completed);
-                client.DownloadFileAsync(new Uri(@"http://b80994.hostua01.fornex.org/TradeUpHelper/TradeUpHelper.exe"), "TradeUpHelper.update");
-
-            }
-            catch (Exception) { }
-        }
-
-        //private void download_ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        //progressBar1.Value = e.ProgressPercentage;
-        //    }
-        //    catch (Exception) { }
-        //}
-
-        private void download_Completed(object sender, AsyncCompletedEventArgs e)
-        {
-            using (WebClient wb = new WebClient())
-            {
-                File.WriteAllText("version.xml", wb.DownloadString("http://b80994.hostua01.fornex.org/TradeUpHelper/version.xml"));
-            }
-
-            Process.Start("updater.exe", "TradeUpHelper.update TradeUpHelper.exe");
-            Process.GetCurrentProcess().Kill();
-            //try
-            //{
-            //    Process.Start("updater/updater.exe", "TradeUpHelper.update TradeUpHelper.exe");
-            //    Process.GetCurrentProcess().Kill();
-            //}
-            //catch (Exception) { }
-        }
+       
 
         public string testbt { get; set; } = "ffff";
 

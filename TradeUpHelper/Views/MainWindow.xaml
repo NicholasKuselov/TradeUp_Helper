@@ -8,7 +8,7 @@
         xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         xmlns:converters="clr-namespace:TradeUpHelper.DataConverters"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" AllowsTransparency="False" ResizeMode="CanResizeWithGrip" WindowStyle="None">
+        Title="MainWindow" Height="450" Width="800" AllowsTransparency="False" ResizeMode="CanResizeWithGrip" WindowStyle="None" MouseDown="Window_MouseDown" Loaded="Window_Loaded">
 
     <Window.Style>
         <Style TargetType="{x:Type Window}">
@@ -46,19 +46,20 @@
         <viewmodels:MainWindowVM/>
     </Window.DataContext>
 
-    <Border BorderThickness="1" BorderBrush="{Binding ThresholdResultColor}">
+    <Border BorderThickness="1" BorderBrush="{Binding ThresholdResultColor}" Focusable="True" Name="border" MouseDown="border_MouseDown" >
         <Grid Background="Red">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Background="{DynamicResource Color_WindowTopBar}" Name="TopBar">
+            <Grid Grid.Row="0" Background="{DynamicResource Color_WindowTopBar}" Name="TopBar" PreviewMouseLeftButtonDown="TopBar_PreviewMouseLeftButtonDown">
                 <Button Width="50" Command="{Binding CloseWindowCommand}" Height="30" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ExitButton}" />
                 <Button Width="50" Command="{Binding MaximizeWindowCommand}" Height="30" Margin="0,0,50,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MaximizeButton}" />
                 <Button Width="50" Command="{Binding MinimizeWindowCommand}" Height="30" Margin="0,0,100,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MinimizeButton}" />
                 <Button Width="80" Command="{Binding ShowChangeLog}" Height="30" Margin="0,0,150,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ChangeLogButton}" />
                 <Button Width="80" Command="{Binding UpdateProgram}" Height="30" Margin="0,0,230,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource UpdateButton}" />
+                <Button Width="80" Command="{Binding OpenPriceCalcWindow}" Height="30" Margin="0,0,310,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource PriceCalcButton}" Visibility="Hidden"/>
                 <Label Content="{DynamicResource ProgramName}" HorizontalAlignment="Left" Foreground="White" Margin="10,0,0,0" Width="100"/>
                 <Label Content="{DynamicResource Version}" HorizontalAlignment="Left" Foreground="White" Margin="100,0,0,0" Width="100"/>
             </Grid>
@@ -66,7 +67,7 @@
             <Grid Grid.Row="1" Background="{DynamicResource Color_WindowBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="150"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
@@ -90,7 +91,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Column="0" Content="{Binding float1,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
-                        <TextBox x:Name="tb_float1" Grid.Column="1" Text="{Binding float1}" Style="{DynamicResource FloatTextBoxStyle}" TextChanged="tb_float_TextChanged"/>
+                        <TextBox x:Name="tb_float1" Grid.Column="1" Text="{Binding float1}" Style="{DynamicResource FloatTextBoxStyle}" TextChanged="tb_float_TextChanged" KeyUp="tb_float_KeyUp"/>
                         <TextBox Grid.Column="2" Text="{Binding price1}" Style="{DynamicResource PriceTextBoxStyle}"/>
                     </Grid>
 
@@ -102,7 +103,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Column="0" Content="{Binding float2,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
-                        <TextBox Grid.Column="1" Text="{Binding float2}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                        <TextBox Grid.Column="1" x:Name="tb_float2" Text="{Binding float2}" Style="{DynamicResource FloatTextBoxStyle}" KeyUp="tb_float_KeyUp"/>
                         <TextBox Grid.Column="2" Text="{Binding price2}" Style="{DynamicResource PriceTextBoxStyle}"/>
                     </Grid>
 
@@ -114,7 +115,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Column="0" Content="{Binding float3,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
-                        <TextBox Grid.Column="1" Text="{Binding float3}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                        <TextBox Grid.Column="1" x:Name="tb_float3" Text="{Binding float3}" Style="{DynamicResource FloatTextBoxStyle}" KeyUp="tb_float_KeyUp"/>
                         <TextBox Grid.Column="2" Text="{Binding price3}" Style="{DynamicResource PriceTextBoxStyle}"/>
                     </Grid>
 
@@ -126,7 +127,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Column="0" Content="{Binding float4,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
-                        <TextBox Grid.Column="1" Text="{Binding float4}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                        <TextBox Grid.Column="1" x:Name="tb_float4" Text="{Binding float4}" Style="{DynamicResource FloatTextBoxStyle}" KeyUp="tb_float_KeyUp"/>
                         <TextBox Grid.Column="2" Text="{Binding price4}" Style="{DynamicResource PriceTextBoxStyle}"/>
                     </Grid>
 
@@ -138,7 +139,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Column="0" Content="{Binding float5,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
-                        <TextBox Grid.Column="1" Text="{Binding float5}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                        <TextBox Grid.Column="1" x:Name="tb_float5" Text="{Binding float5}" Style="{DynamicResource FloatTextBoxStyle}" KeyUp="tb_float_KeyUp"/>
                         <TextBox Grid.Column="2" Text="{Binding price5}" Style="{DynamicResource PriceTextBoxStyle}"/>
                     </Grid>
 
@@ -150,7 +151,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Column="0" Content="{Binding float6,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
-                        <TextBox Grid.Column="1" Text="{Binding float6}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                        <TextBox Grid.Column="1" x:Name="tb_float6" Text="{Binding float6}" Style="{DynamicResource FloatTextBoxStyle}" KeyUp="tb_float_KeyUp"/>
                         <TextBox Grid.Column="2" Text="{Binding price6}" Style="{DynamicResource PriceTextBoxStyle}"/>
                     </Grid>
 
@@ -162,7 +163,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Column="0" Content="{Binding float7,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
-                        <TextBox Grid.Column="1" Text="{Binding float7}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                        <TextBox Grid.Column="1" x:Name="tb_float7" Text="{Binding float7}" Style="{DynamicResource FloatTextBoxStyle}" KeyUp="tb_float_KeyUp"/>
                         <TextBox Grid.Column="2" Text="{Binding price7}" Style="{DynamicResource PriceTextBoxStyle}"/>
                     </Grid>
 
@@ -174,7 +175,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Column="0" Content="{Binding float8,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
-                        <TextBox Grid.Column="1" Text="{Binding float8}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                        <TextBox Grid.Column="1" x:Name="tb_float8" Text="{Binding float8}" Style="{DynamicResource FloatTextBoxStyle}" KeyUp="tb_float_KeyUp"/>
                         <TextBox Grid.Column="2" Text="{Binding price8}" Style="{DynamicResource PriceTextBoxStyle}"/>
                     </Grid>
 
@@ -186,7 +187,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Column="0" Content="{Binding float9,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
-                        <TextBox Grid.Column="1" Text="{Binding float9}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                        <TextBox Grid.Column="1" x:Name="tb_float9" Text="{Binding float9}" Style="{DynamicResource FloatTextBoxStyle}" KeyUp="tb_float_KeyUp"/>
                         <TextBox Grid.Column="2" Text="{Binding price9}" Style="{DynamicResource PriceTextBoxStyle}"/>
                     </Grid>
 
@@ -198,7 +199,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Column="0" Content="{Binding float10,Converter={StaticResource shortWearConverter}}" Style="{DynamicResource ShortWearLabelStyle}"/>
-                        <TextBox Grid.Column="1" Text="{Binding float10}" Style="{DynamicResource FloatTextBoxStyle}"/>
+                        <TextBox Grid.Column="1" x:Name="tb_float10" Text="{Binding float10}" Style="{DynamicResource FloatTextBoxStyle}" KeyUp="tb_float_KeyUp" />
                         <TextBox Grid.Column="2" Text="{Binding price10}" Style="{DynamicResource PriceTextBoxStyle}"/>
                     </Grid>
 
@@ -208,9 +209,10 @@
 
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
+                        
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

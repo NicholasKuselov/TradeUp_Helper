@@ -1,0 +1,30 @@
+﻿<Window x:Class="TradeUpHelper.Views.PriceCalcWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
+        mc:Ignorable="d"
+        Title="{DynamicResource PriceWindowTitle}" Height="100" Width="250">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/WindowControlButtons.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/TextBoxesStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/LabelsStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/ButtonsStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <viewmodels:PriceWindowVM/>
+    </Window.DataContext>
+    
+    <StackPanel Background="{DynamicResource Color_WindowBackground}" Orientation="Vertical" MouseDown="StackPanel_MouseDown" Focusable="True" Name="sp_parentContainer">
+        <TextBox Style="{DynamicResource PriceTextBoxStyle}" Margin="1,1,1,1" Text="{Binding PriceBefore}" Name="tbPriceBefore"/>
+        <Label Style="{DynamicResource InfoValueLabelStyle}" Margin="1,5,0,1"  Content="{Binding PriceAfter}" Width="240" Foreground="White"/>
+
+    </StackPanel>
+</Window>

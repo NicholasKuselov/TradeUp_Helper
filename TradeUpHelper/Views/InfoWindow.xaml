@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="InfoWindow" Height="400" Width="600">
     <Grid>
-        <TextBlock VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Text="{DynamicResource FAQ}"></TextBlock>
+        <TextBlock VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></TextBlock>
     </Grid>
 </Window>

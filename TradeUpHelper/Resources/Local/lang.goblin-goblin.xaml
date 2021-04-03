@@ -4,8 +4,10 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v0.4.1</v:String>
+    <v:String x:Key="Version">v0.4.4</v:String>
 
+    <v:String x:Key="PriceWindowTitle">Цена после продажи</v:String>
+    
     <v:String x:Key="Float">Float</v:String>
     <v:String x:Key="Price">Цена</v:String>
 
@@ -30,13 +32,16 @@
     <v:String x:Key="InfoPrice">Цена :</v:String>
     <v:String x:Key="InfoWear">Износ :</v:String>
     <v:String x:Key="InfoThreshold">Порог</v:String>
-    
+    <v:String x:Key="InfoNeedFloat">Нужный Float :</v:String>
+
+    <v:String x:Key="bPriceCalc">Цена Steam</v:String>
     <v:String x:Key="bClear">Очистить</v:String>
     <v:String x:Key="bChangeLog">Что нового?</v:String>
     <v:String x:Key="bCheckUpdate">Обновление</v:String>
     <v:String x:Key="UpdateNewVersion">Есть новая версия, oбновить?</v:String>
     <v:String x:Key="UpdateNoVersion">Новых версий нет</v:String>
 
+    <v:String x:Key="NetworkDisable">Отсутвует подключение к интернету, проверьте соеденение и повторите попытку</v:String>
 
     <v:String x:Key="FAQ">
         Инструкция
@@ -44,12 +49,24 @@
         
     </v:String>
 
-    
-    
-    <v:String x:Key="ChangeLog">
-        v0.4.1|
-        - Кнопка "Что нового"|
-        - Автообновление|
 
+
+    <v:String x:Key="ChangeLog">
+        v0.4.3|
+        Добавлено:|
+            //- Авто проверка наличия новых версий|
+            //- Програма разворачивается при двойном клике|
+        |
+        Пофикшено:|
+            //- Вылет программы в случае попытки обновления без интернета|
+            //- Для ввода данных не нужно кликать по другому полю|
+            // теперь достаточно просто кликнуть в любое место|
+            //- При увелечении окна будут увеличиваться поля для флоута, вместо цены|
+            //- В развернутом виде окно не вылазит за границы экрана|
+        |
+        v0.4.4|
+        Добавлено:|
+            //- Между полями ввода флоута можно переключаться кнопками Вверх-Вниз|
+            //- Подтвердить данные в поле флоута можно кнопкой Enter|
     </v:String>
 </ResourceDictionary>
