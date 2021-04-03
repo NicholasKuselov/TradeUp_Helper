@@ -17,6 +17,7 @@ using System.Net;
 using System.ComponentModel;
 using TradeUpHelper.Views;
 using TradeUpHelper.Controllers;
+using TradeUpHelper.DataConverters;
 
 namespace TradeUpHelper.ViewModels
 {
@@ -342,6 +343,8 @@ namespace TradeUpHelper.ViewModels
         private double _resultPrice = 0.0;
         public string resultPrice { get; set; }
 
+        public string NeedFloat { get; set; }
+
         public string resultWear { get; set; }
 
         public Brush ThresholdResultColor { get; set; } = Brushes.Gray;
@@ -401,8 +404,8 @@ namespace TradeUpHelper.ViewModels
             {
                 return new RelayCommand(() =>
                 {
-                    
-                    MessageBox.Show(((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n').Replace('/',' '), (string)Application.Current.Resources["bChangeLog"], MessageBoxButton.OK, MessageBoxImage.Information);
+                    new ChangeLogWindow().Show();
+                   // MessageBox.Show(((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n').Replace('/',' '), (string)Application.Current.Resources["bChangeLog"], MessageBoxButton.OK, MessageBoxImage.Information);
                 });
             }
         }
@@ -465,7 +468,7 @@ namespace TradeUpHelper.ViewModels
 
             int floatCount = 0;
             double totalFloat = 0.0;
-
+            double floatSum;
             foreach (double item in floats)
             {
                 if (item.Equals(0.0) || item > 1)
@@ -475,13 +478,14 @@ namespace TradeUpHelper.ViewModels
                 floatCount++;
                 totalFloat += item;
             }
-
+            floatSum = totalFloat;
             totalFloat = totalFloat / floatCount;
             _resultFloat = totalFloat;
             resultFloat = totalFloat.ToString();
 
             if (_threshold > 0.0 && floatCount != 0)
             {
+                CalcNeedFloat(floatCount, floatSum);
                 if (_resultFloat < _threshold) ThresholdResultColor = Brushes.LightGreen;
                 else ThresholdResultColor = Brushes.Red;
             }
@@ -600,9 +604,27 @@ namespace TradeUpHelper.ViewModels
         }
 
        
+        private void CalcNeedFloat(int floatCount,double totalFloat)
+        {
+            if (floatCount == 10)
+            {
+                NeedFloat = (string)Application.Current.Resources["NeedFloatMinus"];
+                return;
+            }
+            if (_resultFloat == 0.0)
+            {
+                NeedFloat = "";
+                return;
+            }
+            double needFloat = 0.0;
 
-        public string testbt { get; set; } = "ffff";
-
-
+            needFloat = ((_threshold * 10) - totalFloat) / (10 - floatCount);
+            if(needFloat<0)
+            {
+                NeedFloat = (string)Application.Current.Resources["NeedFloatMinus"];
+                return;
+            }
+            NeedFloat = Wears.GetWearByFloat(needFloat).ShortName + " " + needFloat.ToString();
+        }
     }
 }

@@ -67,7 +67,7 @@
             <Grid Grid.Row="1" Background="{DynamicResource Color_WindowBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="125"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
@@ -243,8 +243,9 @@
                         <Label Content="{Binding resultPrice}" Style="{DynamicResource InfoValueLabelStyle}"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Visibility="Hidden">
-                        <Button Width="100" Height="30" Content="{Binding testbt}" Command="{Binding UpdateProgram}"/>
+                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Visibility="Visible">
+                        <Label Content="{DynamicResource InfoNeedFloat}" Style="{DynamicResource InfoHeaderLabelStyle}"/>
+                        <Label Content="{Binding NeedFloat}" Style="{DynamicResource InfoValueLabelStyle}"/>
                     </StackPanel>
 
                     <Grid Grid.Row="2" Grid.Column="1">

@@ -43,3 +43,5 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.p
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\PriceCalcWindow.g.cs
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\PriceCalcWindow.baml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\ChangeLogWindow.g.cs
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\ChangeLogWindow.baml

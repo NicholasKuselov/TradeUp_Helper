@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v0.4.4</v:String>
+    <v:String x:Key="Version">v0.4.5</v:String>
 
     <v:String x:Key="PriceWindowTitle">Цена после продажи</v:String>
     
@@ -33,6 +33,8 @@
     <v:String x:Key="InfoWear">Износ :</v:String>
     <v:String x:Key="InfoThreshold">Порог</v:String>
     <v:String x:Key="InfoNeedFloat">Нужный Float :</v:String>
+    
+    <v:String x:Key="NeedFloatMinus">GGWP</v:String>
 
     <v:String x:Key="bPriceCalc">Цена Steam</v:String>
     <v:String x:Key="bClear">Очистить</v:String>
@@ -55,7 +57,7 @@
         v0.4.3|
         Добавлено:|
             //- Авто проверка наличия новых версий|
-            //- Програма разворачивается при двойном клике|
+            //- Программа разворачивается при двойном клике|
         |
         Пофикшено:|
             //- Вылет программы в случае попытки обновления без интернета|
@@ -68,5 +70,12 @@
         Добавлено:|
             //- Между полями ввода флоута можно переключаться кнопками Вверх-Вниз|
             //- Подтвердить данные в поле флоута можно кнопкой Enter|
+        |
+        v0.4.5|
+        Добавлено:|
+            //- Новое окно "Что нового"|
+            //- Программа подсказывает флоат нужных скинов, учитывая уже введенные флоуты|
+        |
+
     </v:String>
 </ResourceDictionary>

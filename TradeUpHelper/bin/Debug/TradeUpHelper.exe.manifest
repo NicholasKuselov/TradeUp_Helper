@@ -103,14 +103,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TradeUpHelper.exe" size="89048">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TradeUpHelper.exe" size="94168">
       <assemblyIdentity name="TradeUpHelper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>K7St8NKQnrqMrdvfML1ZbQX5h+YdSq0+K0mtlEvozKg=</dsig:DigestValue>
+        <dsig:DigestValue>1uzFJUr/rDzHjy9HboryVTWIm+wc4X15XhiR/www/JA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

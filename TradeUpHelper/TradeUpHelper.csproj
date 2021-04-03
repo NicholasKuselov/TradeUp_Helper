@@ -116,7 +116,12 @@
     <Compile Include="DataConverters\StringConverter.cs" />
     <Compile Include="Controllers\Updater.cs" />
     <Compile Include="Controllers\WebHelper.cs" />
+    <Compile Include="DataConverters\Wears.cs" />
+    <Compile Include="Models\Wear.cs" />
     <Compile Include="ViewModels\PriceWindowVM.cs" />
+    <Compile Include="Views\ChangeLogWindow.xaml.cs">
+      <DependentUpon>ChangeLogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PriceCalcWindow.xaml.cs">
       <DependentUpon>PriceCalcWindow.xaml</DependentUpon>
     </Compile>
@@ -145,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Styles\WindowControlButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChangeLogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -203,9 +212,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="logo.ico" />
   </ItemGroup>
