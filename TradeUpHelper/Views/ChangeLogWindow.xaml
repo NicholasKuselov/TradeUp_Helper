@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TradeUpHelper.Views"
         xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         mc:Ignorable="d"
-        Title="ChangeLogWindow" Height="300" Width="500" ResizeMode="NoResize" WindowStyle="None" Loaded="Window_Loaded">
+        Title="ChangeLogWindow" Height="300" Width="600" ResizeMode="NoResize" WindowStyle="None" Loaded="Window_Loaded" Topmost="True">
 
     <Window.Style>
         <Style TargetType="{x:Type Window}">
@@ -19,12 +19,8 @@
                                         ResizeBorderThickness="5"
                                         UseAeroCaptionButtons="false"
                                         />
-
-
                 </Setter.Value>
             </Setter>
-
-
         </Style>
     </Window.Style>
     <Border BorderBrush="LightGray" BorderThickness="1">

@@ -349,7 +349,6 @@ namespace TradeUpHelper.ViewModels
 
         public Brush ThresholdResultColor { get; set; } = Brushes.Gray;
 
-
         private double _threshold = 0.0;
         public string threshold
         {
@@ -478,6 +477,11 @@ namespace TradeUpHelper.ViewModels
                 floatCount++;
                 totalFloat += item;
             }
+            if (totalFloat == 0.0)
+            {
+                resultFloat = "";
+                return;
+            }
             floatSum = totalFloat;
             totalFloat = totalFloat / floatCount;
             _resultFloat = totalFloat;
@@ -532,6 +536,7 @@ namespace TradeUpHelper.ViewModels
         {
             price1 = ""; price2 = ""; price3 = ""; price4 = ""; price5 = ""; price6 = ""; price7 = ""; price8 = ""; price9 = ""; price10 = "";
             float1 = ""; float2 = ""; float3 = ""; float4 = ""; float5 = ""; float6 = ""; float7 = ""; float8 = ""; float9 = ""; float10 = "";
+            NeedFloat = "";
         }
 
         private void InstallUpdateSyncWithInfo()

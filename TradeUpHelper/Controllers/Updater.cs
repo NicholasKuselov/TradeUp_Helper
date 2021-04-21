@@ -30,6 +30,7 @@ namespace TradeUpHelper.Controllers
             XmlDocument docLocalVersion = new XmlDocument();
             docLocalVersion.LoadXml(File.ReadAllText("version.xml"));
 
+
             Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("version")[0].InnerText);
             Version localVersion = new Version(docLocalVersion.GetElementsByTagName("version")[0].InnerText);
             if (localVersion < remoteVersion)
