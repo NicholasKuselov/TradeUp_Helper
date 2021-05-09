@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
+using TradeUpHelper.Constants;
 using TradeUpHelper.Controllers;
 using TradeUpHelper.ViewModels;
 using TradeUpHelper.Views;
@@ -36,6 +38,8 @@ namespace TradeUpHelper
 
             FloatTextBoxes = new List<TextBox>() { tb_float1, tb_float2, tb_float3, tb_float4, tb_float5, tb_float6, tb_float7, tb_float8, tb_float9, tb_float10};
             PriceTextBoxes = new List<TextBox>() { tb_price1, tb_price2, tb_price3, tb_price4, tb_price5, tb_price6, tb_price7, tb_price8, tb_price9, tb_price10};
+
+            CraftHistoryHandler.Load();
             //TopBar.MouseDoubleClick += new MouseButtonEventHandler(MaxizeButtonClick);
         }
         private void tb_float_TextChanged(object sender, TextChangedEventArgs e)
@@ -67,7 +71,10 @@ namespace TradeUpHelper
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
+
             Updater.CheckUpdateSilence();
+
 
             //MessageBox.Show(Properties.Settings.Default.IsFirstRun.ToString());
             //if(Properties.Settings.Default.IsFirstRun)

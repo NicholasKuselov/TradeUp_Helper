@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\App.xaml
-12309071493
+14907020086
 
-21174343156
-124866675913
-Resources\Colors\Colors.xaml;Resources\Icons\Icons.xaml;Resources\Local\lang.goblin-goblin.xaml;Resources\Styles\ButtonsStyles.xaml;Resources\Styles\LabelsStyles.xaml;Resources\Styles\TextBoxesStyles.xaml;Resources\Styles\WindowControlButtons.xaml;Views\ChangeLogWindow.xaml;Views\CMessageBox.xaml;Views\InfoWindow.xaml;Views\MainWindow.xaml;Views\PriceCalcWindow.xaml;
+28443588670
+1332015942335
+Resources\Colors\Colors.xaml;Resources\Icons\Icons.xaml;Resources\Local\lang.goblin-goblin.xaml;Resources\Styles\ButtonsStyles.xaml;Resources\Styles\HistoryListBoxStyles.xaml;Resources\Styles\LabelsStyles.xaml;Resources\Styles\TextBoxesStyles.xaml;Resources\Styles\WindowControlButtons.xaml;Views\ChangeLogWindow.xaml;Views\CMessageBox.xaml;Views\CraftHistoryWindow.xaml;Views\InfoWindow.xaml;Views\MainWindow.xaml;Views\PriceCalcWindow.xaml;
 
 True
 

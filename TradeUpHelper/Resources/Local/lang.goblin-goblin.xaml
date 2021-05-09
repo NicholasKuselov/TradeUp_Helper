@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v0.4.6</v:String>
+    <v:String x:Key="Version">v0.4.7</v:String>
 
     <v:String x:Key="PriceWindowTitle">Цена после продажи</v:String>
     
@@ -35,13 +35,22 @@
     <v:String x:Key="InfoNeedFloat">Нужный Float :</v:String>
     
     <v:String x:Key="NeedFloatMinus">GGWP</v:String>
-
+    <v:String x:Key="OutcomePrice">Цена скина</v:String>
     <v:String x:Key="bPriceCalc">Цена Steam</v:String>
     <v:String x:Key="bClear">Очистить</v:String>
+    <v:String x:Key="bHistory">История</v:String>
+    <v:String x:Key="bCraftOk">Скрафчено</v:String>
     <v:String x:Key="bChangeLog">Что нового?</v:String>
     <v:String x:Key="bCheckUpdate">Обновление</v:String>
     <v:String x:Key="UpdateNewVersion">Есть новая версия, oбновить?</v:String>
     <v:String x:Key="UpdateNoVersion">Новых версий нет</v:String>
+
+    <v:String x:Key="StatContractCount">Количество контрактов :</v:String>
+    <v:String x:Key="StatAllPrice">Общая стоимость конирактов :</v:String>
+    <v:String x:Key="StatAllOutcomePrice">Всего скрафчено :</v:String>
+    <v:String x:Key="StatAllProfit">Общий профит :</v:String>
+    <v:String x:Key="StatInfoContracts">Контракты</v:String>
+    <v:String x:Key="StatInfoStat">Статистика</v:String>
 
     <v:String x:Key="NetworkDisable">Отсутвует подключение к интернету, проверьте соеденение и повторите попытку</v:String>
 
@@ -81,9 +90,15 @@
             //- Поля полученного флоута, цены и износа, теперь отображают корректные данные после|
             ////нажатия кнопки "Очистить"|
         |---------------------------------------------------------------------------------------------------------|
-        v0.4.6 (Последнее)|
+        v0.4.6|
         Добавлено:|
             //- Кнопки Вверх-Вниз доступны и для полей цены|
             //- Доступны кнопки Вправо-Влево для всех полей|
+        |---------------------------------------------------------------------------------------------------------|
+        v0.4.7 (Последнее)|
+        Добавлено:|
+            //- Кнопка "скрафчено"|
+            //- Поле для ввода цены полученного скина "скрафчено"|
+            //- ну и ...СТАТИСТИКА КАРЛ..СТАТИСТИКА|
     </v:String>
 </ResourceDictionary>

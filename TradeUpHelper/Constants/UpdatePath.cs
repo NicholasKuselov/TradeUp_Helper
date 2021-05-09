@@ -10,5 +10,7 @@ namespace TradeUpHelper.Constants
     {
         public static string VersionPathOnServer { get; } = "http://b80994.hostua01.fornex.org/TradeUpHelper/version.xml";
         public static string ProgramPathOnServer { get; } = "http://b80994.hostua01.fornex.org/TradeUpHelper/TradeUpHelper.exe";
+
+        public static string ProgramDirectoryPathOnServer { get; } = "http://b80994.hostua01.fornex.org/TradeUpHelper/";
     }
 }

@@ -31,8 +31,8 @@ namespace TradeUpHelper.Controllers
             docLocalVersion.LoadXml(File.ReadAllText("version.xml"));
 
 
-            Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("version")[0].InnerText);
-            Version localVersion = new Version(docLocalVersion.GetElementsByTagName("version")[0].InnerText);
+            Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("myprogram")[0].InnerText);
+            Version localVersion = new Version(docLocalVersion.GetElementsByTagName("myprogram")[0].InnerText);
             if (localVersion < remoteVersion)
             {
                 Update();
@@ -48,7 +48,7 @@ namespace TradeUpHelper.Controllers
             if (MessageBoxResult.No.Equals(MessageBox.Show((string)Application.Current.Resources["UpdateNewVersion"], (string)Application.Current.Resources["bCheckUpdate"], MessageBoxButton.YesNo, MessageBoxImage.Information))) return;
             try
             {
-
+                DownloadNewDll();
                 if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
                 Download();
 
@@ -58,6 +58,31 @@ namespace TradeUpHelper.Controllers
                 if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
                 Download();
             }
+        }
+
+        private static void DownloadNewDll()
+        {
+            XmlDocument docRemoteVersion = new XmlDocument();
+            docRemoteVersion.Load(UpdatePath.VersionPathOnServer);
+
+            string tmp = docRemoteVersion.GetElementsByTagName("new_files")[0].InnerText;
+            if (tmp == "") return;
+
+
+            List<string> vs = new List<string>(tmp.Split(' '));
+            try
+            {
+                for (int i = 0; i < vs.Count; i++)
+                {
+                    WebClient client = new WebClient();
+                    // client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+                    //client.DownloadFileCompleted += new AsyncCompletedEventHandler(download_Completed);
+                    client.DownloadFileAsync(new Uri(UpdatePath.ProgramDirectoryPathOnServer + vs[i]), vs[i]);
+                }
+                
+
+            }
+            catch (Exception) { }
         }
 
         private static void Download()
@@ -122,8 +147,8 @@ namespace TradeUpHelper.Controllers
             XmlDocument docLocalVersion = new XmlDocument();
             docLocalVersion.LoadXml(File.ReadAllText("version.xml"));
 
-            Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("version")[0].InnerText);
-            Version localVersion = new Version(docLocalVersion.GetElementsByTagName("version")[0].InnerText);
+            Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("myprogram")[0].InnerText);
+            Version localVersion = new Version(docLocalVersion.GetElementsByTagName("myprogram")[0].InnerText);
             if (localVersion < remoteVersion)
             {
                 Update();

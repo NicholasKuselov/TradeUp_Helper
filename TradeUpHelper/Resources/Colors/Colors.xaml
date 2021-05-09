@@ -9,4 +9,11 @@
     <v:SolidColorBrush x:Key="Color_WindowBackground" Color="#262d35"/>
 
     <Color x:Key="SelectedBackgroundColor">#FFC5CBF9</Color>
+
+    <v:SolidColorBrush x:Key="Color_lb_buttonBorderFocus" Color="#0bbe35"/>
+    <v:SolidColorBrush x:Key="Color_lb_buttonText" Color="White"/>
+    <v:SolidColorBrush x:Key="Color_lb_buttonBorder" Color="#ecca7b"/>
+    <v:SolidColorBrush x:Key="Color_lb_buttonBackground" Color="#242831"/>
+    <v:SolidColorBrush x:Key="Color_lb_buttonBackgroundFocus" Color="#20242e"/>
+    <v:SolidColorBrush x:Key="Color_lb_Background" Color="#181c26"/>
 </ResourceDictionary>

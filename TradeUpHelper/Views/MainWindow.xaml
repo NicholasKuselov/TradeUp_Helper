@@ -58,8 +58,11 @@
                 <Button Width="50" Command="{Binding MaximizeWindowCommand}" Height="30" Margin="0,0,50,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MaximizeButton}" />
                 <Button Width="50" Command="{Binding MinimizeWindowCommand}" Height="30" Margin="0,0,100,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MinimizeButton}" />
                 <Button Width="80" Command="{Binding ShowChangeLog}" Height="30" Margin="0,0,150,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ChangeLogButton}" />
+                
                 <Button Width="80" Command="{Binding UpdateProgram}" Height="30" Margin="0,0,230,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource UpdateButton}" />
                 <Button Width="80" Command="{Binding OpenPriceCalcWindow}" Height="30" Margin="0,0,310,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource PriceCalcButton}" Visibility="Hidden"/>
+                <Button Width="80" Command="{Binding bShowHistory}" Height="30" Margin="0,0,310,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ShowHistoryButton}" />
+
                 <Label Content="{DynamicResource ProgramName}" HorizontalAlignment="Left" Foreground="White" Margin="10,0,0,0" Width="100"/>
                 <Label Content="{DynamicResource Version}" HorizontalAlignment="Left" Foreground="White" Margin="100,0,0,0" Width="100"/>
             </Grid>
@@ -67,7 +70,7 @@
             <Grid Grid.Row="1" Background="{DynamicResource Color_WindowBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="125"/>
+                    <RowDefinition Height="165"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
@@ -213,6 +216,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -252,7 +256,18 @@
                         <Button Content="{DynamicResource bClear}" Command="{Binding bClear}" Template="{DynamicResource ClearButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1" FontSize="16" />
                     </Grid>
 
+                    <Grid Grid.Row="3" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="{DynamicResource OutcomePrice}" Style="{DynamicResource InfoHeaderLabelStyle}" />
+                        <TextBox Grid.Column="1" Text="{Binding outcomePrice}" Style="{DynamicResource ThresholdTextBoxStyle}" Margin="15,0,0,0" KeyUp="tb_threshold_KeyUp"/>
+                    </Grid>
 
+                    <Grid Grid.Row="3" Grid.Column="1">
+                        <Button Content="{DynamicResource bCraftOk}" Command="{Binding bCraftOk}" Template="{DynamicResource CraftOkButton}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1,1,1,1" FontSize="16" />
+                    </Grid>
                 </Grid>
 
 

@@ -18,6 +18,7 @@ using System.ComponentModel;
 using TradeUpHelper.Views;
 using TradeUpHelper.Controllers;
 using TradeUpHelper.DataConverters;
+using TradeUpHelper.Models;
 
 namespace TradeUpHelper.ViewModels
 {
@@ -349,6 +350,20 @@ namespace TradeUpHelper.ViewModels
 
         public Brush ThresholdResultColor { get; set; } = Brushes.Gray;
 
+        private double _outcomePrice = 0.0;
+
+        public string outcomePrice
+        {
+            get
+            {
+                return _outcomePrice.ToString();
+            }
+            set
+            {
+                _outcomePrice = Convert.ToDouble(value);
+            }
+        }
+
         private double _threshold = 0.0;
         public string threshold
         {
@@ -369,6 +384,28 @@ namespace TradeUpHelper.ViewModels
                 return new RelayCommand(() =>
                 {
                     Clear();
+                });
+            }
+        }
+
+        public ICommand bCraftOk
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    WriteCraftToHistory();
+                });
+            }
+        }
+
+        public ICommand bShowHistory
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    new CraftHistoryWindow().Show();
                 });
             }
         }
@@ -459,6 +496,13 @@ namespace TradeUpHelper.ViewModels
         {
             _threshold = ConvertFloatToDouble(value);
             OnFloatUpdate();
+        }
+
+        void WriteCraftToHistory ()
+        {
+            Craft craft = new Craft(_resultPrice, _outcomePrice, _resultFloat);
+            CraftHistoryHandler.AddCraft(craft);
+            CraftHistoryHandler.Save();
         }
 
         void OnFloatUpdate()
