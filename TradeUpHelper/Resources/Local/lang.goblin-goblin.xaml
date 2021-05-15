@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v0.4.7</v:String>
+    <v:String x:Key="Version">v0.4.8</v:String>
 
     <v:String x:Key="PriceWindowTitle">Цена после продажи</v:String>
     
@@ -46,9 +46,9 @@
     <v:String x:Key="UpdateNoVersion">Новых версий нет</v:String>
 
     <v:String x:Key="StatContractCount">Количество контрактов :</v:String>
-    <v:String x:Key="StatAllPrice">Общая стоимость конирактов :</v:String>
-    <v:String x:Key="StatAllOutcomePrice">Всего скрафчено :</v:String>
-    <v:String x:Key="StatAllProfit">Общий профит :</v:String>
+    <v:String x:Key="StatAllPrice">Общая стоимость контрактов :</v:String>
+    <v:String x:Key="StatAllOutcomePrice">Всего скрафчено (грн) :</v:String>
+    <v:String x:Key="StatAllProfit">Общий чистый профит (грн) :</v:String>
     <v:String x:Key="StatInfoContracts">Контракты</v:String>
     <v:String x:Key="StatInfoStat">Статистика</v:String>
 
@@ -95,10 +95,15 @@
             //- Кнопки Вверх-Вниз доступны и для полей цены|
             //- Доступны кнопки Вправо-Влево для всех полей|
         |---------------------------------------------------------------------------------------------------------|
-        v0.4.7 (Последнее)|
+        v0.4.7|
         Добавлено:|
             //- Кнопка "скрафчено"|
             //- Поле для ввода цены полученного скина "скрафчено"|
             //- ну и ...СТАТИСТИКА КАРЛ..СТАТИСТИКА|
+        |---------------------------------------------------------------------------------------------------------|
+        v0.4.8 (Последнее)|
+        Пофикшено:|
+            //- Локализация|
+            //- Профит указывается чистыми|
     </v:String>
 </ResourceDictionary>

@@ -60,7 +60,7 @@
                 <Button Width="80" Command="{Binding ShowChangeLog}" Height="30" Margin="0,0,150,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ChangeLogButton}" />
                 
                 <Button Width="80" Command="{Binding UpdateProgram}" Height="30" Margin="0,0,230,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource UpdateButton}" />
-                <Button Width="80" Command="{Binding OpenPriceCalcWindow}" Height="30" Margin="0,0,310,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource PriceCalcButton}" Visibility="Hidden"/>
+                <Button Width="80" Command="{Binding OpenPriceCalcWindow}" Height="30" Margin="0,0,390,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource PriceCalcButton}"/>
                 <Button Width="80" Command="{Binding bShowHistory}" Height="30" Margin="0,0,310,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ShowHistoryButton}" />
 
                 <Label Content="{DynamicResource ProgramName}" HorizontalAlignment="Left" Foreground="White" Margin="10,0,0,0" Width="100"/>

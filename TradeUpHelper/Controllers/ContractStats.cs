@@ -24,7 +24,7 @@ namespace TradeUpHelper.Controllers
             double price = 0.0;
             for (int i = 0; i < CraftHistoryHandler.crafts.Count; i++)
             {
-                price += CraftHistoryHandler.crafts[i].outcomePrice - (CraftHistoryHandler.crafts[i].outcomePrice * 0.15);
+                price += CraftHistoryHandler.crafts[i].outcomePrice;
             }
 
             return price;
@@ -39,7 +39,7 @@ namespace TradeUpHelper.Controllers
                 price += CraftHistoryHandler.crafts[i].outcomePrice - CraftHistoryHandler.crafts[i].price - (CraftHistoryHandler.crafts[i].outcomePrice * 0.15);
             }
 
-            return price;
+            return price%1000000.00;
         }
     }
 }

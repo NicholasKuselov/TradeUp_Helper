@@ -157,6 +157,7 @@
     <Compile Include="Controllers\WebHelper.cs" />
     <Compile Include="DataConverters\Wears.cs" />
     <Compile Include="Models\Craft.cs" />
+    <Compile Include="Models\Rarity.cs" />
     <Compile Include="Models\Wear.cs" />
     <Compile Include="ViewModels\CraftHistoryWindowVM.cs" />
     <Compile Include="ViewModels\PriceWindowVM.cs" />
