@@ -9,10 +9,12 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
-                    <Border Name="Border" Background="{DynamicResource Color_lb_buttonBackground}" Padding="7" BorderThickness="10,0,0,0" BorderBrush="{DynamicResource Color_lb_buttonBorder}" CornerRadius="1">
+                    <Border Name="Border" Background="{DynamicResource Color_lb_buttonBackground}" Padding="7" BorderThickness="10,0,0,0" BorderBrush="{Binding getResultColor}" CornerRadius="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
@@ -23,7 +25,7 @@
                                     <ColumnDefinition Width="50"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Content="{DynamicResource InfoPrice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Grid.Column="0" Content="{DynamicResource HistoryItemPrice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding price}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
 
                             </Grid>
@@ -33,7 +35,7 @@
                                     <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Content="{DynamicResource OutcomePrice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Grid.Column="0" Content="{DynamicResource HistoryItemOutcomePrice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding outcomePrice}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
 
                             </Grid>
@@ -43,8 +45,28 @@
                                     <ColumnDefinition Width="50"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Content="{DynamicResource InfoFloat}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Grid.Column="0" Content="{DynamicResource HistoryItemFloat}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding resFloat}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+
+                            </Grid>
+
+                            <Grid Grid.Column="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="{DynamicResource HistoryItemProfitDirty}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Grid.Column="1" Content="{Binding getDirtProfit}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+
+                            </Grid>
+
+                            <Grid Grid.Column="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="{DynamicResource HistoryItemDate}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Grid.Column="1" Content="{Binding date}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
 
                             </Grid>
                         </Grid>

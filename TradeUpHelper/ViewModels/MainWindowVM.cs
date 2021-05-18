@@ -500,7 +500,7 @@ namespace TradeUpHelper.ViewModels
 
         void WriteCraftToHistory ()
         {
-            Craft craft = new Craft(_resultPrice, _outcomePrice, _resultFloat);
+            Craft craft = new Craft(_resultPrice, _outcomePrice, _resultFloat, DateTime.Now.Date.ToShortDateString());
             CraftHistoryHandler.AddCraft(craft);
             CraftHistoryHandler.Save();
         }

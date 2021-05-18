@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
         mc:Ignorable="d"
-        Title="CraftHistoryWindow" Height="450" Width="800">
+        Title="{DynamicResource HistoryWindowTitle}" Height="450" Width="800">
 
     <Window.Resources>
         <ResourceDictionary>

@@ -41,7 +41,7 @@ namespace TradeUpHelper.Controllers
 
         public static void AddCraft(Craft craft)
         {
-            crafts.Add(craft);
+            crafts.Insert(0,craft);
         }
 
         public static int GetCraftCount()
