@@ -39,7 +39,7 @@ namespace TradeUpHelper.Controllers
                 price += CraftHistoryHandler.crafts[i].outcomePrice - CraftHistoryHandler.crafts[i].price - (CraftHistoryHandler.crafts[i].outcomePrice * 0.15);
             }
 
-            return price%1000000.00;
+            return price;
         }
     }
 }

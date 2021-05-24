@@ -120,7 +120,7 @@ namespace TradeUpHelper.Controllers
                 mmi.ptMaxTrackSize.x = mmi.ptMaxSize.x;                                                 //maximum drag X size for the window
                 mmi.ptMaxTrackSize.y = mmi.ptMaxSize.y;                                                 //maximum drag Y size for the window
                 mmi.ptMinTrackSize.x = 800;                                                             //minimum drag X size for the window
-                mmi.ptMinTrackSize.y = 600;                                                             //minimum drag Y size for the window
+                mmi.ptMinTrackSize.y = 500;                                                             //minimum drag Y size for the window
                 mmi = AdjustWorkingAreaForAutoHide(monitorContainingApplication, mmi);                  //need to adjust sizing if taskbar is set to autohide
             }
             Marshal.StructureToPtr(mmi, lParam, true);

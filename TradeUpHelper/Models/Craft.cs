@@ -10,12 +10,12 @@ namespace TradeUpHelper.Models
     class Craft
     {
 
-        public string date { get; set; }
-        public double price { get; set; }
-        public double outcomePrice { get; set; }
-        public double resFloat { get; set; }
-        public Rarity rarity { get; set; }
-        public string outcomeName { get; set; }
+        public string date { get; set; } = "";
+        public double price { get; set; } = 0.0;
+        public double outcomePrice { get; set; } = 0.0;
+        public double resFloat { get; set; } = 0.0;
+        public Rarity rarity { get; set; } = null;
+        public string outcomeName { get; set; } = "";
 
         public string getDirtProfit
         {
@@ -25,16 +25,16 @@ namespace TradeUpHelper.Models
             }
         }
 
-
-        public Brush getResultColor
+        public string getClearProfit
         {
             get
             {
-                if ((outcomePrice - price) < 0) return Brushes.Red;
-                else if ((outcomePrice - price) > 0) return Brushes.Green;
-                else return Brushes.Gray;
+                return ((outcomePrice * 0.87) - price).ToString();
             }
         }
+
+
+        
 
         public Craft(double price, double outcomePrice, double resFloat, string date)
         {

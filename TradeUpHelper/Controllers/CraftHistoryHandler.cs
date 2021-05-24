@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using TradeUpHelper.Constants;
 using TradeUpHelper.Models;
+using System.Windows;
 
 namespace TradeUpHelper.Controllers
 {
@@ -26,22 +27,22 @@ namespace TradeUpHelper.Controllers
         }
 
         public static void Save()
-        {
+        {         
             try
             {
-
                 string jsonString = JsonSerializer.Serialize(crafts);
                 File.WriteAllText(FilePath.CraftHistoryPath, jsonString);
             }
             catch
             {
-                
+                MessageBox.Show("Error");
             }
         }
 
         public static void AddCraft(Craft craft)
         {
-            crafts.Insert(0,craft);
+           // crafts.Add(craft);
+           crafts.Insert(0,craft);
         }
 
         public static int GetCraftCount()

@@ -44,7 +44,6 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.e
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.pdb
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\CraftHistoryWindow.g.cs
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\CraftHistoryWindow.baml
-C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\System.Buffers.dll
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\System.Memory.dll

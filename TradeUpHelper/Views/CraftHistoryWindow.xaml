@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
         mc:Ignorable="d"
-        Title="{DynamicResource HistoryWindowTitle}" Height="450" Width="800">
+        Title="{DynamicResource HistoryWindowTitle}" Height="450" Width="1000">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -77,7 +77,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Content="{DynamicResource StatAllProfit}" Style="{DynamicResource InfoHeaderLabelStyle}" />
-                <Label Grid.Column="1" Content="{Binding profit}" Style="{DynamicResource InfoHeaderLabelStyle}" HorizontalAlignment="Left" />
+                <Label Grid.Column="1" Content="{Binding profit , StringFormat=0.00, ConverterCulture='ru-Ru'}" Style="{DynamicResource InfoHeaderLabelStyle}" HorizontalAlignment="Left" />
             </Grid>
         </Grid>
 

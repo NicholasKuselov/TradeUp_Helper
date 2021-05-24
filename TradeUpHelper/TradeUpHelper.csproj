@@ -152,6 +152,7 @@
     <Compile Include="Controllers\ContractStats.cs" />
     <Compile Include="Controllers\CraftHistoryHandler.cs" />
     <Compile Include="Controllers\JsonController.cs" />
+    <Compile Include="DataConverters\ContractResultColorConverter.cs" />
     <Compile Include="DataConverters\StringConverter.cs" />
     <Compile Include="Controllers\Updater.cs" />
     <Compile Include="Controllers\WebHelper.cs" />
