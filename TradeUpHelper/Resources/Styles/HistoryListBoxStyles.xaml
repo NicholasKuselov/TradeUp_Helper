@@ -11,50 +11,73 @@
                 <ControlTemplate TargetType="ListBoxItem">
                     <ControlTemplate.Resources>
                         <converters:ContractResultColorConverter x:Key="ColorConverter"/>
+                        <converters:RarityColorConverter x:Key="RarityColorConverter"/>
+                        <converters:ImageConverter x:Key="ImageConverter"/>
                     </ControlTemplate.Resources>
-                    <Border Name="Border" Background="{DynamicResource Color_lb_buttonBackground}" Padding="7" BorderThickness="10,0,0,0" BorderBrush="{Binding getDirtProfit,Converter={StaticResource ColorConverter}}" CornerRadius="1">
+                    <Border Name="Border" Background="{DynamicResource Color_lb_buttonBackground}" Padding="1" BorderThickness="3,0,0,0" BorderBrush="{Binding getDirtProfit,Converter={StaticResource ColorConverter}}" CornerRadius="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="80"/>
                                 <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="160"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="130"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
+                            
+
+                            <Grid Grid.Column="0">
+                                <Ellipse Fill="{Binding rarity,Converter={StaticResource RarityColorConverter}}" Height="6" Stroke="{Binding rarity,Converter={StaticResource RarityColorConverter}}" Width="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+
                             <Grid Grid.Column="1">
+                                <Image Source="{Binding imageUrl, Converter={StaticResource ImageConverter}}" Height="50" Width="80" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            </Grid>
+
+                            <Grid Grid.Column="2">
+                                <Label Content="{Binding getName}" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontSize="14"/>
+                            </Grid>
+
+                            <Grid Grid.Column="3">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="115"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+                                <Line X1="0" Y1="0" X2="0" Y2="30" Stroke="{DynamicResource Color_lb_devider}" StrokeThickness="2" HorizontalAlignment="Left" Stretch="Fill" Margin="0,0,0,0"/>
+
                                 <Label Grid.Column="0" Content="{DynamicResource HistoryItemPrice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding price , StringFormat=0.00, ConverterCulture='ru-Ru'}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
 
                             </Grid>
 
-                            <Grid Grid.Column="2">
+                            <Grid Grid.Column="4">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+                                <Line X1="0" Y1="0" X2="0" Y2="30" Stroke="{DynamicResource Color_lb_devider}" StrokeThickness="2" HorizontalAlignment="Left" Stretch="Fill" Margin="0,0,0,0"/>
+
                                 <Label Grid.Column="0" Content="{DynamicResource HistoryItemOutcomePrice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding outcomePrice , StringFormat=0.00, ConverterCulture='ru-Ru'}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
 
                             </Grid>
 
-                            <Grid Grid.Column="3">
+                            <Grid Grid.Column="5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+                                <Line X1="0" Y1="0" X2="0" Y2="30" Stroke="{DynamicResource Color_lb_devider}" StrokeThickness="2" HorizontalAlignment="Left" Stretch="Fill" Margin="0,0,0,0"/>
+
                                 <Label Grid.Column="0" Content="{DynamicResource HistoryItemFloat}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding resFloat , StringFormat=0.00, ConverterCulture='ru-Ru'}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
 
                             </Grid>
 
-                            <Grid Grid.Column="4">
+                            <!--<Grid Grid.Column="5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="90"/>
                                     <ColumnDefinition Width="*"/>
@@ -62,23 +85,27 @@
                                 <Label Grid.Column="0" Content="{DynamicResource HistoryItemProfitDirty}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding getDirtProfit , StringFormat=0.00, ConverterCulture='ru-Ru'}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
 
-                            </Grid>
+                            </Grid>-->
 
-                            <Grid Grid.Column="5">
+                            <Grid Grid.Column="6">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="90"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+                                <Line X1="0" Y1="0" X2="0" Y2="30" Stroke="{DynamicResource Color_lb_devider}" StrokeThickness="2" HorizontalAlignment="Left" Stretch="Fill" Margin="0,0,0,0"/>
+
                                 <Label Grid.Column="0" Content="{DynamicResource HistoryItemProfitClear}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding getClearProfit , StringFormat=0.00, ConverterCulture='ru-Ru'}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
 
                             </Grid>
 
-                            <Grid Grid.Column="6">
+                            <Grid Grid.Column="7">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+                                <Line X1="0" Y1="0" X2="0" Y2="30" Stroke="{DynamicResource Color_lb_devider}" StrokeThickness="2" HorizontalAlignment="Left" Stretch="Fill" Margin="0,0,0,0"/>
+
                                 <Label Grid.Column="0" Content="{DynamicResource HistoryItemDate}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding date , StringFormat=0.00, ConverterCulture='ru-Ru'}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
 

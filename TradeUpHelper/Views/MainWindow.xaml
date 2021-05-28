@@ -8,7 +8,7 @@
         xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         xmlns:converters="clr-namespace:TradeUpHelper.DataConverters"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" AllowsTransparency="False" ResizeMode="CanResizeWithGrip" WindowStyle="None" MouseDown="Window_MouseDown" Loaded="Window_Loaded">
+        Title="MainWindow" Height="525" Width="800" AllowsTransparency="False" ResizeMode="CanResizeWithGrip" WindowStyle="None" MouseDown="Window_MouseDown" Loaded="Window_Loaded">
 
     <Window.Style>
         <Style TargetType="{x:Type Window}">
@@ -217,6 +217,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
+                        <RowDefinition Height="25"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -262,7 +263,11 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Content="{DynamicResource OutcomePrice}" Style="{DynamicResource InfoHeaderLabelStyle}" />
-                        <TextBox Grid.Column="1" Text="{Binding outcomePrice}" Style="{DynamicResource ThresholdTextBoxStyle}" Margin="15,0,0,0" KeyUp="tb_threshold_KeyUp"/>
+                        <TextBox Grid.Column="1" Text="{Binding outcomePrice}" Style="{DynamicResource PriceTextBoxStyle}" Margin="15,0,0,0" KeyUp="tb_threshold_KeyUp"/>
+                    </Grid>
+
+                    <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                        <TextBox Grid.Column="1" Text="{Binding steamItemOverlayURL}" Style="{DynamicResource SteamOverlayUrlTextBoxStyle}" Margin="5,0,5,0" KeyUp="tb_threshold_KeyUp"/>
                     </Grid>
 
                     <Grid Grid.Row="3" Grid.Column="1">

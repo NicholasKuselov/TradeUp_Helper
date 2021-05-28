@@ -68,7 +68,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Content="{DynamicResource StatAllOutcomePrice}" Style="{DynamicResource InfoHeaderLabelStyle}" />
-                <Label Grid.Column="1" Content="{Binding allOutcomePrice}" Style="{DynamicResource InfoHeaderLabelStyle}" HorizontalAlignment="Left" />
+                <Label Grid.Column="1" Content="{Binding allOutcomePrice , StringFormat=0.00, ConverterCulture='ru-Ru'}" Style="{DynamicResource InfoHeaderLabelStyle}" HorizontalAlignment="Left" />
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="1">

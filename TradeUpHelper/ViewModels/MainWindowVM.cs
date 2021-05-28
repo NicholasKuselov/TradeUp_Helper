@@ -19,6 +19,7 @@ using TradeUpHelper.Views;
 using TradeUpHelper.Controllers;
 using TradeUpHelper.DataConverters;
 using TradeUpHelper.Models;
+using System.Text.Json;
 
 namespace TradeUpHelper.ViewModels
 {
@@ -356,6 +357,7 @@ namespace TradeUpHelper.ViewModels
         {
             get
             {
+                if (_outcomePrice == 0.0) return "";
                 return _outcomePrice.ToString();
             }
             set
@@ -363,6 +365,8 @@ namespace TradeUpHelper.ViewModels
                 _outcomePrice = Convert.ToDouble(value);
             }
         }
+
+        public string steamItemOverlayURL { get; set; } = "";
 
         private double _threshold = 0.0;
         public string threshold
@@ -441,7 +445,7 @@ namespace TradeUpHelper.ViewModels
                 return new RelayCommand(() =>
                 {
                     new ChangeLogWindow().Show();
-                   // MessageBox.Show(((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n').Replace('/',' '), (string)Application.Current.Resources["bChangeLog"], MessageBoxButton.OK, MessageBoxImage.Information);
+                    // MessageBox.Show(((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n').Replace('/',' '), (string)Application.Current.Resources["bChangeLog"], MessageBoxButton.OK, MessageBoxImage.Information);
                 });
             }
         }
@@ -498,11 +502,36 @@ namespace TradeUpHelper.ViewModels
             OnFloatUpdate();
         }
 
-        void WriteCraftToHistory ()
+        void WriteCraftToHistory()
         {
             Craft craft = new Craft(_resultPrice, _outcomePrice, _resultFloat, DateTime.Now.Date.ToShortDateString());
-            CraftHistoryHandler.AddCraft(craft);
-            CraftHistoryHandler.Save();
+            if (steamItemOverlayURL == "")
+            {
+                CraftHistoryHandler.AddCraft(craft);
+                CraftHistoryHandler.Save();
+            }
+            else if (IsSteamOverlayURLValid(steamItemOverlayURL))
+            {
+                if(!WebController.CheckConnection())
+                {
+                    MessageBox.Show((string)Application.Current.Resources["NetworkDisable"]);
+                    return;
+                }
+                Scin scin = JsonSerializer.Deserialize<Scin>(WebController.GetItemProp(steamItemOverlayURL));
+                craft.imageUrl = scin.imageurl;
+                craft.outcomeName = scin.full_item_name;
+                craft.rarity = scin.rarity;
+                CraftHistoryHandler.AddCraft(craft);
+                CraftHistoryHandler.Save();
+            }
+            else
+            {
+                if (MessageBoxResult.Yes.Equals(MessageBox.Show((string)Application.Current.Resources["ErrorSteamOverlayURLWrongTitle"], (string)Application.Current.Resources["ErrorSteamOverlayURLWrongText"], MessageBoxButton.YesNo, MessageBoxImage.Error)))
+                {
+                    CraftHistoryHandler.AddCraft(craft);
+                    CraftHistoryHandler.Save();
+                }
+            }
         }
 
         void OnFloatUpdate()
@@ -580,7 +609,7 @@ namespace TradeUpHelper.ViewModels
         {
             price1 = ""; price2 = ""; price3 = ""; price4 = ""; price5 = ""; price6 = ""; price7 = ""; price8 = ""; price9 = ""; price10 = "";
             float1 = ""; float2 = ""; float3 = ""; float4 = ""; float5 = ""; float6 = ""; float7 = ""; float8 = ""; float9 = ""; float10 = "";
-            NeedFloat = "";
+            NeedFloat = ""; steamItemOverlayURL = ""; outcomePrice = "0,0";
         }
 
         private void InstallUpdateSyncWithInfo()
@@ -652,8 +681,16 @@ namespace TradeUpHelper.ViewModels
             }
         }
 
-       
-        private void CalcNeedFloat(int floatCount,double totalFloat)
+        private bool IsSteamOverlayURLValid(string url)
+        {
+            if (url.Contains("steam://rungame/"))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void CalcNeedFloat(int floatCount, double totalFloat)
         {
             if (floatCount == 10)
             {
@@ -668,7 +705,7 @@ namespace TradeUpHelper.ViewModels
             double needFloat = 0.0;
 
             needFloat = ((_threshold * 10) - totalFloat) / (10 - floatCount);
-            if(needFloat<0)
+            if (needFloat < 0)
             {
                 NeedFloat = (string)Application.Current.Resources["NeedFloatMinus"];
                 return;

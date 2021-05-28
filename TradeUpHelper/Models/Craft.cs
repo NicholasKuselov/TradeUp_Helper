@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace TradeUpHelper.Models
 {
@@ -14,8 +16,10 @@ namespace TradeUpHelper.Models
         public double price { get; set; } = 0.0;
         public double outcomePrice { get; set; } = 0.0;
         public double resFloat { get; set; } = 0.0;
-        public Rarity rarity { get; set; } = null;
+        public int rarity { get; set; } = 0;
         public string outcomeName { get; set; } = "";
+
+        public string imageUrl { get; set; } = "";
 
         public string getDirtProfit
         {
@@ -33,8 +37,16 @@ namespace TradeUpHelper.Models
             }
         }
 
+        [JsonIgnore]
+        public string getName
+        {
 
-        
+            get
+            {
+                return outcomeName.Split('(')[0];
+            }
+        }
+
 
         public Craft(double price, double outcomePrice, double resFloat, string date)
         {
@@ -42,7 +54,7 @@ namespace TradeUpHelper.Models
             this.outcomePrice = outcomePrice;
             this.resFloat = resFloat;
             this.date = date;
-            rarity = null;
+            rarity = 0;
             outcomeName = "";
         }
 

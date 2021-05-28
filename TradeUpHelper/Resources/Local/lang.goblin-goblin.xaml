@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v0.5.1.1</v:String>
+    <v:String x:Key="Version">v0.5.2.2</v:String>
 
     <v:String x:Key="HistoryWindowTitle">История крафтов</v:String>
     
@@ -46,6 +46,7 @@
     <v:String x:Key="bCheckUpdate">Обновление</v:String>
     <v:String x:Key="UpdateNewVersion">Есть новая версия, oбновить?</v:String>
     <v:String x:Key="UpdateNoVersion">Новых версий нет</v:String>
+    <v:String x:Key="SteamOverlayURL">Ссылка на осмотр скина в стиме (скопировать адресс ссылки с кнопки "Осмотреть в игре") steam://rungame/......</v:String>
 
     <v:String x:Key="StatContractCount">Количество контрактов :</v:String>
     <v:String x:Key="StatAllPrice">Общая стоимость контрактов :</v:String>
@@ -55,13 +56,14 @@
     <v:String x:Key="StatInfoStat">Статистика</v:String>
 
     <v:String x:Key="HistoryItemFloat">Float :</v:String>
-    <v:String x:Key="HistoryItemPrice">Цена :</v:String>
+    <v:String x:Key="HistoryItemPrice">Цена контракта :</v:String>
     <v:String x:Key="HistoryItemOutcomePrice">Результат (грн):</v:String>
     <v:String x:Key="HistoryItemProfitDirty">Профит(гряз.) :</v:String>
     <v:String x:Key="HistoryItemProfitClear">Профит(чист.) :</v:String>
     <v:String x:Key="HistoryItemDate">Дата :</v:String>
 
-    
+    <v:String x:Key="ErrorSteamOverlayURLWrongTitle">Ошибка</v:String>
+    <v:String x:Key="ErrorSteamOverlayURLWrongText">Указанная ссылка на осмотр скина не корректна, продолжить сохранение без использования информации про полученный скин?</v:String>
 
     <v:String x:Key="NetworkDisable">Отсутвует подключение к интернету, проверьте соеденение и повторите попытку</v:String>
 
@@ -139,9 +141,17 @@
             //- Отображение больше двух знаков после запятой в истории крафтов|
             //- Минимальная высота окна программы теперь равна 500 px|
         |---------------------------------------------------------------------------------------------------------|
-        v0.5.1.1 (Последнее)|
+        v0.5.1.1|
         Пофикшено:|
             //- История не записывалась в файл|
+        |---------------------------------------------------------------------------------------------------------|
+        v0.5.2 (Последнее)|
+        Добавлено:|
+            //- Поле для ввода ссылки на осмотр скрафченого скина|
+            //- В записи истории крафта указана иконка скина, его качества и названия, више перечисленная статистика|
+            //// работает только для записей, со ссылкой на скрафченый скин| 
+        Пофикшено:|
+            //- Локализация поля для ввода цены скрафченого скина|
         |---------------------------------------------------------------------------------------------------------|
     
     </v:String>

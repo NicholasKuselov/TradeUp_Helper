@@ -18,7 +18,7 @@ namespace TradeUpHelper.Controllers
         public static void checkUpdates()
         {
 
-            if(!WebHelper.CheckConnection())
+            if(!WebController.CheckConnection())
             {
                 MessageBox.Show((string)Application.Current.Resources["NetworkDisable"]);
                 return;
@@ -136,7 +136,7 @@ namespace TradeUpHelper.Controllers
 
         public static void CheckUpdateSilence()
         {
-            if (!WebHelper.CheckConnection())
+            if (!WebController.CheckConnection())
             {
                 return;
             }

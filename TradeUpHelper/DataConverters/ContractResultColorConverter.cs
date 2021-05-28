@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 
@@ -17,21 +18,21 @@ namespace TradeUpHelper.DataConverters
 
             try
             {
-                if (System.Convert.ToDouble(value) == 0.0) return Brushes.Gray;
+                if (System.Convert.ToDouble(value) == 0.0) return (Brush)Application.Current.Resources["Color_ContractFail"];
                 double profit = System.Convert.ToDouble(value);
                 
                 if (profit>0)
                 {
-                    return Brushes.Green;
+                    return (Brush)Application.Current.Resources["Color_ContractSuccess"];
                 }
                 else
                 {
-                    return Brushes.Red;
+                    return (Brush)Application.Current.Resources["Color_ContractFail"];
                 }
             }
             catch (Exception e)
             {
-                return Brushes.Gray;
+                return (Brush)Application.Current.Resources["Color_ContractFail"];
             }
 
         }

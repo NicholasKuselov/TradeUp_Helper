@@ -63,3 +63,4 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\System.Text.Jso
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\System.ValueTuple.xml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Resources\Styles\HistoryListBoxStyles.baml
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache
