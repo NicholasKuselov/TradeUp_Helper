@@ -64,3 +64,9 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\System.Threadin
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\System.ValueTuple.xml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Resources\Styles\HistoryListBoxStyles.baml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainMenuWindow.g.cs
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\ScinFloatRangeWindow.g.cs
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainMenuWindow.baml
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\ScinFloatRangeWindow.baml
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Resources\Styles\MenuButtonsStyles.baml
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Resources\Styles\MainMenuStyles.baml

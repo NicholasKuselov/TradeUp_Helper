@@ -166,7 +166,9 @@
     <Compile Include="Models\Sticker.cs" />
     <Compile Include="Models\Wear.cs" />
     <Compile Include="ViewModels\CraftHistoryWindowVM.cs" />
+    <Compile Include="ViewModels\MainMenuWindowVM.cs" />
     <Compile Include="ViewModels\PriceWindowVM.cs" />
+    <Compile Include="ViewModels\ScinFloatRangeWindowVM.cs" />
     <Compile Include="Views\ChangeLogWindow.xaml.cs">
       <DependentUpon>ChangeLogWindow.xaml</DependentUpon>
     </Compile>
@@ -176,8 +178,14 @@
     <Compile Include="Views\CraftHistoryWindow.xaml.cs">
       <DependentUpon>CraftHistoryWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MainMenuWindow.xaml.cs">
+      <DependentUpon>MainMenuWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PriceCalcWindow.xaml.cs">
       <DependentUpon>PriceCalcWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScinFloatRangeWindow.xaml.cs">
+      <DependentUpon>ScinFloatRangeWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Resources\Colors\Colors.xaml">
       <SubType>Designer</SubType>
@@ -200,6 +208,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Styles\LabelsStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\MainMenuStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -227,6 +239,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MainMenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -246,6 +262,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\PriceCalcWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ScinFloatRangeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
