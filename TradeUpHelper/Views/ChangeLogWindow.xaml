@@ -29,25 +29,25 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="{DynamicResource Color_WindowTopBar}">
-            <Grid.Resources>
-                <ControlTemplate x:Key="ExitButton" TargetType="{x:Type Button}">
-                    <Border   Name="border" Background="Transparent">
-                        <ContentPresenter Content="{DynamicResource ExitIco2}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Grid.Resources>
-            <Button HorizontalAlignment="Right" Template="{StaticResource ExitButton}" Width="50" Click="Button_Click"/>
-            <Label Content="{DynamicResource bChangeLog}" HorizontalAlignment="Left" Foreground="White"/>
-        </Grid>
+            <Grid Grid.Row="0" Background="{DynamicResource Color_WindowTopBar}">
+                <Grid.Resources>
+                    <ControlTemplate x:Key="ExitButton" TargetType="{x:Type Button}">
+                        <Border   Name="border" Background="Transparent">
+                            <ContentPresenter Content="{DynamicResource ExitIco2}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Grid.Resources>
+                <Button HorizontalAlignment="Right" Template="{StaticResource ExitButton}" Width="50" Click="Button_Click"/>
+                <Label Content="{DynamicResource bChangeLog}" HorizontalAlignment="Left" Foreground="White"/>
+            </Grid>
             <ScrollViewer x:Name="sv_changeLog" Grid.Row="1" VerticalScrollBarVisibility="Auto">
                 <TextBlock HorizontalAlignment="Stretch"  Grid.Row="1" Background="{DynamicResource Color_WindowBackground}" Name="tb_changeLog" Foreground="White" VerticalAlignment="Stretch" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False" TextWrapping="Wrap"/>
             </ScrollViewer>

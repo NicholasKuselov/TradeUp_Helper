@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:TradeUpHelper.Resources.Icons">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Path x:Key="ExitIco" Stroke="#FFFBFBFB" Data="M66.83,64,127.41,3.41a2,2,0,0,0,0-2.82,2,2,0,0,0-2.82,0L64,61.17,3.41.59A2,2,0,0,0,.59.59a2,2,0,0,0,0,2.82L61.17,64,.59,124.59a2,2,0,0,0,0,2.82,2,2,0,0,0,2.82,0L64,66.83l60.59,60.58a2,2,0,0,0,2.82-2.82Z" Height="11" Stretch="Fill" Width="11" RenderTransformOrigin="0.506,0.508" Fill="White"/>
     <Path x:Key="ExitIco2" Stroke="#FFFBFBFB" Data="M66.83,64,127.41,3.41a2,2,0,0,0,0-2.82,2,2,0,0,0-2.82,0L64,61.17,3.41.59A2,2,0,0,0,.59.59a2,2,0,0,0,0,2.82L61.17,64,.59,124.59a2,2,0,0,0,0,2.82,2,2,0,0,0,2.82,0L64,66.83l60.59,60.58a2,2,0,0,0,2.82-2.82Z" Height="11" Stretch="Fill" Width="11" RenderTransformOrigin="0.506,0.508" Fill="White"/>

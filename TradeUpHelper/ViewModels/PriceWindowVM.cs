@@ -13,7 +13,7 @@ namespace TradeUpHelper.ViewModels
     class PriceWindowVM : ViewModelBase
     {
         private double _priceBefore = 0.0;
-        private double _priceAfter = 0.0;
+        //private double _priceAfter = 0.0;
 
         public string PriceBefore {
             get

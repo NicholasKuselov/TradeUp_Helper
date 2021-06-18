@@ -20,7 +20,7 @@ namespace TradeUpHelper.DataConverters
                 if (System.Convert.ToString(value) == "") return null;
                 return WebController.GetImageByURL(System.Convert.ToString(value));
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }

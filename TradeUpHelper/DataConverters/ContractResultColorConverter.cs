@@ -30,7 +30,7 @@ namespace TradeUpHelper.DataConverters
                     return (Brush)Application.Current.Resources["Color_ContractFail"];
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return (Brush)Application.Current.Resources["Color_ContractFail"];
             }

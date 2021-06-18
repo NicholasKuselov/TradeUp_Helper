@@ -28,7 +28,9 @@ namespace TradeUpHelper.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
             tb_changeLog.Text = ((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n').Replace('/', ' ');
+
             sv_changeLog.ScrollToEnd();
         }
 

@@ -177,6 +177,7 @@
     <Compile Include="Controllers\ContractStats.cs" />
     <Compile Include="Controllers\CraftHistoryHandler.cs" />
     <Compile Include="Controllers\JsonController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
     <Compile Include="DataConverters\ContractResultColorConverter.cs" />
     <Compile Include="DataConverters\ImageConverter.cs" />
     <Compile Include="DataConverters\RarityColorConverter.cs" />
@@ -185,12 +186,14 @@
     <Compile Include="Controllers\WebController.cs" />
     <Compile Include="DataConverters\Wears.cs" />
     <Compile Include="Models\Craft.cs" />
+    <Compile Include="Models\IMainWindow.cs" />
     <Compile Include="Models\Rarity.cs" />
     <Compile Include="Models\Scin.cs" />
     <Compile Include="Models\Sticker.cs" />
     <Compile Include="Models\Wear.cs" />
     <Compile Include="ViewModels\CraftHistoryWindowVM.cs" />
-    <Compile Include="ViewModels\MainMenuWindowVM.cs" />
+    <Compile Include="ViewModels\MainMenuPageVM.cs" />
+    <Compile Include="ViewModels\MainWindowVM.cs" />
     <Compile Include="ViewModels\PriceWindowVM.cs" />
     <Compile Include="ViewModels\ScinFloatRangeWindowVM.cs" />
     <Compile Include="Views\ChangeLogWindow.xaml.cs">
@@ -202,14 +205,20 @@
     <Compile Include="Views\CraftHistoryWindow.xaml.cs">
       <DependentUpon>CraftHistoryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainMenuWindow.xaml.cs">
-      <DependentUpon>MainMenuWindow.xaml</DependentUpon>
+    <Compile Include="Views\MainMenuPage.xaml.cs">
+      <DependentUpon>MainMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PriceCalcWindow.xaml.cs">
       <DependentUpon>PriceCalcWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ScinFloatRangeWindow.xaml.cs">
       <DependentUpon>ScinFloatRangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TradeUpPage.xaml.cs">
+      <DependentUpon>TradeUpPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Resources\Colors\Colors.xaml">
       <SubType>Designer</SubType>
@@ -263,13 +272,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainMenuWindow.xaml">
+    <Page Include="Views\MainMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -277,19 +286,19 @@
     </Compile>
     <Compile Include="DataConverters\WearConverter.cs" />
     <Compile Include="Controllers\WindowSizing.cs" />
-    <Compile Include="ViewModels\MainWindowVM.cs" />
+    <Compile Include="ViewModels\TradeUpPageVM.cs" />
     <Compile Include="Views\InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\PriceCalcWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ScinFloatRangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TradeUpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

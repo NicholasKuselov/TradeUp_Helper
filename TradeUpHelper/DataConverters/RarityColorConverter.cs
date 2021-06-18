@@ -25,28 +25,21 @@ namespace TradeUpHelper.DataConverters
                 {
                     case 1:
                         return (Brush)Application.Current.Resources["Color_Rare_Consumer"];
-                        break;
                     case 2:
                         return (Brush)Application.Current.Resources["Color_Rare_Industrial"];
-                        break;
                     case 3:
                         return (Brush)Application.Current.Resources["Color_Rare_MilSpec"];
-                        break;
                     case 4:
                         return (Brush)Application.Current.Resources["Color_Rare_Restricted"];
-                        break;
                     case 5:
                         return (Brush)Application.Current.Resources["Color_Rare_Classified"];
-                        break;
                     case 6:
                         return (Brush)Application.Current.Resources["Color_Rare_Covert"];
-                        break;
                     default:
                         return (Brush)Application.Current.Resources["Color_Rare_None"];
-                        break;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return (Brush)Application.Current.Resources["Color_Rare_None"];
             }

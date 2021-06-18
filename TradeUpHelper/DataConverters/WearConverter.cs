@@ -29,7 +29,7 @@ namespace TradeUpHelper.DataConverters
                     return wear.ShortName;
                 }
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return "";
             }

@@ -20,7 +20,6 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Resources\Style
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\ChangeLogWindow.g.cs
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\CMessageBox.g.cs
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\InfoWindow.g.cs
-C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainWindow.g.cs
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\PriceCalcWindow.g.cs
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\App.g.cs
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -32,7 +31,6 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Resources\Icons
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\ChangeLogWindow.baml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\CMessageBox.baml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\InfoWindow.baml
-C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainWindow.baml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\PriceCalcWindow.baml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.g.resources
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.Properties.Resources.resources
@@ -63,9 +61,7 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\System.Text.Jso
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\System.ValueTuple.xml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Resources\Styles\HistoryListBoxStyles.baml
-C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainMenuWindow.g.cs
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\ScinFloatRangeWindow.g.cs
-C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainMenuWindow.baml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\ScinFloatRangeWindow.baml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Resources\Styles\MainMenuStyles.baml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\SharpVectors.Converters.Wpf.dll
@@ -85,4 +81,9 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\SharpVectors.Re
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\SharpVectors.Rendering.Wpf.xml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\bin\Debug\SharpVectors.Runtime.Wpf.xml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper_Content.g.cs
-C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\TradeUpPage.g.cs
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainMenuPage.g.cs
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainMenuPage.baml
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\TradeUpPage.baml
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainWindow.g.cs
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainWindow.baml
