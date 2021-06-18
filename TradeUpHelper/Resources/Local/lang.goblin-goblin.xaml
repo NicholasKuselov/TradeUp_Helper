@@ -4,8 +4,10 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v0.5.2.2</v:String>
+    <v:String x:Key="Version">v1.0</v:String>
 
+    <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
+    
     <v:String x:Key="HistoryWindowTitle">История крафтов</v:String>
     
     <v:String x:Key="PriceWindowTitle">Цена после продажи</v:String>
@@ -62,12 +64,10 @@
     <v:String x:Key="HistoryItemProfitClear">Профит(чист.) :</v:String>
     <v:String x:Key="HistoryItemDate">Дата :</v:String>
 
- 
+    <v:String x:Key="MainMenuTradeUpText">Контракты</v:String>
     <v:String x:Key="MainMenuInventoryText">Инвентарь</v:String>
-    <v:String x:Key="MainMenuSteamMarketAnalizText">ТП Чекер</v:String>
+    <v:String x:Key="MainMenuMarketAnalizText">ТП Чекер</v:String>
     <v:String x:Key="MainMenuInvestorPortfolioText">Инвестиции</v:String>
-    <v:String x:Key="MainMenuaText"></v:String>
-    <v:String x:Key="MainMenubText"></v:String>
 
     <v:String x:Key="ErrorSteamOverlayURLWrongTitle">Ошибка</v:String>
     <v:String x:Key="ErrorSteamOverlayURLWrongText">Указанная ссылка на осмотр скина не корректна, продолжить сохранение без использования информации про полученный скин?</v:String>

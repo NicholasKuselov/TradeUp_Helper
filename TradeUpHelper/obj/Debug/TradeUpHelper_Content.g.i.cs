@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logo.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/icons/tradeico.svg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/icons/investorico.svg")]
 
 
