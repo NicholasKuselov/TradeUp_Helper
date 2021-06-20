@@ -87,3 +87,4 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainMenuP
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\TradeUpPage.baml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainWindow.g.cs
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MainWindow.baml
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache

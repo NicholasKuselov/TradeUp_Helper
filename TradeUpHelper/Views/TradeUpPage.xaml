@@ -28,11 +28,18 @@
 
         <Grid Background="{DynamicResource Color_WindowBackground}">
             <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="165"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
+                <Button Width="80" Command="{Binding OpenPriceCalcWindow}" Height="30" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Template="{DynamicResource PriceCalcButton}"/>
+                <Button Width="80" Command="{Binding bShowHistory}" Height="30" Margin="80,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Template="{DynamicResource ShowHistoryButton}" />
+            </Grid>
+
+            <Border Grid.Row="1" BorderThickness="1" BorderBrush="{Binding ThresholdResultColor}">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -165,8 +172,8 @@
                     <TextBox Grid.Column="2" Text="{Binding price10}" Style="{DynamicResource PriceTextBoxStyle}" Name="tb_price10" KeyUp="tb_price_KeyUp"/>
                 </Grid>
             </Grid>
-
-            <Grid Grid.Row="1">
+            </Border>
+            <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
