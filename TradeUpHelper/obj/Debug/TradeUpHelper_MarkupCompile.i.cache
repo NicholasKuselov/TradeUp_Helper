@@ -12,9 +12,9 @@ DEBUG;TRACE
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\App.xaml
 21515507937
 21367781572
-48739408859
+49-102950508
 141-243635295
 Resources\Colors\Colors.xaml;Resources\Icons\Icons.xaml;Resources\Local\lang.goblin-goblin.xaml;Resources\Styles\ButtonsStyles.xaml;Resources\Styles\HistoryListBoxStyles.xaml;Resources\Styles\LabelsStyles.xaml;Resources\Styles\MainMenuStyles.xaml;Resources\Styles\TextBoxesStyles.xaml;Resources\Styles\WindowControlButtons.xaml;Views\ChangeLogWindow.xaml;Views\CMessageBox.xaml;Views\CraftHistoryWindow.xaml;Views\InfoWindow.xaml;Views\InventoryPage.xaml;Views\InvestorPage.xaml;Views\MainMenuPage.xaml;Views\MainWindow.xaml;Views\MarketCheckerPage.xaml;Views\PriceCalcWindow.xaml;Views\ScinFloatRangeWindow.xaml;Views\TradeUpPage.xaml;
 
-False
+True
 

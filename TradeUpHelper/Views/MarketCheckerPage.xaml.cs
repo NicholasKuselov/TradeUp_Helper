@@ -17,14 +17,14 @@ using TradeUpHelper.ViewModels;
 namespace TradeUpHelper.Views
 {
     /// <summary>
-    /// Логика взаимодействия для InventoryPage.xaml
+    /// Логика взаимодействия для MarketCheckerPage.xaml
     /// </summary>
-    public partial class InventoryPage : Page
+    public partial class MarketCheckerPage : Page
     {
-        public InventoryPage()
+        public MarketCheckerPage()
         {
             InitializeComponent();
-            DataContext = new InvestorPageVM();
+            DataContext = new MarketCheckerPageVM();
         }
     }
 }

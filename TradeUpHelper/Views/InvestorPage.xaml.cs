@@ -12,19 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TradeUpHelper.ViewModels;
 
 namespace TradeUpHelper.Views
 {
     /// <summary>
-    /// Логика взаимодействия для InventoryPage.xaml
+    /// Логика взаимодействия для InvestorPage.xaml
     /// </summary>
-    public partial class InventoryPage : Page
+    public partial class InvestorPage : Page
     {
-        public InventoryPage()
+        public InvestorPage()
         {
             InitializeComponent();
-            DataContext = new InvestorPageVM();
         }
     }
 }

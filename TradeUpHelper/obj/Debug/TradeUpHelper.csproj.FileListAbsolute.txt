@@ -88,3 +88,9 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.c
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.csproj.CoreCompileInputs.cache
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.csproj.Fody.CopyLocal.cache
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\TradeUpHelper.csproj.CopyComplete
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\InventoryPage.g.cs
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\InvestorPage.g.cs
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MarketCheckerPage.g.cs
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\InventoryPage.baml
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\InvestorPage.baml
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MarketCheckerPage.baml

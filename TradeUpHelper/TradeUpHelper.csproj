@@ -192,8 +192,11 @@
     <Compile Include="Models\Sticker.cs" />
     <Compile Include="Models\Wear.cs" />
     <Compile Include="ViewModels\CraftHistoryWindowVM.cs" />
+    <Compile Include="ViewModels\InventoryPageVM.cs" />
+    <Compile Include="ViewModels\InvestorPageVM.cs" />
     <Compile Include="ViewModels\MainMenuPageVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
+    <Compile Include="ViewModels\MarketCheckerPageVM.cs" />
     <Compile Include="ViewModels\PriceWindowVM.cs" />
     <Compile Include="ViewModels\ScinFloatRangeWindowVM.cs" />
     <Compile Include="Views\ChangeLogWindow.xaml.cs">
@@ -205,11 +208,20 @@
     <Compile Include="Views\CraftHistoryWindow.xaml.cs">
       <DependentUpon>CraftHistoryWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\InventoryPage.xaml.cs">
+      <DependentUpon>InventoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InvestorPage.xaml.cs">
+      <DependentUpon>InvestorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MarketCheckerPage.xaml.cs">
+      <DependentUpon>MarketCheckerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PriceCalcWindow.xaml.cs">
       <DependentUpon>PriceCalcWindow.xaml</DependentUpon>
@@ -272,6 +284,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\InventoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InvestorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -290,6 +310,10 @@
     <Compile Include="Views\InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\MarketCheckerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PriceCalcWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
