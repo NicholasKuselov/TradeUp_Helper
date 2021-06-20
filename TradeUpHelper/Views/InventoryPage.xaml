@@ -3,16 +3,74 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
+      xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels" xmlns:converters="clr-namespace:TradeUpHelper.DataConverters"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="InventoryPage">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <converters:ShortWearConverter x:Key="shortWearConverter"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/WindowControlButtons.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/TextBoxesStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/LabelsStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/ButtonsStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/InventoryListStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/MainMenuStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
     <Page.DataContext>
         <viewmodels:InventoryPageVM/>
     </Page.DataContext>
     
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Background="Red">
+            
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0" Background="Green">
+            <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemContainerStyle="{DynamicResource Lststyle}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+                <Button Background="Blue" Content="Кнопка 2" />
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Background="Blue">
+           
+        </Grid>
     </Grid>
 </Page>
