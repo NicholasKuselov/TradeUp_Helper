@@ -353,6 +353,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Icons\BackIco.svg" />
     <Content Include="Resources\Icons\TradeIco.svg" />
     <Resource Include="Resources\Icons\TraderIco.svg" />
   </ItemGroup>

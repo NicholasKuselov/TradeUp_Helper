@@ -60,9 +60,10 @@
                 <Button Width="80" Command="{Binding ShowChangeLog}" Height="30" Margin="0,0,150,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ChangeLogButton}" />
 
                 <Button Width="80" Command="{Binding UpdateProgram}" Height="30" Margin="0,0,230,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource UpdateButton}" />
-               
-                <Label Content="{DynamicResource ProgramName}" HorizontalAlignment="Left" Foreground="White" Margin="10,0,0,0" Width="100"/>
-                <Label Content="{DynamicResource Version}" HorizontalAlignment="Left" Foreground="White" Margin="100,0,0,0" Width="100"/>
+                <Button Width="40" Command="{Binding GoBackPageCommand}" Visibility="{Binding IsBackButtonActive}" Height="30" Margin="0,0,230,0" HorizontalAlignment="Left" VerticalAlignment="Top" Template="{DynamicResource GoBackButton}"/>
+
+                <Label Content="{DynamicResource ProgramName}" HorizontalAlignment="Left" Foreground="White" Margin="60,0,0,0" Width="100"/>
+                <Label Content="{DynamicResource Version}" HorizontalAlignment="Left" Foreground="White" Margin="150,0,0,0" Width="100"/>
             </Grid>
 
             <Frame Grid.Row="1" Background="Black" Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden" />

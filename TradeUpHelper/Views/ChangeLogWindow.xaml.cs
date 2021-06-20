@@ -19,6 +19,7 @@ namespace TradeUpHelper.Views
     /// </summary>
     public partial class ChangeLogWindow : Window
     {
+        string text;
         public ChangeLogWindow()
         {
             InitializeComponent();
@@ -28,8 +29,8 @@ namespace TradeUpHelper.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-            tb_changeLog.Text = ((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n').Replace('/', ' ');
+            text = ((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n').Replace('/', ' ');
+            tb_changeLog.Text = text.Split('%').Last();
 
             sv_changeLog.ScrollToEnd();
         }

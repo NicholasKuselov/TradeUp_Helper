@@ -16,9 +16,27 @@ namespace TradeUpHelper.ViewModels
 {
     class MainWindowVM : ViewModelBase, IMainWindow
     {
-        public Page CurrentPage { get; set; }
+        private Page _CurrentPage;
+        public Page CurrentPage
+        {
+            get { return _CurrentPage; }
+            set
+            {
+                _CurrentPage = value;
+                if (value.Equals(MainMenuPage))
+                {
+                    IsBackButtonActive = Visibility.Hidden;
+                }
+                else
+                {
+                    IsBackButtonActive = Visibility.Visible;
+                }
+            }
+        }
         public TradeUpPage TradeUpPage { get; set; }
         private MainMenuPage MainMenuPage { get; set; }
+
+        public Visibility IsBackButtonActive { get; set; } = Visibility.Hidden;
 
         public ICommand CloseWindowCommand
         {
@@ -62,6 +80,17 @@ namespace TradeUpHelper.ViewModels
                 return new RelayCommand(() =>
                 {
                     Application.Current.MainWindow.WindowState = WindowState.Minimized;
+                });
+            }
+        }
+
+        public ICommand GoBackPageCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    CurrentPage = MainMenuPage;
                 });
             }
         }
