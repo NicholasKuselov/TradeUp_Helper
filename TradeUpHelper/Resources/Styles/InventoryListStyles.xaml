@@ -20,19 +20,19 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="5"/>
                             </Grid.RowDefinitions>
-                            <Image Grid.Row="0"   Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                            <Image Grid.Row="0" Source="{Binding imageurl, Converter={StaticResource ImageConverter}}"  Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
 
                             <StackPanel Grid.Row="1" Orientation="Horizontal">
                                 <Label Content="{DynamicResource Float}" Foreground="White"/>
-                                <Label Content="0.111111" Foreground="White"/>
+                                <Label Content="{Binding floatvalue}" Foreground="White"/>
                             </StackPanel>
 
                             <StackPanel Grid.Row="2" Orientation="Horizontal">
                                 <Label Content="{DynamicResource Price}" Foreground="White"/>
-                                <Label Content="111.22" Foreground="White"/>
+                                <Label Content="{Binding price}" Foreground="White"/>
                             </StackPanel>
                             <Label Grid.Row="2"/>
-                            <Rectangle Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="Red"/>
+                            <Rectangle Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{Binding rarity,Converter={StaticResource RarityColorConverter}}"/>
                         </Grid>
                     </Border>
 
@@ -41,12 +41,10 @@
                         <Trigger Property="ListBoxItem.IsMouseOver" Value="True">
                             <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Color_lb_buttonBorderFocus}"/>
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource Color_lb_buttonBackgroundFocus}"/>
-                            <Setter TargetName="Border" Property="BorderThickness" Value="5,1,1,1"/>
                         </Trigger>
                         <Trigger Property="ListBoxItem.IsSelected" Value="true">
                             <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Color_lb_buttonBorderFocus}"/>
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource Color_lb_buttonBackgroundFocus}"/>
-                            <Setter TargetName="Border" Property="BorderThickness" Value="5,1,1,1"/>
                         </Trigger>
 
                     </ControlTemplate.Triggers>
@@ -54,13 +52,5 @@
             </Setter.Value>
         </Setter>
 
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Margin" Value="2,10,2,2"/>
-            </Trigger>
-            <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Margin" Value="2,10,2,2"/>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 </ResourceDictionary>

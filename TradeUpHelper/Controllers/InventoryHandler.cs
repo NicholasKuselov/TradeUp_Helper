@@ -50,10 +50,11 @@ namespace TradeUpHelper.Controllers
 
         public static double GetPrice(string itemName)
         {
+            string rez = "";
             try
             {
                 string url = SteamPath.SteamMarketSearch + itemName.Replace(' ', '+');
-                string rez = WebController.SendGet(url);
+                rez = WebController.SendGet(url);
                 //File.WriteAllText("ssssssssssssssssssss.txt",rez);
 
                 int a = rez.IndexOf("normal_price");
@@ -64,6 +65,7 @@ namespace TradeUpHelper.Controllers
                 return ConvertFloatToDouble(rez.Substring(c + 2, d - c - 6));
             }catch
             {
+                //MessageBox.Show(rez);
                 return -1.0;
             }
         }

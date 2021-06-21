@@ -34,6 +34,7 @@ namespace TradeUpHelper.ViewModels
             }
         }
         public TradeUpPage TradeUpPage { get; set; }
+        public InventoryPage InventoryPage { get; set; }
         private MainMenuPage MainMenuPage { get; set; }
 
         public Visibility IsBackButtonActive { get; set; } = Visibility.Hidden;
@@ -120,9 +121,24 @@ namespace TradeUpHelper.ViewModels
             }
         }
 
+        public ICommand test
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    InventoryHandler.LoadItems();
+                    MessageBox.Show("gg");
+                });
+            }
+        }
+
         public MainWindowVM()
         {
             PageController.mainWindow = this;
+            SettingController.Load();
+
+           // InventoryPage = new InventoryPage();
             TradeUpPage = new TradeUpPage();
             MainMenuPage = new MainMenuPage();
 
@@ -132,6 +148,11 @@ namespace TradeUpHelper.ViewModels
         public void SelectTradeUpPage()
         {
             CurrentPage = TradeUpPage;
+        }
+
+        public void SelectInventoryPage()
+        {
+            CurrentPage = new InventoryPage();
         }
     }
 }

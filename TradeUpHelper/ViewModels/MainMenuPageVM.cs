@@ -23,5 +23,16 @@ namespace TradeUpHelper.ViewModels
                 });
             }
         }
+
+        public ICommand OpenInventoryPage
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    PageController.SelectInventoryPage();
+                });
+            }
+        }
     }
 }

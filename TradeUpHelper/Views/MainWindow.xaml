@@ -57,7 +57,7 @@
                 <Button Width="50" Command="{Binding CloseWindowCommand}" Height="30" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ExitButton}" />
                 <Button Width="50" Command="{Binding MaximizeWindowCommand}" Height="30" Margin="0,0,50,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MaximizeButton}" />
                 <Button Width="50" Command="{Binding MinimizeWindowCommand}" Height="30" Margin="0,0,100,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MinimizeButton}" />
-                <Button Width="80" Command="{Binding ShowChangeLog}" Height="30" Margin="0,0,150,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ChangeLogButton}" />
+                <Button Width="80" Command="{Binding test}" Height="30" Margin="0,0,150,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ChangeLogButton}" />
 
                 <Button Width="80" Command="{Binding UpdateProgram}" Height="30" Margin="0,0,230,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource UpdateButton}" />
                 <Button Width="40" Command="{Binding GoBackPageCommand}" Visibility="{Binding IsBackButtonActive}" Height="30" Margin="0,0,230,0" HorizontalAlignment="Left" VerticalAlignment="Top" Template="{DynamicResource GoBackButton}"/>

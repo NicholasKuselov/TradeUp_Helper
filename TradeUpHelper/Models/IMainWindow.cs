@@ -9,5 +9,7 @@ namespace TradeUpHelper.Models
     interface IMainWindow
     {
         void SelectTradeUpPage();
+
+        void SelectInventoryPage();
     }
 }

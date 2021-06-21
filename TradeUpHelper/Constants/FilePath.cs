@@ -9,5 +9,6 @@ namespace TradeUpHelper.Constants
     class FilePath
     {
         public static String CraftHistoryPath = "history.json";
+        public static String settingFile = "setting.cfg";
     }
 }

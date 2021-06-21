@@ -70,5 +70,72 @@ namespace TradeUpHelper.Controllers
             if (imageUrl == "") return null;
             return new BitmapImage(new Uri(imageUrl));
         }
+
+        public static string GetInventory()
+        {
+
+            string data = "";
+
+            string path = SettingController.UserInventoryURL + "json/730/2";
+
+            WebRequest request = WebRequest.Create(path);
+            WebResponse response = request.GetResponse();
+
+
+            try
+            {
+                using (Stream stream = response.GetResponseStream())
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        data = reader.ReadToEnd();
+                        stream.Close();
+                    }
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Error with void GetItemProp");
+            }
+
+            response.Close();
+
+
+            return data;
+        }
+
+        public static string SendGet(string url)
+        {
+
+            string data = "";
+
+            WebRequest request = WebRequest.Create(url);
+            WebResponse response = request.GetResponse();
+
+
+            try
+            {
+                using (Stream stream = response.GetResponseStream())
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        data = reader.ReadToEnd();
+                        stream.Close();
+                    }
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Error with void GetItemProp");
+            }
+
+            response.Close();
+
+
+            return data;
+        }
+
     }
 }

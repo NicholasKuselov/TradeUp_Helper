@@ -29,43 +29,26 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="0"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0" Background="Red">
+        <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource Color_WindowBackground}">
             
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="0" Background="Green">
-            <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemContainerStyle="{DynamicResource Lststyle}">
+            <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Scins}" ItemContainerStyle="{DynamicResource Lststyle}" Background="{DynamicResource Color_lb_Background}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
 
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
-                <Button Background="Blue" Content="Кнопка 2" />
+               
             </ListBox>
         </Grid>
 
