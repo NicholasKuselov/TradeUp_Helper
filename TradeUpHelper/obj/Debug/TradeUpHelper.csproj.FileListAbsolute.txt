@@ -94,3 +94,4 @@ C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MarketChe
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\InventoryPage.baml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\InvestorPage.baml
 C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Views\MarketCheckerPage.baml
+C:\Users\Odin\source\repos\TradeUpHelper\TradeUpHelper\obj\Debug\Resources\Styles\InventoryListStyles.baml
