@@ -21,39 +21,137 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    
+
     <Page.DataContext>
         <viewmodels:InventoryPageVM/>
     </Page.DataContext>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+
+
         <Grid Grid.Row="0" Grid.Column="0" Background="{DynamicResource Color_WindowBackground}">
-            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+
+            <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" BorderBrush="{DynamicResource InventoryPageBorder}" BorderThickness="1"/>
+            <Border Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" BorderBrush="{DynamicResource InventoryPageBorder}" BorderThickness="1"/>
+            <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" BorderBrush="{DynamicResource InventoryPageBorder}" BorderThickness="1"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                <Label Content="{DynamicResource InventoryInventorySavingTime}" Foreground="White" FontSize="10"/>
+                <Label Content="{Binding InventoryLoadingDate}" Foreground="White" FontSize="10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
+                <Label Content="{DynamicResource InventoryPrice}" Foreground="White" FontSize="10"/>
+                <Label Content="{Binding InventoryPrice}" ContentStringFormat="{}{0}$" Foreground="White" FontSize="10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                <Label Content="{DynamicResource InventoryCount}" Foreground="White" FontSize="10"/>
+                <Label Content="{Binding InventoryCount}" Foreground="White" FontSize="10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="2">
+                <Button Command="{Binding SwitchScinOverlay}" Width="30" Height="30" Margin="0,0,10,0" Template="{DynamicResource ScinOverlaySwitch}"/>
+                <Button Command="{Binding UpdateInventory}" Width="30" Height="30" Margin="0,0,10,0" Template="{DynamicResource RefrashButton}"/>
+
+            </StackPanel>
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="0" Background="Green">
-            <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Scins}" ItemContainerStyle="{DynamicResource Lststyle}" Background="{DynamicResource Color_lb_Background}">
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
+            <Grid>
+                <Grid.Resources>
+                    <converters:ContractResultColorConverter x:Key="ColorConverter"/>
+                    <converters:RarityColorConverter x:Key="RarityColorConverter"/>
+                    <converters:ImageConverter x:Key="ImageConverter"/>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <!--<ColumnDefinition Width="250"/>-->
+                    <ColumnDefinition Width="{Binding ScinOverlayWidth}"/>
+                </Grid.ColumnDefinitions>
+                <ListBox Grid.Column="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectedItem="{Binding SelectedItem}" ItemsSource="{Binding Scins}" ItemContainerStyle="{DynamicResource Lststyle}" Background="{DynamicResource Color_lb_Background}">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
 
-               
-            </ListBox>
+
+                </ListBox>
+                <Border Grid.Column="1" BorderThickness="1" BorderBrush="{Binding SelectedItem.rarity,Converter={StaticResource RarityColorConverter}}">
+                    <Grid Background="{DynamicResource Color_WindowBackground}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.Resources>
+                            <converters:ContractResultColorConverter x:Key="ColorConverter"/>
+                            <converters:RarityColorConverter x:Key="RarityColorConverter"/>
+                            <converters:ImageConverter x:Key="ImageConverter"/>
+                        </Grid.Resources>
+
+                        <Image Grid.Row="0" Margin="10,10,10,10" Source="{Binding SelectedItem.imageurl ,Converter={StaticResource ImageConverter}}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+
+
+                        <Label Grid.Row="1" Content="{Binding SelectedItem.GetName}" Foreground="White" FontSize="15"/>
+                        <Label Grid.Row="2" Content="{Binding SelectedItem.floatvalue,Converter={StaticResource shortWearConverter}, ConverterParameter=long}" Foreground="White" FontSize="12"/>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="3">
+                            <Label Content="{DynamicResource Float}" Foreground="White" FontSize="12"/>
+                            <Label Content="{Binding SelectedItem.floatvalue}" Foreground="White" FontSize="12"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="4">
+                            <Label Content="{DynamicResource InventoryPattern}" Foreground="White" FontSize="12"/>
+                            <Label Content="{Binding SelectedItem.paintseed}" Foreground="White" FontSize="12"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="5">
+                            <Label Content="{DynamicResource InventoryPrice}" Foreground="White" FontSize="12"/>
+                            <Label Content="{Binding SelectedItem.price}" ContentStringFormat="{}{0:F2}$" Foreground="White" FontSize="12"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="6">
+                            <Label Content="{DynamicResource InventoryPriceClear}" Foreground="White" FontSize="12"/>
+                            <Label Content="{Binding SelectedItem.GetClearPrice}" ContentStringFormat="{}{0:F2}$" Foreground="White" FontSize="12"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="7">
+                            <Label Content="{DynamicResource InventoryStickers}" Foreground="White" FontSize="10"/>
+                            <!--<Label Content="{Binding SelectedItem.}" Foreground="White" FontSize="10"/>-->
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
         </Grid>
 
-        <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Background="Blue">
-           
-        </Grid>
+
     </Grid>
 </Page>

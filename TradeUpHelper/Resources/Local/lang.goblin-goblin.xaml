@@ -69,6 +69,14 @@
     <v:String x:Key="MainMenuMarketAnalizText">ТП Чекер</v:String>
     <v:String x:Key="MainMenuInvestorPortfolioText">Инвестиции</v:String>
 
+    <!--Inventory page-->
+    <v:String x:Key="InventoryInventorySavingTime">Последнее обновление инвентаря:</v:String>
+    <v:String x:Key="InventoryPrice">Цена :</v:String>
+    <v:String x:Key="InventoryCount">Количество :</v:String>
+    <v:String x:Key="InventoryPattern">Паттерн :</v:String>
+    <v:String x:Key="InventoryPriceClear">Цена (чист.) :</v:String>
+    <v:String x:Key="InventoryStickers">Стикеры</v:String>
+
     <v:String x:Key="ErrorSteamOverlayURLWrongTitle">Ошибка</v:String>
     <v:String x:Key="ErrorSteamOverlayURLWrongText">Указанная ссылка на осмотр скина не корректна, продолжить сохранение без использования информации про полученный скин?</v:String>
 

@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using TradeUpHelper.Controllers;
+using TradeUpHelper.Controllers.Cache;
 using TradeUpHelper.Models;
 using TradeUpHelper.Views;
 
@@ -153,6 +154,11 @@ namespace TradeUpHelper.ViewModels
         public void SelectInventoryPage()
         {
             CurrentPage = new InventoryPage();
+        }
+
+        public void LoadInventory()
+        {
+            InventoryCacheController.Load();
         }
     }
 }

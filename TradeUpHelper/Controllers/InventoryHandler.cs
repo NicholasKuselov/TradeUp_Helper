@@ -9,6 +9,7 @@ using System.Windows;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using TradeUpHelper.Constants;
+using TradeUpHelper.Controllers.Cache;
 using TradeUpHelper.Models;
 using TradeUpHelper.Models.SteamAPI;
 
@@ -17,9 +18,10 @@ namespace TradeUpHelper.Controllers
     class InventoryHandler
     {
         public static List<Scin> items = new List<Scin>();
-
+        public static string CacheWritingTime = "";
         public static void LoadItems()
         {
+            items.Clear();
             string inventoryJson = WebController.GetInventory();
             SteamInventoryJson data = JsonSerializer.Deserialize<SteamInventoryJson>(inventoryJson);
             for (int i = 0; i < data.rgInventory.Count; i++)
@@ -46,6 +48,8 @@ namespace TradeUpHelper.Controllers
                 }
  
             }
+
+            InventoryCacheController.Save();
         }
 
         public static double GetPrice(string itemName)

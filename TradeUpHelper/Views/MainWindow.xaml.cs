@@ -37,6 +37,7 @@ namespace TradeUpHelper.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Updater.CheckUpdateSilence();
+            ((MainWindowVM)DataContext).LoadInventory();
         }
 
 
