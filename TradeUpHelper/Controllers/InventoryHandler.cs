@@ -41,9 +41,10 @@ namespace TradeUpHelper.Controllers
                 else
                 {
                     Scin tmp = new Scin();
-                    tmp.full_item_name = data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].market_name;
-                    tmp.Name = data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].market_name;
+                    tmp.full_item_name = data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].market_hash_name;
+                    tmp.Name = data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].market_hash_name;
                     tmp.imageurl = SteamPath.BaseImageUrl + data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].icon_url;
+                    tmp.price = GetPrice(tmp.full_item_name);
                     items.Add(tmp);
                 }
  
@@ -52,7 +53,7 @@ namespace TradeUpHelper.Controllers
             InventoryCacheController.Save();
         }
 
-        public static double GetPrice(string itemName)
+        public static double GetPrice2(string itemName)
         {
             string rez = "";
             try
@@ -68,6 +69,26 @@ namespace TradeUpHelper.Controllers
                // MessageBox.Show(ConvertFloatToDouble(rez.Substring(c + 2, d - c - 6)).ToString());
                 return ConvertFloatToDouble(rez.Substring(c + 2, d - c - 6));
             }catch
+            {
+                //MessageBox.Show(rez);
+                return -1.0;
+            }
+        }
+
+        public static double GetPrice(string itemName)
+        {
+            string rez = "";
+            try
+            {
+                string url = SteamPath.SteamPriceRequestStart + itemName + SteamPath.SteamPriceRequestEnd;
+                rez = WebController.SendGet(url);
+               // MessageBox.Show(rez);
+
+                ScinPrice scinPrice = JsonSerializer.Deserialize<ScinPrice>(rez);
+
+                return ConvertFloatToDouble(scinPrice.lowest_price);
+            }
+            catch
             {
                 //MessageBox.Show(rez);
                 return -1.0;
