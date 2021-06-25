@@ -76,7 +76,25 @@
     <v:String x:Key="InventoryPattern">Паттерн :</v:String>
     <v:String x:Key="InventoryPriceClear">Цена (чист.) :</v:String>
     <v:String x:Key="InventoryStickers">Стикеры</v:String>
+    
+    <!--Market Checker page-->
+    <v:String x:Key="MCSearchSticker">Сканировать наклейки</v:String>
+    <v:String x:Key="MCSearchPainSeed">Искать редкие паттерны</v:String>
+    <v:String x:Key="MCSIHWarning">Для корректной работы системы у вас должен быть включен SIH и выключенные все остальные расширения!</v:String>
+    <v:String x:Key="MCSIHPage">Текст маркета SIH </v:String>
+    <v:String x:Key="MCFindedScinsWithStickers">Найденные скины с наклейками</v:String>
+    <v:String x:Key="MCFindedScinsWithRarityPainrSeed">Найденные скины с редкими паттернами</v:String>
+    <v:String x:Key="MCPrice">Цена</v:String>
+    <v:String x:Key="MCFloat">Float </v:String>
+    <v:String x:Key="MCPattern">Паттерн</v:String>
+    <v:String x:Key="MCStickerPrice">Цена стикеров</v:String>
+    <v:String x:Key="MCOverprice">Наценка</v:String>
+    <v:String x:Key="MCStart">Старт</v:String>
+    <v:String x:Key="MCSelectScin">Выберете скин</v:String>
+    <v:String x:Key="MCSelectScinError">Выберете скин для поиска паттернов, или выключите функцию поиска паттернов</v:String>
 
+    <v:String x:Key="ErrorWithLoadingInventoryCache">Призагрузке кешп инвентаря произошла ошибка! Возможно его просто не было... </v:String>
+    <v:String x:Key="ErrorWithLoadingSetting">Ошибка при загрузке настроек! В первый раз всегда так...</v:String>
     <v:String x:Key="ErrorSteamOverlayURLWrongTitle">Ошибка</v:String>
     <v:String x:Key="ErrorSteamOverlayURLWrongText">Указанная ссылка на осмотр скина не корректна, продолжить сохранение без использования информации про полученный скин?</v:String>
 

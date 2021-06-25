@@ -34,5 +34,16 @@ namespace TradeUpHelper.ViewModels
                 });
             }
         }
+        public ICommand OpenMarketCheckerPage
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    PageController.SelectMarketCheckerPage();
+                });
+            }
+        }
+
     }
 }

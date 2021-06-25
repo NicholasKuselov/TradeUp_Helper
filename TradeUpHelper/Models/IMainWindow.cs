@@ -11,5 +11,7 @@ namespace TradeUpHelper.Models
         void SelectTradeUpPage();
 
         void SelectInventoryPage();
+
+        void SelectMarketCheckerPage();
     }
 }

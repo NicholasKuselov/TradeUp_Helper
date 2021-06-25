@@ -24,5 +24,10 @@ namespace TradeUpHelper.Controllers
         {
             mainWindow.SelectInventoryPage();
         }
+
+        public static void SelectMarketCheckerPage()
+        {
+            mainWindow.SelectMarketCheckerPage();
+        }
     }
 }

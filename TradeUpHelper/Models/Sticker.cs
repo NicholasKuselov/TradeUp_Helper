@@ -11,5 +11,7 @@ namespace TradeUpHelper.Models
         public int stickerId { get; set; }
         public string name { get; set; }
         public int slot { get; set; }
+
+        public double price { get; set; } = -2.0;
     }
 }

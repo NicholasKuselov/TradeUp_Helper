@@ -25,8 +25,7 @@ namespace TradeUpHelper.Controllers.Cache
             }
             catch
             {
-                // TODO : Локализация
-                MessageBox.Show("error with reading cache");
+                MessageBox.Show((string)Application.Current.Resources["ErrorWithLoadingInventoryCache"]);
                 InventoryHandler.LoadItems();
             }
         }

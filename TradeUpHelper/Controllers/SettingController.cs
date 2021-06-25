@@ -31,7 +31,7 @@ namespace TradeUpHelper.Controllers
             catch
             {
                 // TODO: Добавить локализацию
-                MessageBox.Show("error with loading setting");
+                MessageBox.Show((string)Application.Current.Resources["ErrorWithLoadingSetting"]);
                 setting = new Setting();
                 File.WriteAllText(FilePath.settingFile, JsonSerializer.Serialize(setting));
             }

@@ -160,5 +160,10 @@ namespace TradeUpHelper.ViewModels
         {
             InventoryCacheController.Load();
         }
+
+        public void SelectMarketCheckerPage()
+        {
+            CurrentPage = new MarketCheckerPage();
+        }
     }
 }

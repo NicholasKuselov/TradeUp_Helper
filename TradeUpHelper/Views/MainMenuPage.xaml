@@ -50,7 +50,7 @@
             </Grid>
 
             <Grid Grid.Column="0" Grid.Row="1">
-                <Button Command="{Binding CloseWindowCommand}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_MarketAnalizButton}" />
+                <Button Command="{Binding OpenMarketCheckerPage}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_MarketAnalizButton}" />
 
             </Grid>
 

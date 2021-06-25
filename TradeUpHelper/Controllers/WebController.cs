@@ -111,6 +111,7 @@ namespace TradeUpHelper.Controllers
             string data = "";
 
             WebRequest request = WebRequest.Create(url);
+            request.Headers.Add("Accept-Language", "ru-UA,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk-UA;q=0.6,uk;q=0.5,ru-RU;q=0.4");
             WebResponse response = request.GetResponse();
 
 
