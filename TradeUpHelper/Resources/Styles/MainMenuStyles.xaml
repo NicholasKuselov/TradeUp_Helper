@@ -85,18 +85,20 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                
-                <Label Grid.Row="1" Content="{DynamicResource MainMenuInvestorPortfolioText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="LightGray"/>
-                <svgc:SvgViewbox Grid.Row="0" Source="pack://application:,,,/Resources/Icons/TraderIco.svg"/>
+                <Label  Content="{DynamicResource ToBeContinue}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-22"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Label Grid.Row="1" Content="{DynamicResource MainMenuInvestorPortfolioText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="#4f4f4f"/>
+                <svgc:SvgViewbox Grid.Row="0"  Source="pack://application:,,,/Resources/Icons/TraderIco.svg" Opacity="0.5"/>
             </Grid>
         </Border>
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
-            </Trigger>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
-            </Trigger>
-        </ControlTemplate.Triggers>
+        
     </ControlTemplate>
 </ResourceDictionary>

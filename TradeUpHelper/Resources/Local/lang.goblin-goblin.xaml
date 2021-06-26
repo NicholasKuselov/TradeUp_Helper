@@ -17,6 +17,8 @@
 
     <v:String x:Key="dontKnow">ХЗ</v:String>
 
+    <v:String x:Key="ToBeContinue">В разработке...</v:String>
+    
     <!--Wear-->
     <v:String x:Key="WearFactoryNew">Прямо с завода</v:String>
     <v:String x:Key="WearMinimalWear">Немного поношенное</v:String>
@@ -93,6 +95,7 @@
     <v:String x:Key="MCSelectScin">Выберете скин</v:String>
     <v:String x:Key="MCSelectScinError">Выберете скин для поиска паттернов, или выключите функцию поиска паттернов</v:String>
 
+    <v:String x:Key="ErrorWithMinVersionForUpdate">Обновление с версии которая у вас учтановлена не возможна. Установите новую версию программы используя ссылку на Setup файл.</v:String>
     <v:String x:Key="ErrorWithLoadingInventoryCache">Призагрузке кешп инвентаря произошла ошибка! Возможно его просто не было... </v:String>
     <v:String x:Key="ErrorWithLoadingSetting">Ошибка при загрузке настроек! В первый раз всегда так...</v:String>
     <v:String x:Key="ErrorSteamOverlayURLWrongTitle">Ошибка</v:String>

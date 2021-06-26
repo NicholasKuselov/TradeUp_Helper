@@ -192,3 +192,4 @@ C:\repos\TradeUp_Helper\TradeUpHelper\obj\Debug\TradeUpHelper.csproj.CopyComplet
 C:\repos\TradeUp_Helper\TradeUpHelper\obj\Debug\TradeUpHelper.exe
 C:\repos\TradeUp_Helper\TradeUpHelper\obj\Debug\TradeUpHelper.pdb
 C:\repos\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Styles\MarketCheckerListStyles.baml
+C:\repos\TradeUp_Helper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache

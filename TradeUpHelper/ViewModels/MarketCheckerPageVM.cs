@@ -17,7 +17,6 @@ namespace TradeUpHelper.ViewModels
     {
         public MarketCheckerPageVM()
         {
-            // TODO : localiz
             ScinsNameWithRarityPaintSeeds.Insert(0, (string)Application.Current.Resources["MCSelectScin"]);
         }
         public List<string> ScinsNameWithRarityPaintSeeds { get; set; } = new List<string>(RarityPaintSeedsHandler.seeds.Keys.ToArray());
@@ -48,7 +47,6 @@ namespace TradeUpHelper.ViewModels
         {
             if(IsPaintSeedNeed && SelectedWeapon == null)
             {
-                //TODO : Localiz
                 MessageBox.Show((string)Application.Current.Resources["MCSelectScinError"]);
                 return;
             }

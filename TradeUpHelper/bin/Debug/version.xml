@@ -1,4 +1,5 @@
 <version>
-     <myprogram>1.5.2.2</myprogram>
+     <myprogram>1.0.0.0</myprogram>
      <new_files></new_files>
+	 <min_version_for_update></min_version_for_update>
 </version>
