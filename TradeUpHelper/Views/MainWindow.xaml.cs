@@ -43,22 +43,12 @@ namespace TradeUpHelper.Views
         {
             Updater.CheckUpdateSilence();
             ((MainWindowVM)DataContext).LoadInventory();
-
-            Dictionary<string, List<RariryPainSeed>> seeds = new Dictionary<string, List<RariryPainSeed>>();
-            //List<RariryPainSeed> ttt = new List<RariryPainSeed>();
-            //RariryPainSeed sss = new RariryPainSeed();
-            //sss.Name = "test";
-            //sss.Seeds = new[] { 12, 13, 14, 15 };
-            //ttt.Add(sss);
-            //RariryPainSeed yyy = new RariryPainSeed();
-            //yyy.Name = "test2";
-            //yyy.Seeds = new[] { 457, 235, 234, 876 };
-            //ttt.Add(yyy);
-
-            //seeds.Add("Glock | asassas", ttt);
-            //seeds.Add("Glock | qqqqqq", ttt);
-            //string json = JsonSerializer.Serialize<Dictionary<string, List<RariryPainSeed>>>(seeds);
-            //File.WriteAllText(FilePath.paintSeedsFilePath, json);
+            if(SettingController.IsFirstStart)
+            {
+                new ChangeLogWindow().Show();
+                SettingController.IsFirstStart = false;
+            }
+            PriceHandler.Load();
     }
 
 

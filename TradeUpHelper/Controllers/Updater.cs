@@ -126,6 +126,7 @@ namespace TradeUpHelper.Controllers
                     File.WriteAllText("version.xml", wb.DownloadString(UpdatePath.VersionPathOnServer));
                 }
 
+                SettingController.IsFirstStart = true;
                 Process.Start("updater.exe", "TradeUpHelper.update TradeUpHelper.exe");
                 Process.GetCurrentProcess().Kill();
             }

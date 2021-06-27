@@ -18,7 +18,18 @@ namespace TradeUpHelper.Controllers
                 setting.UserInventoryURL = value;
                 setting.UserProfileId = value.Split('/')[2];
                 File.WriteAllText(FilePath.settingFile, JsonSerializer.Serialize(setting));
+                InventoryHandler.LoadItems();
             } }
+
+        public static bool IsFirstStart
+        {
+            get { return setting.IsFirstStart; }
+            set
+            {
+                setting.IsFirstStart = value;
+                File.WriteAllText(FilePath.settingFile, JsonSerializer.Serialize(setting));
+            }
+        }
 
         private static Setting setting;
 
@@ -35,6 +46,8 @@ namespace TradeUpHelper.Controllers
                 File.WriteAllText(FilePath.settingFile, JsonSerializer.Serialize(setting));
             }
         }
+
+        
 
        
     }

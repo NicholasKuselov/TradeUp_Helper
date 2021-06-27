@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels" xmlns:converters="clr-namespace:TradeUpHelper.DataConverters"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MarketCheckerPage">
+      Title="MarketCheckerPage" Loaded="Page_Loaded">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -21,11 +21,11 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    
+
     <Page.DataContext>
         <viewmodels:MarketCheckerPageVM/>
     </Page.DataContext>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="14"/>
@@ -54,7 +54,7 @@
                     <CheckBox Grid.Row="0" IsChecked="{Binding IsStickerNeed}" Content="{DynamicResource MCSearchSticker}" Foreground="White"/>
                     <CheckBox Grid.Row="1" IsChecked="{Binding IsPaintSeedNeed}" Content="{DynamicResource MCSearchPainSeed}" Foreground="White"/>
                 </Grid>
-                
+
 
             </StackPanel>
         </Grid>
@@ -71,12 +71,19 @@
 
                     </ListBox>
                 </StackPanel>
-           
+
             </ScrollViewer>
-        </Grid>
-
-        <Grid Grid.Row="3" Background="{DynamicResource Color_WindowBackground}">
 
         </Grid>
+
+        <Border Grid.Row="3" BorderBrush="Silver" BorderThickness="1">
+            <StackPanel Orientation="Horizontal" Background="{DynamicResource Color_WindowBackground}">
+                <ProgressBar Margin="10,0,0,0" Height="12" Width="400" VerticalAlignment="Center" Maximum="100" Background="Transparent" Value="{Binding CheckProgress}" />
+                <Label Content="{DynamicResource MCStickerFoundCount}" Foreground="White" Margin="10,0,0,0" FontSize="10" VerticalContentAlignment="Center" Width="98"/>
+                <Label Content="{Binding ScinsWithStickers.Count}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="50"/>
+                <Label Content="{DynamicResource MCPaintSeedFoundCount}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" Width="140"/>
+                <Label Content="{Binding ScinsWithStickers.Count}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="130"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

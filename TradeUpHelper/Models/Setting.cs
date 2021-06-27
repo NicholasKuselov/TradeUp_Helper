@@ -8,7 +8,8 @@ namespace TradeUpHelper.Models
 {
     class Setting
     {
-        public string UserInventoryURL { get; set; }
-        public string UserProfileId { get; set; }
+        public string UserInventoryURL { get; set; } = "";
+        public string UserProfileId { get; set; } = "";
+        public bool IsFirstStart { get; set; } = true;
     }
 }

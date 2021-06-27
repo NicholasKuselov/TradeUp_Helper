@@ -21,6 +21,7 @@ namespace TradeUpHelper.Controllers
         public static string CacheWritingTime = "";
         public static void LoadItems()
         {
+            if (SettingController.UserInventoryURL.Length < 5) return;
             items.Clear();
             string inventoryJson = WebController.GetInventory();
             SteamInventoryJson data = JsonSerializer.Deserialize<SteamInventoryJson>(inventoryJson);
@@ -34,7 +35,7 @@ namespace TradeUpHelper.Controllers
                     string itemJson = WebController.GetItemProp(url);
                     Scin tmp = JsonSerializer.Deserialize<Scin>(itemJson);
                     tmp.imageurl = SteamPath.BaseImageUrl + data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].icon_url;
-                    tmp.price = GetPrice(tmp.full_item_name);
+                    tmp.price = PriceHandler.GetPrice(tmp.full_item_name);
                     items.Add(tmp);
                     
                 }
@@ -44,13 +45,17 @@ namespace TradeUpHelper.Controllers
                     tmp.full_item_name = data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].market_hash_name;
                     tmp.Name = data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].market_hash_name;
                     tmp.imageurl = SteamPath.BaseImageUrl + data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].icon_url;
-                    tmp.price = GetPrice(tmp.full_item_name);
+                    tmp.price = PriceHandler.GetPrice(tmp.full_item_name);
                     items.Add(tmp);
                 }
  
             }
 
-            InventoryCacheController.Save();
+            Task.Run(() =>
+            {
+                InventoryCacheController.Save();
+            });
+            
         }
 
         public static double GetPrice2(string itemName)
@@ -71,11 +76,11 @@ namespace TradeUpHelper.Controllers
             }catch
             {
                 //MessageBox.Show(rez);
-                return -1.0;
+                return -3.0;
             }
         }
 
-        public static double GetPrice(string itemName)
+        public static double GetPriceFromSteam(string itemName)
         {
             string rez = "";
             try

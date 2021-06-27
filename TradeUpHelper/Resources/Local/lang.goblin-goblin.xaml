@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v1.0 Beta</v:String>
+    <v:String x:Key="Version">v1.0 Beta TEST</v:String>
 
     <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
     
@@ -47,6 +47,7 @@
     <v:String x:Key="bHistory">История</v:String>
     <v:String x:Key="bCraftOk">Скрафчено</v:String>
     <v:String x:Key="bChangeLog">Что нового?</v:String>
+    <v:String x:Key="bSetting">Настройки</v:String>
     <v:String x:Key="bCheckUpdate">Обновление</v:String>
     <v:String x:Key="UpdateNewVersion">Есть новая версия, oбновить?</v:String>
     <v:String x:Key="UpdateNoVersion">Новых версий нет</v:String>
@@ -93,10 +94,15 @@
     <v:String x:Key="MCOverprice">Наценка</v:String>
     <v:String x:Key="MCStart">Старт</v:String>
     <v:String x:Key="MCSelectScin">Выберете скин</v:String>
+    <v:String x:Key="MCStickerFoundCount">Найдено стикеров: </v:String>
+    <v:String x:Key="MCPaintSeedFoundCount">Найдено редких паттернов: </v:String>
     <v:String x:Key="MCSelectScinError">Выберете скин для поиска паттернов, или выключите функцию поиска паттернов</v:String>
 
+    <v:String x:Key="SteamInventoryURL">Ссылка на инвентарь стим</v:String>
+
+    <v:String x:Key="ErrorWithSteamInventoryURL">Для пользования функциями инвентаря, зайдите в НАСТРОЙКИ и установите ссылку на ваш инвентарь</v:String>
     <v:String x:Key="ErrorWithMinVersionForUpdate">Обновление с версии которая у вас учтановлена не возможна. Установите новую версию программы используя ссылку на Setup файл.</v:String>
-    <v:String x:Key="ErrorWithLoadingInventoryCache">Призагрузке кешп инвентаря произошла ошибка! Возможно его просто не было... </v:String>
+    <v:String x:Key="ErrorWithLoadingInventoryCache">При загрузке кеша инвентаря произошла ошибка! Возможно его просто не было... </v:String>
     <v:String x:Key="ErrorWithLoadingSetting">Ошибка при загрузке настроек! В первый раз всегда так...</v:String>
     <v:String x:Key="ErrorSteamOverlayURLWrongTitle">Ошибка</v:String>
     <v:String x:Key="ErrorSteamOverlayURLWrongText">Указанная ссылка на осмотр скина не корректна, продолжить сохранение без использования информации про полученный скин?</v:String>
@@ -186,13 +192,39 @@
         Пофикшено:|
             //- История не записывалась в файл|
         %
-        v0.5.2 (Последнее)|||
+        v0.5.2|||
         ДОБАВЛЕНО:|
             ////- Поле для ввода ссылки на осмотр скрафченого скина|
             ////- В записи истории крафта указана иконка скина, его качества и названия, више перечисленная статистика работает только для записей, со ссылкой на скрафченый скин|| 
         ||ПОФИКШЕНО:|
             ////- Локализация поля для ввода цены скрафченого скина|
+         %
+        v1.0(Последнее)|||
+        ДОБАВЛЕНО:|
+            ////- Главное меню программы|
+            ////- Окно инвентаря СТИМ|
+            ////- Окно калькулятора крафтов|
+            ////- Окно маркет чекера|
+            ////- Функционал сканирования страницы маркета в поиске редких паттернов\наклеек|
+            ////- Получение инвентаря пользователя по ссылке на инвентарь|
+            ////- База данных редких паттернов| 
+        ||Обновлено:|
+            ////- Автообновление|
+            ////- Окно чендж лога выводит только последнее обновление|
         
     
+    </v:String>
+
+    <v:String x:Key="FAQMainMenu">
+        Инструкция
+        В программе есть 10 полей Флоата и 10 полей цены
+
+    </v:String>
+
+    <v:String x:Key="FAQMarketChecker">
+        1)Откройте страницу на тп стим онли с SIH|
+        2)Нажмите кнопки получить все флоуты и получить все износы наклеек|
+        3)Скопируте все нажатием CTRL+A  CTRL+C|
+        4)Вставьте в прогу и нажмите кнопку старта|
     </v:String>
 </ResourceDictionary>

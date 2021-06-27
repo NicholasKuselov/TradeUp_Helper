@@ -122,14 +122,13 @@ namespace TradeUpHelper.ViewModels
             }
         }
 
-        public ICommand test
+        public ICommand ShowSettingWindow
         {
             get
             {
                 return new RelayCommand(() =>
                 {
-                    InventoryHandler.LoadItems();
-                    MessageBox.Show("gg");
+                    new SettingWindow().Show();
                 });
             }
         }
@@ -153,6 +152,11 @@ namespace TradeUpHelper.ViewModels
 
         public void SelectInventoryPage()
         {
+            if(SettingController.UserInventoryURL.Length<5)
+            {
+                MessageBox.Show((string)Application.Current.Resources["ErrorWithSteamInventoryURL"]);
+                return;
+            }
             CurrentPage = new InventoryPage();
         }
 

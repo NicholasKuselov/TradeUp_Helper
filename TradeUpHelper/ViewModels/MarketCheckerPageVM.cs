@@ -18,7 +18,12 @@ namespace TradeUpHelper.ViewModels
         public MarketCheckerPageVM()
         {
             ScinsNameWithRarityPaintSeeds.Insert(0, (string)Application.Current.Resources["MCSelectScin"]);
+
         }
+
+        public double CheckProgressCountStages = 1;
+
+        public double CheckProgress { get; set; } = 0.0;
         public List<string> ScinsNameWithRarityPaintSeeds { get; set; } = new List<string>(RarityPaintSeedsHandler.seeds.Keys.ToArray());
         public string SelectedWeapon { get; set; } = (string)Application.Current.Resources["MCSelectScin"];
 
@@ -26,7 +31,7 @@ namespace TradeUpHelper.ViewModels
         public bool IsPaintSeedNeed { get; set; } = true;
         public string Data { get; set; } = "";
 
-        public List<MarketCheckerScin> Scins { get; set; }
+        public List<MarketCheckerScin> Scins { get; set; } 
 
         public List<MarketCheckerScin> ScinsWithRarityPaintSeeds { get; set; }
 
@@ -50,10 +55,25 @@ namespace TradeUpHelper.ViewModels
                 MessageBox.Show((string)Application.Current.Resources["MCSelectScinError"]);
                 return;
             }
-
-            Scins = MarketChecker.GetScins(Data,IsStickerNeed);
-            if(IsPaintSeedNeed) ScinsWithRarityPaintSeeds = MarketChecker.CheckPaintSeed(Scins, SelectedWeapon);
-            if(IsStickerNeed) ScinsWithStickers = MarketChecker.GetStickerPrice(MarketChecker.GetScinsWithSticker(Scins));
+            CheckProgress = 0.0;
+            CheckProgressCountStages = 1;
+            CheckProgress += 1.0;
+            Scins?.Clear();
+            ScinsWithRarityPaintSeeds?.Clear();
+            ScinsWithStickers?.Clear();
+            if (IsPaintSeedNeed) CheckProgressCountStages++;
+            if (IsStickerNeed) CheckProgressCountStages++;
+            MarketChecker.parent = this;
+            Task.Run(() =>
+            {
+                
+                
+                
+                Scins = MarketChecker.GetScins(Data,IsStickerNeed);
+                if(IsPaintSeedNeed) ScinsWithRarityPaintSeeds = MarketChecker.CheckPaintSeed(Scins, SelectedWeapon);
+                if(IsStickerNeed) ScinsWithStickers = MarketChecker.GetStickerPrice(MarketChecker.GetScinsWithSticker(Scins));
+                CheckProgress += 10.0;
+            });
         }
     }
 }
