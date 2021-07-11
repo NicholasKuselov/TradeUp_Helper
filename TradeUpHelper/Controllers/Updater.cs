@@ -29,10 +29,17 @@ namespace TradeUpHelper.Controllers
 
             XmlDocument docLocalVersion = new XmlDocument();
             docLocalVersion.LoadXml(File.ReadAllText("version.xml"));
-
+            
 
             Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("myprogram")[0].InnerText);
             Version localVersion = new Version(docLocalVersion.GetElementsByTagName("myprogram")[0].InnerText);
+            Version minVersionForUpdate = new Version(docRemoteVersion.GetElementsByTagName("min_version_for_update")[0].InnerText);
+
+            if (minVersionForUpdate > localVersion)
+            {
+                MessageBox.Show((string)Application.Current.Resources["ErrorWithMinVersionForUpdate"], (string)Application.Current.Resources["bCheckUpdate"], MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             if (localVersion < remoteVersion)
             {
                 Update();
@@ -74,6 +81,7 @@ namespace TradeUpHelper.Controllers
             {
                 for (int i = 0; i < vs.Count; i++)
                 {
+                    if (File.Exists(vs[i])) { File.Delete(vs[i]); }
                     WebClient client = new WebClient();
                     // client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
                     //client.DownloadFileCompleted += new AsyncCompletedEventHandler(download_Completed);
@@ -82,7 +90,7 @@ namespace TradeUpHelper.Controllers
                 
 
             }
-            catch (Exception) { }
+            catch (Exception) { MessageBox.Show("erroe with downloading new dlls"); }
         }
 
         private static void Download()
@@ -118,11 +126,13 @@ namespace TradeUpHelper.Controllers
                     File.WriteAllText("version.xml", wb.DownloadString(UpdatePath.VersionPathOnServer));
                 }
 
+                SettingController.IsFirstStart = true;
                 Process.Start("updater.exe", "TradeUpHelper.update TradeUpHelper.exe");
                 Process.GetCurrentProcess().Kill();
             }
             catch (Exception ex)
             {
+                MessageBox.Show("erroe with updating main exe`s");
                 File.WriteAllText("ErrorTradeUp.txt", ex.Message);
                 File.WriteAllText("ErrorTradeUpTrace.txt", ex.StackTrace);
             }
@@ -149,6 +159,12 @@ namespace TradeUpHelper.Controllers
 
             Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("myprogram")[0].InnerText);
             Version localVersion = new Version(docLocalVersion.GetElementsByTagName("myprogram")[0].InnerText);
+            Version minVersionForUpdate = new Version(docRemoteVersion.GetElementsByTagName("min_version_for_update")[0].InnerText);
+
+            if(minVersionForUpdate>localVersion)
+            {
+                return;
+            }
             if (localVersion < remoteVersion)
             {
                 Update();

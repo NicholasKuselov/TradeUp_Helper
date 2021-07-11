@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,7 +13,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TradeUpHelper.Constants;
 using TradeUpHelper.Controllers;
+using TradeUpHelper.Controllers.MarketChecker;
+using TradeUpHelper.Models.MarketChecker;
 using TradeUpHelper.ViewModels;
 
 namespace TradeUpHelper.Views
@@ -37,6 +42,15 @@ namespace TradeUpHelper.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Updater.CheckUpdateSilence();
+            ((MainWindowVM)DataContext).LoadInventory();
+            if (SettingController.IsFirstStart)
+            {
+                new ChangeLogWindow().Show();
+                SettingController.IsFirstStart = false;
+            }
+            //TODO : Добавить проверку на наличие инета при запуске проги
+
+            PriceHandler.Load();
         }
 
 

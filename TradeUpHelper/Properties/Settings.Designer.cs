@@ -22,5 +22,14 @@ namespace TradeUpHelper.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://steamcommunity.com/profiles/76561198215605039/inventory/")]
+        public string steamInventoryURL {
+            get {
+                return ((string)(this["steamInventoryURL"]));
+            }
+        }
     }
 }

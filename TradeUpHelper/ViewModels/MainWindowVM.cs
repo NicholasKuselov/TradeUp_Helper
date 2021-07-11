@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using TradeUpHelper.Controllers;
+using TradeUpHelper.Controllers.Cache;
 using TradeUpHelper.Models;
 using TradeUpHelper.Views;
 
@@ -34,6 +35,7 @@ namespace TradeUpHelper.ViewModels
             }
         }
         public TradeUpPage TradeUpPage { get; set; }
+        public InventoryPage InventoryPage { get; set; }
         private MainMenuPage MainMenuPage { get; set; }
 
         public Visibility IsBackButtonActive { get; set; } = Visibility.Hidden;
@@ -120,9 +122,23 @@ namespace TradeUpHelper.ViewModels
             }
         }
 
+        public ICommand ShowSettingWindow
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    new SettingWindow().Show();
+                });
+            }
+        }
+
         public MainWindowVM()
         {
             PageController.mainWindow = this;
+            SettingController.Load();
+
+           // InventoryPage = new InventoryPage();
             TradeUpPage = new TradeUpPage();
             MainMenuPage = new MainMenuPage();
 
@@ -132,6 +148,26 @@ namespace TradeUpHelper.ViewModels
         public void SelectTradeUpPage()
         {
             CurrentPage = TradeUpPage;
+        }
+
+        public void SelectInventoryPage()
+        {
+            if(SettingController.UserInventoryURL.Length<5)
+            {
+                MessageBox.Show((string)Application.Current.Resources["ErrorWithSteamInventoryURL"]);
+                return;
+            }
+            CurrentPage = new InventoryPage();
+        }
+
+        public void LoadInventory()
+        {
+            InventoryCacheController.Load();
+        }
+
+        public void SelectMarketCheckerPage()
+        {
+            CurrentPage = new MarketCheckerPage();
         }
     }
 }

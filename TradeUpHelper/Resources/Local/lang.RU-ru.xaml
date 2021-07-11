@@ -1,0 +1,248 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+
+
+    <v:String x:Key="ProgramName">TradeUp Helper</v:String>
+    <v:String x:Key="Version">v1.1 Beta</v:String>
+
+    <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
+    
+    <v:String x:Key="HistoryWindowTitle">История крафтов</v:String>
+    
+    <v:String x:Key="PriceWindowTitle">Цена после продажи</v:String>
+    
+    <v:String x:Key="Float">Float</v:String>
+    <v:String x:Key="Price">Цена</v:String>
+
+    <v:String x:Key="dontKnow">NN</v:String>
+
+    <v:String x:Key="OperationEndSuccessfuly">Операция звершена успешно</v:String>
+
+    <v:String x:Key="ToBeContinue">В разработке...</v:String>
+    
+    <!--Wear-->
+    <v:String x:Key="WearFactoryNew">Прямо с завода</v:String>
+    <v:String x:Key="WearMinimalWear">Немного поношенное</v:String>
+    <v:String x:Key="WearFieldTested">После полевых испытаний</v:String>
+    <v:String x:Key="WearWellWorn">Поношенное</v:String>
+    <v:String x:Key="WearBattleScared">Закаленное в боях</v:String>
+
+    <!--WearShort-->
+    <v:String x:Key="WearFactoryNewShort">FN</v:String>
+    <v:String x:Key="WearMinimalWearShort">MW</v:String>
+    <v:String x:Key="WearFieldTestedShort">FT</v:String>
+    <v:String x:Key="WearWellWornShort">WW</v:String>
+    <v:String x:Key="WearBattleScaredShort">BS</v:String>
+
+    <!--Info-->
+    <v:String x:Key="InfoFloat">Float :</v:String>
+    <v:String x:Key="InfoPrice">Цена :</v:String>
+    <v:String x:Key="InfoWear">Износ :</v:String>
+    <v:String x:Key="InfoThreshold">Порог</v:String>
+    <v:String x:Key="InfoNeedFloat">Нужный Float :</v:String>
+    
+    <v:String x:Key="NeedFloatMinus">GG</v:String>
+    <v:String x:Key="OutcomePrice">Цена скина</v:String>
+    <v:String x:Key="bPriceCalc">Цена Steam</v:String>
+    <v:String x:Key="bClear">Очистить</v:String>
+    <v:String x:Key="bHistory">История</v:String>
+    <v:String x:Key="bCraftOk">Скрафчено</v:String>
+    <v:String x:Key="bChangeLog">Что нового?</v:String>
+    <v:String x:Key="bSetting">Настройки</v:String>
+    <v:String x:Key="bCheckUpdate">Обновление</v:String>
+    <v:String x:Key="UpdateNewVersion">Есть новая версия, oбновить?</v:String>
+    <v:String x:Key="UpdateNoVersion">Новых версий нет</v:String>
+    <v:String x:Key="SteamOverlayURL">Ссылка на осмотр скина в стиме (скопировать адресс ссылки с кнопки "Осмотреть в игре") steam://rungame/......</v:String>
+
+    <v:String x:Key="StatContractCount">Количество контрактов :</v:String>
+    <v:String x:Key="StatAllPrice">Общая стоимость контрактов :</v:String>
+    <v:String x:Key="StatAllOutcomePrice">Всего скрафчено (грн) :</v:String>
+    <v:String x:Key="StatAllProfit">Общий чистый профит (грн) :</v:String>
+    <v:String x:Key="StatInfoContracts">Контракты</v:String>
+    <v:String x:Key="StatInfoStat">Статистика</v:String>
+
+    <v:String x:Key="HistoryItemFloat">Float :</v:String>
+    <v:String x:Key="HistoryItemPrice">Цена контракта :</v:String>
+    <v:String x:Key="HistoryItemOutcomePrice">Результат (грн):</v:String>
+    <v:String x:Key="HistoryItemProfitDirty">Профит(гряз.) :</v:String>
+    <v:String x:Key="HistoryItemProfitClear">Профит(чист.) :</v:String>
+    <v:String x:Key="HistoryItemDate">Дата :</v:String>
+
+    <v:String x:Key="MainMenuTradeUpText">Контракты</v:String>
+    <v:String x:Key="MainMenuInventoryText">Инвентарь</v:String>
+    <v:String x:Key="MainMenuMarketAnalizText">ТП Чекер</v:String>
+    <v:String x:Key="MainMenuInvestorPortfolioText">Инвестиции</v:String>
+
+    <!--Inventory page-->
+    <v:String x:Key="InventoryInventorySavingTime">Последнее обновление инвентаря:</v:String>
+    <v:String x:Key="InventoryPrice">Стоимость инвентаря :</v:String>
+    <v:String x:Key="InventoryCount">Количество скинов :</v:String>
+    <v:String x:Key="InventoryPattern">Паттерн :</v:String>
+    <v:String x:Key="InventoryPriceClear">Цена (чист.) :</v:String>
+    <v:String x:Key="InventoryStickers">Стикеры</v:String>
+    
+    <!--Market Checker page-->
+    <v:String x:Key="MCSearchSticker">Сканировать наклейки</v:String>
+    <v:String x:Key="MCSearchPainSeed">Искать редкие паттерны</v:String>
+    <v:String x:Key="MCSIHWarning">Для корректной работы системы у вас должен быть включен SIH и выключенные все остальные расширения!</v:String>
+    <v:String x:Key="MCSIHPage">Текст маркета SIH </v:String>
+    <v:String x:Key="MCFindedScinsWithStickers">Найденные скины с наклейками</v:String>
+    <v:String x:Key="MCFindedScinsWithRarityPainrSeed">Найденные скины с редкими паттернами</v:String>
+    <v:String x:Key="MCPrice">Цена</v:String>
+    <v:String x:Key="MCFloat">Float </v:String>
+    <v:String x:Key="MCPattern">Паттерн</v:String>
+    <v:String x:Key="MCStickerPrice">Цена стикеров</v:String>
+    <v:String x:Key="MCOverprice">Наценка</v:String>
+    <v:String x:Key="MCStart">Старт</v:String>
+    <v:String x:Key="MCSelectScin">Выберете скин</v:String>
+    <v:String x:Key="MCStickerFoundCount">Найдено стикеров: </v:String>
+    <v:String x:Key="MCPaintSeedFoundCount">Найдено редких паттернов: </v:String>
+    <v:String x:Key="MCSelectScinError">Выберете скин для поиска паттернов, или выключите функцию поиска паттернов</v:String>
+
+    <v:String x:Key="SteamInventoryURL">Ссылка на инвентарь стим</v:String>
+
+    <v:String x:Key="ErrorWithSteamInventoryURL">Для пользования функциями инвентаря, зайдите в НАСТРОЙКИ и установите ссылку на ваш инвентарь</v:String>
+    <v:String x:Key="ErrorWithMinVersionForUpdate">Обновление с версии которая у вас учтановлена не возможна. Установите новую версию программы используя ссылку на Setup файл.</v:String>
+    <v:String x:Key="ErrorWithLoadingInventoryCache">При загрузке кеша инвентаря произошла ошибка! Возможно его просто не было... </v:String>
+    <v:String x:Key="ErrorWithLoadingSetting">Ошибка при загрузке настроек! В первый раз всегда так...</v:String>
+    <v:String x:Key="ErrorSteamOverlayURLWrongTitle">Ошибка</v:String>
+    <v:String x:Key="ErrorSteamOverlayURLWrongText">Указанная ссылка на осмотр скина не корректна, продолжить сохранение без использования информации про полученный скин?</v:String>
+    <v:String x:Key="WarningRussianSteam">Ваш стим использует русский язык, поиск наклеек не возможен при данной настройке. Для поиска наклеек установите для стима английский язык! Продолжить операцию анализа без поиска наклеек?</v:String>
+    <v:String x:Key="WarningFloatMarketCheckerEnable">У вас включено расширение FloatMarketChecker, поиск наклеек не возможен при данной настройке. Выключите все сторонние расширения, оставив лишь Steam Inventory Helper для поиска стикеров! Продолжить операцию анализа без поиска наклеек?</v:String>
+    <v:String x:Key="Warning">Предупреждение</v:String>
+
+    <v:String x:Key="NetworkDisable">Отсутвует подключение к интернету, проверьте соеденение и повторите попытку</v:String>
+
+    <v:String x:Key="FAQ">
+        Инструкция
+        В программе есть 10 полей Флоата и 10 полей цены
+        
+    </v:String>
+
+    <!--Info-->
+    <v:String x:Key="ChangeLogAllLog">Все версии</v:String>
+    <v:String x:Key="ChangeLogAdded">Добавлено :</v:String>
+    <v:String x:Key="ChangeLogChanged">Изменено :</v:String>
+    <v:String x:Key="ChangeLogFixed">Пофикшено :</v:String>
+  
+
+    <v:String x:Key="ChangeLog">
+        v0.4.3|
+        Добавлено:|
+            //- Авто проверка наличия новых версий|
+            //- Программа разворачивается при двойном клике|
+        |
+        Пофикшено:|
+            //- Вылет программы в случае попытки обновления без интернета|
+            //- Для ввода данных не нужно кликать по другому полю|
+            // теперь достаточно просто кликнуть в любое место|
+            //- При увелечении окна будут увеличиваться поля для флоута, вместо цены|
+            //- В развернутом виде окно не вылазит за границы экрана|
+        %
+        v0.4.4|
+        Добавлено:|
+            //- Между полями ввода флоута можно переключаться кнопками Вверх-Вниз|
+            //- Подтвердить данные в поле флоута можно кнопкой Enter|
+        %
+        v0.4.5|
+        Добавлено:|
+            //- Переработанное окно "Что нового"|
+            //- Программа подсказывает флоат нужных скинов, учитывая уже введенные флоуты|
+        |
+        Пофикшено:|
+            //- Кнопка Enter теперь работает и для поля порога флоута|
+            //- Поля полученного флоута, цены и износа, теперь отображают корректные данные после|
+            ////нажатия кнопки "Очистить"|
+        %
+        v0.4.6|
+        Добавлено:|
+            //- Кнопки Вверх-Вниз доступны и для полей цены|
+            //- Доступны кнопки Вправо-Влево для всех полей|
+        %
+        v0.4.7|
+        Добавлено:|
+            //- Кнопка "скрафчено"|
+            //- Поле для ввода цены полученного скина "скрафчено"|
+            //- ну и ...СТАТИСТИКА КАРЛ..СТАТИСТИКА|
+        %
+        v0.4.8|
+        Пофикшено:|
+            //- Локализация|
+            //- Профит указывается чистыми|
+        %
+        v0.4.9|
+        Добавлено:|
+            //- Окно просмотра цены с учетом комиссии стима|
+            //- Кнопка "Цена стим"|
+        Пофикшено:|
+            //- Статистика|
+        %
+        v0.5.0|
+        Добавлено:|
+            //- Для записей истории добавлены поля профита и даты|
+            //- У каждой записи истории отображается цвет, от профита|
+        Пофикшено:|
+            //- Локализация|
+            //- Не корректное отображение цены профита|
+        %
+        v0.5.1|
+        Добавлено:|
+            //- Для записей истории добавлены поля чистого профита (с учетом комиссии)|
+        Пофикшено:|
+            //- Отображение больше двух знаков после запятой в истории крафтов|
+            //- Минимальная высота окна программы теперь равна 500 px|
+        %
+        v0.5.1.1|
+        Пофикшено:|
+            //- История не записывалась в файл|
+        %
+        v0.5.2|||
+        ДОБАВЛЕНО:|
+            ////- Поле для ввода ссылки на осмотр скрафченого скина|
+            ////- В записи истории крафта указана иконка скина, его качества и названия, више перечисленная статистика работает только для записей, со ссылкой на скрафченый скин|| 
+        ||ПОФИКШЕНО:|
+            ////- Локализация поля для ввода цены скрафченого скина|
+         %
+        v1.0|||
+        ДОБАВЛЕНО:|
+            ////- Главное меню программы|
+            ////- Окно инвентаря СТИМ|
+            ////- Окно калькулятора крафтов|
+            ////- Окно маркет чекера|
+            ////- Функционал сканирования страницы маркета в поиске редких паттернов\наклеек|
+            ////- Получение инвентаря пользователя по ссылке на инвентарь|
+            ////- База данных редких паттернов| 
+        ||Обновлено:|
+            ////- Автообновление|
+            ////- Окно чендж лога выводит только последнее обновление|
+         %
+        v1.1(Последнее)|||
+        ДОБАВЛЕНО:|
+            ////- Главное меню программы|
+            ////- Окно инвентаря СТИМ|
+            ////- Окно калькулятора крафтов|
+            ////- Окно маркет чекера|
+            ////- Функционал сканирования страницы маркета в поиске редких паттернов\наклеек|
+            ////- Получение инвентаря пользователя по ссылке на инвентарь|
+            ////- База данных редких паттернов| 
+        ||Обновлено:|
+            ////- Автообновление|
+            ////- Окно чендж лога выводит только последнее обновление|
+        
+    
+    </v:String>
+
+    <v:String x:Key="FAQMainMenu">
+        Инструкция
+        В программе есть 10 полей Флоата и 10 полей цены
+
+    </v:String>
+
+    <v:String x:Key="FAQMarketChecker">
+        1)Откройте страницу на тп стим онли с SIH|
+        2)Нажмите кнопки получить все флоуты и получить все износы наклеек|
+        3)Скопируте все нажатием CTRL+A  CTRL+C|
+        4)Вставьте в прогу и нажмите кнопку старта|
+    </v:String>
+</ResourceDictionary>
