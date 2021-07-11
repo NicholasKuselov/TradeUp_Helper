@@ -80,7 +80,7 @@ namespace TradeUpHelper.ViewModels
             InventoryHandler.LoadItems();
             Scins = InventoryHandler.items;
             InventoryLoadingDate = InventoryHandler.CacheWritingTime;
-            MessageBox.Show("gg");
+            MessageBox.Show((string)Application.Current.Resources["OperationEndSuccessfuly"],"",MessageBoxButton.OK,MessageBoxImage.Information);
         }
 
         private void Switch()

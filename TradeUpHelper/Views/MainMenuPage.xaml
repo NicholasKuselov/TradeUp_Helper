@@ -45,12 +45,12 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Column="0" Grid.Row="0">
-                <Button Command="{Binding OpenTradeUpWindow}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_TradeUpButton}" />
+                <Button Width="300" Height="130" Command="{Binding OpenTradeUpWindow}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_TradeUpButton}" />
 
             </Grid>
 
             <Grid Grid.Column="0" Grid.Row="1">
-                <Button Command="{Binding OpenMarketCheckerPage}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_MarketAnalizButton}" />
+                <Button Width="300" Height="130" Command="{Binding OpenMarketCheckerPage}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_MarketAnalizButton}" />
 
             </Grid>
 
@@ -59,12 +59,12 @@
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="0">
-                <Button Command="{Binding OpenInventoryPage}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_InventoryButton}" />
+                <Button Width="300" Height="130" Command="{Binding OpenInventoryPage}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_InventoryButton}" />
 
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="1">
-                <Button Command="{Binding CloseWindowCommand}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_InvestorButton}" />
+                <Button Width="300" Height="130" Command="{Binding CloseWindowCommand}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_InvestorButton}" />
 
             </Grid>
         </Grid>

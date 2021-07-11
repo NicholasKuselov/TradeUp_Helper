@@ -43,17 +43,19 @@ namespace TradeUpHelper.Views
         {
             Updater.CheckUpdateSilence();
             ((MainWindowVM)DataContext).LoadInventory();
-            if(SettingController.IsFirstStart)
+            if (SettingController.IsFirstStart)
             {
                 new ChangeLogWindow().Show();
                 SettingController.IsFirstStart = false;
             }
+            //TODO : Добавить проверку на наличие инета при запуске проги
+
             PriceHandler.Load();
-    }
+        }
 
 
 
-    private void TopBar_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void TopBar_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ClickCount == 2)
             {

@@ -14,12 +14,65 @@ namespace TradeUpHelper.Controllers.MarketChecker
     class MarketChecker
     {
         public static MarketCheckerPageVM parent;
+
+        public static List<MarketCheckerScin> GetScinsAlternative(string data, bool isStickersNeed)
+        {
+
+            List<MarketCheckerScin> scins = new List<MarketCheckerScin>();
+
+            string[] dataSp = data.Split(new[] { "Buy Now" }, StringSplitOptions.None);
+
+            foreach (string item in dataSp.Skip(1))
+            {
+                MarketCheckerScin tmpScin = new MarketCheckerScin();
+
+                string[] vs = item.Split('\n');
+                tmpScin.price = ConvertFloatToDouble(vs[1]); 
+                tmpScin.floatvalue = ConvertFloatToDouble(vs.FirstOrDefault(x => x.Contains("Float Value") || x.Contains("Float:")));
+                tmpScin.paintseed = ConvertToInt(vs.FirstOrDefault(x => x.Contains("Paint Seed")));
+                tmpScin.full_item_name = vs.FirstOrDefault(x => x.Contains("("));
+                tmpScin.Name = tmpScin.full_item_name?.Split('(')?[0]; 
+                //tmpScin.nametag = vs.First(x => x.Contains("Name Tag")) ?? "s";
+
+
+                if (item.Contains("Sticker") || isStickersNeed)
+                {
+                    List<Sticker> stickers = new List<Sticker>();
+
+                    string[] stick = item.Split(new[] { "Sticker" }, StringSplitOptions.None);
+
+                    foreach (string st in stick.Skip(1))
+                    {
+                        Sticker sticker = new Sticker();
+                        string[] cs1 = st.Split('\n');
+                        sticker.name = ("Sticker" + cs1[0]).Replace('\r', ' ');
+                        //TODO : Добавить поле износа в класс наклейки
+                        //sticker.wear = cs1[3];
+                        stickers.Add(sticker);
+                    }
+
+                    tmpScin.stickers = stickers.ToArray();
+                }
+                parent.CheckProgress += ((95.0 / parent.CheckProgressCountStages) / (dataSp.Length - 1));
+                scins.Add(tmpScin);
+            }
+
+            for (int i = 0; i < scins.Count; i++)
+            {
+                scins[i].MinPrice = scins[0].price;
+            }
+
+
+            return scins;
+        }
         public static List<MarketCheckerScin> GetScins(string data, bool isStickersNeed)
         {
             //data = File.ReadAllText("C:\\Users\\Odin\\Desktop\\sss.txt");
             List<MarketCheckerScin> scins = new List<MarketCheckerScin>();
 
             string[] dataSp = data.Split(new[] { "Buy Now" }, StringSplitOptions.None);
+
+            if(dataSp.Length<=1) dataSp = data.Split(new[] { "Купить" }, StringSplitOptions.None);
 
             foreach (string item in dataSp.Skip(1))
             {
@@ -35,9 +88,6 @@ namespace TradeUpHelper.Controllers.MarketChecker
                 }
                 else
                 {
-                    
-                    
-                    //MessageBox.Show(((vs.Length - 5) / 4).ToString());
                     tmpScin.price = ConvertFloatToDouble(vs[1]); //1
                     tmpScin.floatvalue = ConvertFloatToDouble(vs[4]); // 4
                     tmpScin.paintseed = ConvertToInt(vs[5]); //5
@@ -64,8 +114,6 @@ namespace TradeUpHelper.Controllers.MarketChecker
                     tmpScin.stickers = stickers.ToArray();
                 }
                 parent.CheckProgress += ((95.0 / parent.CheckProgressCountStages) / (dataSp.Length-1));
-                //  MessageBox.Show(parent.CheckProgressCountStages + " main");
-                
 
                 scins.Add(tmpScin);
             }
@@ -157,6 +205,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
         private static double ConvertFloatToDouble(string Float)
         {
+            if (Float == null) return 0.0;
             Float = Float.Replace('.', ',');
             string newFloat = "";
             for (int i = 0; i < Float.Length; i++)
@@ -172,6 +221,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
         private static int ConvertToInt(string Float)
         {
+            if (Float == null) return 0;
             string newFloat = "";
             for (int i = 0; i < Float.Length; i++)
             {

@@ -50,9 +50,7 @@
 
             </Grid.RowDefinitions>
 
-            <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" BorderBrush="{DynamicResource InventoryPageBorder}" BorderThickness="1"/>
-            <Border Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" BorderBrush="{DynamicResource InventoryPageBorder}" BorderThickness="1"/>
-            <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" BorderBrush="{DynamicResource InventoryPageBorder}" BorderThickness="1"/>
+
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
                 <Label Content="{DynamicResource InventoryInventorySavingTime}" Foreground="White" FontSize="10"/>
@@ -91,7 +89,7 @@
                 <ListBox Grid.Column="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectedItem="{Binding SelectedItem}" ItemsSource="{Binding Scins}" ItemContainerStyle="{DynamicResource Lststyle}" Background="{DynamicResource Color_lb_Background}">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
+                            <WrapPanel IsItemsHost="True"  Orientation="Horizontal"  />
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
 
@@ -123,22 +121,22 @@
                         <Label Grid.Row="2" Content="{Binding SelectedItem.floatvalue,Converter={StaticResource shortWearConverter}, ConverterParameter=long}" Foreground="White" FontSize="12"/>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="3">
-                            <Label Content="{DynamicResource Float}" Foreground="White" FontSize="12"/>
+                            <Label Content="{DynamicResource Float}" Foreground="Silver" FontSize="12"/>
                             <Label Content="{Binding SelectedItem.floatvalue}" Foreground="White" FontSize="12"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="4">
-                            <Label Content="{DynamicResource InventoryPattern}" Foreground="White" FontSize="12"/>
+                            <Label Content="{DynamicResource InventoryPattern}" Foreground="Silver" FontSize="12"/>
                             <Label Content="{Binding SelectedItem.paintseed}" Foreground="White" FontSize="12"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="5">
-                            <Label Content="{DynamicResource InventoryPrice}" Foreground="White" FontSize="12"/>
+                            <Label Content="{DynamicResource InventoryPrice}" Foreground="Silver" FontSize="12"/>
                             <Label Content="{Binding SelectedItem.price}" ContentStringFormat="{}{0:F2}$" Foreground="White" FontSize="12"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="6">
-                            <Label Content="{DynamicResource InventoryPriceClear}" Foreground="White" FontSize="12"/>
+                            <Label Content="{DynamicResource InventoryPriceClear}" Foreground="Silver" FontSize="12"/>
                             <Label Content="{Binding SelectedItem.GetClearPrice}" ContentStringFormat="{}{0:F2}$" Foreground="White" FontSize="12"/>
                         </StackPanel>
 

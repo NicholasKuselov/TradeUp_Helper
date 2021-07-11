@@ -55,6 +55,23 @@ namespace TradeUpHelper.ViewModels
                 MessageBox.Show((string)Application.Current.Resources["MCSelectScinError"]);
                 return;
             }
+            
+            if (Data.Contains("Купить") && IsStickerNeed)
+            {
+                if(MessageBoxResult.No.Equals(MessageBox.Show((string) Application.Current.Resources["WarningRussianSteam"], (string)Application.Current.Resources["Warning"],MessageBoxButton.YesNo,MessageBoxImage.Warning)))
+                {
+                    return;
+                }
+                IsStickerNeed = false;
+            }
+            if (Data.Contains("Powered by CSGOFloat") && IsStickerNeed)
+            {
+                if (MessageBoxResult.No.Equals(MessageBox.Show((string)Application.Current.Resources["WarningFloatMarketCheckerEnable"], (string)Application.Current.Resources["Warning"], MessageBoxButton.YesNo, MessageBoxImage.Warning)))
+                {
+                    return;
+                }
+                IsStickerNeed = false;
+            }
             CheckProgress = 0.0;
             CheckProgressCountStages = 1;
             CheckProgress += 1.0;
@@ -66,14 +83,15 @@ namespace TradeUpHelper.ViewModels
             MarketChecker.parent = this;
             Task.Run(() =>
             {
-                
-                
-                
-                Scins = MarketChecker.GetScins(Data,IsStickerNeed);
+                Scins = MarketChecker.GetScinsAlternative(Data,IsStickerNeed);
                 if(IsPaintSeedNeed) ScinsWithRarityPaintSeeds = MarketChecker.CheckPaintSeed(Scins, SelectedWeapon);
                 if(IsStickerNeed) ScinsWithStickers = MarketChecker.GetStickerPrice(MarketChecker.GetScinsWithSticker(Scins));
                 CheckProgress += 10.0;
+                MessageBox.Show((string)Application.Current.Resources["OperationEndSuccessfuly"], "", MessageBoxButton.OK, MessageBoxImage.Information);
             });
+
+            
+            
         }
     }
 }

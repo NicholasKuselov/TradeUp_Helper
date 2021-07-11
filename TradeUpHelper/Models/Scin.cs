@@ -35,6 +35,8 @@ namespace TradeUpHelper.Models
         public Sticker[] stickers { get; set; }
         public int rarity { get; set; }
 
+        public string nametag { get; set; }
+
         [JsonIgnore]
         public string GetClearPrice
         {
