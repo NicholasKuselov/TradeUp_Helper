@@ -16,7 +16,8 @@ namespace TradeUpHelper.Controllers
         public static string UserProfileId { get { return setting.UserProfileId; } }
         public static string UserInventoryURL { get { return setting.UserInventoryURL; } set {
                 setting.UserInventoryURL = value;
-                setting.UserProfileId = value.Split('/')[2];
+                string[] tmp = value.Split('/');
+                setting.UserProfileId = tmp[tmp.Length-3];
                 File.WriteAllText(FilePath.settingFile, JsonSerializer.Serialize(setting));
                 InventoryHandler.LoadItems();
             } }

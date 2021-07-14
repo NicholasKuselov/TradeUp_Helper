@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -41,6 +42,7 @@ namespace TradeUpHelper.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+           // MessageBox.Show(Assembly.GetExecutingAssembly().Location.Replace("TradeUpHelper.exe",""));
             Updater.CheckUpdateSilence();
             ((MainWindowVM)DataContext).LoadInventory();
             if (SettingController.IsFirstStart)

@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -55,7 +56,6 @@ namespace TradeUpHelper.Controllers
             if (MessageBoxResult.No.Equals(MessageBox.Show((string)Application.Current.Resources["UpdateNewVersion"], (string)Application.Current.Resources["bCheckUpdate"], MessageBoxButton.YesNo, MessageBoxImage.Information))) return;
             try
             {
-                DownloadNewDll();
                 if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
                 Download();
 
@@ -67,31 +67,7 @@ namespace TradeUpHelper.Controllers
             }
         }
 
-        private static void DownloadNewDll()
-        {
-            XmlDocument docRemoteVersion = new XmlDocument();
-            docRemoteVersion.Load(UpdatePath.VersionPathOnServer);
-
-            string tmp = docRemoteVersion.GetElementsByTagName("new_files")[0].InnerText;
-            if (tmp == "") return;
-
-
-            List<string> vs = new List<string>(tmp.Split(' '));
-            try
-            {
-                for (int i = 0; i < vs.Count; i++)
-                {
-                    if (File.Exists(vs[i])) { File.Delete(vs[i]); }
-                    WebClient client = new WebClient();
-                    // client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                    //client.DownloadFileCompleted += new AsyncCompletedEventHandler(download_Completed);
-                    client.DownloadFileAsync(new Uri(UpdatePath.ProgramDirectoryPathOnServer + vs[i]), vs[i]);
-                }
-                
-
-            }
-            catch (Exception) { MessageBox.Show("erroe with downloading new dlls"); }
-        }
+     
 
         private static void Download()
         {
@@ -102,7 +78,7 @@ namespace TradeUpHelper.Controllers
                 WebClient client = new WebClient();
                 // client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
                 client.DownloadFileCompleted += new AsyncCompletedEventHandler(download_Completed);
-                client.DownloadFileAsync(new Uri(UpdatePath.ProgramPathOnServer), "TradeUpHelper.update");
+                client.DownloadFileAsync(new Uri(UpdatePath.ProgramUpdateOnServer), "TradeUpHelper.update");
 
             }
             catch (Exception) { }
@@ -127,7 +103,8 @@ namespace TradeUpHelper.Controllers
                 }
 
                 SettingController.IsFirstStart = true;
-                Process.Start("updater.exe", "TradeUpHelper.update TradeUpHelper.exe");
+                //Process.Start("updater.exe", "TradeUpHelper.update TradeUpHelper.exe");
+                Process.Start("updater.exe", Assembly.GetExecutingAssembly().Location.Replace("TradeUpHelper.exe", ""));
                 Process.GetCurrentProcess().Kill();
             }
             catch (Exception ex)
@@ -159,16 +136,7 @@ namespace TradeUpHelper.Controllers
 
             Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("myprogram")[0].InnerText);
             Version localVersion = new Version(docLocalVersion.GetElementsByTagName("myprogram")[0].InnerText);
-            Version minVersionForUpdate = new Version(docRemoteVersion.GetElementsByTagName("min_version_for_update")[0].InnerText);
 
-            if(minVersionForUpdate>localVersion)
-            {
-                return;
-            }
-            if (localVersion < remoteVersion)
-            {
-                Update();
-            }
         }
     }
 }

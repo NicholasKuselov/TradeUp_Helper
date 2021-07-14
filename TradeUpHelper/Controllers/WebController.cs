@@ -32,11 +32,9 @@ namespace TradeUpHelper.Controllers
 
         public static string GetItemProp(string itemOverlayURL)
         {
-
             string data = "";
 
             string path = WebPath.CSGOFloat + itemOverlayURL;
-
             WebRequest request = WebRequest.Create(path);
             WebResponse response = request.GetResponse();
 
@@ -58,6 +56,7 @@ namespace TradeUpHelper.Controllers
                 MessageBox.Show("Error with void GetItemProp");
             }
 
+            
             response.Close();
 
 
