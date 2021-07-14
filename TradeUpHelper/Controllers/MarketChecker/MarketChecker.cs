@@ -13,6 +13,8 @@ namespace TradeUpHelper.Controllers.MarketChecker
 {
     class MarketChecker
     {
+        public static RarityPainSeedScin SelectedScin { get { return parent.SelectedWeapon; } set { parent.SelectedWeapon = value; } }
+
         public static MarketCheckerPageVM parent;
 
         public static List<MarketCheckerScin> GetScinsAlternative(string data, bool isStickersNeed)
@@ -145,10 +147,10 @@ namespace TradeUpHelper.Controllers.MarketChecker
             return scins;
         }
 
-        public static List<MarketCheckerScin> CheckPaintSeed(List<MarketCheckerScin> scins, string name)
+        public static List<MarketCheckerScin> CheckPaintSeed(List<MarketCheckerScin> scins, RarityPainSeedScin name)
         {
             List<MarketCheckerScin> checkerScins = new List<MarketCheckerScin>();
-            List<RariryPainSeed> seeds = RarityPaintSeedsHandler.seeds[name];
+            List<RariryPainSeed> seeds = name.Seeds;
 
 
             for (int i = 0; i < scins.Count; i++)

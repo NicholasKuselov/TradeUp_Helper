@@ -180,6 +180,7 @@
     <Compile Include="Controllers\CraftHistoryHandler.cs" />
     <Compile Include="Controllers\JsonController.cs" />
     <Compile Include="Controllers\MarketChecker\MarketChecker.cs" />
+    <Compile Include="Controllers\MarketChecker\RarityPainSeedScin.cs" />
     <Compile Include="Controllers\MarketChecker\RarityPaintSeedsHandler.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\InventoryHandler.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="ViewModels\MainMenuPageVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
     <Compile Include="ViewModels\MarketCheckerPageVM.cs" />
+    <Compile Include="ViewModels\PatternScinSelectWindowVM.cs" />
     <Compile Include="ViewModels\PriceWindowVM.cs" />
     <Compile Include="ViewModels\ScinFloatRangeWindowVM.cs" />
     <Compile Include="ViewModels\SettingWindowVM.cs" />
@@ -241,6 +243,9 @@
     </Compile>
     <Compile Include="Views\MarketCheckerPage.xaml.cs">
       <DependentUpon>MarketCheckerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatternScinSelectWindow.xaml.cs">
+      <DependentUpon>PatternScinSelectWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PriceCalcWindow.xaml.cs">
       <DependentUpon>PriceCalcWindow.xaml</DependentUpon>
@@ -345,6 +350,10 @@
       <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\MarketCheckerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PatternScinSelectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -29,6 +29,34 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <ControlTemplate x:Key="SelectButton" TargetType="{x:Type Button}">
+        <Border   Name="border" Background="#13d419" CornerRadius="15">
+            <Label Content="{DynamicResource bSelect}" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="SelectPatternButton" TargetType="{x:Type Button}">
+        <Border   Name="border" Background="Transparent" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="0,0,0,0">
+            <Label Content="{Binding SelectedWeapon.Name}" HorizontalAlignment="Center" FontSize="10" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="White"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
     <ControlTemplate x:Key="ChangeLogButton" TargetType="{x:Type Button}">
         <Border   Name="border" Background="Transparent">
             <Label Content="{DynamicResource bChangeLog}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="LightGray"/>

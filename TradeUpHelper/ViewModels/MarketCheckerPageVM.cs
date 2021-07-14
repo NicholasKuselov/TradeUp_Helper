@@ -10,6 +10,7 @@ using System.Windows.Input;
 using TradeUpHelper.Controllers.MarketChecker;
 using TradeUpHelper.Models;
 using TradeUpHelper.Models.MarketChecker;
+using TradeUpHelper.Views;
 
 namespace TradeUpHelper.ViewModels
 {
@@ -17,15 +18,16 @@ namespace TradeUpHelper.ViewModels
     {
         public MarketCheckerPageVM()
         {
-            ScinsNameWithRarityPaintSeeds.Insert(0, (string)Application.Current.Resources["MCSelectScin"]);
+            // ScinsNameWithRarityPaintSeeds.Insert(0, (string)Application.Current.Resources["MCSelectScin"]);
+            MarketChecker.parent = this;
 
         }
 
         public double CheckProgressCountStages = 1;
-
+        
         public double CheckProgress { get; set; } = 0.0;
-        public List<string> ScinsNameWithRarityPaintSeeds { get; set; } = new List<string>(RarityPaintSeedsHandler.seeds.Keys.ToArray());
-        public string SelectedWeapon { get; set; } = (string)Application.Current.Resources["MCSelectScin"];
+        //public List<string> ScinsNameWithRarityPaintSeeds { get; set; } = new List<string>(RarityPaintSeedsHandler.seeds.Keys.ToArray());
+        public RarityPainSeedScin SelectedWeapon { get; set; } = new RarityPainSeedScin() { ImageUrl = "", Name = (string)Application.Current.Resources["MCSelectScin"], Seeds = new List<RariryPainSeed>() };
 
         public bool IsStickerNeed { get; set; } = false;
         public bool IsPaintSeedNeed { get; set; } = true;
@@ -44,6 +46,17 @@ namespace TradeUpHelper.ViewModels
                 return new RelayCommand(() =>
                 {
                     Check();
+                });
+            }
+        }
+
+        public ICommand OpenPatternScinWindow
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    new PatternScinSelectWindow().Show();
                 });
             }
         }

@@ -44,7 +44,8 @@
 
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
-                <ComboBox ItemsSource="{Binding ScinsNameWithRarityPaintSeeds}" SelectedItem="{Binding SelectedWeapon}" Margin="0,0,5,0" SelectedIndex="0" Style="{DynamicResource comboBoxStyle}" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment ="Center" VerticalAlignment="Center" Background="Transparent" Height="25"/>
+                <!--<ComboBox ItemsSource="{Binding ScinsNameWithRarityPaintSeeds}" SelectedItem="{Binding SelectedWeapon}" Margin="0,0,5,0" SelectedIndex="0" Style="{DynamicResource comboBoxStyle}" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment ="Center" VerticalAlignment="Center" Background="Transparent" Height="25"/>-->
+                <Button Width="200" Height="25" Padding="0,0,0,0" Template="{DynamicResource SelectPatternButton}" Command="{Binding OpenPatternScinWindow}"/>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>

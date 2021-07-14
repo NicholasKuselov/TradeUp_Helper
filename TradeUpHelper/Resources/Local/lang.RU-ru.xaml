@@ -20,7 +20,9 @@
     <v:String x:Key="OperationEndSuccessfuly">Операция звершена успешно</v:String>
 
     <v:String x:Key="ToBeContinue">В разработке...</v:String>
-    
+
+    <v:String x:Key="bSelect">Выбрать</v:String>
+
     <!--Wear-->
     <v:String x:Key="WearFactoryNew">Прямо с завода</v:String>
     <v:String x:Key="WearMinimalWear">Немного поношенное</v:String>
@@ -83,6 +85,7 @@
     <v:String x:Key="InventoryStickers">Стикеры</v:String>
     
     <!--Market Checker page-->
+    <v:String x:Key="MCRarityPainSeed">Редкие паттерны</v:String>
     <v:String x:Key="MCSearchSticker">Сканировать наклейки</v:String>
     <v:String x:Key="MCSearchPainSeed">Искать редкие паттерны</v:String>
     <v:String x:Key="MCSIHWarning">Для корректной работы системы у вас должен быть включен SIH и выключенные все остальные расширения!</v:String>
