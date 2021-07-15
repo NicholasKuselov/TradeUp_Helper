@@ -136,8 +136,7 @@ namespace TradeUpHelper.Views
 
         private void tb_float_KeyDown(object sender, KeyEventArgs e)
         {
-            int i = FloatTextBoxes.IndexOf((TextBox)sender);
-            MessageBox.Show("Down " + i.ToString());
+
 
         }
     }

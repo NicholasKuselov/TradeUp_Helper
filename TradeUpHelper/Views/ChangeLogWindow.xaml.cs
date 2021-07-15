@@ -29,10 +29,10 @@ namespace TradeUpHelper.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            text = ((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n').Replace('/', ' ');
-            tb_changeLog.Text = text.Split('%').Last();
+            //text = ((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n').Replace('/', ' ');
+            //tb_changeLog.Text = text.Split('%').Last();
 
-            sv_changeLog.ScrollToEnd();
+            //sv_changeLog.ScrollToEnd();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

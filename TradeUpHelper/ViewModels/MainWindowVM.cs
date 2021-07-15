@@ -46,13 +46,14 @@ namespace TradeUpHelper.ViewModels
             {
                 return new RelayCommand(() =>
                 {
-                    if (MessageBox.Show("Tochno?", "Zakrit okno", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                    {
-                        Application.Current.MainWindow.Close();
-                    }
+                    //if (MessageBox.Show("Tochno?", "Zakrit okno", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    //{
+                    //    Application.Current.MainWindow.Close();
+                    //}
 
-
+                    Application.Current.MainWindow.Close();
                 });
+                
             }
         }
 

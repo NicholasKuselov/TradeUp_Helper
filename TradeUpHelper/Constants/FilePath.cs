@@ -13,5 +13,7 @@ namespace TradeUpHelper.Constants
         public static string inventoryCacheFile { get; } = "data/inventory.cch";
         public static string paintSeedsFilePath { get; } = "data/Seeds/seeds.sds";
         public static string userPaintSeedsFilePath { get; } = "data/Seeds/user_seeds.sds";
+
+        public static string ChangeLogFilePath { get; } = "data/changeLog.xml";
     }
 }

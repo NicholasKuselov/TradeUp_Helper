@@ -176,8 +176,10 @@
     <Compile Include="Constants\WebPath.cs" />
     <Compile Include="Constants\SteamPath.cs" />
     <Compile Include="Controllers\Cache\InventoryCacheController.cs" />
+    <Compile Include="Controllers\ChangeLogEntryHandler.cs" />
     <Compile Include="Controllers\ContractStats.cs" />
     <Compile Include="Controllers\CraftHistoryHandler.cs" />
+    <Compile Include="Controllers\DEBUG.cs" />
     <Compile Include="Controllers\FloatOperations.cs" />
     <Compile Include="Controllers\JsonController.cs" />
     <Compile Include="Controllers\MarketChecker\MarketChecker.cs" />
@@ -195,6 +197,7 @@
     <Compile Include="Controllers\WebController.cs" />
     <Compile Include="DataConverters\Wears.cs" />
     <Compile Include="Models\Cache\InventoryCache.cs" />
+    <Compile Include="Models\ChangeLogEntry.cs" />
     <Compile Include="Models\MarketChecker\MarketCheckerScin.cs" />
     <Compile Include="Models\MarketChecker\RariryPainSeed.cs" />
     <Compile Include="Models\PriceDBLootFarm.cs" />
@@ -212,6 +215,7 @@
     <Compile Include="Models\Sticker.cs" />
     <Compile Include="Models\Wear.cs" />
     <Compile Include="Models\Setting.cs" />
+    <Compile Include="ViewModels\ChangeLogWindowVM.cs" />
     <Compile Include="ViewModels\CraftHistoryWindowVM.cs" />
     <Compile Include="ViewModels\FroatRangeCalcWindowVM.cs" />
     <Compile Include="ViewModels\InventoryPageVM.cs" />
@@ -294,6 +298,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Styles\LabelsStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\ListBoxesStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

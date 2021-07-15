@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TradeUpHelper.Views"
-        xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
         mc:Ignorable="d"
         Title="ChangeLogWindow" Height="300" Width="600" ResizeMode="NoResize" WindowStyle="None" Loaded="Window_Loaded" Topmost="True">
 
@@ -23,13 +23,33 @@
             </Setter>
         </Style>
     </Window.Style>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/WindowControlButtons.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/LabelsStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/ListBoxesStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Window.DataContext>
+        <viewmodels:ChangeLogWindowVM/>
+    </Window.DataContext>
+    
+
     <Border BorderBrush="LightGray" BorderThickness="1">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Background="{DynamicResource Color_WindowTopBar}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource Color_WindowTopBar}">
                 <Grid.Resources>
                     <ControlTemplate x:Key="ExitButton" TargetType="{x:Type Button}">
                         <Border   Name="border" Background="Transparent">
@@ -48,10 +68,23 @@
                 <Button HorizontalAlignment="Right" Template="{StaticResource ExitButton}" Width="50" Click="Button_Click"/>
                 <Label Content="{DynamicResource bChangeLog}" HorizontalAlignment="Left" Foreground="White"/>
             </Grid>
-            <ScrollViewer x:Name="sv_changeLog" Grid.Row="1" VerticalScrollBarVisibility="Auto">
-                <TextBlock HorizontalAlignment="Stretch"  Grid.Row="1" Background="{DynamicResource Color_WindowBackground}" Name="tb_changeLog" Foreground="White" VerticalAlignment="Stretch" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False" TextWrapping="Wrap"/>
-            </ScrollViewer>
 
+            <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource Color_WindowBackground}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="{Binding SelectedEntry.Version}"  ContentStringFormat="v{0}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="16"/>
+                <ScrollViewer x:Name="sv_changeLog" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding SelectedEntry.Description}" Grid.Row="1" Background="{DynamicResource Color_WindowBackground}" Name="tb_changeLog" Foreground="White" VerticalAlignment="Stretch" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False" TextWrapping="Wrap"/>
+                </ScrollViewer>
+            </Grid>
+
+
+            <Grid Grid.Row="1" Grid.Column="1" Background="{DynamicResource Color_lb_Background}">
+                <ListBox  Grid.Row="1" SelectedItem="{Binding SelectedEntry}" HorizontalAlignment="Stretch" ItemsSource="{Binding ChangeLogEntryHandler.changeLogEntries}" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemContainerStyle="{DynamicResource VersionLsbx}" Background="{DynamicResource Color_lb_buttonBackground}" BorderThickness="1,0,0,0" BorderBrush="Silver" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+
+            </Grid>
         </Grid>
     </Border>
 </Window>
