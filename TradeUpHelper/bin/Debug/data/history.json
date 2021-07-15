@@ -1,5 +1,27 @@
 [
 	{
+		"date": "15.07.2021",
+		"price": 96.54,
+		"outcomePrice": 40.13,
+		"resFloat": 0.188131672143935,
+		"rarity": 5,
+		"outcomeName": "Five-SeveN | Fowl Play (Field-Tested)",
+		"imageUrl": "http://media.steampowered.com/apps/730/icons/econ/default_generated/weapon_fiveseven_aq_57_feathers_light_large.aa942f28d5fd868643b54ba0c317703d8b615754.png",
+		"getDirtProfit": "-56,41",
+		"getClearProfit": "-61,6269"
+	},
+	{
+		"date": "15.07.2021",
+		"price": 98.36,
+		"outcomePrice": 40.13,
+		"resFloat": 0.17325622588396198,
+		"rarity": 5,
+		"outcomeName": "Five-SeveN | Fowl Play (Field-Tested)",
+		"imageUrl": "http://media.steampowered.com/apps/730/icons/econ/default_generated/weapon_fiveseven_aq_57_feathers_light_large.aa942f28d5fd868643b54ba0c317703d8b615754.png",
+		"getDirtProfit": "-58,23",
+		"getClearProfit": "-63,4469"
+	},
+	{
 		"date": "13.06.2021",
 		"price": 37.09,
 		"outcomePrice": 15.25,
@@ -11,17 +33,6 @@
 		"getClearProfit": "-23,8225"
 	},
 	{
-		"date": "13.06.2021",
-		"price": 37.09,
-		"outcomePrice": 0,
-		"resFloat": 0.144556561857462,
-		"rarity": 4,
-		"outcomeName": "CZ75-Auto | Pole Position (Minimal Wear)",
-		"imageUrl": "http://media.steampowered.com/apps/730/icons/econ/default_generated/weapon_cz75a_cu_cz75_precision_light_large.a0d0ea9d92ff9c535cbdaa9c07a1a95a5181a82b.png",
-		"getDirtProfit": "-37,09",
-		"getClearProfit": "-37,09"
-	},
-	{
 		"date": "12.06.2021",
 		"price": 42.23,
 		"outcomePrice": 43,
@@ -29,12 +40,12 @@
 		"rarity": 4,
 		"outcomeName": "Tec-9 | Avalanche (Minimal Wear)",
 		"imageUrl": "http://media.steampowered.com/apps/730/icons/econ/default_generated/weapon_tec9_cu_tec9_avalanche_light_large.eb6726a24084bf5f3c8c8c70cd8ea37425a708e3.png",
-		"getDirtProfit": "0,770000000000003",
+		"getDirtProfit": "0,77",
 		"getClearProfit": "-4,82"
 	},
 	{
 		"date": "28.05.2021",
-		"price": 148.35999999999999,
+		"price": 148.35,
 		"outcomePrice": 32,
 		"resFloat": 0.09075153321027699,
 		"rarity": 4,
@@ -101,13 +112,13 @@
 	{
 		"date": "24.05.2021",
 		"price": 323,
-		"outcomePrice": 9541,
+		"outcomePrice": 233,
 		"resFloat": 0.054296800587326,
 		"rarity": 5,
 		"outcomeName": "AUG | Fleet Flock (Factory New)",
 		"imageUrl": "http://media.steampowered.com/apps/730/icons/econ/default_generated/weapon_aug_cu_aug_swallows_light_large.29e48baa4086b20e4a5f714b5f8cc6350de7c758.png",
-		"getDirtProfit": "37",
-		"getClearProfit": "-9,80000000000001"
+		"getDirtProfit": "9218",
+		"getClearProfit": "7977,67"
 	},
 	{
 		"date": "24.05.2021",

@@ -197,3 +197,6 @@ C:\repos\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\SettingWindow.baml
 C:\repos\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Local\lang.RU-ru.baml
 C:\repos\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\PatternScinSelectWindow.g.cs
 C:\repos\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\PatternScinSelectWindow.baml
+C:\repos\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\FroatRangeCalcWindow.g.cs
+C:\repos\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\FroatRangeCalcWindow.baml
+C:\repos\TradeUp_Helper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache

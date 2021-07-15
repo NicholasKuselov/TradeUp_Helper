@@ -414,6 +414,16 @@ namespace TradeUpHelper.ViewModels
             }
         }
 
+        public ICommand bShowFloatRangeWindow
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    new FroatRangeCalcWindow().Show();
+                });
+            }
+        }
         public ICommand OpenPriceCalcWindow
         {
             get

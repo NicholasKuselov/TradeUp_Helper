@@ -9,6 +9,8 @@
     <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
     
     <v:String x:Key="HistoryWindowTitle">История крафтов</v:String>
+    <v:String x:Key="PatternScinWindowTitle">Выбор скина</v:String>
+    <v:String x:Key="FloatRangeWindowTitle">Пороги крафтов</v:String>
     
     <v:String x:Key="PriceWindowTitle">Цена после продажи</v:String>
     
@@ -52,6 +54,7 @@
     <v:String x:Key="bCraftOk">Скрафчено</v:String>
     <v:String x:Key="bChangeLog">Что нового?</v:String>
     <v:String x:Key="bSetting">Настройки</v:String>
+    <v:String x:Key="bOpenFloatRangeWindow">Пороги флоута</v:String>
     <v:String x:Key="bCheckUpdate">Обновление</v:String>
     <v:String x:Key="UpdateNewVersion">Есть новая версия, oбновить?</v:String>
     <v:String x:Key="UpdateNoVersion">Новых версий нет</v:String>
@@ -83,7 +86,15 @@
     <v:String x:Key="InventoryPattern">Паттерн :</v:String>
     <v:String x:Key="InventoryPriceClear">Цена (чист.) :</v:String>
     <v:String x:Key="InventoryStickers">Стикеры</v:String>
-    
+
+    <!--FloatRange Window page-->
+    <v:String x:Key="FRInfo">Пороги флокта для крафта определенного качества</v:String>
+    <v:String x:Key="FRNeedFloat">ПОРОГ ФЛОУТА ПРИ КРАФТЕ</v:String>
+    <v:String x:Key="FRWear">КАЧЕСТВО</v:String>
+    <v:String x:Key="FRMinFloat">Мин Float:</v:String>
+    <v:String x:Key="FRMaxFloat">Макс Float:</v:String>
+    <v:String x:Key="FRWearImpossible">Качество отсутствует на данном скине</v:String>
+
     <!--Market Checker page-->
     <v:String x:Key="MCRarityPainSeed">Редкие паттерны</v:String>
     <v:String x:Key="MCSearchSticker">Сканировать наклейки</v:String>

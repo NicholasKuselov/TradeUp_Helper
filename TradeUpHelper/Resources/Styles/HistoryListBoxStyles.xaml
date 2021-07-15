@@ -14,7 +14,7 @@
                         <converters:RarityColorConverter x:Key="RarityColorConverter"/>
                         <converters:ImageConverter x:Key="ImageConverter"/>
                     </ControlTemplate.Resources>
-                    <Border Name="Border" Background="{DynamicResource Color_lb_buttonBackground}" Padding="1" BorderThickness="3,0,0,0" BorderBrush="{Binding getDirtProfit,Converter={StaticResource ColorConverter}}" CornerRadius="1">
+                    <Border Name="Border" Background="{DynamicResource Color_lb_buttonBackground}" Padding="1" BorderThickness="3,0,0,0" BorderBrush="{Binding getClearProfit,Converter={StaticResource ColorConverter}}" CornerRadius="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="20"/>

@@ -34,13 +34,7 @@ namespace TradeUpHelper.Controllers
 
             Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("myprogram")[0].InnerText);
             Version localVersion = new Version(docLocalVersion.GetElementsByTagName("myprogram")[0].InnerText);
-            Version minVersionForUpdate = new Version(docRemoteVersion.GetElementsByTagName("min_version_for_update")[0].InnerText);
-
-            if (minVersionForUpdate > localVersion)
-            {
-                MessageBox.Show((string)Application.Current.Resources["ErrorWithMinVersionForUpdate"], (string)Application.Current.Resources["bCheckUpdate"], MessageBoxButton.OK, MessageBoxImage.Information);
-                return;
-            }
+           
             if (localVersion < remoteVersion)
             {
                 Update();

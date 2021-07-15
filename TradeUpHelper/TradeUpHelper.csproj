@@ -178,6 +178,7 @@
     <Compile Include="Controllers\Cache\InventoryCacheController.cs" />
     <Compile Include="Controllers\ContractStats.cs" />
     <Compile Include="Controllers\CraftHistoryHandler.cs" />
+    <Compile Include="Controllers\FloatOperations.cs" />
     <Compile Include="Controllers\JsonController.cs" />
     <Compile Include="Controllers\MarketChecker\MarketChecker.cs" />
     <Compile Include="Controllers\MarketChecker\RarityPainSeedScin.cs" />
@@ -197,6 +198,7 @@
     <Compile Include="Models\MarketChecker\MarketCheckerScin.cs" />
     <Compile Include="Models\MarketChecker\RariryPainSeed.cs" />
     <Compile Include="Models\PriceDBLootFarm.cs" />
+    <Compile Include="Models\ScinFloatData.cs" />
     <Compile Include="Models\SteamAPI\ScinActions.cs" />
     <Compile Include="Models\SteamAPI\ScinDescriptions.cs" />
     <Compile Include="Models\SteamAPI\ScinFull.cs" />
@@ -211,6 +213,7 @@
     <Compile Include="Models\Wear.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="ViewModels\CraftHistoryWindowVM.cs" />
+    <Compile Include="ViewModels\FroatRangeCalcWindowVM.cs" />
     <Compile Include="ViewModels\InventoryPageVM.cs" />
     <Compile Include="ViewModels\InvestorPageVM.cs" />
     <Compile Include="ViewModels\MainMenuPageVM.cs" />
@@ -228,6 +231,9 @@
     </Compile>
     <Compile Include="Views\CraftHistoryWindow.xaml.cs">
       <DependentUpon>CraftHistoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FroatRangeCalcWindow.xaml.cs">
+      <DependentUpon>FroatRangeCalcWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\InventoryPage.xaml.cs">
       <DependentUpon>InventoryPage.xaml</DependentUpon>
@@ -316,6 +322,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CraftHistoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FroatRangeCalcWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
