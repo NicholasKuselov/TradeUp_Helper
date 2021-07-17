@@ -11,5 +11,7 @@ namespace TradeUpHelper.Models
         public string UserInventoryURL { get; set; } = "";
         public string UserProfileId { get; set; } = "";
         public bool IsFirstStart { get; set; } = true;
+
+        public bool IsFirstStartAfterUpdate { get; set; } = false;
     }
 }

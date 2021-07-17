@@ -27,6 +27,7 @@ namespace TradeUpHelper.Views
             this.Title = ((string)Application.Current.Resources["bChangeLog"]);
         }
 
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //text = ((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n').Replace('/', ' ');

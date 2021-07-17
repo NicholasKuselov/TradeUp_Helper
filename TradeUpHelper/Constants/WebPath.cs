@@ -13,5 +13,6 @@ namespace TradeUpHelper.Constants
         public static string SteamMarket = "https://www.steamcommunity.com/market/search?q=";
         public static string LootFarmPriceDBFile = "https://loot.farm/fullprice.json";
 
+
     }
 }

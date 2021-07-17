@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -62,6 +64,23 @@ namespace TradeUpHelper.Controllers
 
             data = data.Substring(data.IndexOf(":") + 1, data.Length - data.IndexOf(":") - 2);
             return data;
+        }
+
+        public static void SendPost(string url,Dictionary<string,string> postDataDict)
+        {
+            if (postDataDict.Count <= 0) return;
+
+            HttpClient client = new HttpClient();
+
+
+            var content = new FormUrlEncodedContent(postDataDict);
+
+            var response = client.PostAsync(url, content);
+
+            var responseString = response.Result;
+            //MessageBox.Show(responseString.Content.ReadAsStringAsync().Result);
+
+           
         }
 
         public static ImageSource GetImageByURL(string imageUrl)

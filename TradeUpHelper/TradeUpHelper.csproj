@@ -171,6 +171,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Constants\FilePath.cs" />
+    <Compile Include="Constants\TradeUpHelperAPI.cs" />
+    <Compile Include="Constants\TradeUpHelperAPICalls.cs" />
     <Compile Include="Constants\UpdateConfig.cs" />
     <Compile Include="Constants\UpdatePath.cs" />
     <Compile Include="Constants\WebPath.cs" />

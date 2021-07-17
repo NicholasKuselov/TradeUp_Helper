@@ -25,7 +25,7 @@ namespace TradeUpHelper.Controllers.Cache
             }
             catch
             {
-                MessageBox.Show((string)Application.Current.Resources["ErrorWithLoadingInventoryCache"]);
+                //MessageBox.Show((string)Application.Current.Resources["ErrorWithLoadingInventoryCache"]);
                 InventoryHandler.LoadItems();
             }
         }

@@ -96,9 +96,9 @@ namespace TradeUpHelper.Controllers
                     File.WriteAllText("version.xml", wb.DownloadString(UpdatePath.VersionPathOnServer));
                 }
 
-                SettingController.IsFirstStart = true;
+                SettingController.IsFirstStartAfterUpdate = true;
                 //Process.Start("updater.exe", "TradeUpHelper.update TradeUpHelper.exe");
-                Process.Start("updater.exe", Assembly.GetExecutingAssembly().Location.Replace("TradeUpHelper.exe", ""));
+                Process.Start("updater.exe", Assembly.GetExecutingAssembly().Location.Replace("TradeUpHelper.exe", "").Replace(" ","|"));
                 Process.GetCurrentProcess().Kill();
             }
             catch (Exception ex)

@@ -48,9 +48,17 @@ namespace TradeUpHelper.Views
 
             Updater.CheckUpdateSilence();
             ((MainWindowVM)DataContext).LoadInventory();
-            if (SettingController.IsFirstStart)
+            if (SettingController.IsFirstStartAfterUpdate)
             {
                 new ChangeLogWindow().Show();
+                SettingController.IsFirstStartAfterUpdate = false;
+            }
+
+            TradeUpHelperAPI.FirstStart(DateTime.Now.Date.ToShortDateString() + " " + DateTime.Now.ToShortTimeString(), (string)Application.Current.Resources["Version"]);
+           // MessageBox.Show(Assembly.GetExecutingAssembly().Location.Replace("TradeUpHelper.exe", ""));
+            if (SettingController.IsFirstStart || true)
+            {
+   //             TradeUpHelperAPI.FirstStart(DateTime.Now.Date.ToShortDateString() + " " + DateTime.Now.Date.ToShortTimeString(), (string)Application.Current.Resources["Version"]);
                 SettingController.IsFirstStart = false;
             }
             //TODO : Добавить проверку на наличие инета при запуске проги

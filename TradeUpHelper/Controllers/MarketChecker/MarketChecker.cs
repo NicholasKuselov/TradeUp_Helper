@@ -23,17 +23,22 @@ namespace TradeUpHelper.Controllers.MarketChecker
             List<MarketCheckerScin> scins = new List<MarketCheckerScin>();
 
             string[] dataSp = data.Split(new[] { "Buy Now" }, StringSplitOptions.None);
+            //TODO: Переделать конструкцию определение языка стима
+            if (dataSp.Length <= 1)
+            {
+                dataSp = data.Split(new[] { "Купить" }, StringSplitOptions.None);
+            }
 
             foreach (string item in dataSp.Skip(1))
             {
                 MarketCheckerScin tmpScin = new MarketCheckerScin();
 
                 string[] vs = item.Split('\n');
-                tmpScin.price = ConvertFloatToDouble(vs[1]); 
+                tmpScin.price = ConvertFloatToDouble(vs[1]);
                 tmpScin.floatvalue = ConvertFloatToDouble(vs.FirstOrDefault(x => x.Contains("Float Value") || x.Contains("Float:")));
                 tmpScin.paintseed = ConvertToInt(vs.FirstOrDefault(x => x.Contains("Paint Seed")));
                 tmpScin.full_item_name = vs.FirstOrDefault(x => x.Contains("("));
-                tmpScin.Name = tmpScin.full_item_name?.Split('(')?[0]; 
+                tmpScin.Name = tmpScin.full_item_name?.Split('(')?[0];
                 //tmpScin.nametag = vs.First(x => x.Contains("Name Tag")) ?? "s";
 
 
@@ -74,7 +79,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
             string[] dataSp = data.Split(new[] { "Buy Now" }, StringSplitOptions.None);
 
-            if(dataSp.Length<=1) dataSp = data.Split(new[] { "Купить" }, StringSplitOptions.None);
+            if (dataSp.Length <= 1) dataSp = data.Split(new[] { "Купить" }, StringSplitOptions.None);
 
             foreach (string item in dataSp.Skip(1))
             {
@@ -96,7 +101,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
                     tmpScin.full_item_name = vs[3]; //3
                     tmpScin.Name = vs[3].Split('(')[0];
                 }
-                
+
                 if (item.Contains("Sticker") || isStickersNeed)
                 {
                     List<Sticker> stickers = new List<Sticker>();
@@ -115,7 +120,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
                     tmpScin.stickers = stickers.ToArray();
                 }
-                parent.CheckProgress += ((95.0 / parent.CheckProgressCountStages) / (dataSp.Length-1));
+                parent.CheckProgress += ((95.0 / parent.CheckProgressCountStages) / (dataSp.Length - 1));
 
                 scins.Add(tmpScin);
             }
@@ -137,10 +142,10 @@ namespace TradeUpHelper.Controllers.MarketChecker
                 {
                     for (int j = 0; j < scins[i].stickers.Length; j++)
                     {
-                        scins[i].stickers[j].price = PriceHandler.GetPrice(scins[i].stickers[j].name.Substring(0, scins[i].stickers[j].name.Length-1));
+                        scins[i].stickers[j].price = PriceHandler.GetPrice(scins[i].stickers[j].name.Substring(0, scins[i].stickers[j].name.Length - 1));
                     }
                 }
-               // MessageBox.Show(((95.0 / parent.CheckProgressCountStages) / scins.Count).ToString() + " sticke");
+                // MessageBox.Show(((95.0 / parent.CheckProgressCountStages) / scins.Count).ToString() + " sticke");
                 parent.CheckProgress += ((95.0 / parent.CheckProgressCountStages) / scins.Count);
             }
 
@@ -186,7 +191,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
                         checkerScins.Add(scins[i]);
                     }
                 }
-    
+
             }
 
 
