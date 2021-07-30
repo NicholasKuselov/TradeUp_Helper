@@ -3,4 +3,4 @@
 ################################################################################
 
 /TradeUpHelper/bin/*
-/TradeUpHelper/bin
+/TradeUpHelper/obj/*

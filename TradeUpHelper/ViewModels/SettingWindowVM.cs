@@ -12,7 +12,7 @@ namespace TradeUpHelper.ViewModels
 {
     class SettingWindowVM : ViewModelBase
     {
-        public string SteamInventoryURL { get; set; } = "";
+        public string SteamInventoryURL { get; set; } = SettingController.UserInventoryURL;
 
         public ICommand SaveSettings
         {

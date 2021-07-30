@@ -16,6 +16,12 @@ namespace TradeUpHelper.Controllers
 {
     class WebController
     {
+        private static HttpClient client = new HttpClient();
+        private static string GET(string url)
+        {
+            var response = client.GetAsync(url);
+            return response.Result.Content.ReadAsStringAsync().Result;
+        }
         public static bool CheckConnection()
         {
             WebClient client = new WebClient();
@@ -66,21 +72,31 @@ namespace TradeUpHelper.Controllers
             return data;
         }
 
-        public static void SendPost(string url,Dictionary<string,string> postDataDict)
+        public static string SendPost(string url,Dictionary<string,string> postDataDict)
         {
-            if (postDataDict.Count <= 0) return;
-
-            HttpClient client = new HttpClient();
-
+            if (postDataDict.Count <= 0) return "";
 
             var content = new FormUrlEncodedContent(postDataDict);
 
             var response = client.PostAsync(url, content);
 
             var responseString = response.Result;
+            string res = responseString.Content.ReadAsStringAsync().Result.ToString();
+
+            string utfLine = "";
+
+            Encoding utf = Encoding.UTF8;
+            Encoding win = Encoding.GetEncoding(1251);
+
+            byte[] utfArr = utf.GetBytes(utfLine);
+            byte[] winArr = Encoding.Convert(win, utf, utfArr);
+
+            string winLine = win.GetString(winArr);
+            return res;
+
             //MessageBox.Show(responseString.Content.ReadAsStringAsync().Result);
 
-           
+
         }
 
         public static ImageSource GetImageByURL(string imageUrl)
@@ -123,6 +139,12 @@ namespace TradeUpHelper.Controllers
             return data;
         }
 
+        public static string SendGetAlternative(string url)
+        {
+            string ss = GET(url);
+            MessageBox.Show(ss);
+            return ss;
+        }
         public static string SendGet(string url)
         {
 

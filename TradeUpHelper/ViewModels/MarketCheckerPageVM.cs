@@ -69,14 +69,15 @@ namespace TradeUpHelper.ViewModels
                 return;
             }
             
-            if (Data.Contains("Купить") && IsStickerNeed)
-            {
-                if(MessageBoxResult.No.Equals(MessageBox.Show((string) Application.Current.Resources["WarningRussianSteam"], (string)Application.Current.Resources["Warning"],MessageBoxButton.YesNo,MessageBoxImage.Warning)))
-                {
-                    return;
-                }
-                IsStickerNeed = false;
-            }
+            //if (Data.Contains("Купить") && IsStickerNeed)
+            //{
+                //if(MessageBoxResult.No.Equals(MessageBox.Show((string) Application.Current.Resources["WarningRussianSteam"], (string)Application.Current.Resources["Warning"],MessageBoxButton.YesNo,MessageBoxImage.Warning)))
+                //{
+                //    return;
+                //}
+                //IsStickerNeed = false;
+
+            //}
             if (Data.Contains("Powered by CSGOFloat") && IsStickerNeed)
             {
                 if (MessageBoxResult.No.Equals(MessageBox.Show((string)Application.Current.Resources["WarningFloatMarketCheckerEnable"], (string)Application.Current.Resources["Warning"], MessageBoxButton.YesNo, MessageBoxImage.Warning)))

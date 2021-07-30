@@ -4,13 +4,14 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v1.2.1 Beta</v:String>
+    <v:String x:Key="Version">v1.3</v:String>
 
     <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
     
     <v:String x:Key="HistoryWindowTitle">История крафтов</v:String>
     <v:String x:Key="PatternScinWindowTitle">Выбор скина</v:String>
     <v:String x:Key="FloatRangeWindowTitle">Пороги крафтов</v:String>
+    <v:String x:Key="SettingWindowTitle">Настройки</v:String>
     
     <v:String x:Key="PriceWindowTitle">Цена после продажи</v:String>
     
@@ -116,6 +117,8 @@
 
     <v:String x:Key="SteamInventoryURL">Ссылка на инвентарь стим</v:String>
 
+    <v:String x:Key="ErrorNetworkDissableTitle">Ошибка</v:String>
+    <v:String x:Key="ErrorNetworkDissableText">Отсутвует подключение к интернету, проверьте соеденение и повторите попытку! Для работы приложения необходимо устойчивое интернет соеденение</v:String>
     <v:String x:Key="ErrorWithSteamInventoryURL">Для пользования функциями инвентаря, зайдите в НАСТРОЙКИ и установите ссылку на ваш инвентарь</v:String>
     <v:String x:Key="ErrorWithMinVersionForUpdate">Обновление с версии которая у вас учтановлена не возможна. Установите новую версию программы используя ссылку на Setup файл.</v:String>
     <v:String x:Key="ErrorWithLoadingInventoryCache">При загрузке кеша инвентаря произошла ошибка! Возможно его просто не было... </v:String>

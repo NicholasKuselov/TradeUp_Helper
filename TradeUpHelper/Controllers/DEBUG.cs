@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using TradeUpHelper.Constants;
 
 namespace TradeUpHelper.Controllers
 {
@@ -32,6 +35,37 @@ namespace TradeUpHelper.Controllers
 
 
             //File.WriteAllText("sss.txt", JsonSerializer.Serialize<List<RarityPainSeedScin>>(Scins));
+
+
+
+
+
+            //List<string> ss = new List<string>();
+
+            //string data = File.ReadAllText("C:\\Users\\Odin\\Desktop\\csgo_russian.txt");
+            //string[] dataSp = data.Split('\n');
+            //for (int i = 0; i < dataSp.Length; i++)
+            //{
+            //    if (dataSp[i].Contains("StickerKit"))
+            //    {
+            //        if (!dataSp[i].Contains("desc"))
+            //        {
+            //            //string stic = "";
+            //            //for (int j = 0; j < dataSp[i].Length; j++)
+            //            //{
+            //            //    if (Char.IsLetterOrDigit(dataSp[i][j]))
+            //            //    {
+            //            //        stic = stic + dataSp[i][j];
+            //            //    }
+            //            //}
+            //            //ss.Add(dataSp[i]);
+            //            ss.Add(dataSp[i].Substring(dataSp[i].IndexOf('\t')+1, dataSp[i].Length - dataSp[i].IndexOf('\t') - 2 ));// + "!" + dataSp[i + 1].Substring(dataSp[i + 1].IndexOf('\t')));
+            //            ss.Add(dataSp[i + 1].Substring(dataSp[i + 1].IndexOf('\t')+1, dataSp[i+1].Length - dataSp[i+1].IndexOf('\t') - 2));
+            //            i++;
+            //        }
+            //    }
+            //}
+
 
         }
     }

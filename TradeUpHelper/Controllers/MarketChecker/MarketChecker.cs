@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using TradeUpHelper.Constants;
 using TradeUpHelper.Models;
 using TradeUpHelper.Models.MarketChecker;
 using TradeUpHelper.ViewModels;
@@ -39,10 +40,28 @@ namespace TradeUpHelper.Controllers.MarketChecker
                 tmpScin.paintseed = ConvertToInt(vs.FirstOrDefault(x => x.Contains("Paint Seed")));
                 tmpScin.full_item_name = vs.FirstOrDefault(x => x.Contains("("));
                 tmpScin.Name = tmpScin.full_item_name?.Split('(')?[0];
-                //tmpScin.nametag = vs.First(x => x.Contains("Name Tag")) ?? "s";
+                //tmpScin.nametag = vs.First(x => x.Contains("Name Tag")) ?? "s";Купить
 
+                if (item.Contains("Наклейка") || isStickersNeed)
+                {
+                    List<Sticker> stickers = new List<Sticker>();
 
-                if (item.Contains("Sticker") || isStickersNeed)
+                    string[] stick = item.Split(new[] { "Наклейка" }, StringSplitOptions.None);
+
+                    foreach (string st in stick.Skip(1))
+                    {
+                        Sticker sticker = new Sticker();
+                        string[] cs1 = st.Split('\n');
+                        sticker.name = ("Наклейка" + cs1[0]).Replace('\r', ' ');
+                        //TODO : Добавить поле износа в класс наклейки
+                        //sticker.wear = cs1[3];
+                        sticker.StickerNameLang = StickerNameLang.RU;
+                        stickers.Add(sticker);
+                    }
+
+                    tmpScin.stickers = stickers.ToArray();
+                }
+                else if (item.Contains("Sticker") || isStickersNeed)
                 {
                     List<Sticker> stickers = new List<Sticker>();
 
@@ -55,6 +74,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
                         sticker.name = ("Sticker" + cs1[0]).Replace('\r', ' ');
                         //TODO : Добавить поле износа в класс наклейки
                         //sticker.wear = cs1[3];
+                        sticker.StickerNameLang = StickerNameLang.EN;
                         stickers.Add(sticker);
                     }
 
@@ -142,10 +162,24 @@ namespace TradeUpHelper.Controllers.MarketChecker
                 {
                     for (int j = 0; j < scins[i].stickers.Length; j++)
                     {
-                        scins[i].stickers[j].price = PriceHandler.GetPrice(scins[i].stickers[j].name.Substring(0, scins[i].stickers[j].name.Length - 1));
+                        if (scins[i].stickers[j].StickerNameLang == StickerNameLang.EN)
+                        {
+                            scins[i].stickers[j].price = PriceHandler.GetPrice(scins[i].stickers[j].name.Substring(0, scins[i].stickers[j].name.Length - 1));
+                        }
+                        else if (scins[i].stickers[j].StickerNameLang == StickerNameLang.RU)
+                        {
+                            try
+                            {
+                                string engName = TradeUpHelperAPI.GetStickerByRus(scins[i].stickers[j].name.Substring(scins[i].stickers[j].name.IndexOf('|')+2, scins[i].stickers[j].name.Length - 3 - scins[i].stickers[j].name.IndexOf('|'))).stickers[0].name_eng;
+                                scins[i].stickers[j].price = PriceHandler.GetPrice("Sticker | "+engName);
+                            }
+                            catch (IndexOutOfRangeException)
+                            {
+                                scins[i].stickers[j].price = -1;
+                            }                           
+                        }
                     }
                 }
-                // MessageBox.Show(((95.0 / parent.CheckProgressCountStages) / scins.Count).ToString() + " sticke");
                 parent.CheckProgress += ((95.0 / parent.CheckProgressCountStages) / scins.Count);
             }
 

@@ -131,6 +131,11 @@ namespace TradeUpHelper.Controllers
             Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("myprogram")[0].InnerText);
             Version localVersion = new Version(docLocalVersion.GetElementsByTagName("myprogram")[0].InnerText);
 
+            if (localVersion < remoteVersion)
+            {
+                Update();
+            }
+
         }
     }
 }

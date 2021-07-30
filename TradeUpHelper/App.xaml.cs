@@ -13,5 +13,10 @@ namespace TradeUpHelper
     /// </summary>
     public partial class App : Application
     {
+        public App() => AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(Exception);
+        static void Exception(object sender, UnhandledExceptionEventArgs args)
+        {
+            
+        }
     }
 }

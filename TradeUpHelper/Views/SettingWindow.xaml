@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
         mc:Ignorable="d"
-        Title="SettingWindow" Height="200" Width="800">
+        Title="{DynamicResource SettingWindowTitle}" Height="200" Width="800">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -22,12 +22,14 @@
     <Window.DataContext>
         <viewmodels:SettingWindowVM/>
     </Window.DataContext>
-    <Grid Background="{DynamicResource Color_WindowBackground}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <TextBox Grid.Row="0" Text="{Binding SteamInventoryURL}" Style="{DynamicResource SteamInventoryUrlTextBoxStyle}"/>
-        <Button Grid.Row="1" Command="{Binding SaveSettings}" Width="200" Height="50" Content="Save" Background="Transparent" BorderThickness="1" BorderBrush="Silver" FontSize="20" Foreground="White"/>
-    </Grid>
+    <Border BorderBrush="Gray" BorderThickness="1">
+        <Grid Background="{DynamicResource Color_WindowBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" Text="{Binding SteamInventoryURL}" Style="{DynamicResource SteamInventoryUrlTextBoxStyle}"/>
+            <Button Grid.Row="1" Command="{Binding SaveSettings}" Width="200" Height="50" Content="Save" Background="Transparent" BorderThickness="1" BorderBrush="Silver" FontSize="20" Foreground="White"/>
+        </Grid>
+    </Border>
 </Window>

@@ -83,7 +83,7 @@
                 <Label Content="{DynamicResource MCStickerFoundCount}" Foreground="White" Margin="10,0,0,0" FontSize="10" VerticalContentAlignment="Center" Width="98"/>
                 <Label Content="{Binding ScinsWithStickers.Count}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="50"/>
                 <Label Content="{DynamicResource MCPaintSeedFoundCount}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" Width="140"/>
-                <Label Content="{Binding ScinsWithStickers.Count}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="130"/>
+                <Label Content="{Binding ScinsWithRarityPaintSeeds.Count}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="130"/>
             </StackPanel>
         </Border>
     </Grid>

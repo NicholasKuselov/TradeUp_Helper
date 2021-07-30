@@ -215,6 +215,8 @@
     <Compile Include="Models\Rarity.cs" />
     <Compile Include="Models\Scin.cs" />
     <Compile Include="Models\Sticker.cs" />
+    <Compile Include="Models\TradeUpHelperAPI\Response.cs" />
+    <Compile Include="Models\TradeUpHelperAPI\ResponseStickerRus.cs" />
     <Compile Include="Models\Wear.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="ViewModels\ChangeLogWindowVM.cs" />

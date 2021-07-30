@@ -45,7 +45,11 @@ namespace TradeUpHelper.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DEBUG.TEST();
-
+            if(!WebController.CheckConnection())
+            {
+                MessageBox.Show((string)Application.Current.Resources["ErrorNetworkDissableText"], (string)Application.Current.Resources["ErrorNetworkDissableTitle"],MessageBoxButton.OK,MessageBoxImage.Error);
+                App.Current.Shutdown();
+            }
             Updater.CheckUpdateSilence();
             ((MainWindowVM)DataContext).LoadInventory();
             if (SettingController.IsFirstStartAfterUpdate)
@@ -54,11 +58,9 @@ namespace TradeUpHelper.Views
                 SettingController.IsFirstStartAfterUpdate = false;
             }
 
-            TradeUpHelperAPI.FirstStart(DateTime.Now.Date.ToShortDateString() + " " + DateTime.Now.ToShortTimeString(), (string)Application.Current.Resources["Version"]);
-           // MessageBox.Show(Assembly.GetExecutingAssembly().Location.Replace("TradeUpHelper.exe", ""));
             if (SettingController.IsFirstStart || true)
             {
-   //             TradeUpHelperAPI.FirstStart(DateTime.Now.Date.ToShortDateString() + " " + DateTime.Now.Date.ToShortTimeString(), (string)Application.Current.Resources["Version"]);
+                TradeUpHelperAPI.FirstStart(DateTime.Now.Date.ToShortDateString() + " " + DateTime.Now.ToShortTimeString(), (string)Application.Current.Resources["Version"]);
                 SettingController.IsFirstStart = false;
             }
             //TODO : Добавить проверку на наличие инета при запуске проги
