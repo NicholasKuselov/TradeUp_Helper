@@ -10,6 +10,10 @@
                 <ResourceDictionary Source="Resources/Local/lang.RU-ru.xaml" />
                 <ResourceDictionary Source="Resources/Colors/Colors.xaml"/>
                 <ResourceDictionary Source="Resources/Icons/Icons.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/ButtonsStyles.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/LabelsStyles.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/ListBoxesStyles.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/TextBoxesStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

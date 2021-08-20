@@ -190,6 +190,7 @@
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\InventoryHandler.cs" />
     <Compile Include="Controllers\PriceHandler.cs" />
+    <Compile Include="Controllers\ProgramKeyHandler.cs" />
     <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="DataConverters\ContractResultColorConverter.cs" />
     <Compile Include="DataConverters\ImageConverter.cs" />
@@ -215,10 +216,13 @@
     <Compile Include="Models\Rarity.cs" />
     <Compile Include="Models\Scin.cs" />
     <Compile Include="Models\Sticker.cs" />
+    <Compile Include="Models\TradeUpHelperAPI\ResponseCheckProgramKey.cs" />
     <Compile Include="Models\TradeUpHelperAPI\Response.cs" />
+    <Compile Include="Models\TradeUpHelperAPI\ResponseRegisterProgram.cs" />
     <Compile Include="Models\TradeUpHelperAPI\ResponseStickerRus.cs" />
     <Compile Include="Models\Wear.cs" />
     <Compile Include="Models\Setting.cs" />
+    <Compile Include="ViewModels\AuthWindowVM.cs" />
     <Compile Include="ViewModels\ChangeLogWindowVM.cs" />
     <Compile Include="ViewModels\CraftHistoryWindowVM.cs" />
     <Compile Include="ViewModels\FroatRangeCalcWindowVM.cs" />
@@ -229,8 +233,12 @@
     <Compile Include="ViewModels\MarketCheckerPageVM.cs" />
     <Compile Include="ViewModels\PatternScinSelectWindowVM.cs" />
     <Compile Include="ViewModels\PriceWindowVM.cs" />
+    <Compile Include="ViewModels\RarePatternAddingWindowVM.cs" />
     <Compile Include="ViewModels\ScinFloatRangeWindowVM.cs" />
     <Compile Include="ViewModels\SettingWindowVM.cs" />
+    <Compile Include="Views\AuthWindow.xaml.cs">
+      <DependentUpon>AuthWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ChangeLogWindow.xaml.cs">
       <DependentUpon>ChangeLogWindow.xaml</DependentUpon>
     </Compile>
@@ -263,6 +271,9 @@
     </Compile>
     <Compile Include="Views\PriceCalcWindow.xaml.cs">
       <DependentUpon>PriceCalcWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RarePatternAddingWindow.xaml.cs">
+      <DependentUpon>RarePatternAddingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ScinFloatRangeWindow.xaml.cs">
       <DependentUpon>ScinFloatRangeWindow.xaml</DependentUpon>
@@ -325,6 +336,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AuthWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ChangeLogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -380,6 +395,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PriceCalcWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RarePatternAddingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

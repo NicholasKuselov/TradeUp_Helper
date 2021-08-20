@@ -24,7 +24,7 @@ namespace TradeUpHelper.ViewModels
         }
 
         public double CheckProgressCountStages = 1;
-        
+
         public double CheckProgress { get; set; } = 0.0;
         //public List<string> ScinsNameWithRarityPaintSeeds { get; set; } = new List<string>(RarityPaintSeedsHandler.seeds.Keys.ToArray());
         public RarityPainSeedScin SelectedWeapon { get; set; } = new RarityPainSeedScin() { ImageUrl = "", Name = (string)Application.Current.Resources["MCSelectScin"], Seeds = new List<RariryPainSeed>() };
@@ -33,12 +33,13 @@ namespace TradeUpHelper.ViewModels
         public bool IsPaintSeedNeed { get; set; } = true;
         public string Data { get; set; } = "";
 
-        public List<MarketCheckerScin> Scins { get; set; } 
+        public List<MarketCheckerScin> Scins { get; set; }
 
         public List<MarketCheckerScin> ScinsWithRarityPaintSeeds { get; set; }
 
         public List<MarketCheckerScin> ScinsWithStickers { get; set; }
 
+        public PatternScinSelectWindow patternScinSelectWindow;
         public ICommand StartChecking
         {
             get
@@ -56,26 +57,39 @@ namespace TradeUpHelper.ViewModels
             {
                 return new RelayCommand(() =>
                 {
-                    new PatternScinSelectWindow().Show();
+                    if (patternScinSelectWindow != null)
+                    {
+                        patternScinSelectWindow.Show();
+                    }
+                    else
+                    {
+                        patternScinSelectWindow = new PatternScinSelectWindow();
+                        patternScinSelectWindow.Show();
+                    }
                 });
             }
         }
 
         public void Check()
         {
-            if(IsPaintSeedNeed && SelectedWeapon == null)
+            if (IsPaintSeedNeed && SelectedWeapon == null)
             {
                 MessageBox.Show((string)Application.Current.Resources["MCSelectScinError"]);
                 return;
             }
-            
+            else if (Data.Length < 10)
+            {
+                MessageBox.Show((string)Application.Current.Resources["ErrorMarketCheckerDataEmpty"], (string)Application.Current.Resources["Warning"], MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
             //if (Data.Contains("Купить") && IsStickerNeed)
             //{
-                //if(MessageBoxResult.No.Equals(MessageBox.Show((string) Application.Current.Resources["WarningRussianSteam"], (string)Application.Current.Resources["Warning"],MessageBoxButton.YesNo,MessageBoxImage.Warning)))
-                //{
-                //    return;
-                //}
-                //IsStickerNeed = false;
+            //if(MessageBoxResult.No.Equals(MessageBox.Show((string) Application.Current.Resources["WarningRussianSteam"], (string)Application.Current.Resources["Warning"],MessageBoxButton.YesNo,MessageBoxImage.Warning)))
+            //{
+            //    return;
+            //}
+            //IsStickerNeed = false;
 
             //}
             if (Data.Contains("Powered by CSGOFloat") && IsStickerNeed)
@@ -97,15 +111,27 @@ namespace TradeUpHelper.ViewModels
             MarketChecker.parent = this;
             Task.Run(() =>
             {
-                Scins = MarketChecker.GetScinsAlternative(Data,IsStickerNeed);
-                if(IsPaintSeedNeed) ScinsWithRarityPaintSeeds = MarketChecker.CheckPaintSeed(Scins, SelectedWeapon);
-                if(IsStickerNeed) ScinsWithStickers = MarketChecker.GetStickerPrice(MarketChecker.GetScinsWithSticker(Scins));
-                CheckProgress += 10.0;
-                MessageBox.Show((string)Application.Current.Resources["OperationEndSuccessfuly"], "", MessageBoxButton.OK, MessageBoxImage.Information);
+                try
+                {
+                    Scins = MarketChecker.GetScinsAlternative(Data, IsStickerNeed);
+                    if (Scins.Count == 0)
+                    {
+                        MessageBox.Show((string)Application.Current.Resources["ErrorMarketCheckerDataUncorrect"], (string)Application.Current.Resources["ErrorTitle"], MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    if (IsPaintSeedNeed) ScinsWithRarityPaintSeeds = MarketChecker.CheckPaintSeed(Scins, SelectedWeapon);
+                    if (IsStickerNeed) ScinsWithStickers = MarketChecker.GetStickerPrice(MarketChecker.GetScinsWithSticker(Scins));
+                    CheckProgress += 10.0;
+                    MessageBox.Show((string)Application.Current.Resources["OperationEndSuccessfuly"], "", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show((string)Application.Current.Resources["ErrorMarketCheckerDataUncorrect"], (string)Application.Current.Resources["ErrorTitle"], MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             });
 
-            
-            
+
+
         }
     }
 }

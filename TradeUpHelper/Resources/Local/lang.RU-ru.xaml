@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v1.3</v:String>
+    <v:String x:Key="Version">v1.3.1</v:String>
 
     <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
     
@@ -117,7 +117,17 @@
 
     <v:String x:Key="SteamInventoryURL">Ссылка на инвентарь стим</v:String>
 
+    <v:String x:Key="MessageTitle">Уведомление</v:String>
+    <v:String x:Key="MessageProgramRegistredSuccessful">Программа успешно зарегестрирована!</v:String>
+
+
+    <v:String x:Key="ErrorTitle">Ошибка</v:String>
+    <v:String x:Key="ErrorMarketCheckerDataEmpty">Вставьте скопированную страницу стим в поле в верхнем левом углу окна</v:String>
+    <v:String x:Key="ErrorMarketCheckerDataUncorrect">Введены не корректные данные!</v:String>
     <v:String x:Key="ErrorNetworkDissableTitle">Ошибка</v:String>
+    <v:String x:Key="ErrorEmptyKey">Отсутвстует ключ программы! Переустановите программу!</v:String>
+    <v:String x:Key="ErrorWrongKey">Поддельный ключ программы!</v:String>
+    <v:String x:Key="ErrorServerDissable">Сервера TradeUp Helper не отвечают!</v:String>
     <v:String x:Key="ErrorNetworkDissableText">Отсутвует подключение к интернету, проверьте соеденение и повторите попытку! Для работы приложения необходимо устойчивое интернет соеденение</v:String>
     <v:String x:Key="ErrorWithSteamInventoryURL">Для пользования функциями инвентаря, зайдите в НАСТРОЙКИ и установите ссылку на ваш инвентарь</v:String>
     <v:String x:Key="ErrorWithMinVersionForUpdate">Обновление с версии которая у вас учтановлена не возможна. Установите новую версию программы используя ссылку на Setup файл.</v:String>

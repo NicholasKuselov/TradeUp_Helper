@@ -37,6 +37,7 @@ namespace TradeUpHelper.ViewModels
         public TradeUpPage TradeUpPage { get; set; }
         public InventoryPage InventoryPage { get; set; }
         private MainMenuPage MainMenuPage { get; set; }
+        public MarketCheckerPage MarketCheckerPage { get; set; }
 
         public Visibility IsBackButtonActive { get; set; } = Visibility.Hidden;
 
@@ -168,7 +169,8 @@ namespace TradeUpHelper.ViewModels
 
         public void SelectMarketCheckerPage()
         {
-            CurrentPage = new MarketCheckerPage();
+            MarketCheckerPage = new MarketCheckerPage();
+            CurrentPage = MarketCheckerPage;
         }
     }
 }

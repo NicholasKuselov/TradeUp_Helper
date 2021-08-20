@@ -13,11 +13,12 @@ namespace TradeUpHelper.Constants
     {
         private static string baseApiPath = "https://tradeuphelper-csgo.site/API/API.php?apicall=";
 
-        public static void FirstStart(string date,string version)
+        public static void FirstStart(string date,string version,string key)
         {
             Dictionary<string, string> param = new Dictionary<string, string>();
             param.Add("StartDate", date);
             param.Add("HelperVersion", version);
+            param.Add("Key", key);
             WebController.SendPost(baseApiPath + TradeUpHelperAPICalls.FirstStart, param);
         }
 
@@ -36,6 +37,20 @@ namespace TradeUpHelper.Constants
             param.Add("NameRus", NameRus);
             string response = WebController.SendPost(baseApiPath + TradeUpHelperAPICalls.GetStickerByRus, param);
             return JsonSerializer.Deserialize<ResponseStickerRus>(response);
+        }
+
+        public static ResponseRegisterProgram RegisterProgram()
+        {
+            string response = WebController.SendGet(baseApiPath + TradeUpHelperAPICalls.RegisterProgram);
+            return JsonSerializer.Deserialize<ResponseRegisterProgram>(response);
+        }
+
+        public static ResponseCheckProgramKey CheckProgramKey(string key)
+        {
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add("key", key);
+            string response = WebController.SendPost(baseApiPath + TradeUpHelperAPICalls.CheckProgramKey, param);
+            return JsonSerializer.Deserialize<ResponseCheckProgramKey>(response);
         }
     }
 }

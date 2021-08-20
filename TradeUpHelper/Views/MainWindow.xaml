@@ -6,7 +6,7 @@
         xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels" xmlns:converters="clr-namespace:TradeUpHelper.DataConverters"
         mc:Ignorable="d"
-        Title="MainMenuWindow" Height="525" Width="800" AllowsTransparency="False" WindowStyle="None" Loaded="Window_Loaded">
+        Title="{DynamicResource ProgramName}" Height="525" Width="800" AllowsTransparency="False" WindowStyle="None" Loaded="Window_Loaded">
 
     <Window.Style>
         <Style TargetType="{x:Type Window}">

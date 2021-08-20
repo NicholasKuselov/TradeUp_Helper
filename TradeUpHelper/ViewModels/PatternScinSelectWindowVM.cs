@@ -22,7 +22,7 @@ namespace TradeUpHelper.ViewModels
                 return new RelayCommand(() =>
                 {
                     MarketChecker.SelectedScin = SelectedItem;
-                    
+                    ((MarketCheckerPageVM)((MainWindowVM)App.Current.MainWindow.DataContext).MarketCheckerPage.DataContext).patternScinSelectWindow.Close();
                 });
             }
         }
