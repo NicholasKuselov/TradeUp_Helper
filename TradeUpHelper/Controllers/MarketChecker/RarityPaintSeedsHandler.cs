@@ -12,6 +12,8 @@ namespace TradeUpHelper.Controllers.MarketChecker
 {
     class RarityPaintSeedsHandler
     {
-        public static List<RarityPainSeedScin> Scins = JsonSerializer.Deserialize<List<RarityPainSeedScin>>(File.ReadAllText(FilePath.paintSeedsFilePath));
+        //public static List<RarityPainSeedScin> Scins = JsonSerializer.Deserialize<List<RarityPainSeedScin>>(File.ReadAllText(FilePath.paintSeedsFilePath));
+        public static List<RarityPainSeedScin> Scins = TradeUpHelperAPI.GetRaritySeeds().scins;
+
     }
 }

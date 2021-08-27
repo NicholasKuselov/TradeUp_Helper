@@ -52,5 +52,17 @@ namespace TradeUpHelper.Constants
             string response = WebController.SendPost(baseApiPath + TradeUpHelperAPICalls.CheckProgramKey, param);
             return JsonSerializer.Deserialize<ResponseCheckProgramKey>(response);
         }
+
+        public static ResponseRaritySeedsInfo GetRaritySeeds()
+        {
+            string response = WebController.SendGet(baseApiPath + TradeUpHelperAPICalls.GetRarityPaintSeeds);
+            return JsonSerializer.Deserialize<ResponseRaritySeedsInfo>(response);
+        }
+
+        public static ResponseMessagesForUsers GetMessagesForUser()
+        {
+            string response = WebController.SendGet(baseApiPath + TradeUpHelperAPICalls.GetUserMessages);
+            return JsonSerializer.Deserialize<ResponseMessagesForUsers>(response);
+        }
     }
 }

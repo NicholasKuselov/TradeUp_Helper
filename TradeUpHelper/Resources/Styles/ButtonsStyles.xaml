@@ -70,7 +70,34 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    
+
+    <ControlTemplate x:Key="NextButton" TargetType="{x:Type Button}">
+        <Border   Name="border" Background="Transparent" Padding="0">
+            <Label Content=">" Padding="0" VerticalContentAlignment="Center" FontStyle="Italic" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Foreground="LightGray"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="BackButton" TargetType="{x:Type Button}">
+        <Border   Name="border" Background="Transparent" Padding="0">
+            <Label Content="&lt;" Padding="0" VerticalContentAlignment="Center" FontStyle="Italic" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Foreground="LightGray"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
 
     <ControlTemplate x:Key="ShowFloatRangeWindow" TargetType="{x:Type Button}">
         <Border   Name="border" Background="Transparent">

@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v1.3.1</v:String>
+    <v:String x:Key="Version">v1.4</v:String>
 
     <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
     
@@ -40,6 +40,11 @@
     <v:String x:Key="WearWellWornShort">WW</v:String>
     <v:String x:Key="WearBattleScaredShort">BS</v:String>
 
+    <!--Message Window-->
+    <v:String x:Key="MessageWindowTitle">Сообщения</v:String>
+    <v:String x:Key="MessageWindowOF">из</v:String>
+
+    
     <!--Info-->
     <v:String x:Key="InfoFloat">Float :</v:String>
     <v:String x:Key="InfoPrice">Цена :</v:String>
@@ -118,7 +123,7 @@
     <v:String x:Key="SteamInventoryURL">Ссылка на инвентарь стим</v:String>
 
     <v:String x:Key="MessageTitle">Уведомление</v:String>
-    <v:String x:Key="MessageProgramRegistredSuccessful">Программа успешно зарегестрирована!</v:String>
+    <v:String x:Key="MessageProgramRegistredSuccessful">Программа успешно зарегистрирована!</v:String>
 
 
     <v:String x:Key="ErrorTitle">Ошибка</v:String>

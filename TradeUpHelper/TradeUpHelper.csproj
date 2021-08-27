@@ -192,6 +192,8 @@
     <Compile Include="Controllers\PriceHandler.cs" />
     <Compile Include="Controllers\ProgramKeyHandler.cs" />
     <Compile Include="Controllers\SettingController.cs" />
+    <Compile Include="Controllers\UserMessagesController.cs" />
+    <Compile Include="Controllers\UserMessagesFromAPIController.cs" />
     <Compile Include="DataConverters\ContractResultColorConverter.cs" />
     <Compile Include="DataConverters\ImageConverter.cs" />
     <Compile Include="DataConverters\RarityColorConverter.cs" />
@@ -216,8 +218,11 @@
     <Compile Include="Models\Rarity.cs" />
     <Compile Include="Models\Scin.cs" />
     <Compile Include="Models\Sticker.cs" />
+    <Compile Include="Models\TradeUpHelperAPI\MessageForUser.cs" />
     <Compile Include="Models\TradeUpHelperAPI\ResponseCheckProgramKey.cs" />
     <Compile Include="Models\TradeUpHelperAPI\Response.cs" />
+    <Compile Include="Models\TradeUpHelperAPI\ResponseMessagesForUsers.cs" />
+    <Compile Include="Models\TradeUpHelperAPI\ResponseRaritySeedsInfo.cs" />
     <Compile Include="Models\TradeUpHelperAPI\ResponseRegisterProgram.cs" />
     <Compile Include="Models\TradeUpHelperAPI\ResponseStickerRus.cs" />
     <Compile Include="Models\Wear.cs" />
@@ -231,6 +236,7 @@
     <Compile Include="ViewModels\MainMenuPageVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
     <Compile Include="ViewModels\MarketCheckerPageVM.cs" />
+    <Compile Include="ViewModels\MessageWindowVM.cs" />
     <Compile Include="ViewModels\PatternScinSelectWindowVM.cs" />
     <Compile Include="ViewModels\PriceWindowVM.cs" />
     <Compile Include="ViewModels\RarePatternAddingWindowVM.cs" />
@@ -265,6 +271,9 @@
     </Compile>
     <Compile Include="Views\MarketCheckerPage.xaml.cs">
       <DependentUpon>MarketCheckerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PatternScinSelectWindow.xaml.cs">
       <DependentUpon>PatternScinSelectWindow.xaml</DependentUpon>
@@ -390,6 +399,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PatternScinSelectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -465,6 +478,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\info.png" />
     <Resource Include="Resources\Icons\UpdateIco.svg" />
     <Resource Include="Resources\Icons\BackIco.svg" />
     <Resource Include="Resources\Icons\SwitchIco.svg" />

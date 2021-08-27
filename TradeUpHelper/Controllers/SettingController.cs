@@ -42,6 +42,16 @@ namespace TradeUpHelper.Controllers
             }
         }
 
+        public static int LastReadMessageId
+        {
+            get { return setting.LastReadMessageId; }
+            set
+            {
+                setting.LastReadMessageId = value;
+                File.WriteAllText(FilePath.settingFile, JsonSerializer.Serialize(setting));
+            }
+        }
+
         private static Setting setting;
 
         public static void Load()

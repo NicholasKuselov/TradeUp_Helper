@@ -249,7 +249,6 @@ C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\bin\Debug\System.Text.Encodi
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\bin\Debug\System.Text.Json.xml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\bin\Debug\System.ValueTuple.xml
-C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Colors\Colors.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Icons\Icons.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Local\lang.RU-ru.baml
@@ -311,3 +310,6 @@ C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\RarePatternA
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\RarePatternAddingWindow.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\AuthWindow.g.cs
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\AuthWindow.baml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\MessageWindow.g.cs
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\MessageWindow.baml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache

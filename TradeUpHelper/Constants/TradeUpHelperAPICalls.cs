@@ -13,5 +13,7 @@ namespace TradeUpHelper.Constants
         public static string GetStickerByRus { get; } = "get_sticker_by_rus";
         public static string RegisterProgram { get; } = "register_program";
         public static string CheckProgramKey { get; } = "check_program_key";
+        public static string GetRarityPaintSeeds { get; } = "get_seeds";
+        public static string GetUserMessages { get; } = "get_messages_for_users";
     }
 }
