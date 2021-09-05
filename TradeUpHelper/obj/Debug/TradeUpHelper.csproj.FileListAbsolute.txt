@@ -312,4 +312,10 @@ C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\AuthWindow.g
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\AuthWindow.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\MessageWindow.g.cs
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\MessageWindow.baml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\bin\Debug\AngleSharp.dll
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\bin\Debug\AngleSharp.xml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\bin\Debug\System.Text.Encoding.CodePages.xml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Colors\Colors.blue.baml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Colors\Colors.purple.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache

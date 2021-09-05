@@ -43,6 +43,20 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <ControlTemplate x:Key="ThemeButton" TargetType="{x:Type RadioButton}">
+        <Border   Name="border" Background="Transparent" CornerRadius="15">
+            <Ellipse Name="ellipse" Stroke="{DynamicResource Color_ButtonBorder}" Fill ="{TemplateBinding Background}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="ellipse" Property="Stroke" Value="{DynamicResource ResourceKey=Color_ButtonBorderFocus}"></Setter>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="ellipse" Property="Stroke" Value="{DynamicResource ResourceKey=Color_ButtonBorderPress}"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
     <ControlTemplate x:Key="SelectPatternButton" TargetType="{x:Type Button}">
         <Border   Name="border" Background="Transparent" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="0,0,0,0">
             <Label Content="{Binding SelectedWeapon.Name}" HorizontalAlignment="Center" FontSize="10" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="White"/>
@@ -56,6 +70,49 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
+    
+    <ControlTemplate x:Key="TransparentButton" TargetType="{x:Type Button}">
+        <Border   Name="border" Background="Transparent" Padding="0">
+            <Label Content="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}" Margin="0" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="LightGray"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="LeftButton" TargetType="{x:Type Button}">
+        <Border   Name="border" Background="Transparent" Padding="0">
+            <Image Width="30" Height="30" Name="image" Source="/TradeUpHelper;component/Resources/Images/left.png"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/leftFocus.png"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/leftFocus.png"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="RightButton" TargetType="{x:Type Button}">
+        <Border   Name="border" Background="Transparent" Padding="0">
+            <Image Width="30" Height="30" Name="image" Source="/TradeUpHelper;component/Resources/Images/right.png"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/rightFocus.png"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/rightFocus.png"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
 
     <ControlTemplate x:Key="ChangeLogButton" TargetType="{x:Type Button}">
         <Border   Name="border" Background="Transparent">

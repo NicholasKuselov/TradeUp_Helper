@@ -79,6 +79,9 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.16.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.16.0\lib\net472\AngleSharp.dll</HintPath>
+    </Reference>
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net47\CommonServiceLocator.dll</HintPath>
     </Reference>
@@ -137,6 +140,9 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
     <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
@@ -171,6 +177,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Constants\FilePath.cs" />
+    <Compile Include="Constants\Themes.cs" />
     <Compile Include="Constants\TradeUpHelperAPI.cs" />
     <Compile Include="Constants\TradeUpHelperAPICalls.cs" />
     <Compile Include="Constants\UpdateConfig.cs" />
@@ -187,6 +194,7 @@
     <Compile Include="Controllers\MarketChecker\MarketChecker.cs" />
     <Compile Include="Controllers\MarketChecker\RarityPainSeedScin.cs" />
     <Compile Include="Controllers\MarketChecker\RarityPaintSeedsHandler.cs" />
+    <Compile Include="Controllers\NewsHandler.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\InventoryHandler.cs" />
     <Compile Include="Controllers\PriceHandler.cs" />
@@ -293,6 +301,14 @@
     <Compile Include="Views\TradeUpPage.xaml.cs">
       <DependentUpon>TradeUpPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Resources\Colors\Colors.purple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Colors\Colors.blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resources\Colors\Colors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -463,9 +479,6 @@
     <Resource Include="Resources\Icons\MarketAnalizIco.svg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="logo.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
@@ -478,11 +491,23 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\trade2.png" />
+    <Resource Include="Resources\Images\cyber_fb.png" />
+    <Resource Include="Resources\Images\cybersportsLogo.png" />
+    <Resource Include="Resources\Images\left.png" />
+    <Resource Include="Resources\Images\leftFocus.png" />
+    <Resource Include="Resources\Images\right.png" />
+    <Resource Include="Resources\Images\rightFocus.png" />
+    <Resource Include="Resources\Images\inv.png" />
+    <Resource Include="Resources\Images\search.png" />
+    <Resource Include="Resources\Images\trade.png" />
     <Resource Include="Resources\Images\info.png" />
     <Resource Include="Resources\Icons\UpdateIco.svg" />
     <Resource Include="Resources\Icons\BackIco.svg" />
     <Resource Include="Resources\Icons\SwitchIco.svg" />
     <Resource Include="Resources\Icons\start.svg" />
+    <Resource Include="Resources\Images\padlock.png" />
+    <Resource Include="logo.ico" />
     <Content Include="Resources\Icons\TradeIco.svg" />
     <Resource Include="Resources\Icons\TraderIco.svg" />
   </ItemGroup>

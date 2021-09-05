@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:converters="clr-namespace:TradeUpHelper.DataConverters" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="800"
       Title="MainMenuPage">
 
     <Page.Resources>
@@ -27,8 +27,8 @@
 
     <Grid Background="{DynamicResource Color_WindowBackground}">
         <Grid.RowDefinitions>
+            <RowDefinition Height="400"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="100"></RowDefinition>
 
         </Grid.RowDefinitions>
 
@@ -45,12 +45,12 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Column="0" Grid.Row="0">
-                <Button Width="300" Height="130" Command="{Binding OpenTradeUpWindow}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_TradeUpButton}" />
+                <Button Width="300" Height="130" HorizontalAlignment="Right" Command="{Binding OpenTradeUpWindow}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_TradeUpButton}" />
 
             </Grid>
 
             <Grid Grid.Column="0" Grid.Row="1">
-                <Button Width="300" Height="130" Command="{Binding OpenMarketCheckerPage}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_MarketAnalizButton}" />
+                <Button Width="300" Height="130" HorizontalAlignment="Right" Command="{Binding OpenMarketCheckerPage}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_MarketAnalizButton}" />
 
             </Grid>
 
@@ -59,17 +59,46 @@
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="0">
-                <Button Width="300" Height="130" Command="{Binding OpenInventoryPage}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_InventoryButton}" />
+                <Button Width="300" Height="130" HorizontalAlignment="Left" Command="{Binding OpenInventoryPage}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_InventoryButton}" />
 
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="1">
-                <Button Width="300" Height="130" Command="{Binding CloseWindowCommand}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_InvestorButton}" />
+                <Button Width="300" Height="130" HorizontalAlignment="Left" Command="{Binding CloseWindowCommand}" Style="{DynamicResource MainMenu_ButtonStyle}" Template="{DynamicResource MainMenu_InvestorButton}" />
 
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
-            <Label Content="{DynamicResource AllRightsLabel}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" FontSize="16" Foreground="Silver"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Grid.Row="0" Margin="0,1,0,0" HorizontalAlignment="Left" Fill="{DynamicResource Color_NewsBlockBackground}" Width="100" Height="30" Stroke="{DynamicResource Color_NewsBlockBorder}" RadiusX="4" RadiusY="4.2" RenderTransformOrigin="0,0" StrokeDashArray="1 0" StrokeEndLineCap="Square" StrokeLineJoin="Bevel" StrokeThickness="1.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="10"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-10"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+                
+            </Rectangle>
+            <Label Grid.Row="0" Height="30"  Content="{DynamicResource News}" Margin="5,0,0,0" FontSize="20" Foreground="White" VerticalAlignment="Center" VerticalContentAlignment="Center" Padding="0"/>
+            <Image Source="/TradeUpHelper;component/Resources/Images/cyber_fb.png" Width="120" Height="30" HorizontalAlignment="Left" Margin="100,0,0,0"/>
+            <Border Grid.Row="1" BorderBrush="{DynamicResource Color_NewsBlockBorder}" BorderThickness="1.5" Background="{DynamicResource Color_NewsBlockBackground}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Template="{DynamicResource LeftButton}" Command="{Binding GoBackNews}" FontSize="30" HorizontalAlignment="Stretch" Padding="0" VerticalAlignment="Stretch"/>
+                    <TextBlock Grid.Column="1" Text="{Binding News}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="White" FontSize="18" TextAlignment="Center" TextWrapping="Wrap" TextTrimming="WordEllipsis" />
+                    <Button Grid.Column="2" Template="{DynamicResource RightButton}" Command="{Binding GoNextNews}" FontSize="30" HorizontalAlignment="Stretch" Padding="0" VerticalAlignment="Stretch"/>
+
+                </Grid>
+            </Border>
             
         </Grid>
 

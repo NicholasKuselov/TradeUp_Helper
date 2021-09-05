@@ -76,6 +76,8 @@ namespace TradeUpHelper.Views
                 SettingController.IsFirstStart = false;
             }
 
+
+
             PriceHandler.Load();
         }
 

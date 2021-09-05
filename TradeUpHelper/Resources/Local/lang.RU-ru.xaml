@@ -23,7 +23,10 @@
     <v:String x:Key="OperationEndSuccessfuly">Операция звершена успешно</v:String>
 
     <v:String x:Key="ToBeContinue">В разработке...</v:String>
-
+    <v:String x:Key="News">Новости</v:String>
+    <v:String x:Key="NewsSource">Источник :</v:String>
+    <v:String x:Key="NewsSource1">cyber.sports.ru</v:String>
+    
     <v:String x:Key="bSelect">Выбрать</v:String>
 
     <!--Wear-->
@@ -82,8 +85,14 @@
 
     <v:String x:Key="MainMenuTradeUpText">Контракты</v:String>
     <v:String x:Key="MainMenuInventoryText">Инвентарь</v:String>
-    <v:String x:Key="MainMenuMarketAnalizText">ТП Чекер</v:String>
+    <v:String x:Key="MainMenuMarketAnalizText">Маркет чекер</v:String>
     <v:String x:Key="MainMenuInvestorPortfolioText">Инвестиции</v:String>
+
+    <!--Setting Window-->
+    <v:String x:Key="SWSteamSetting">Настройки стима</v:String>
+    <v:String x:Key="SWTheme">Темы</v:String>
+    <v:String x:Key="SWbSetTheme">Выбрать тему</v:String>
+    <v:String x:Key="SWbSave">Сохранить</v:String>
 
     <!--Inventory page-->
     <v:String x:Key="InventoryInventorySavingTime">Последнее обновление инвентаря:</v:String>

@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="http://schemas.microsoft.com/netfx/2009/xaml/presentation">
+
+    <v:SolidColorBrush x:Key="Color_WindowControlButtonsFocus" Color="#66FFFFFF"/>
+    <v:SolidColorBrush x:Key="Color_WindowControlButtonsPressed" Color="#CCFFFFFF"/>
+
+    <v:SolidColorBrush x:Key="Color_WindowTopBar" Color="#150749"/>
+    <v:SolidColorBrush x:Key="Color_WindowBackground" Color="#12043d"/>
+    <v:SolidColorBrush x:Key="Color_NewsBlockBackground" Color="#29175e"/>
+    <v:SolidColorBrush x:Key="Color_NewsBlockBorder" Color="#ede90e"/>
+
+    <v:SolidColorBrush x:Key="Color_ContractSuccess" Color="#32912d"/>
+    <v:SolidColorBrush x:Key="Color_ContractFail" Color="#bd1921"/>
+
+    <v:SolidColorBrush x:Key="Color_MainMenuButtonsForeground" Color="#dedede"/>
+    <v:SolidColorBrush x:Key="Color_MainMenuButtonsBorder" Color="#b0b0b0"/>
+
+    <v:SolidColorBrush x:Key="Color_ButtonBorder" Color="#b0b0b0"/>
+    <v:SolidColorBrush x:Key="Color_ButtonBorderFocus" Color="#fff"/>
+    <v:SolidColorBrush x:Key="Color_ButtonBorderPress" Color="#0bbe35"/>
+
+    <Color x:Key="SelectedBackgroundColor">#FFC5CBF9</Color>
+
+    <v:SolidColorBrush x:Key="InventoryPageBorder" Color="#7d7d7d"/>
+
+    <v:RadialGradientBrush x:Key="Color_lb_buttonBackground">
+        <GradientStop Color="#29175e" Offset="1.5" />
+        <GradientStop Color="#2c1764" Offset="0.1" />
+    </v:RadialGradientBrush>
+
+    <v:SolidColorBrush x:Key="Color_lb_buttonBorderFocus" Color="#0bbe35"/>
+    <v:SolidColorBrush x:Key="Color_lb_buttonText" Color="White"/>
+    <v:SolidColorBrush x:Key="Color_lb_buttonBorder" Color="#ecca7b"/>
+    <v:SolidColorBrush x:Key="Color_lb_buttonBackgroundd" Color="#006e3d"/>
+    <v:SolidColorBrush x:Key="Color_lb_devider" Color="#1f272a"/>
+    <v:SolidColorBrush x:Key="Color_lb_buttonBackgroundFocus" Color="#20242e"/>
+    <v:SolidColorBrush x:Key="Color_lb_Background" Color="#181c26"/>
+
+    <v:SolidColorBrush x:Key="Color_Rare_Consumer" Color="#afafaf"/>
+    <v:SolidColorBrush x:Key="Color_Rare_Industrial" Color="#87c7ff"/>
+    <v:SolidColorBrush x:Key="Color_Rare_MilSpec" Color="#1155dd"/>
+    <v:SolidColorBrush x:Key="Color_Rare_Restricted" Color="#8747ff"/>
+    <v:SolidColorBrush x:Key="Color_Rare_Classified" Color="#d32ce6"/>
+    <v:SolidColorBrush x:Key="Color_Rare_Covert" Color="#eb4b4b"/>
+    <v:SolidColorBrush x:Key="Color_Rare_None" Color="#000"/>
+</ResourceDictionary>

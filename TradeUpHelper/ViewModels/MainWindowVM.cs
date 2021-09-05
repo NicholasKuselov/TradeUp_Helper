@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -94,6 +95,7 @@ namespace TradeUpHelper.ViewModels
             {
                 return new RelayCommand(() =>
                 {
+                    MainMenuPage = new MainMenuPage();
                     CurrentPage = MainMenuPage;
                 });
             }
@@ -145,10 +147,14 @@ namespace TradeUpHelper.ViewModels
             MainMenuPage = new MainMenuPage();
 
             CurrentPage = MainMenuPage;
+
+            
         }
 
         public void SelectTradeUpPage()
         {
+            ((MainMenuPageVM)MainMenuPage.DataContext).StopScrollingNews();
+            MainMenuPage = null;
             CurrentPage = TradeUpPage;
         }
 

@@ -52,6 +52,19 @@ namespace TradeUpHelper.Controllers
             }
         }
 
+        public static int NeedNewsCount
+        {
+            get
+            {
+                return setting.NeedNewsCount;
+            }
+            set
+            {
+                setting.NeedNewsCount = value;
+                File.WriteAllText(FilePath.settingFile, JsonSerializer.Serialize(setting));
+            }
+        }
+
         private static Setting setting;
 
         public static void Load()

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
         mc:Ignorable="d"
         xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
-        Title="ChangeLogWindow" Height="250" Width="500" ResizeMode="NoResize" WindowStyle="None" Topmost="True">
+        Title="{DynamicResource MessageWindowTitle}" Height="250" Width="500" ResizeMode="NoResize" WindowStyle="None" Topmost="True">
 
     <Window.Style>
         <Style TargetType="{x:Type Window}">
@@ -71,8 +71,8 @@
                     <Button HorizontalAlignment="Right" Template="{StaticResource ExitButton}" Width="50" Click="Button_Click"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button HorizontalAlignment="Right" Template="{StaticResource BackButton}" Width="50" Command="{Binding bBackMessage}"/>
-                    <Button HorizontalAlignment="Right" Template="{StaticResource NextButton}" Width="50" Command="{Binding bNextMessage}"/>
+                    <Button HorizontalAlignment="Right" Visibility="{Binding BackButtonVisibility}" Template="{StaticResource BackButton}" Width="50" Command="{Binding bBackMessage}"/>
+                    <Button HorizontalAlignment="Right" Visibility="{Binding NextButtonVisibility}" Template="{StaticResource NextButton}" Width="50" Command="{Binding bNextMessage}"/>
                 </StackPanel>
                 <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
                     <Image Height="30" Width="30" Margin="5,0,0,0" Source="/TradeUpHelper;component/Resources/Images/info.png"/>

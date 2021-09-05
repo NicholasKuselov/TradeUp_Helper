@@ -1,3 +1,4 @@
+C:\repos\TradeUpHelper\TradeUp_Helper\packages\AngleSharp.0.16.0\lib\net472\AngleSharp.dll
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\CommonServiceLocator.2.0.2\lib\net47\CommonServiceLocator.dll
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Extras.dll
@@ -15,11 +16,13 @@ C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Buffers.4.5.1\lib\net461\S
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll
+C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll
+C:\repos\TradeUpHelper\TradeUp_Helper\packages\AngleSharp.0.16.0\lib\net472\AngleSharp.xml
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.pdb
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.xml
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Extras.pdb
@@ -39,6 +42,7 @@ C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Buffers.4.5.1\lib\net461\S
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Memory.4.5.4\lib\net461\System.Memory.xml
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.xml
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.xml
+C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.xml
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.xml
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.xml
 C:\repos\TradeUpHelper\TradeUp_Helper\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.xml

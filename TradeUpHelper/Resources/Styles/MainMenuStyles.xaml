@@ -13,15 +13,16 @@
     </Style>
 
     <ControlTemplate x:Key="MainMenu_TradeUpButton" TargetType="{x:Type Button}">
-        <Border Padding="5,15,5,5"  Name="border" Background="Transparent" BorderBrush="Silver" BorderThickness="1">
+        <Border Padding="5,15,5,5"  Name="border" Background="Transparent" BorderBrush="{DynamicResource Color_MainMenuButtonsBorder}" BorderThickness="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="1" Content="{DynamicResource MainMenuTradeUpText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="LightGray"/>
-                <svgc:SvgViewbox Grid.Row="0" Source="pack://application:,,,/Resources/Icons/ContractIco.svg"/>
+                <Label Grid.Row="1" Content="{DynamicResource MainMenuTradeUpText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="{DynamicResource Color_MainMenuButtonsForeground}"/>
+                <!--<svgc:SvgViewbox Grid.Row="0" Source="pack://application:,,,/Resources/Icons/ContractIco.svg"/>-->
+                <Image Grid.Row="0" Source="/TradeUpHelper;component/Resources/Images/trade.png"  />
             </Grid>
         </Border>
         <ControlTemplate.Triggers>
@@ -35,15 +36,16 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="MainMenu_InventoryButton" TargetType="{x:Type Button}">
-        <Border Padding="5,15,5,5"  Name="border" Background="Transparent"  BorderBrush="Silver" BorderThickness="1">
+        <Border Padding="5,15,5,5"  Name="border" Background="Transparent"  BorderBrush="{DynamicResource Color_MainMenuButtonsBorder}" BorderThickness="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="1" Content="{DynamicResource MainMenuInventoryText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="LightGray"/>
-                <svgc:SvgViewbox Grid.Row="0" Source="pack://application:,,,/Resources/Icons/InventoryIco.svg"/>
+                <Label Grid.Row="1" Content="{DynamicResource MainMenuInventoryText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="{DynamicResource Color_MainMenuButtonsForeground}"/>
+                <!--<svgc:SvgViewbox Grid.Row="0" Source="pack://application:,,,/Resources/Icons/InventoryIco.svg"/>-->
+                <Image Grid.Row="0" Source="/TradeUpHelper;component/Resources/Images/inv.png" />
             </Grid>
         </Border>
         <ControlTemplate.Triggers>
@@ -57,15 +59,16 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="MainMenu_MarketAnalizButton" TargetType="{x:Type Button}">
-        <Border Padding="5,15,5,5"  Name="border" Background="Transparent"  BorderBrush="Silver" BorderThickness="1">
+        <Border Padding="5,15,5,5"  Name="border" Background="Transparent"  BorderBrush="{DynamicResource Color_MainMenuButtonsBorder}" BorderThickness="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="1" Content="{DynamicResource MainMenuMarketAnalizText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="LightGray"/>
-                <svgc:SvgViewbox Grid.Row="0" Source="pack://application:,,,/Resources/Icons/MarketAnalizIco.svg"/>
+                <Label Grid.Row="1" Content="{DynamicResource MainMenuMarketAnalizText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="{DynamicResource Color_MainMenuButtonsForeground}"/>
+                <!--<svgc:SvgViewbox Grid.Row="0" Source="pack://application:,,,/Resources/Icons/MarketAnalizIco.svg"/>-->
+                <Image Grid.Row="0" Source="/TradeUpHelper;component/Resources/Images/search.png" />
             </Grid>
         </Border>
         <ControlTemplate.Triggers>
@@ -79,24 +82,16 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="MainMenu_InvestorButton" TargetType="{x:Type Button}">
-        <Border Padding="5,15,5,5"  Name="border" Background="Transparent" BorderBrush="Silver" BorderThickness="1">
+        <Border Padding="5,15,5,5"  Name="border" Background="Transparent" BorderBrush="{DynamicResource Color_MainMenuButtonsBorder}" BorderThickness="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label  Content="{DynamicResource ToBeContinue}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White" RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="-22"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
+                
                 <Label Grid.Row="1" Content="{DynamicResource MainMenuInvestorPortfolioText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="#4f4f4f"/>
-                <svgc:SvgViewbox Grid.Row="0"  Source="pack://application:,,,/Resources/Icons/TraderIco.svg" Opacity="0.5"/>
+                <!--<svgc:SvgViewbox Grid.Row="0"  Source="pack://application:,,,/Resources/Icons/TraderIco.svg" Opacity="0.5"/>-->
+                <Image Grid.Row="0" Source="/TradeUpHelper;component/Resources/Images/padlock.png" />
             </Grid>
         </Border>
         

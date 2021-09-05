@@ -5,5 +5,8 @@
     <Setting Name="steamInventoryURL" Type="System.String" Scope="Application">
       <Value Profile="(Default)">https://steamcommunity.com/profiles/76561198215605039/inventory/</Value>
     </Setting>
+    <Setting Name="Theme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">blue</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
