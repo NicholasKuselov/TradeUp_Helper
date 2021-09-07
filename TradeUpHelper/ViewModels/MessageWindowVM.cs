@@ -28,6 +28,7 @@ namespace TradeUpHelper.ViewModels
             set
             {
                 _currentMessageIndex = value;
+                
                 if (_currentMessageIndex == 1)
                 {
                     BackButtonVisibility = Visibility.Hidden;
@@ -53,6 +54,11 @@ namespace TradeUpHelper.ViewModels
         {
             Messages = new BindingList<MessageForUser>(messages);
             CurrentMessage = Messages[CurrentMessageIndex - 1];
+            if (Messages.Count == 1)
+            {
+                BackButtonVisibility = Visibility.Hidden;
+                NextButtonVisibility = Visibility.Hidden;
+            }
         }
 
         public ICommand bNextMessage

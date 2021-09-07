@@ -29,6 +29,11 @@ namespace TradeUpHelper.Controllers
             Querry.Clear();
         }
 
+        public static void AddMessageInQuerry(string title,string text)
+        {
+            Querry.Add(new MessageForUser() {Title = title, Text = text });
+        }
+
         public static void AddMessageInQuerry(MessageForUser messageForUser)
         {
             Querry.Add(messageForUser);

@@ -14,6 +14,7 @@ namespace TradeUpHelper.ViewModels
 {
     class MainMenuPageVM : ViewModelBase
     {
+        private int newsTimeToSwap = 8000;
         public NewsHandler NewsHandler { get; set; }
         private int CurrentNewsIndex = 0;
         public string News { get; set; } = "";
@@ -29,7 +30,7 @@ namespace TradeUpHelper.ViewModels
                 while (isNewsScroll)
                 {
                     NextNews();
-                    Thread.Sleep(5000);
+                    Thread.Sleep(newsTimeToSwap);
                     
                 }
             });
@@ -52,8 +53,7 @@ namespace TradeUpHelper.ViewModels
             {
                 return new RelayCommand(() =>
                 {
-                    //PageController.SelectInventoryPage();
-                    App.Color = "purple";
+                    PageController.SelectInventoryPage();
                 });
             }
         }

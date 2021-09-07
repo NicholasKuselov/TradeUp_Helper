@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
         mc:Ignorable="d"
         xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
-        Title="{DynamicResource MessageWindowTitle}" Height="250" Width="500" ResizeMode="NoResize" WindowStyle="None" Topmost="True">
+        Title="{DynamicResource MessageWindowTitle}" Height="250" Width="500" ResizeMode="NoResize" WindowStyle="None" Topmost="True" WindowStartupLocation="CenterScreen">
 
     <Window.Style>
         <Style TargetType="{x:Type Window}">

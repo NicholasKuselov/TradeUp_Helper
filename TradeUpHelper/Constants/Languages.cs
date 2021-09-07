@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace TradeUpHelper.Constants
 {
-    class Themes
+    class Languages
     {
-        public const string BLUE = "blue";
-        public const string PURPLE = "purple";
-        public const string BLACK = "black";
+        public const string ENG = "ENG";
+        public const string RUS = "RUS";
     }
 }

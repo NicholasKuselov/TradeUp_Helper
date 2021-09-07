@@ -22,6 +22,8 @@ namespace TradeUpHelper.Controllers
             {
                 changeLogEntries = (List<ChangeLogEntry>)formatter.Deserialize(fs);
             }
+
+            changeLogEntries.Reverse();
         }
     }
 }

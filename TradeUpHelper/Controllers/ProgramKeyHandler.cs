@@ -35,6 +35,10 @@ namespace TradeUpHelper.Controllers
             File.WriteAllText(FilePath.ProgramKeyFile, key);
         }
 
+        static ProgramKeyHandler()
+        {
+            Load();
+        }
         public static void Check()
         {
             if (ProgramKeyHandler.Key.Length <= 0 && SettingController.IsFirstStart)

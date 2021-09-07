@@ -177,6 +177,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Constants\FilePath.cs" />
+    <Compile Include="Constants\Languages.cs" />
     <Compile Include="Constants\Themes.cs" />
     <Compile Include="Constants\TradeUpHelperAPI.cs" />
     <Compile Include="Constants\TradeUpHelperAPICalls.cs" />
@@ -246,6 +247,7 @@
     <Compile Include="ViewModels\MarketCheckerPageVM.cs" />
     <Compile Include="ViewModels\MessageWindowVM.cs" />
     <Compile Include="ViewModels\PatternScinSelectWindowVM.cs" />
+    <Compile Include="ViewModels\PreviewWindowVM.cs" />
     <Compile Include="ViewModels\PriceWindowVM.cs" />
     <Compile Include="ViewModels\RarePatternAddingWindowVM.cs" />
     <Compile Include="ViewModels\ScinFloatRangeWindowVM.cs" />
@@ -286,6 +288,9 @@
     <Compile Include="Views\PatternScinSelectWindow.xaml.cs">
       <DependentUpon>PatternScinSelectWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PreviewWindow.xaml.cs">
+      <DependentUpon>PreviewWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PriceCalcWindow.xaml.cs">
       <DependentUpon>PriceCalcWindow.xaml</DependentUpon>
     </Compile>
@@ -301,6 +306,10 @@
     <Compile Include="Views\TradeUpPage.xaml.cs">
       <DependentUpon>TradeUpPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Resources\Colors\Colors.black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resources\Colors\Colors.purple.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -317,7 +326,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Local\lang.RU-ru.xaml">
+    <Page Include="Resources\Local\lang.ENG.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Local\lang.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Local\lang.RUS.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -423,6 +440,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PreviewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PriceCalcWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -491,6 +512,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\settingFocus.png" />
+    <Resource Include="Resources\Images\setting.png" />
+    <Resource Include="Resources\Images\QA.png" />
+    <Resource Include="Resources\Images\QAFocus.png" />
+    <Resource Include="Resources\Images\rus.png" />
+    <Resource Include="Resources\Images\usa.png" />
+    <Resource Include="Resources\Images\back.png" />
+    <Resource Include="Resources\Images\TradeUpHelperBanner.png" />
     <Resource Include="Resources\Images\trade2.png" />
     <Resource Include="Resources\Images\cyber_fb.png" />
     <Resource Include="Resources\Images\cybersportsLogo.png" />

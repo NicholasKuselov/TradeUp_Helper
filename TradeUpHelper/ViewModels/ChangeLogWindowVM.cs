@@ -13,7 +13,7 @@ namespace TradeUpHelper.ViewModels
     {
         public ChangeLogWindowVM()
         {
-            SelectedEntry = ChangeLogEntryHandler.changeLogEntries.Last();
+            SelectedEntry = ChangeLogEntryHandler.changeLogEntries.First();
         }
 
         public ChangeLogEntryHandler ChangeLogEntryHandler { get; set; } = new ChangeLogEntryHandler();

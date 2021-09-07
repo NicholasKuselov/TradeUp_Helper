@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
         mc:Ignorable="d"
-        Title="{DynamicResource SettingWindowTitle}" Height="300" Width="800">
+                xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        Title="{DynamicResource SettingWindowTitle}" Height="400" Width="700" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
 
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="shell:WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <shell:WindowChrome CaptionHeight="0"
+                                        CornerRadius="0"
+                                        GlassFrameThickness="0,0,0,0"
+                                        NonClientFrameEdges="None"
+                                        ResizeBorderThickness="5"
+                                        UseAeroCaptionButtons="false"
+                                        />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Style>
+    
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -22,27 +39,79 @@
     <Window.DataContext>
         <viewmodels:SettingWindowVM/>
     </Window.DataContext>
-    <Border BorderBrush="Gray" BorderThickness="1">
-        <Grid Background="{DynamicResource Color_WindowBackground}">
+    <Border BorderBrush="White" BorderThickness="1">
+
+        <Grid>
+            <Grid.Resources>
+                <ControlTemplate x:Key="ExitButton" TargetType="{x:Type Button}">
+                    <Border   Name="border" Background="Transparent">
+                        <ContentPresenter Content="{DynamicResource ExitIco3}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Grid.Resources>
             <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
-            <GroupBox Grid.Row="0" Header="{DynamicResource SWSteamSetting}" Background="{DynamicResource Color_NewsBlockBackground}" HorizontalAlignment="Stretch" Margin="5,5,5,5" BorderThickness="1" Foreground="White">
-                <TextBox Text="{Binding SteamInventoryURL}" Style="{DynamicResource SteamInventoryUrlTextBoxStyle}"/>
-            </GroupBox>
-            <Button Grid.Row="3" Command="{Binding SaveSettings}" Width="200" Height="50" Content="Save" Background="Transparent" BorderThickness="1" BorderBrush="Silver" FontSize="20" Foreground="White"/>
-            <GroupBox Grid.Row="1" Header="{DynamicResource SWTheme}" Background="{DynamicResource Color_NewsBlockBackground}" HorizontalAlignment="Stretch" Margin="5,5,5,5" BorderThickness="1" Foreground="White">
-                <StackPanel Orientation="Horizontal">
-                    <RadioButton Width="30" Command="{Binding SetBlueTheme}" Height="30" Background="#12043d" Margin="5,5,5,5" Template="{DynamicResource ThemeButton}" GroupName="themes"/>
-                    <RadioButton Width="30" Command="{Binding SetPurpleTheme}" Height="30" Background="#0f090f" Margin="5,5,5,5" Template="{DynamicResource ThemeButton}" GroupName="themes"/>
-
-                </StackPanel>
-                    
+            
+            <Grid Grid.Row="0" Background="{DynamicResource Color_WindowTopBar}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
                 
-            </GroupBox>
+                <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Image Source="/TradeUpHelper;component/Resources/Images/setting.png" Margin="5,0,0,0" Width="25" Height="25"/>
+                    <Label Content="{DynamicResource SettingWindowTitle}" Margin="5,0,0,0" Foreground="White" FontSize="14" VerticalAlignment="Center"/>
+                </StackPanel>
+                
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button HorizontalAlignment="Right" Template="{StaticResource ExitButton}" Width="50" Click="Button_Click"/>
+                </StackPanel>
+            </Grid>
+            
+            <Grid Grid.Row="1" Background="{DynamicResource Color_WindowBackground}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <GroupBox Grid.Row="0" Header="{DynamicResource SWSteamSetting}" Background="{DynamicResource Color_NewsBlockBackground}" HorizontalAlignment="Stretch" Margin="15,5,15,5" BorderThickness="1" Foreground="White">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBox Text="{Binding SteamInventoryURL}" Style="{DynamicResource SteamInventoryUrlTextBoxStyle}"/>
+                        <Button Grid.Row="3" Command="{Binding SaveSettings}" Width="200" Height="30" Content="Save" Margin="0,5,0,0" Background="Transparent" BorderThickness="1" BorderBrush="Silver" FontSize="20" Foreground="White"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Grid.Row="1" Header="{DynamicResource SWTheme}" Background="{DynamicResource Color_NewsBlockBackground}" HorizontalAlignment="Stretch" Margin="15,5,15,5" BorderThickness="1" Foreground="White">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Width="30" IsChecked="{Binding IsBlueThemeActive}" Command="{Binding SetBlueTheme}" Height="30" Background="#12043d" Margin="5,5,5,5" Template="{DynamicResource ThemeButton}" GroupName="themes"/>
+                        <RadioButton Width="30" IsChecked="{Binding IsPurpleThemeActive}" Command="{Binding SetPurpleTheme}" Height="30" Background="#0f090f" Margin="5,5,5,5" Template="{DynamicResource ThemeButton}" GroupName="themes"/>
+                        <RadioButton Width="30" IsChecked="{Binding IsBlackThemeActive}" Command="{Binding SetDarkTheme}" Height="30" Background="#000000" Margin="5,5,5,5" Template="{DynamicResource ThemeButton}" GroupName="themes"/>
 
+                    </StackPanel>
+
+
+                </GroupBox>
+                <GroupBox Grid.Row="2" Header="{DynamicResource SWLanguages}" Background="{DynamicResource Color_NewsBlockBackground}" HorizontalAlignment="Stretch" Margin="15,5,15,5" BorderThickness="1" Foreground="White">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Width="50" IsChecked="{Binding IsEngActive}" Command="{Binding SetEngLanguage}" Height="30" Background="#12043d" Margin="5,5,5,5" Template="{DynamicResource SetEngLanguage}" GroupName="languages"/>
+                        <RadioButton Width="50" IsChecked="{Binding IsRusActive}" Command="{Binding SetRusLanguage}" Height="30" Background="#0f090f" Margin="5,5,5,5" Template="{DynamicResource SetRusLanguage}" GroupName="languages"/>
+
+                    </StackPanel>
+
+
+                </GroupBox>
+            </Grid>
         </Grid>
+        
+        
     </Border>
 </Window>

@@ -1,0 +1,188 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+
+
+    <v:String x:Key="ProgramName">TradeUp Helper</v:String>
+    <v:String x:Key="Version">v1.4</v:String>
+
+    <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
+
+    <v:String x:Key="HistoryWindowTitle">Contracts history</v:String>
+    <v:String x:Key="PatternScinWindowTitle">Scin selecting</v:String>
+    <v:String x:Key="FloatRangeWindowTitle">Crafting thresholds</v:String>
+    <v:String x:Key="SettingWindowTitle">Settings</v:String>
+
+    <v:String x:Key="PriceWindowTitle">Price after sale</v:String>
+
+    <v:String x:Key="Float">Float</v:String>
+    <v:String x:Key="Price">Price</v:String>
+
+    <v:String x:Key="dontKnow">NN</v:String>
+
+    <v:String x:Key="OperationEndSuccessfuly">Operation completed successfully</v:String>
+
+    <v:String x:Key="ToBeContinue">In developing...</v:String>
+    <v:String x:Key="News">News</v:String>
+    <v:String x:Key="NewsSource">Источник :</v:String>
+    <v:String x:Key="NewsSource1">cyber.sports.ru</v:String>
+
+    <v:String x:Key="bSelect">Select</v:String>
+
+    <!--Wear-->
+    <v:String x:Key="WearFactoryNew">Factory New</v:String>
+    <v:String x:Key="WearMinimalWear">Minimal Wear</v:String>
+    <v:String x:Key="WearFieldTested">Field Tested</v:String>
+    <v:String x:Key="WearWellWorn">Well Worn</v:String>
+    <v:String x:Key="WearBattleScared">Battle Scared</v:String>
+
+    <!--WearShort-->
+    <v:String x:Key="WearFactoryNewShort">FN</v:String>
+    <v:String x:Key="WearMinimalWearShort">MW</v:String>
+    <v:String x:Key="WearFieldTestedShort">FT</v:String>
+    <v:String x:Key="WearWellWornShort">WW</v:String>
+    <v:String x:Key="WearBattleScaredShort">BS</v:String>
+
+    <!--Message Window-->
+    <v:String x:Key="MessageWindowTitle">Messages</v:String>
+    <v:String x:Key="MessageWindowOF">of</v:String>
+
+
+    <!--Info-->
+    <v:String x:Key="InfoFloat">Float :</v:String>
+    <v:String x:Key="InfoPrice">Price :</v:String>
+    <v:String x:Key="InfoWear">Wear :</v:String>
+    <v:String x:Key="InfoThreshold">Threshold</v:String>
+    <v:String x:Key="InfoNeedFloat">Need Float :</v:String>
+
+    <v:String x:Key="NeedFloatMinus">GG</v:String>
+    <v:String x:Key="OutcomePrice">Outcome Price</v:String>
+    <v:String x:Key="bPriceCalc">Steam Price</v:String>
+    <v:String x:Key="bClear">Clear</v:String>
+    <v:String x:Key="bHistory">History</v:String>
+    <v:String x:Key="bCraftOk">Crafted</v:String>
+    <v:String x:Key="bChangeLog">What's new?</v:String>
+    <v:String x:Key="bSetting">Settings</v:String>
+    <v:String x:Key="bOpenFloatRangeWindow">Crafting thresholds</v:String>
+    <v:String x:Key="bCheckUpdate">Update</v:String>
+    <v:String x:Key="UpdateNewVersion">Have a new version, update?</v:String>
+    <v:String x:Key="UpdateNoVersion">No new versions</v:String>
+    <v:String x:Key="SteamOverlayURL">Link to inspect the skin in Steam (copy the link address from the button "Inspect in the game") steam://rungame/......</v:String>
+
+    <v:String x:Key="StatContractCount">Crafts count :</v:String>
+    <v:String x:Key="StatAllPrice">Total value of contracts :</v:String>
+    <v:String x:Key="StatAllOutcomePrice">Total crafted :</v:String>
+    <v:String x:Key="StatAllProfit">Total net profit :</v:String>
+    <v:String x:Key="StatInfoContracts">Contracts</v:String>
+    <v:String x:Key="StatInfoStat">Staticstics</v:String>
+
+    <v:String x:Key="HistoryItemFloat">Float :</v:String>
+    <v:String x:Key="HistoryItemPrice">Contract price :</v:String>
+    <v:String x:Key="HistoryItemOutcomePrice">Oucome :</v:String>
+    <v:String x:Key="HistoryItemProfitDirty">Profit :</v:String>
+    <v:String x:Key="HistoryItemProfitClear">Profit(clear.) :</v:String>
+    <v:String x:Key="HistoryItemDate">Date :</v:String>
+
+    <v:String x:Key="MainMenuTradeUpText">Contracts</v:String>
+    <v:String x:Key="MainMenuInventoryText">Inventory</v:String>
+    <v:String x:Key="MainMenuMarketAnalizText">Market checker</v:String>
+    <v:String x:Key="MainMenuInvestorPortfolioText">Investments</v:String>
+
+    <!--Setting Window-->
+    <v:String x:Key="SWSteamSetting">Steam settings</v:String>
+    <v:String x:Key="SWLanguages">Language</v:String>
+    <v:String x:Key="SWTheme">Themes</v:String>
+    <v:String x:Key="SWbSetTheme">Select theme</v:String>
+    <v:String x:Key="SWbSave">Save</v:String>
+
+    <!--Load Stages-->
+    <v:String x:Key="LSStart">App start</v:String>
+    <v:String x:Key="LSIsOnline">Checking the network connection</v:String>
+    <v:String x:Key="LSCheckUpdates">Checking for updates</v:String>
+    <v:String x:Key="LSCheckKey">Key verification</v:String>
+    <v:String x:Key="LSLoadPrices">Getting prices</v:String>
+    <v:String x:Key="LSInventLoad">Receiving inventory</v:String>
+    <v:String x:Key="LSGetMessages">Receiving messages from the server</v:String>
+
+
+    <!-- Inventory page -->
+    <v:String x:Key="InventoryInventorySavingTime">Last inventory update:</v:String>
+    <v:String x:Key = "InventoryPrice">Cost:</v:String>
+    <v:String x:Key = "InventoryCount">Number of skins:</v:String>
+    <v:String x:Key = "InventoryPattern">Pattern:</v:String>
+    <v:String x:Key = "InventoryPriceClear">Price (net):</v:String>
+    <v:String x:Key = "InventoryStickers">Stickers</v:String>
+
+    <!-- FloatRange Window page -->
+    <v:String x:Key = "FRInfo">Flock thresholds for crafting of a certain quality</v:String>
+    <v:String x:Key = "FRNeedFloat">CRAFT FLOAT THRESHOLD</v:String>
+    <v:String x:Key = "FRWear">QUALITY</v:String>
+    <v:String x:Key = "FRMinFloat">Min Float:</v:String>
+    <v:String x:Key = "FRMaxFloat">Max Float:</v:String>
+    <v:String x:Key = "FRWearImpossible">There is no quality on this skin</v:String>
+
+    <!-- Market Checker page -->
+    <v:String x:Key = "MCRarityPainSeed">Rare Patterns</v:String>
+    <v:String x:Key = "MCSearchSticker">Scan Stickers</v:String>
+    <v:String x:Key = "MCSearchPainSeed">Search for rare patterns</v:String>
+    <v:String x:Key = "MCSIHWarning">For the system to work correctly, you must have SIH enabled and all other extensions disabled!</v:String>
+    <v:String x:Key = "MCSIHPage">SIH market text</v:String>
+    <v:String x:Key = "MCFindedScinsWithStickers">Found skins with stickers</v:String>
+    <v:String x:Key = "MCFindedScinsWithRarityPainrSeed">Found skins with rare patterns</v:String>
+    <v:String x:Key = "MCPrice">Price</v:String>
+    <v:String x:Key = "MCFloat">Float</v:String>
+    <v:String x:Key = "MCPattern">Pattern</v:String>
+    <v:String x:Key = "MCStickerPrice">Sticker price</v:String>
+    <v:String x:Key = "MCOverprice">Markup</v:String>
+    <v:String x:Key = "MCStart">Start</v:String>
+    <v:String x:Key = "MCSelectScin">Select skin</v:String>
+    <v:String x:Key = "MCStickerFoundCount">Stickers found:</v:String>
+    <v:String x:Key = "MCPaintSeedFoundCount">Rare patterns found:</v:String>
+    <v:String x:Key = "MCSelectScinError">Select a skin for pattern search, or turn off the pattern search function</v:String>
+
+    <v:String x:Key = "SteamInventoryURL">Steam inventory link</v:String>
+
+    <v:String x:Key = "MessageTitle">Notification</v:String>
+    <v:String x:Key = "MessageProgramRegistredSuccessful">Program registered successfully!</v:String>
+
+
+    <v:String x:Key = "ErrorTitle">Error</v:String>
+    <v:String x:Key = "ErrorMarketCheckerDataEmpty">Paste the copied steam page into the box in the upper left corner of the window</v:String>
+    <v:String x:Key = "ErrorMarketCheckerDataUncorrect">Invalid data entered!</v:String>
+    <v:String x:Key = "ErrorNetworkDissableTitle">Error</v:String>
+    <v:String x:Key = "ErrorEmptyKey">Missing program key! Reinstall the program!</v:String>
+    <v:String x:Key = "ErrorWrongKey">Fake application key!</v:String>
+    <v:String x:Key = "ErrorServerDissable">TradeUp Helper servers are not responding!</v:String>
+    <v:String x:Key = "ErrorNetworkDissableText">No internet connection, please check your connection and try again! The application requires a stable internet connection</v:String>
+    <v:String x:Key = "ErrorWithSteamInventoryURL">To use the inventory functions, go to SETTINGS and link to your inventory</v:String>
+    <v:String x:Key = "ErrorWithMinVersionForUpdate">Updating from the version you have taken into account is not possible. Install the new version of the program using the link to the Setup file.</v:String>
+    <v:String x:Key = "ErrorWithLoadingInventoryCache">An error occured while loading inventory cache! Maybe it just wasn't there ...</v:String>
+    <v:String x:Key = "ErrorWithLoadingSetting">Error loading settings! Always like this the first time ...</v:String>
+    <v:String x:Key = "ErrorSteamOverlayURLWrongTitle">Error</v:String>
+    <v:String x:Key = "ErrorSteamOverlayURLWrongText">The specified link to inspect the skin is not correct, continue saving without using information about the resulting skin?</v:String>
+    <v:String x:Key = "WarningRussianSteam">Your Steam uses Russian language, search for stickers is not possible with this setting. To search for stickers, set the Steam language to English! Do you want to continue parsing without looking for labels?</v:String>
+    <v:String x:Key = "WarningFloatMarketCheckerEnable">You have the FloatMarketChecker extension enabled, searching for stickers is not possible with this setting. Turn off all third-party extensions, leaving only Steam Inventory Helper to search for stickers! Do you want to continue parsing without looking for labels?</v:String>
+    <v:String x:Key = "Warning">Warning</v:String>
+
+    <v:String x:Key = "NetworkDisable">No internet connection, check the connection and try again</v:String>
+
+    <v:String x:Key = "FAQ">
+        Instructions
+        The program has 10 Float fields and 10 price fields
+
+    </v:String>
+
+    <!--Info-->
+    <v:String x:Key="ChangeLogAllLog">All versions</v:String>
+    <v:String x:Key="ChangeLogAdded">Added :</v:String>
+    <v:String x:Key="ChangeLogChanged">Changed :</v:String>
+    <v:String x:Key="ChangeLogFixed">Fixed :</v:String>
+
+
+    <v:String x:Key="FAQMarketChecker">
+        1) Open the page on tp stim onli with SIH |
+        2) Press buttons get all floats and get all wears stickers |
+        3) Copy everything by pressing CTRL + A CTRL + C |
+        4) Insert into the program and press the start button |
+    </v:String>
+</ResourceDictionary>

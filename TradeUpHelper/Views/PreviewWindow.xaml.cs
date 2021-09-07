@@ -10,26 +10,33 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TradeUpHelper.ViewModels;
 
 namespace TradeUpHelper.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MarketCheckerPage.xaml
+    /// Логика взаимодействия для PreviewWindow.xaml
     /// </summary>
-    public partial class MarketCheckerPage : Page
+    public partial class PreviewWindow : Window
     {
-        public MarketCheckerPage()
+        private MainWindow _winOwner;
+
+        public PreviewWindow()
         {
             InitializeComponent();
-            DataContext = new MarketCheckerPageVM();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        public MainWindow WinOwner
         {
-            //MessageBox.Show(((string)Application.Current.Resources["FAQMarketChecker"]).Replace('|', '\n'));
+            get { return _winOwner; }
+            set
+            {
+                _winOwner = value;
+                if (value is IWinOwnerCollection)
+                {
+                    ((IWinOwnerCollection)value).WinOwnerCollection.Add(this);
+                }
+            }
         }
     }
 }

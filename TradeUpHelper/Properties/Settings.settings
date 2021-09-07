@@ -6,7 +6,10 @@
       <Value Profile="(Default)">https://steamcommunity.com/profiles/76561198215605039/inventory/</Value>
     </Setting>
     <Setting Name="Theme" Type="System.String" Scope="User">
-      <Value Profile="(Default)">blue</Value>
+      <Value Profile="(Default)">purple</Value>
+    </Setting>
+    <Setting Name="Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RUS</Value>
     </Setting>
   </Settings>
 </SettingsFile>

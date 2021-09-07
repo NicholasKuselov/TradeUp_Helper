@@ -23,7 +23,13 @@ namespace TradeUpHelper.Views
         public SettingWindow()
         {
             InitializeComponent();
+            this.MouseLeftButtonDown += delegate { this.DragMove(); };
             DataContext = new SettingWindowVM();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

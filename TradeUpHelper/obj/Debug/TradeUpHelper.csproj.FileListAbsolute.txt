@@ -251,7 +251,6 @@ C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\bin\Debug\System.Threading.T
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\bin\Debug\System.ValueTuple.xml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Colors\Colors.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Icons\Icons.baml
-C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Local\lang.RU-ru.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Local\lang.goblin-goblin.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Styles\ButtonsStyles.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Styles\LabelsStyles.baml
@@ -318,4 +317,10 @@ C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\bin\Debug\AngleSharp.xml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\bin\Debug\System.Text.Encoding.CodePages.xml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Colors\Colors.blue.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Colors\Colors.purple.baml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\PreviewWindow.g.cs
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Views\PreviewWindow.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\TradeUpHelper.csprojAssemblyReference.cache
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Colors\Colors.black.baml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Local\lang.baml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Local\lang.RUS.baml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Local\lang.ENG.baml

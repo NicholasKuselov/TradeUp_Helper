@@ -6,7 +6,7 @@
         xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels" xmlns:converters="clr-namespace:TradeUpHelper.DataConverters"
         mc:Ignorable="d"
-        Title="{DynamicResource ProgramName}" Height="525" Width="800" AllowsTransparency="False" WindowStyle="None" Loaded="Window_Loaded">
+        Title="{DynamicResource ProgramName}" Height="525" Width="800" AllowsTransparency="False" WindowStyle="None" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
 
     <Window.Style>
         <Style TargetType="{x:Type Window}">
@@ -54,13 +54,18 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Background="{DynamicResource Color_WindowTopBar}" Name="TopBar" PreviewMouseLeftButtonDown="TopBar_PreviewMouseLeftButtonDown">
-                <Button Width="50" Command="{Binding CloseWindowCommand}" Height="30" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ExitButton}" />
-                <Button Width="50" Command="{Binding MaximizeWindowCommand}" Height="30" Margin="0,0,50,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MaximizeButton}" />
-                <Button Width="50" Command="{Binding MinimizeWindowCommand}" Height="30" Margin="0,0,100,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MinimizeButton}" />
-                <Button Width="80" Command="{Binding ShowChangeLog}" Height="30" Margin="0,0,150,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ChangeLogButton}" />
-
-                <Button Width="80" Command="{Binding UpdateProgram}" Height="30" Margin="0,0,230,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource UpdateButton}" />
-                <Button Width="80" Command="{Binding ShowSettingWindow}" Height="30" Margin="0,0,310,0" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource SettingButton}" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Width="80" Command="{Binding ShowChangeLog}" Height="30"  HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ChangeLogButton}" />
+                    <Button Width="80" Command="{Binding UpdateProgram}" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource UpdateButton}" />
+                    <Button Width="25" Command="{Binding ShowSettingWindow}" Margin="10,0,10,0" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" Template="{DynamicResource SettingButton}" />
+                    <Button Width="50" Command="{Binding MinimizeWindowCommand}" Height="30"  HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MinimizeButton}" />
+                    <Button Width="50" Command="{Binding MaximizeWindowCommand}" Height="30"  HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MaximizeButton}" />
+                    <Button Width="50" Command="{Binding CloseWindowCommand}" Height="30"  HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ExitButton}" />
+                </StackPanel>
 
                 <Button Width="40" Command="{Binding GoBackPageCommand}" Visibility="{Binding IsBackButtonActive}" Height="30" Margin="0,0,230,0" HorizontalAlignment="Left" VerticalAlignment="Top" Template="{DynamicResource GoBackButton}"/>
 

@@ -5,9 +5,9 @@
     <v:SolidColorBrush x:Key="Color_WindowControlButtonsFocus" Color="#66FFFFFF"/>
     <v:SolidColorBrush x:Key="Color_WindowControlButtonsPressed" Color="#CCFFFFFF"/>
 
-    <v:SolidColorBrush x:Key="Color_WindowTopBar" Color="#361436"/>
-    <v:SolidColorBrush x:Key="Color_WindowBackground" Color="#0f090f"/>
-    <v:SolidColorBrush x:Key="Color_NewsBlockBackground" Color="#241124"/>
+    <v:SolidColorBrush x:Key="Color_WindowTopBar" Color="#242424"/>
+    <v:SolidColorBrush x:Key="Color_WindowBackground" Color="#0f0f0f"/>
+    <v:SolidColorBrush x:Key="Color_NewsBlockBackground" Color="#1a1a1a"/>
     <v:SolidColorBrush x:Key="Color_NewsBlockBorder" Color="#ede90e"/>
 
     <v:SolidColorBrush x:Key="Color_ContractSuccess" Color="#32912d"/>
@@ -29,10 +29,10 @@
     <v:SolidColorBrush x:Key="Color_lb_buttonBorderFocus" Color="#0bbe35"/>
     <v:SolidColorBrush x:Key="Color_lb_buttonText" Color="White"/>
     <v:SolidColorBrush x:Key="Color_lb_buttonBorder" Color="#ecca7b"/>
-    <v:SolidColorBrush x:Key="Color_lb_buttonBackground" Color="#140112"/>
+    <v:SolidColorBrush x:Key="Color_lb_buttonBackground" Color="#1c1c1c"/>
     <v:SolidColorBrush x:Key="Color_lb_devider" Color="#1f272a"/>
     <v:SolidColorBrush x:Key="Color_lb_buttonBackgroundFocus" Color="#20242e"/>
-    <v:SolidColorBrush x:Key="Color_lb_Background" Color="#0a0009"/>
+    <v:SolidColorBrush x:Key="Color_lb_Background" Color="#0f0f0f"/> 
 
     <v:SolidColorBrush x:Key="Color_Rare_Consumer" Color="#afafaf"/>
     <v:SolidColorBrush x:Key="Color_Rare_Industrial" Color="#87c7ff"/>

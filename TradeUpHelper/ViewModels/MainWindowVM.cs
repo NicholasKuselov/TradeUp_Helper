@@ -154,7 +154,7 @@ namespace TradeUpHelper.ViewModels
         public void SelectTradeUpPage()
         {
             ((MainMenuPageVM)MainMenuPage.DataContext).StopScrollingNews();
-            MainMenuPage = null;
+            TradeUpPage = new TradeUpPage();
             CurrentPage = TradeUpPage;
         }
 
@@ -168,14 +168,11 @@ namespace TradeUpHelper.ViewModels
             CurrentPage = new InventoryPage();
         }
 
-        public void LoadInventory()
-        {
-            InventoryCacheController.Load();
-        }
 
         public void SelectMarketCheckerPage()
         {
             MarketCheckerPage = new MarketCheckerPage();
+            ((MainMenuPageVM)MainMenuPage.DataContext).StopScrollingNews();
             CurrentPage = MarketCheckerPage;
         }
     }

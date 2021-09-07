@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using TradeUpHelper.Controllers;
 using TradeUpHelper.Controllers.MarketChecker;
 using TradeUpHelper.Models;
 using TradeUpHelper.Models.MarketChecker;
@@ -40,6 +41,20 @@ namespace TradeUpHelper.ViewModels
         public List<MarketCheckerScin> ScinsWithStickers { get; set; }
 
         public PatternScinSelectWindow patternScinSelectWindow;
+
+        public ICommand ShowFAQ
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    UserMessagesController.AddMessageInQuerry("FAQ", ((string)Application.Current.Resources["FAQMarketChecker"]).Replace('|', '\n'));
+                    UserMessagesController.Show();
+                    //MessageBox.Show(((string)Application.Current.Resources["FAQMarketChecker"]).Replace('|', '\n'));
+                });
+            }
+        }
+
         public ICommand StartChecking
         {
             get

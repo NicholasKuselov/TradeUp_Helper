@@ -90,9 +90,20 @@
 
     <!--Setting Window-->
     <v:String x:Key="SWSteamSetting">Настройки стима</v:String>
+    <v:String x:Key="SWLanguages">Язык</v:String>
     <v:String x:Key="SWTheme">Темы</v:String>
     <v:String x:Key="SWbSetTheme">Выбрать тему</v:String>
     <v:String x:Key="SWbSave">Сохранить</v:String>
+
+    <!--Load Stages-->
+    <v:String x:Key="LSStart">Запуск приложения</v:String>
+    <v:String x:Key="LSIsOnline">Проверка подключения к сети</v:String>
+    <v:String x:Key="LSCheckUpdates">Проверка обновлений</v:String>
+    <v:String x:Key="LSCheckKey">Проверка ключа</v:String>
+    <v:String x:Key="LSLoadPrices">Получение цен</v:String>
+    <v:String x:Key="LSInventLoad">Получение инвентаря</v:String>
+    <v:String x:Key="LSGetMessages">Получения сообщений с сервера</v:String>
+
 
     <!--Inventory page-->
     <v:String x:Key="InventoryInventorySavingTime">Последнее обновление инвентаря:</v:String>

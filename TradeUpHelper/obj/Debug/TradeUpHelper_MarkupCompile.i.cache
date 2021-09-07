@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\App.xaml
-33806584590
+37-576723661
 21367781572
-100-301700506
+103-676094758
 1431967450745
-Resources\Colors\Colors.purple.xaml;Resources\Colors\Colors.blue.xaml;Resources\Colors\Colors.xaml;Resources\Icons\Icons.xaml;Resources\Local\lang.RU-ru.xaml;Resources\Local\lang.goblin-goblin.xaml;Resources\Styles\ButtonsStyles.xaml;Resources\Styles\HistoryListBoxStyles.xaml;Resources\Styles\InventoryListStyles.xaml;Resources\Styles\LabelsStyles.xaml;Resources\Styles\ListBoxesStyles.xaml;Resources\Styles\MainMenuStyles.xaml;Resources\Styles\MarketCheckerListStyles.xaml;Resources\Styles\TextBoxesStyles.xaml;Resources\Styles\WindowControlButtons.xaml;Views\AuthWindow.xaml;Views\ChangeLogWindow.xaml;Views\CMessageBox.xaml;Views\CraftHistoryWindow.xaml;Views\FroatRangeCalcWindow.xaml;Views\InfoWindow.xaml;Views\InventoryPage.xaml;Views\InvestorPage.xaml;Views\MainMenuPage.xaml;Views\MainWindow.xaml;Views\MarketCheckerPage.xaml;Views\MessageWindow.xaml;Views\PatternScinSelectWindow.xaml;Views\PriceCalcWindow.xaml;Views\RarePatternAddingWindow.xaml;Views\ScinFloatRangeWindow.xaml;Views\SettingWindow.xaml;Views\TradeUpPage.xaml;
+Resources\Colors\Colors.black.xaml;Resources\Colors\Colors.purple.xaml;Resources\Colors\Colors.blue.xaml;Resources\Colors\Colors.xaml;Resources\Icons\Icons.xaml;Resources\Local\lang.ENG.xaml;Resources\Local\lang.xaml;Resources\Local\lang.RUS.xaml;Resources\Local\lang.goblin-goblin.xaml;Resources\Styles\ButtonsStyles.xaml;Resources\Styles\HistoryListBoxStyles.xaml;Resources\Styles\InventoryListStyles.xaml;Resources\Styles\LabelsStyles.xaml;Resources\Styles\ListBoxesStyles.xaml;Resources\Styles\MainMenuStyles.xaml;Resources\Styles\MarketCheckerListStyles.xaml;Resources\Styles\TextBoxesStyles.xaml;Resources\Styles\WindowControlButtons.xaml;Views\AuthWindow.xaml;Views\ChangeLogWindow.xaml;Views\CMessageBox.xaml;Views\CraftHistoryWindow.xaml;Views\FroatRangeCalcWindow.xaml;Views\InfoWindow.xaml;Views\InventoryPage.xaml;Views\InvestorPage.xaml;Views\MainMenuPage.xaml;Views\MainWindow.xaml;Views\MarketCheckerPage.xaml;Views\MessageWindow.xaml;Views\PatternScinSelectWindow.xaml;Views\PreviewWindow.xaml;Views\PriceCalcWindow.xaml;Views\RarePatternAddingWindow.xaml;Views\ScinFloatRangeWindow.xaml;Views\SettingWindow.xaml;Views\TradeUpPage.xaml;
 
 True
 
