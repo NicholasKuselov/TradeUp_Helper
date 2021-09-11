@@ -31,6 +31,25 @@ namespace TradeUpHelper.Constants
             WebController.SendPost(baseApiPath + TradeUpHelperAPICalls.AddSticker, param);
         }
 
+        public static void AddErrorLog(string message, string stacktrace)
+        {
+
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add("message", message);
+            param.Add("stacktrace", stacktrace);
+            param.Add("key", ProgramKeyHandler.Key);
+            WebController.SendPost(baseApiPath + TradeUpHelperAPICalls.AddErrorLog, param);
+        }
+
+        public static void AddFeedback(string text)
+        {
+
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add("text", text);
+            param.Add("key", ProgramKeyHandler.Key);
+            WebController.SendPost(baseApiPath + TradeUpHelperAPICalls.AddFeedback, param);
+        }
+
         public static ResponseStickerRus GetStickerByRus(string NameRus)
         {
             Dictionary<string, string> param = new Dictionary<string, string>();

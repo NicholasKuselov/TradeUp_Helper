@@ -10,36 +10,45 @@
                     <Border Name="Border" Background="{DynamicResource Color_lb_buttonBackground}" Padding="1" BorderThickness="3,0,0,0" CornerRadius="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="140"/>
                                 <ColumnDefinition Width="140"/>
                                 <ColumnDefinition Width="150"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            
 
                             <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                <Label Content="{Binding Index}"  ContentStringFormat="{}{0}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal">
                                 <Line X1="0" Y1="0" X2="0" Y2="30" Stroke="{DynamicResource Color_lb_devider}" StrokeThickness="2" HorizontalAlignment="Left" Stretch="Fill" Margin="0,0,0,0"/>
 
                                 <Label Grid.Column="0" Content="{DynamicResource MCPrice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding price}"  ContentStringFormat="{}{0}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Grid.Column="1" Content="{DynamicResource CurrencyIco}" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+
                             </StackPanel>
-
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                <Line X1="0" Y1="0" X2="0" Y2="30" Stroke="{DynamicResource Color_lb_devider}" StrokeThickness="2" HorizontalAlignment="Left" Stretch="Fill" Margin="0,0,0,0"/>
-
-                                <Label Grid.Column="0" Content="{DynamicResource MCOverprice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
-                                <Label Grid.Column="1" Content="{Binding OverPrice}" ContentStringFormat="{}{0:F2}" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
-                            </StackPanel>
-
 
                             <StackPanel Grid.Column="2" Orientation="Horizontal">
                                 <Line X1="0" Y1="0" X2="0" Y2="30" Stroke="{DynamicResource Color_lb_devider}" StrokeThickness="2" HorizontalAlignment="Left" Stretch="Fill" Margin="0,0,0,0"/>
 
-                                <Label Grid.Column="0" Content="{DynamicResource MCStickerPrice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
-                                <Label Grid.Column="1" Content="{Binding GetStickersPrice}"  ContentStringFormat="{}{0}$" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Grid.Column="0" Content="{DynamicResource MCOverprice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Grid.Column="1" Content="{Binding OverPrice}" ContentStringFormat="{}{0:F2}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Grid.Column="1" Content="{DynamicResource CurrencyIco}" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+
                             </StackPanel>
 
+
                             <StackPanel Grid.Column="3" Orientation="Horizontal">
+                                <Line X1="0" Y1="0" X2="0" Y2="30" Stroke="{DynamicResource Color_lb_devider}" StrokeThickness="2" HorizontalAlignment="Left" Stretch="Fill" Margin="0,0,0,0"/>
+
+                                <Label Content="{DynamicResource MCStickerPrice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Content="{Binding GetStickersPrice}"  ContentStringFormat="{}{0}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Content="{DynamicResource CurrencyIco}" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="4" Orientation="Horizontal">
                                 <Line X1="0" Y1="0" X2="0" Y2="30" Stroke="{DynamicResource Color_lb_devider}" StrokeThickness="2" HorizontalAlignment="Left" Stretch="Fill" Margin="0,0,0,0"/>
                                 <Label Grid.Column="1" Content="{Binding GetStickers}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                             </StackPanel>
@@ -83,6 +92,8 @@
 
                                 <Label Grid.Column="0" Content="{DynamicResource MCPrice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding price}"  ContentStringFormat="{}{0}" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Grid.Column="1" Content="{DynamicResource CurrencyIco}" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+
                             </StackPanel>
 
                             <StackPanel Grid.Column="1" Orientation="Horizontal">
@@ -90,6 +101,8 @@
 
                                 <Label Grid.Column="0" Content="{DynamicResource MCOverprice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding OverPrice}" ContentStringFormat="{}{0}" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Grid.Column="1" Content="{DynamicResource CurrencyIco}" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+
                             </StackPanel>
 
 
@@ -98,6 +111,8 @@
 
                                 <Label Grid.Column="0" Content="{DynamicResource MCStickerPrice}"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
                                 <Label Grid.Column="1" Content="{Binding GetStickersPrice}"  ContentStringFormat="{}{0}$" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+                                <Label Grid.Column="1" Content="{DynamicResource CurrencyIco}" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="{DynamicResource Color_lb_buttonText}"/>
+
                             </StackPanel>
 
                             <StackPanel Grid.Column="3" Orientation="Horizontal">

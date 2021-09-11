@@ -33,7 +33,7 @@ namespace TradeUpHelper.Views
     public partial class MainWindow : Window, IWinOwnerCollection
     {
         public List<Window> WinOwnerCollection { get; private set; }
-        
+        bool _shown;
 
         private Task PreviewWindowTask;
         public MainWindow()
@@ -45,24 +45,6 @@ namespace TradeUpHelper.Views
             {
                 PreviewWindowTask = null;
             };
-            // previewWindow.Dispatcher.Thread.Start();
-
-
-            //PreviewWindowTask = new Task(() =>
-            //{
-            //    Dispatcher.Invoke(() =>
-            //    {
-            //        previewWindow = new PreviewWindow();
-            //        previewWindow.WinOwner = this;
-            //        previewWindow.Show();
-
-            //        previewWindow.WinOwner.Closed += (o, args) =>
-            //        {
-            //            previewWindow.Close();
-            //        };
-            //    });
-            //});
-            //PreviewWindowTask.Start();
 
             App.Current.MainWindow = this;
 
@@ -70,6 +52,20 @@ namespace TradeUpHelper.Views
             DataContext = new MainWindowVM();
             //this.Hide();
             this.SourceInitialized += new EventHandler(Window1_SourceInitialized);
+        }
+
+        
+
+        protected override void OnContentRendered(EventArgs e)
+        {
+            base.OnContentRendered(e);
+
+            if (_shown)
+                return;
+
+            _shown = true;
+
+            UserMessagesController.Show();
         }
 
         private async void Window1_SourceInitialized(object sender, EventArgs e)
@@ -99,7 +95,10 @@ namespace TradeUpHelper.Views
             {
                 if (new UserMessagesFromAPIController().IsUnreadMessagesEnable())
                 {
-                    UserMessagesController.Show();
+                    if (SettingController.IsFirstStart)
+                    {
+                        UserMessagesController.Clear();
+                    }
                 }
 
             });

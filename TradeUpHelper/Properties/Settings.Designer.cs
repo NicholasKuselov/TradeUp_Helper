@@ -55,5 +55,17 @@ namespace TradeUpHelper.Properties {
                 this["Language"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("USD")]
+        public string Currency {
+            get {
+                return ((string)(this["Currency"]));
+            }
+            set {
+                this["Currency"] = value;
+            }
+        }
     }
 }

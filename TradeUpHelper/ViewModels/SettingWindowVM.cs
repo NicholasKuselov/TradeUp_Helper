@@ -19,8 +19,25 @@ namespace TradeUpHelper.ViewModels
         public bool IsPurpleThemeActive { get; set; } = false;
         public bool IsBlackThemeActive { get; set; } = false;
 
+        public bool IsUSDActive { get; set; } = false;
+        public bool IsUAHActive { get; set; } = false;
+        public bool IsRUBActive { get; set; } = false;
+
         public bool IsRusActive { get; set; } = false;
         public bool IsEngActive { get; set; } = false;
+
+        public bool PermissionToSendErrorLog
+        {
+            get
+            {
+                return SettingController.IsSendErrorLog;
+            }
+            set
+            {
+                SettingController.IsSendErrorLog = value;
+            }
+        }
+
         public SettingWindowVM()
         {
             switch (App.Color)
@@ -45,6 +62,21 @@ namespace TradeUpHelper.ViewModels
                     break;
                 case Languages.RUS:
                     IsRusActive = true;
+                    break;
+                default:
+                    break;
+            }
+
+            switch (App.Currency.Name)
+            {
+                case "USD":
+                    IsUSDActive = true;
+                    break;
+                case "UAH":
+                    IsUAHActive = true;
+                    break;
+                case "RUB":
+                    IsRUBActive = true;
                     break;
                 default:
                     break;
@@ -116,6 +148,39 @@ namespace TradeUpHelper.ViewModels
                     {
                         SettingController.UserInventoryURL = SteamInventoryURL;
                     }
+                });
+            }
+        }
+
+        public ICommand SetUSD
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    App.Currency = CurrencyHandler.USD;
+                });
+            }
+        }
+
+        public ICommand SetUAH
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    App.Currency = CurrencyHandler.UAH;
+                });
+            }
+        }
+
+        public ICommand SetRUB
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    App.Currency = CurrencyHandler.RUB;
                 });
             }
         }

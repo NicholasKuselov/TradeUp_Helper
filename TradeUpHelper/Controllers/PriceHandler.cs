@@ -22,11 +22,11 @@ namespace TradeUpHelper.Controllers
         {
             try
             {
-                return priceDBLootFarms.First(p => p.name.Equals(itemName)).GetPrice;
+                return InventoryHandler.GetPriceFromSteam(itemName);
             }
             catch
             {
-                return InventoryHandler.GetPriceFromSteam(itemName);
+                return priceDBLootFarms.First(p => p.name.Equals(itemName)).GetPrice;
             }
         }
             

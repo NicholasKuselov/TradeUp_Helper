@@ -31,5 +31,21 @@ namespace TradeUpHelper.Views
         {
             //MessageBox.Show(((string)Application.Current.Resources["FAQMarketChecker"]).Replace('|', '\n'));
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            string text = ((TextBox)sender).Text;
+            for (int i = text.Length - 1; i >= 0; i--)
+            {
+                if (!Char.IsDigit(text[i]))
+                {
+                    text = text.Remove(i, 1);
+                }
+            }
+
+            ((TextBox)sender).Text = text;
+            ((TextBox)sender).CaretIndex = ((TextBox)sender).Text.Length;
+        }
     }
 }

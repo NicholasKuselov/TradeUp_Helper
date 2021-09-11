@@ -15,5 +15,7 @@ namespace TradeUpHelper.Constants
         public static string CheckProgramKey { get; } = "check_program_key";
         public static string GetRarityPaintSeeds { get; } = "get_seeds";
         public static string GetUserMessages { get; } = "get_messages_for_users";
+        public static string AddFeedback { get; } = "add_feedback";
+        public static string AddErrorLog { get; } = "add_error_log";
     }
 }

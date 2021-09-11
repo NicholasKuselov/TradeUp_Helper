@@ -324,3 +324,6 @@ C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Colors\C
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Local\lang.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Local\lang.RUS.baml
 C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Local\lang.ENG.baml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Currencies\Currency.RUB.baml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Currencies\Currency.UAH.baml
+C:\repos\TradeUpHelper\TradeUp_Helper\TradeUpHelper\obj\Debug\Resources\Currencies\Currency.USD.baml

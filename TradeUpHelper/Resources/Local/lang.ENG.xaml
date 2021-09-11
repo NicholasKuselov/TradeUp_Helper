@@ -92,8 +92,10 @@
     <v:String x:Key="SWSteamSetting">Steam settings</v:String>
     <v:String x:Key="SWLanguages">Language</v:String>
     <v:String x:Key="SWTheme">Themes</v:String>
+    <v:String x:Key="SWCurrency">Currency</v:String>
     <v:String x:Key="SWbSetTheme">Select theme</v:String>
     <v:String x:Key="SWbSave">Save</v:String>
+    <v:String x:Key="SWPermissionToSendErrorLogToServer">Automatically send the error log to the program to the server</v:String> 
 
     <!--Load Stages-->
     <v:String x:Key="LSStart">App start</v:String>
@@ -126,7 +128,8 @@
     <v:String x:Key = "MCSearchSticker">Scan Stickers</v:String>
     <v:String x:Key = "MCSearchPainSeed">Search for rare patterns</v:String>
     <v:String x:Key = "MCSIHWarning">For the system to work correctly, you must have SIH enabled and all other extensions disabled!</v:String>
-    <v:String x:Key = "MCSIHPage">SIH market text</v:String>
+    <v:String x:Key = "MCSIHPage">SIH market text or link to scin</v:String>
+    <v:String x:Key = "MCNeedScinCount">Need scin count</v:String>
     <v:String x:Key = "MCFindedScinsWithStickers">Found skins with stickers</v:String>
     <v:String x:Key = "MCFindedScinsWithRarityPainrSeed">Found skins with rare patterns</v:String>
     <v:String x:Key = "MCPrice">Price</v:String>

@@ -90,9 +90,12 @@
 
     <!--Setting Window-->
     <v:String x:Key="SWSteamSetting">Настройки стима</v:String>
+    <v:String x:Key="SWLanguages">Язык</v:String>
     <v:String x:Key="SWTheme">Темы</v:String>
+    <v:String x:Key="SWCurrency">Валюта</v:String>
     <v:String x:Key="SWbSetTheme">Выбрать тему</v:String>
     <v:String x:Key="SWbSave">Сохранить</v:String>
+    <v:String x:Key="SWPermissionToSendErrorLogToServer">Автоматически отправлять лог ошибок кпрограммы на сервер</v:String>
 
     <!--Load Stages-->
     <v:String x:Key="LSStart">Запуск приложения</v:String>
@@ -125,7 +128,8 @@
     <v:String x:Key="MCSearchSticker">Сканировать наклейки</v:String>
     <v:String x:Key="MCSearchPainSeed">Искать редкие паттерны</v:String>
     <v:String x:Key="MCSIHWarning">Для корректной работы системы у вас должен быть включен SIH и выключенные все остальные расширения!</v:String>
-    <v:String x:Key="MCSIHPage">Текст маркета SIH</v:String>
+    <v:String x:Key="MCSIHPage">Текст маркета SIH или ссылка на скин на ТП</v:String>
+    <v:String x:Key="MCNeedScinCount">Нужное колличество скинов</v:String>
     <v:String x:Key="MCFindedScinsWithStickers">Найденные скины с наклейками</v:String>
     <v:String x:Key="MCFindedScinsWithRarityPainrSeed">Найденные скины с редкими паттернами</v:String>
     <v:String x:Key="MCPrice">Цена</v:String>

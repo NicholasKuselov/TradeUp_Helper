@@ -65,6 +65,19 @@ namespace TradeUpHelper.Controllers
             }
         }
 
+        public static bool IsSendErrorLog
+        {
+            get
+            {
+                return setting.IsSendErrorLog;
+            }
+            set
+            {
+                setting.IsSendErrorLog = value;
+                File.WriteAllText(FilePath.settingFile, JsonSerializer.Serialize(setting));
+            }
+        }
+
         private static Setting setting;
 
         public static void Load()

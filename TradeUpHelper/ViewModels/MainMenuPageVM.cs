@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using TradeUpHelper.Controllers;
+using TradeUpHelper.Models;
 
 namespace TradeUpHelper.ViewModels
 {
@@ -53,7 +55,18 @@ namespace TradeUpHelper.ViewModels
             {
                 return new RelayCommand(() =>
                 {
-                    PageController.SelectInventoryPage();
+                    //MessageBox.Show(DateTime.UtcNow.ToString());
+                    //PageController.SelectInventoryPage();
+                    //try
+                    //{
+                        //File.WriteAllText("1.txt", WebController.SendGet("http://2ip.ua/ua/"));
+                        File.WriteAllText("2.txt", WebController.SendGet("http://2ip.ua/ua/", ProxyHandler.ProxyList[0]));
+                        //File.WriteAllText("3.txt", WebController.SendGet("http://2ip.ua/ua/", ProxyHandler.ProxyList[2]));
+                    //}catch(Exception e)
+                    //{
+                    //    //MessageBox.Show(DateTime.UtcNow.ToString());
+                    //    File.WriteAllText("data/logs/errorLog.txt", e.ToString());
+                    //}
                 });
             }
         }

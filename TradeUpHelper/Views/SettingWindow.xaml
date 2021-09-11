@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
         mc:Ignorable="d"
                 xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
-        Title="{DynamicResource SettingWindowTitle}" Height="400" Width="700" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="{DynamicResource SettingWindowTitle}" Height="500" Width="700" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
 
     <Window.Style>
         <Style TargetType="{x:Type Window}">
@@ -83,6 +83,8 @@
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <GroupBox Grid.Row="0" Header="{DynamicResource SWSteamSetting}" Background="{DynamicResource Color_NewsBlockBackground}" HorizontalAlignment="Stretch" Margin="15,5,15,5" BorderThickness="1" Foreground="White">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center">
@@ -106,9 +108,21 @@
                         <RadioButton Width="50" IsChecked="{Binding IsRusActive}" Command="{Binding SetRusLanguage}" Height="30" Background="#0f090f" Margin="5,5,5,5" Template="{DynamicResource SetRusLanguage}" GroupName="languages"/>
 
                     </StackPanel>
-
-
                 </GroupBox>
+
+                <GroupBox Grid.Row="3" Header="{DynamicResource SWCurrency}" Background="{DynamicResource Color_NewsBlockBackground}" HorizontalAlignment="Stretch" Margin="15,5,15,5" BorderThickness="1" Foreground="White">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Width="50" IsChecked="{Binding IsUSDActive}" Command="{Binding SetUSD}" Height="30" Background="#12043d" Margin="5,5,5,5" Template="{DynamicResource SetUSD}" GroupName="currencies"/>
+                        <RadioButton Width="50" IsChecked="{Binding IsUAHActive}" Command="{Binding SetUAH}" Height="30" Background="#0f090f" Margin="5,5,5,5" Template="{DynamicResource SetUAH}" GroupName="currencies"/>
+                        <RadioButton Width="50" IsChecked="{Binding IsRUBActive}" Command="{Binding SetRUB}" Height="30" Background="#12043d" Margin="5,5,5,5" Template="{DynamicResource SetRUB}" GroupName="currencies"/>
+
+                    </StackPanel>
+                </GroupBox>
+
+                <StackPanel Grid.Row="4" Orientation="Horizontal">
+                    <CheckBox IsChecked="{Binding PermissionToSendErrorLog}" Content="{DynamicResource SWPermissionToSendErrorLogToServer}" Margin="20,20,10,10" Foreground="White"/>
+                </StackPanel>
+
             </Grid>
         </Grid>
         

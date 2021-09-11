@@ -57,6 +57,52 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <ControlTemplate x:Key="SetUSD" TargetType="{x:Type RadioButton}">
+        <Border   Name="border" Background="Transparent" Padding="1,1,1,1" BorderBrush="{DynamicResource Color_ButtonBorder}" BorderThickness="1">
+            <!--<svgc:SvgViewbox HorizontalAlignment="Center" VerticalAlignment="Center" Source="pack://application:,,,/Resources/Icons/BackIco.svg"/>-->
+            <Image Source="/TradeUpHelper;component/Resources/Images/USD.png" Stretch="Uniform"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource ResourceKey=Color_ButtonBorderFocus}"></Setter>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource ResourceKey=Color_ButtonBorderPress}"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="SetUAH" TargetType="{x:Type RadioButton}">
+        <Border   Name="border" Background="Transparent" Padding="1,1,1,1" BorderBrush="{DynamicResource Color_ButtonBorder}" BorderThickness="1">
+            <!--<svgc:SvgViewbox HorizontalAlignment="Center" VerticalAlignment="Center" Source="pack://application:,,,/Resources/Icons/BackIco.svg"/>-->
+            <Image Source="/TradeUpHelper;component/Resources/Images/UAH.png" Stretch="Uniform"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource ResourceKey=Color_ButtonBorderFocus}"></Setter>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource ResourceKey=Color_ButtonBorderPress}"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="SetRUB" TargetType="{x:Type RadioButton}">
+        <Border   Name="border" Background="Transparent" Padding="1,1,1,1" BorderBrush="{DynamicResource Color_ButtonBorder}" BorderThickness="1">
+            <!--<svgc:SvgViewbox HorizontalAlignment="Center" VerticalAlignment="Center" Source="pack://application:,,,/Resources/Icons/BackIco.svg"/>-->
+            <Image Source="/TradeUpHelper;component/Resources/Images/RUB.png" Stretch="Uniform"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource ResourceKey=Color_ButtonBorderFocus}"></Setter>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource ResourceKey=Color_ButtonBorderPress}"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
     <ControlTemplate x:Key="SetRusLanguage" TargetType="{x:Type RadioButton}">
         <Border   Name="border" Background="Transparent" Padding="1,1,1,1" BorderBrush="{DynamicResource Color_ButtonBorder}" BorderThickness="1">
             <!--<svgc:SvgViewbox HorizontalAlignment="Center" VerticalAlignment="Center" Source="pack://application:,,,/Resources/Icons/BackIco.svg"/>-->

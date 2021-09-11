@@ -14,5 +14,6 @@ namespace TradeUpHelper.Models
         public bool IsFirstStartAfterUpdate { get; set; } = false;
         public int LastReadMessageId { get; set; } = 0;
         public int NeedNewsCount { get; set; } = 10;
+        public bool IsSendErrorLog { get; set; } = true;
     }
 }

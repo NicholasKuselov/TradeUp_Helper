@@ -75,7 +75,6 @@ namespace TradeUpHelper.Controllers
                 return ConvertFloatToDouble(rez.Substring(c + 2, d - c - 6));
             }catch
             {
-                //MessageBox.Show(rez);
                 return -3.0;
             }
         }
@@ -86,16 +85,16 @@ namespace TradeUpHelper.Controllers
             try
             {
                 string url = SteamPath.SteamPriceRequestStart + itemName + SteamPath.SteamPriceRequestEnd;
+
                 rez = WebController.SendGet(url);
-               // MessageBox.Show(rez);
 
                 ScinPrice scinPrice = JsonSerializer.Deserialize<ScinPrice>(rez);
 
                 return ConvertFloatToDouble(scinPrice.lowest_price);
             }
-            catch
+            catch (Exception e)
             {
-                //MessageBox.Show(rez);
+                ErrorHandler.WriteErrorLog(e);
                 return -1.0;
             }
         }

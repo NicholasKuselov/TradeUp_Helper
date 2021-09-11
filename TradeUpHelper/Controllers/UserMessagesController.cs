@@ -15,6 +15,10 @@ namespace TradeUpHelper.Controllers
 
         public static void Show()
         {
+            if (Querry.Count == 0)
+            {
+                return;
+            }
             if (messageWindow != null)
             {
                 messageWindow.Close();
@@ -23,6 +27,8 @@ namespace TradeUpHelper.Controllers
             messageWindow.Show();
            // Querry.Clear();
         }
+
+
 
         public static void Clear()
         {

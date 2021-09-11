@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -59,8 +60,9 @@ namespace TradeUpHelper.Controllers
                 }
 
             }
-            catch
+            catch (Exception e)
             {
+                ErrorHandler.WriteErrorLog(e);
                 MessageBox.Show("Error with void GetItemProp");
             }
 
@@ -128,8 +130,9 @@ namespace TradeUpHelper.Controllers
                 }
 
             }
-            catch
+            catch (Exception e)
             {
+                ErrorHandler.WriteErrorLog(e);
                 MessageBox.Show("Error with void GetItemProp");
             }
 
@@ -147,13 +150,40 @@ namespace TradeUpHelper.Controllers
         }
         public static string SendGet(string url)
         {
-
             string data = "";
-
             WebRequest request = WebRequest.Create(url);
             request.Headers.Add("Accept-Language", "ru-UA,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk-UA;q=0.6,uk;q=0.5,ru-RU;q=0.4");
             WebResponse response = request.GetResponse();
+            try
+            {
+                using (Stream stream = response.GetResponseStream())
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        data = reader.ReadToEnd();
+                        stream.Close();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                ErrorHandler.WriteErrorLog(e);
+                MessageBox.Show("Error with void SendGet");
+            }
 
+            response.Close();
+
+            return data;
+        }
+
+        public static string SendGet(string url,string proxyHost,int proxyPort)
+        {
+            string data = "";
+            WebProxy proxy = new WebProxy(proxyHost,proxyPort);
+            WebRequest request = WebRequest.Create(url);
+            request.Proxy = proxy;
+            request.Headers.Add("Accept-Language", "ru-UA,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk-UA;q=0.6,uk;q=0.5,ru-RU;q=0.4");
+            WebResponse response = request.GetResponse();
 
             try
             {
@@ -165,18 +195,75 @@ namespace TradeUpHelper.Controllers
                         stream.Close();
                     }
                 }
-
             }
-            catch
+            catch (Exception e)
             {
+                ErrorHandler.WriteErrorLog(e);
                 MessageBox.Show("Error with void GetItemProp");
             }
-
             response.Close();
-
-
             return data;
         }
 
+        public static string SendGet(string url, WebProxy proxy)
+        {
+            string data = "";
+            WebRequest request = WebRequest.Create(url);
+            proxy.BypassProxyOnLocal = true;
+            request.Proxy = proxy;
+            request.Headers.Add("Accept-Language", "ru-UA,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk-UA;q=0.6,uk;q=0.5,ru-RU;q=0.4");
+            WebResponse response = request.GetResponse();
+
+            try
+            {
+                using (Stream stream = response.GetResponseStream())
+                {
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        data = reader.ReadToEnd();
+                        stream.Close();
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                ErrorHandler.WriteErrorLog(e);
+                MessageBox.Show("Error with void SendGet");
+            }
+            response.Close();
+            return data;
+        }
+
+
+        [DllImport("wininet.dll", SetLastError = true)]
+        private static extern bool InternetSetOption(
+            IntPtr dwl,
+            int dw,
+            IntPtr dwB,
+            int dwBL);
+
+        public struct SIPI
+        {
+            public int dwAT;
+            public IntPtr pro;
+            public IntPtr prB;
+        }
+
+        public void UseProxy(string Proxy)
+        {
+            const int PO = 38;
+            const int POI = 3;
+
+            SIPI ISI = default(SIPI);
+            ISI.dwAT = POI;
+            ISI.pro = Marshal.StringToHGlobalAnsi(Proxy);
+            ISI.prB = Marshal.StringToHGlobalAnsi("local");
+
+            IntPtr INS = Marshal.AllocCoTaskMem(Marshal.SizeOf(ISI));
+
+            Marshal.StructureToPtr(ISI, INS, true);
+
+            bool iR = InternetSetOption(IntPtr.Zero,PO,INS,Marshal.SizeOf(ISI));
+        }
     }
 }

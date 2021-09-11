@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using TradeUpHelper.Constants;
 using TradeUpHelper.Models;
 using TradeUpHelper.Models.MarketChecker;
+using TradeUpHelper.Models.SteamAPI;
 using TradeUpHelper.ViewModels;
 
 namespace TradeUpHelper.Controllers.MarketChecker
@@ -17,6 +19,114 @@ namespace TradeUpHelper.Controllers.MarketChecker
         public static RarityPainSeedScin SelectedScin { get { return parent.SelectedWeapon; } set { parent.SelectedWeapon = value; } }
 
         public static MarketCheckerPageVM parent;
+
+        public static List<MarketCheckerScin> GetScinsFromSteamUrl(string data,string needScinCount)
+        {
+           // data = data + "/render/?query=&start=100&count=100&country=UA&language=russian&currency=18";
+            double minPrice = -1;
+
+            List<MarketCheckerScin> scins = new List<MarketCheckerScin>();
+
+            int start = 0;
+
+            int scinsCount = 100;
+
+            int proxyIndex = 0;
+
+            int addedScinCount = 0;
+            int neededScinCount = 0;
+            if (needScinCount.Equals(""))
+            {
+                neededScinCount = -1;
+            }
+            else
+            {
+                neededScinCount = Convert.ToInt32(needScinCount);
+            }
+
+            while (scinsCount > start)
+            {
+                string request = WebController.SendGet(data + "/render/?query=&start=" + start.ToString() + "&count=100&country=UA&language=russian&currency=" + App.Currency.SteamCode);
+
+
+                ScinMarketPlacePage json = JsonSerializer.Deserialize<ScinMarketPlacePage>(request);
+
+                if (!json.success)
+                {
+                    request = WebController.SendGet(data + "/render/?query=&start=" + start.ToString() + "&country=UA&language=russian&currency=" + App.Currency.SteamCode, ProxyHandler.ProxyList[proxyIndex]);
+                    json = JsonSerializer.Deserialize<ScinMarketPlacePage>(request);
+                    if (proxyIndex == ProxyHandler.ProxyList.Count-1)
+                    {
+                        proxyIndex = 0;
+                    }
+                    else
+                    {
+                        proxyIndex++;
+                    }
+                }
+
+                scinsCount = json.total_count;
+
+                int index = 0;
+                foreach (ScinMarketPlacePage.ScinListingInfo item in json.listinginfo.Values)
+                {
+                    string scinLink = item.asset.market_actions.First().link;
+                    scinLink = scinLink.Replace("%listingid%", item.listingid).Replace("%assetid%", item.asset.id);
+                    MarketCheckerScin tmpScin = JsonSerializer.Deserialize<MarketCheckerScin>(WebController.GetItemProp(scinLink));
+                    tmpScin.price = (item.converted_price + item.converted_fee) / 100.0;
+                    tmpScin.Index = index + start;
+                    if (minPrice == -1)
+                    {
+                        minPrice = tmpScin.price;
+                    }
+                    tmpScin.MinPrice = minPrice;
+
+                    
+
+                    scins.Add(tmpScin);
+                    addedScinCount++;
+                    if (addedScinCount >= neededScinCount && neededScinCount > 0)
+                    {
+                        return scins;
+                    }
+                    if (neededScinCount == -1)
+                    {
+                        parent.CheckProgress += ((95.0 / parent.CheckProgressCountStages) / (scinsCount - 1));
+                    }
+                    else
+                    {
+                        parent.CheckProgress += ((95.0 / parent.CheckProgressCountStages) / (neededScinCount - 1));
+                    }
+                    index++;
+                }
+                start += 100;
+            }
+
+            
+
+            return scins;
+        }
+
+        public static List<MarketCheckerScin> GetScinsWithStickerScinsFromSteamURL(List<MarketCheckerScin> scins)
+        {
+            List<MarketCheckerScin> scinsWithStickers = new List<MarketCheckerScin>();
+
+            for (int i = 0; i < scins.Count; i++)
+            {
+                if (scins[i].stickers != null)
+                {
+                    if (scins[i].stickers.Length > 0) {
+                        for (int j = 0; j < scins[i].stickers.Length; j++)
+                        {
+                            scins[i].stickers[j].price = PriceHandler.GetPrice("Sticker | " + scins[i].stickers[j].name);
+                        }
+                        scinsWithStickers.Add(scins[i]);
+                    }
+                }
+                parent.CheckProgress += ((95.0 / parent.CheckProgressCountStages) / scins.Count);
+            }
+            return scinsWithStickers;
+        }
 
         public static List<MarketCheckerScin> GetScinsAlternative(string data, bool isStickersNeed)
         {

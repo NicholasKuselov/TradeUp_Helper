@@ -10,7 +10,7 @@ namespace TradeUpHelper.Constants
     {
         public static string BaseImageUrl { get; } = "https://community.akamai.steamstatic.com/economy/image/"; //в конце можно указать размер, например /330x192
         public static string SteamMarketSearch { get; } = "https://www.steamcommunity.com/market/search?q=";
-        public static string SteamPriceRequestStart { get; } = "https://steamcommunity.com/market/priceoverview/?currency=1&country=us&appid=730&market_hash_name=";
+        public static string SteamPriceRequestStart { get; } = "https://steamcommunity.com/market/priceoverview/?currency=" +App.Currency.SteamCode+ "&country=us&appid=730&market_hash_name=";
         public static string SteamPriceRequestEnd { get; } = "&format=json";
     }
 }

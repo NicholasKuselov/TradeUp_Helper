@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using TradeUpHelper.Constants;
+using TradeUpHelper.Controllers;
 using TradeUpHelper.ViewModels;
 using TradeUpHelper.Views;
 
@@ -16,13 +18,11 @@ namespace TradeUpHelper
     /// </summary>
     public partial class App : Application
     {
-        //public App() => AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(Exception);
-        //static void Exception(object sender, UnhandledExceptionEventArgs args)
-        //{
-
-        //}
         public static PreviewWindow previewWindow;
-
+        static void Exception(object sender, UnhandledExceptionEventArgs args)
+        {
+            ErrorHandler.WriteErrorLog((Exception)args.ExceptionObject);
+        }
         public App()
         {
             previewWindow = new PreviewWindow();
@@ -30,6 +30,8 @@ namespace TradeUpHelper
             InitializeComponent();
             Color = TradeUpHelper.Properties.Settings.Default.Theme;
             Language = TradeUpHelper.Properties.Settings.Default.Language;
+            Currency = CurrencyHandler.Currencies.FirstOrDefault(p => p.Name.Equals(TradeUpHelper.Properties.Settings.Default.Currency));
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(Exception);
         }
 
 
@@ -123,6 +125,52 @@ namespace TradeUpHelper
 
                 //4. Вызываем евент для оповещения всех окон.
                 //LanguageChanged(Application.Current, new EventArgs());
+            }
+        }
+
+        public static CurrencyHandler.Currency Currency
+        {
+            get
+            {
+                return CurrencyHandler.Currencies.Find(p => p.Name.Equals(TradeUpHelper.Properties.Settings.Default.Currency));
+            }
+            set
+            {
+
+                ResourceDictionary dict = new ResourceDictionary();
+                if(value.Name.Equals(CurrencyHandler.USD.Name))
+                {
+                    dict.Source = new Uri(String.Format("Resources/Currencies/Currency.{0}.xaml", value.Name), UriKind.Relative);
+                    TradeUpHelper.Properties.Settings.Default.Currency = value.Name;
+                }else if (value.Name.Equals(CurrencyHandler.UAH.Name))
+                {
+                    dict.Source = new Uri(String.Format("Resources/Currencies/Currency.{0}.xaml", value.Name), UriKind.Relative);
+                    TradeUpHelper.Properties.Settings.Default.Currency = value.Name;
+                }
+                else if (value.Name.Equals(CurrencyHandler.RUB.Name))
+                {
+                    dict.Source = new Uri(String.Format("Resources/Currencies/Currency.{0}.xaml", value.Name), UriKind.Relative);
+                    TradeUpHelper.Properties.Settings.Default.Currency = value.Name;
+                }
+                else
+                {
+                    dict.Source = new Uri("Resources/Currencies/Currency.USD.xaml", UriKind.Relative);
+                    TradeUpHelper.Properties.Settings.Default.Currency = "";
+                }
+                    
+                TradeUpHelper.Properties.Settings.Default.Save();
+                ResourceDictionary oldDict = Application.Current.Resources.MergedDictionaries.First(p => p.Source.OriginalString.StartsWith("Resources/Currencies/Currency"));
+
+                if (oldDict != null)
+                {
+                    int ind = Application.Current.Resources.MergedDictionaries.IndexOf(oldDict);
+                    Application.Current.Resources.MergedDictionaries.Remove(oldDict);
+                    Application.Current.Resources.MergedDictionaries.Insert(ind, dict);
+                }
+                else
+                {
+                    Application.Current.Resources.MergedDictionaries.Add(dict);
+                }
             }
         }
     }
