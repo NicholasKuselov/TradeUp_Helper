@@ -38,16 +38,25 @@
 
 
         <Grid Grid.Row="1" Background="{DynamicResource Color_WindowBackground}">
-            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                <Button Width="30" Height="30" Template="{DynamicResource QAButton}" Command="{Binding ShowFAQ}"/>
-                <TextBox Text="{Binding Data}" Width="200" Height="26" Style="{DynamicResource SIH_Page}" TextWrapping="Wrap" AcceptsReturn="True" />
-                <TextBox Text="{Binding NeedScinCount}" Width="160" Height="26" Style="{DynamicResource NeedScinCount}" TextWrapping="Wrap" AcceptsReturn="True" TextChanged="TextBox_TextChanged" />
-                <Button Width="80" Height="26" Command="{Binding StartChecking}" VerticalAlignment="Center" Template="{DynamicResource StartButton}"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="390"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Width="30" Height="30" Template="{DynamicResource QAButton}" Command="{Binding ShowFAQ}"/>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Text="{Binding Data}"  Height="26" Style="{DynamicResource SIH_Page}" TextWrapping="Wrap" AcceptsReturn="True" />
+                <TextBox Grid.Column="1" Text="{Binding NeedScinCount}"  Height="26" Style="{DynamicResource NeedScinCount}" TextWrapping="Wrap" AcceptsReturn="True" TextChanged="TextBox_TextChanged" />
+            </Grid>
 
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
+            <StackPanel Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Width="80" Height="26" Command="{Binding StartChecking}" VerticalAlignment="Center" Template="{DynamicResource StartButton}"/>
                 <!--<ComboBox ItemsSource="{Binding ScinsNameWithRarityPaintSeeds}" SelectedItem="{Binding SelectedWeapon}" Margin="0,0,5,0" SelectedIndex="0" Style="{DynamicResource comboBoxStyle}" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment ="Center" VerticalAlignment="Center" Background="Transparent" Height="25"/>-->
-                <Button Width="150" Height="25" Padding="0,0,0,0" Template="{DynamicResource SelectPatternButton}" Command="{Binding OpenPatternScinWindow}"/>
+                <Button Width="140" Margin="5,0,5,0" Height="25" Padding="0,0,0,0" Template="{DynamicResource SelectPatternButton}" Command="{Binding OpenPatternScinWindow}"/>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -81,11 +90,13 @@
 
         <Border Grid.Row="3" BorderBrush="Silver" BorderThickness="1">
             <StackPanel Orientation="Horizontal" Background="{DynamicResource Color_WindowBackground}">
-                <ProgressBar Margin="10,0,0,0" Height="12" Width="400" VerticalAlignment="Center" Maximum="100" Background="Transparent" Value="{Binding CheckProgress}" />
+                <ProgressBar Margin="10,0,0,0" Height="12" Width="200" VerticalAlignment="Center" Maximum="100" Background="Transparent" Value="{Binding CheckProgress}" />
                 <Label Content="{DynamicResource MCStickerFoundCount}" Foreground="White" Margin="10,0,0,0" FontSize="10" VerticalContentAlignment="Center" Width="98"/>
                 <Label Content="{Binding StickersFounded}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="50"/>
                 <Label Content="{DynamicResource MCPaintSeedFoundCount}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" Width="140"/>
-                <Label Content="{Binding ScinsWithRarityPaintSeeds.Count}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="130"/>
+                <Label Content="{Binding ScinsWithRarityPaintSeeds.Count}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="50"/>
+                <Label Content="{DynamicResource MCTotalScanedScinCount}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" Width="130"/>
+                <Label Content="{Binding TotalScanedScinCount}" Foreground="White" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="50"/>
             </StackPanel>
         </Border>
     </Grid>

@@ -141,6 +141,7 @@
     <v:String x:Key = "MCSelectScin">Select skin</v:String>
     <v:String x:Key = "MCStickerFoundCount">Stickers found:</v:String>
     <v:String x:Key = "MCPaintSeedFoundCount">Rare patterns found:</v:String>
+    <v:String x:Key="MCTotalScanedScinCount">Scaned scin count:</v:String>
     <v:String x:Key = "MCSelectScinError">Select a skin for pattern search, or turn off the pattern search function</v:String>
 
     <v:String x:Key = "SteamInventoryURL">Steam inventory link</v:String>

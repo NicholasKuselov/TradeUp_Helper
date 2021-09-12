@@ -22,7 +22,6 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
         public static List<MarketCheckerScin> GetScinsFromSteamUrl(string data,string needScinCount)
         {
-           // data = data + "/render/?query=&start=100&count=100&country=UA&language=russian&currency=18";
             double minPrice = -1;
 
             List<MarketCheckerScin> scins = new List<MarketCheckerScin>();
@@ -43,6 +42,8 @@ namespace TradeUpHelper.Controllers.MarketChecker
             {
                 neededScinCount = Convert.ToInt32(needScinCount);
             }
+
+            int totalScanedScinCount = 0;
 
             while (scinsCount > start)
             {
@@ -84,6 +85,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
                     
 
                     scins.Add(tmpScin);
+                    totalScanedScinCount++;
                     addedScinCount++;
                     if (addedScinCount >= neededScinCount && neededScinCount > 0)
                     {
@@ -102,7 +104,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
                 start += 100;
             }
 
-            
+            parent.TotalScanedScinCount = totalScanedScinCount;
 
             return scins;
         }
@@ -202,6 +204,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
             return scins;
         }
+
         public static List<MarketCheckerScin> GetScins(string data, bool isStickersNeed)
         {
             //data = File.ReadAllText("C:\\Users\\Odin\\Desktop\\sss.txt");
@@ -352,7 +355,6 @@ namespace TradeUpHelper.Controllers.MarketChecker
             }
             return price;
         }
-
 
         private static double ConvertFloatToDouble(string Float)
         {

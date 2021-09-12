@@ -141,6 +141,7 @@
     <v:String x:Key="MCSelectScin">Выберете скин</v:String>
     <v:String x:Key="MCStickerFoundCount">Найдено стикеров:</v:String>
     <v:String x:Key="MCPaintSeedFoundCount">Найдено редких паттернов:</v:String>
+    <v:String x:Key="MCTotalScanedScinCount">Просканировано скинов:</v:String>
     <v:String x:Key="MCSelectScinError">Выберете скин для поиска паттернов, или выключите функцию поиска паттернов</v:String>
 
     <v:String x:Key="SteamInventoryURL">Ссылка на инвентарь стим</v:String>

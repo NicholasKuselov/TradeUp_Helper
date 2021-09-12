@@ -25,6 +25,7 @@ namespace TradeUpHelper.ViewModels
         }
         public int StickersFounded { get; set; } = 0;
         public double CheckProgressCountStages = 1;
+        public int TotalScanedScinCount { get; set; } = 0;
 
         public string NeedScinCount { get; set; } = "";
         public double CheckProgress { get; set; } = 0.0;
@@ -126,6 +127,7 @@ namespace TradeUpHelper.ViewModels
             if (IsStickerNeed) CheckProgressCountStages++;
             MarketChecker.parent = this;
             StickersFounded = 0;
+            TotalScanedScinCount = 0;
             Task.Run(() =>
             {
                 try
