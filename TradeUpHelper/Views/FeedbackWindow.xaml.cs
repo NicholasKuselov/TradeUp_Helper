@@ -12,33 +12,39 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TradeUpHelper.Controllers;
-using TradeUpHelper.Models.TradeUpHelperAPI;
-using TradeUpHelper.ViewModels;
 
 namespace TradeUpHelper.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MessageWindow.xaml
+    /// Логика взаимодействия для FeedbackWindow.xaml
     /// </summary>
-    public partial class MessageWindow : Window
+    public partial class FeedbackWindow : Window
     {
-        public MessageWindow()
+        public FeedbackWindow()
         {
             InitializeComponent();
             this.MouseLeftButtonDown += delegate { this.DragMove(); };
-        }
 
-        public MessageWindow(List<MessageForUser> messages)
-        {
-            InitializeComponent();
-            this.MouseLeftButtonDown += delegate { this.DragMove(); };
-            this.DataContext = new MessageWindowVM(messages);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            UserMessagesController.Clear();
             this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (tbFeedBack.Text.Length > 2)
+            {
+                try
+                {
+                    TradeUpHelper.Constants.TradeUpHelperAPI.AddFeedback(tbFeedBack.Text);
+                }
+                catch (Exception ex)
+                {
+                    ErrorHandler.WriteErrorLog(ex);
+                }
+            }
         }
     }
 }

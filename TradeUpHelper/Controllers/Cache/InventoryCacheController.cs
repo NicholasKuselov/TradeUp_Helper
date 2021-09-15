@@ -12,8 +12,7 @@ using TradeUpHelper.Models.Cache;
 namespace TradeUpHelper.Controllers.Cache
 {
     class InventoryCacheController
-    {
-        
+    {       
         public static void Load()
         {
             try
@@ -23,9 +22,9 @@ namespace TradeUpHelper.Controllers.Cache
                 InventoryHandler.items = inventoryCache.Scins;
                 InventoryHandler.CacheWritingTime = inventoryCache.LoadDate;
             }
-            catch
+            catch(Exception e)
             {
-                //MessageBox.Show((string)Application.Current.Resources["ErrorWithLoadingInventoryCache"]);
+                ErrorHandler.WriteErrorLog(e);
                 InventoryHandler.LoadItems();
             }
         }

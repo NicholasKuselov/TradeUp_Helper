@@ -24,17 +24,13 @@
 
     <v:SolidColorBrush x:Key="InventoryPageBorder" Color="#7d7d7d"/>
 
-    <v:RadialGradientBrush x:Key="Color_lb_buttonBackground">
-        <GradientStop Color="#29175e" Offset="1.5" />
-        <GradientStop Color="#2c1764" Offset="0.1" />
-    </v:RadialGradientBrush>
 
     <v:SolidColorBrush x:Key="Color_lb_buttonBorderFocus" Color="#0bbe35"/>
     <v:SolidColorBrush x:Key="Color_lb_buttonText" Color="White"/>
     <v:SolidColorBrush x:Key="Color_lb_buttonBorder" Color="#ecca7b"/>
-    <v:SolidColorBrush x:Key="Color_lb_buttonBackgroundd" Color="#006e3d"/>
+    <v:SolidColorBrush x:Key="Color_lb_buttonBackground" Color="#29175e"/>
     <v:SolidColorBrush x:Key="Color_lb_devider" Color="#1f272a"/>
-    <v:SolidColorBrush x:Key="Color_lb_buttonBackgroundFocus" Color="#20242e"/>
+    <v:SolidColorBrush x:Key="Color_lb_buttonBackgroundFocus" Color="#5c3cba"/>
     <v:SolidColorBrush x:Key="Color_lb_Background" Color="#181c26"/>
 
     <v:SolidColorBrush x:Key="Color_Rare_Consumer" Color="#afafaf"/>

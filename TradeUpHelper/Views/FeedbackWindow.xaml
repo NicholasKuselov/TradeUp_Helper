@@ -1,0 +1,76 @@
+﻿<Window x:Class="TradeUpHelper.Views.FeedbackWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TradeUpHelper.Views"
+        mc:Ignorable="d"         xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+
+        Title="{DynamicResource MessageWindowTitle}" Height="250" Width="500" ResizeMode="NoResize" WindowStyle="None" Topmost="True" WindowStartupLocation="CenterScreen">
+
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="shell:WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <shell:WindowChrome CaptionHeight="0"
+                                        CornerRadius="0"
+                                        GlassFrameThickness="0,0,0,0"
+                                        NonClientFrameEdges="None"
+                                        ResizeBorderThickness="5"
+                                        UseAeroCaptionButtons="false"
+                                        />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Style>
+
+    <Border BorderBrush="Blue" BorderThickness="1">
+        <Grid  Background="{DynamicResource Color_lb_Background}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0"  Grid.ColumnSpan="2" Background="{DynamicResource Color_WindowTopBar}">
+                <Grid.Resources>
+                    <ControlTemplate x:Key="ExitButton" TargetType="{x:Type Button}">
+                        <Border   Name="border" Background="Transparent">
+                            <ContentPresenter Content="{DynamicResource ExitIco2}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button HorizontalAlignment="Right" Template="{StaticResource ExitButton}" Width="50" Click="Button_Click"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Image Height="25" Width="25" Margin="5,0,0,0" Source="/TradeUpHelper;component/Resources/Images/feedback.png"/>
+                    <Label Content="{DynamicResource FeedbackWindowTitle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,0,10,0" Foreground="White"/>
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <TextBox Name="tbFeedBack" AcceptsReturn="True" AcceptsTab="True" AutoWordSelection="True" Foreground="White" TextWrapping="Wrap" Background="{DynamicResource Color_lb_Background}">
+                    
+                </TextBox>
+            </Grid>
+
+            <Button Grid.Row ="2" Template="{DynamicResource GreenButton}" Content="{DynamicResource FeedbackSendButton}" Click="Button_Click_1"/>
+        </Grid>
+    </Border>
+</Window>

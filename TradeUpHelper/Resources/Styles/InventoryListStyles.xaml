@@ -29,7 +29,8 @@
 
                             <StackPanel Grid.Row="2" Orientation="Horizontal">
                                 <Label Content="{DynamicResource Price}" Foreground="White"/>
-                                <Label Content="{Binding price}"  ContentStringFormat="{}{0}$" Foreground="White"/>
+                                <Label Content="{Binding price}"  ContentStringFormat="{}{0}" Foreground="White"/>
+                                <Label Content="{DynamicResource CurrencyIco}" Foreground="White"/>
                             </StackPanel>
                             <Label Grid.Row="2"/>
                             <Rectangle Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{Binding rarity,Converter={StaticResource RarityColorConverter}}"/>
@@ -39,7 +40,7 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="ListBoxItem.IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource Color_lb_buttonBorderFocus}"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="Silver"/>
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource Color_lb_buttonBackgroundFocus}"/>
                         </Trigger>
                         <Trigger Property="ListBoxItem.IsSelected" Value="true">

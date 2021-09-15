@@ -15,6 +15,9 @@ namespace TradeUpHelper.Constants
         public static string userPaintSeedsFilePath { get; } = "data/Seeds/user_seeds.sds";
         public static string ProgramKeyFile { get; } = "data/key";
         public static string ChangeLogFilePath { get; } = "data/changeLog.xml";
-        public const string ERROR_LOG_DIRECTORY = "data/logs/errorLog"; 
+        public const string ERROR_LOG_DIRECTORY = "data/logs/errorLog";
+
+        public const string LOOTFARM_PRICE_CACHE = "data/cache/lootfarmprice.json";
+        public const string STEAM_PRICE_CACHE = "data/cache/steamprice.json";
     }
 }

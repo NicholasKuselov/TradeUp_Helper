@@ -15,6 +15,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="/TradeUpHelper;component/Resources/Images/TradeUpHelperBanner.png"/>
         </Grid.Background>
-        <Label Name="lLoadStatus" x:FieldModifier="public" Content="{Binding LoadStatus}" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="54,0,0,21"/>
+        <Label Name="lLoadStatus" x:FieldModifier="public" Content="{Binding LoadStatus}" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10"/>
     </Grid>
 </Window>

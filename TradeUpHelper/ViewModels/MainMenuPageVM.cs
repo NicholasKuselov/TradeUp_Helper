@@ -55,18 +55,7 @@ namespace TradeUpHelper.ViewModels
             {
                 return new RelayCommand(() =>
                 {
-                    //MessageBox.Show(DateTime.UtcNow.ToString());
-                    //PageController.SelectInventoryPage();
-                    //try
-                    //{
-                        //File.WriteAllText("1.txt", WebController.SendGet("http://2ip.ua/ua/"));
-                        File.WriteAllText("2.txt", WebController.SendGet("http://2ip.ua/ua/", ProxyHandler.ProxyList[0]));
-                        //File.WriteAllText("3.txt", WebController.SendGet("http://2ip.ua/ua/", ProxyHandler.ProxyList[2]));
-                    //}catch(Exception e)
-                    //{
-                    //    //MessageBox.Show(DateTime.UtcNow.ToString());
-                    //    File.WriteAllText("data/logs/errorLog.txt", e.ToString());
-                    //}
+                    PageController.SelectInventoryPage();
                 });
             }
         }

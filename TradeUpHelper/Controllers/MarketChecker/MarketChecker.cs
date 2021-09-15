@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using TradeUpHelper.Constants;
@@ -20,7 +21,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
         public static MarketCheckerPageVM parent;
 
-        public static List<MarketCheckerScin> GetScinsFromSteamUrl(string data,string needScinCount)
+        public static List<MarketCheckerScin> GetScinsFromSteamUrl(string data,string needScinCount, CancellationToken token)
         {
             double minPrice = -1;
 
@@ -71,24 +72,31 @@ namespace TradeUpHelper.Controllers.MarketChecker
                 int index = 0;
                 foreach (ScinMarketPlacePage.ScinListingInfo item in json.listinginfo.Values)
                 {
+                    if (token.IsCancellationRequested)
+                    {
+                        parent.TotalScanedScinCount = totalScanedScinCount;
+                        return scins;
+                    }
                     string scinLink = item.asset.market_actions.First().link;
                     scinLink = scinLink.Replace("%listingid%", item.listingid).Replace("%assetid%", item.asset.id);
                     MarketCheckerScin tmpScin = JsonSerializer.Deserialize<MarketCheckerScin>(WebController.GetItemProp(scinLink));
                     tmpScin.price = (item.converted_price + item.converted_fee) / 100.0;
+
+                    if (tmpScin.price == 0) continue;
+                    
                     tmpScin.Index = index + start;
                     if (minPrice == -1)
                     {
                         minPrice = tmpScin.price;
                     }
                     tmpScin.MinPrice = minPrice;
-
-                    
-
+                   
                     scins.Add(tmpScin);
                     totalScanedScinCount++;
                     addedScinCount++;
                     if (addedScinCount >= neededScinCount && neededScinCount > 0)
                     {
+                        parent.TotalScanedScinCount = totalScanedScinCount;
                         return scins;
                     }
                     if (neededScinCount == -1)
@@ -109,7 +117,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
             return scins;
         }
 
-        public static List<MarketCheckerScin> GetScinsWithStickerScinsFromSteamURL(List<MarketCheckerScin> scins)
+        public static List<MarketCheckerScin> GetScinsWithStickerScinsFromSteamURL(List<MarketCheckerScin> scins, CancellationToken token)
         {
             List<MarketCheckerScin> scinsWithStickers = new List<MarketCheckerScin>();
 
@@ -120,7 +128,24 @@ namespace TradeUpHelper.Controllers.MarketChecker
                     if (scins[i].stickers.Length > 0) {
                         for (int j = 0; j < scins[i].stickers.Length; j++)
                         {
-                            scins[i].stickers[j].price = PriceHandler.GetPrice("Sticker | " + scins[i].stickers[j].name);
+                            if (token.IsCancellationRequested)
+                            {
+                                return scinsWithStickers;
+                            }
+                            try
+                            {
+                                scins[i].stickers[j].price = PriceHandler.GetPriceFromSteamCache("Sticker | " + scins[i].stickers[j].name);
+                            }
+                            catch
+                            {
+                                scins[i].stickers[j].price = PriceHandler.GetPrice("Sticker | " + scins[i].stickers[j].name);
+                            }
+
+                            //if (scins[i].stickers[j].price <=0)
+                            //{
+                            //     //Wait for steam
+                            //    j--;
+                            //}
                         }
                         scinsWithStickers.Add(scins[i]);
                     }
@@ -130,7 +155,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
             return scinsWithStickers;
         }
 
-        public static List<MarketCheckerScin> GetScinsAlternative(string data, bool isStickersNeed)
+        public static List<MarketCheckerScin> GetScinsAlternative(string data, bool isStickersNeed, CancellationToken token)
         {
 
             List<MarketCheckerScin> scins = new List<MarketCheckerScin>();
@@ -162,6 +187,10 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
                     foreach (string st in stick.Skip(1))
                     {
+                        if (token.IsCancellationRequested)
+                        {
+                            return scins;
+                        }
                         Sticker sticker = new Sticker();
                         string[] cs1 = st.Split('\n');
                         sticker.name = ("Наклейка" + cs1[0]).Replace('\r', ' ');
@@ -181,6 +210,10 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
                     foreach (string st in stick.Skip(1))
                     {
+                        if (token.IsCancellationRequested)
+                        {
+                            return scins;
+                        }
                         Sticker sticker = new Sticker();
                         string[] cs1 = st.Split('\n');
                         sticker.name = ("Sticker" + cs1[0]).Replace('\r', ' ');
@@ -198,6 +231,10 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
             for (int i = 0; i < scins.Count; i++)
             {
+                if (token.IsCancellationRequested)
+                {
+                    return scins;
+                }
                 scins[i].MinPrice = scins[0].price;
             }
 
@@ -205,7 +242,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
             return scins;
         }
 
-        public static List<MarketCheckerScin> GetScins(string data, bool isStickersNeed)
+        public static List<MarketCheckerScin> GetScins(string data, bool isStickersNeed, CancellationToken token)
         {
             //data = File.ReadAllText("C:\\Users\\Odin\\Desktop\\sss.txt");
             List<MarketCheckerScin> scins = new List<MarketCheckerScin>();
@@ -243,6 +280,10 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
                     foreach (string st in stick.Skip(1))
                     {
+                        if (token.IsCancellationRequested)
+                        {
+                            return scins;
+                        }
                         Sticker sticker = new Sticker();
                         string[] cs1 = st.Split('\n');
                         sticker.name = ("Sticker" + cs1[0]).Replace('\r', ' ');
@@ -260,6 +301,10 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
             for (int i = 0; i < scins.Count; i++)
             {
+                if (token.IsCancellationRequested)
+                {
+                    return scins;
+                }
                 scins[i].MinPrice = scins[0].price;
             }
 
@@ -267,7 +312,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
             return scins;
         }
 
-        public static List<MarketCheckerScin> GetStickerPrice(List<MarketCheckerScin> scins)
+        public static List<MarketCheckerScin> GetStickerPrice(List<MarketCheckerScin> scins, CancellationToken token)
         {
             for (int i = 0; i < scins.Count; i++)
             {
@@ -275,6 +320,10 @@ namespace TradeUpHelper.Controllers.MarketChecker
                 {
                     for (int j = 0; j < scins[i].stickers.Length; j++)
                     {
+                        if (token.IsCancellationRequested)
+                        {
+                            return scins;
+                        }
                         if (scins[i].stickers[j].StickerNameLang == StickerNameLang.EN)
                         {
                             scins[i].stickers[j].price = PriceHandler.GetPrice(scins[i].stickers[j].name.Substring(0, scins[i].stickers[j].name.Length - 1));
@@ -299,7 +348,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
             return scins;
         }
 
-        public static List<MarketCheckerScin> CheckPaintSeed(List<MarketCheckerScin> scins, RarityPainSeedScin name)
+        public static List<MarketCheckerScin> CheckPaintSeed(List<MarketCheckerScin> scins, RarityPainSeedScin name, CancellationToken token)
         {
             List<MarketCheckerScin> checkerScins = new List<MarketCheckerScin>();
             List<RariryPainSeed> seeds = name.Seeds;
@@ -309,6 +358,10 @@ namespace TradeUpHelper.Controllers.MarketChecker
             {
                 for (int j = 0; j < seeds.Count; j++)
                 {
+                    if (token.IsCancellationRequested)
+                    {
+                        return checkerScins;
+                    }
                     if (seeds[j].Seeds.Contains(scins[i].paintseed))
                     {
                         scins[i].RariryPainSeed = seeds[j];
@@ -323,7 +376,7 @@ namespace TradeUpHelper.Controllers.MarketChecker
             return checkerScins;
         }
 
-        public static List<MarketCheckerScin> GetScinsWithSticker(List<MarketCheckerScin> scins)
+        public static List<MarketCheckerScin> GetScinsWithSticker(List<MarketCheckerScin> scins, CancellationToken token)
         {
             List<MarketCheckerScin> checkerScins = new List<MarketCheckerScin>();
 
@@ -331,6 +384,10 @@ namespace TradeUpHelper.Controllers.MarketChecker
 
             for (int i = 0; i < scins.Count; i++)
             {
+                if (token.IsCancellationRequested)
+                {
+                    return checkerScins;
+                }
                 if (scins[i].stickers != null)
                 {
                     if (scins[i].stickers.Length > 0)
@@ -345,12 +402,16 @@ namespace TradeUpHelper.Controllers.MarketChecker
             return checkerScins;
         }
 
-        public static double GetAllStickerPrice(Scin scin)
+        public static double GetAllStickerPrice(Scin scin, CancellationToken token)
         {
             if (scin.stickers == null) return 0.0;
             double price = 0.0;
             for (int i = 0; i < scin.stickers.Length; i++)
             {
+                if (token.IsCancellationRequested)
+                {
+                    return price;
+                }
                 price += scin.stickers[i].price;
             }
             return price;

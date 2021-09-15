@@ -29,6 +29,20 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <ControlTemplate x:Key="GreenButton" TargetType="{x:Type Button}">
+        <Border   Name="border" Background="#13d419">
+            <Label Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    
     <ControlTemplate x:Key="SelectButton" TargetType="{x:Type Button}">
         <Border   Name="border" Background="#13d419" CornerRadius="15">
             <Label Content="{DynamicResource bSelect}" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
@@ -309,6 +323,17 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <ControlTemplate x:Key="FeedBackButton" TargetType="{x:Type Button}">
+        <Border   Name="border" Background="Transparent">
+            <Image Name="image" Source="/TradeUpHelper;component/Resources/Images/feedback.png"  Stretch="Fill"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/feedbackFocus.png"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
     <ControlTemplate x:Key="RefrashButton" TargetType="{x:Type Button}">
         <Border Padding="5,5,5,5"  Name="border" Background="Transparent" BorderBrush="Silver" BorderThickness="0">
             <Grid>
@@ -341,11 +366,9 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="StartButton" TargetType="{x:Type Button}">
+    <ControlTemplate x:Key="StartButton" TargetType="{x:Type ToggleButton}">
         <Border Padding="5,5,5,5"  Name="border" Background="Transparent" BorderBrush="Silver" BorderThickness="1">
-            <Grid>
-                <svgc:SvgViewbox Source="pack://application:,,,/Resources/Icons/start.svg"/>
-            </Grid>
+            <Image Name="image" Source="/TradeUpHelper;component/Resources/Images/start.png"/>
         </Border>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
@@ -353,6 +376,12 @@
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
                 <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="False">
+                <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/start.png"></Setter>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/stop.png"></Setter>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

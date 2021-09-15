@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Xml.Linq;
@@ -19,6 +20,7 @@ namespace TradeUpHelper.Controllers
     {
         public static List<Scin> items = new List<Scin>();
         public static string CacheWritingTime = "";
+        private static Random random = new Random();
         public static void LoadItems()
         {
             if (SettingController.UserInventoryURL.Length < 5) return;
@@ -36,6 +38,7 @@ namespace TradeUpHelper.Controllers
                     Scin tmp = JsonSerializer.Deserialize<Scin>(itemJson);
                     tmp.imageurl = SteamPath.BaseImageUrl + data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].icon_url;
                     tmp.price = PriceHandler.GetPrice(tmp.full_item_name);
+                    
                     items.Add(tmp);
                     
                 }
@@ -78,6 +81,7 @@ namespace TradeUpHelper.Controllers
                 return -3.0;
             }
         }
+        
 
         public static double GetPriceFromSteam(string itemName)
         {
@@ -85,12 +89,15 @@ namespace TradeUpHelper.Controllers
             try
             {
                 string url = SteamPath.SteamPriceRequestStart + itemName + SteamPath.SteamPriceRequestEnd;
-
                 rez = WebController.SendGet(url);
-
                 ScinPrice scinPrice = JsonSerializer.Deserialize<ScinPrice>(rez);
-
-                return ConvertFloatToDouble(scinPrice.lowest_price);
+                Thread.Sleep(1000);
+                double price = ConvertFloatToDouble(scinPrice.lowest_price);
+                if (price > 0)
+                {
+                    PriceHandler.AddItemToSteamCache(itemName, price);
+                }
+                return price;
             }
             catch (Exception e)
             {

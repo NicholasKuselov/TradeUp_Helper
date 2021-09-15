@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -21,8 +22,12 @@ namespace TradeUpHelper.ViewModels
         {
             // ScinsNameWithRarityPaintSeeds.Insert(0, (string)Application.Current.Resources["MCSelectScin"]);
             MarketChecker.parent = this;
-
+            token = cancelTokenSource.Token;
         }
+
+        public bool IsRuning { get; set; } = false;
+
+        Task marketChecker = new Task(()=> { });
         public int StickersFounded { get; set; } = 0;
         public double CheckProgressCountStages = 1;
         public int TotalScanedScinCount { get; set; } = 0;
@@ -87,8 +92,25 @@ namespace TradeUpHelper.ViewModels
             }
         }
 
+        CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
+        CancellationToken token;
+
+
         public void Check()
         {
+            if (marketChecker.Status == TaskStatus.Running)
+            {
+                if (MessageBoxResult.No.Equals(MessageBox.Show((string)Application.Current.Resources["MCCancelCheckText"], (string)Application.Current.Resources["MCCancelCheckTitle"], MessageBoxButton.YesNo, MessageBoxImage.Question)))
+                {
+                    IsRuning = true;
+                    return;
+                }
+                
+                cancelTokenSource.Cancel();
+                CheckProgress += 100;
+                return;
+            }
+
             if (IsPaintSeedNeed && SelectedWeapon == null)
             {
                 MessageBox.Show((string)Application.Current.Resources["MCSelectScinError"]);
@@ -100,15 +122,6 @@ namespace TradeUpHelper.ViewModels
                 return;
             }
 
-            //if (Data.Contains("Купить") && IsStickerNeed)
-            //{
-            //if(MessageBoxResult.No.Equals(MessageBox.Show((string) Application.Current.Resources["WarningRussianSteam"], (string)Application.Current.Resources["Warning"],MessageBoxButton.YesNo,MessageBoxImage.Warning)))
-            //{
-            //    return;
-            //}
-            //IsStickerNeed = false;
-
-            //}
             if (Data.Contains("Powered by CSGOFloat") && IsStickerNeed)
             {
                 if (MessageBoxResult.No.Equals(MessageBox.Show((string)Application.Current.Resources["WarningFloatMarketCheckerEnable"], (string)Application.Current.Resources["Warning"], MessageBoxButton.YesNo, MessageBoxImage.Warning)))
@@ -117,6 +130,10 @@ namespace TradeUpHelper.ViewModels
                 }
                 IsStickerNeed = false;
             }
+
+            cancelTokenSource = new CancellationTokenSource();
+            token = cancelTokenSource.Token;
+
             CheckProgress = 0.0;
             CheckProgressCountStages = 1;
             CheckProgress += 1.0;
@@ -128,31 +145,34 @@ namespace TradeUpHelper.ViewModels
             MarketChecker.parent = this;
             StickersFounded = 0;
             TotalScanedScinCount = 0;
-            Task.Run(() =>
+            IsRuning = true;
+            marketChecker = new Task(() =>
             {
+
                 try
                 {
-                    if(Data.StartsWith("steam://rungame"))
+                    if (Data.StartsWith("https://steamcommunity.com/market/listings/"))
                     {
-                        Scins = MarketChecker.GetScinsAlternative(Data, IsStickerNeed);
+                        Scins = MarketChecker.GetScinsFromSteamUrl(Data, NeedScinCount, token);
                         if (Scins.Count == 0)
                         {
                             MessageBox.Show((string)Application.Current.Resources["ErrorMarketCheckerDataUncorrect"], (string)Application.Current.Resources["ErrorTitle"], MessageBoxButton.OK, MessageBoxImage.Error);
                             return;
                         }
-                        if (IsPaintSeedNeed) ScinsWithRarityPaintSeeds = MarketChecker.CheckPaintSeed(Scins, SelectedWeapon);
-                        if (IsStickerNeed) ScinsWithStickers = MarketChecker.GetStickerPrice(MarketChecker.GetScinsWithSticker(Scins));
+                        if (IsPaintSeedNeed) ScinsWithRarityPaintSeeds = MarketChecker.CheckPaintSeed(Scins, SelectedWeapon, token);
+                        if (IsStickerNeed) ScinsWithStickers = MarketChecker.GetScinsWithStickerScinsFromSteamURL(Scins, token);
+
                     }
-                    else 
+                    else
                     {
-                        Scins = MarketChecker.GetScinsFromSteamUrl(Data,NeedScinCount);
+                        Scins = MarketChecker.GetScinsAlternative(Data, IsStickerNeed, token);
                         if (Scins.Count == 0)
                         {
                             MessageBox.Show((string)Application.Current.Resources["ErrorMarketCheckerDataUncorrect"], (string)Application.Current.Resources["ErrorTitle"], MessageBoxButton.OK, MessageBoxImage.Error);
                             return;
                         }
-                        if (IsPaintSeedNeed) ScinsWithRarityPaintSeeds = MarketChecker.CheckPaintSeed(Scins, SelectedWeapon);
-                        if (IsStickerNeed) ScinsWithStickers = MarketChecker.GetScinsWithStickerScinsFromSteamURL(Scins);
+                        if (IsPaintSeedNeed) ScinsWithRarityPaintSeeds = MarketChecker.CheckPaintSeed(Scins, SelectedWeapon, token);
+                        if (IsStickerNeed) ScinsWithStickers = MarketChecker.GetStickerPrice(MarketChecker.GetScinsWithSticker(Scins, token), token);
                     }
 
                     foreach (MarketCheckerScin item in ScinsWithStickers)
@@ -162,20 +182,24 @@ namespace TradeUpHelper.ViewModels
                             StickersFounded += item.stickers.Length;
                         }
                     }
-                    
+
 
 
                     CheckProgress += 10.0;
-                    MessageBox.Show((string)Application.Current.Resources["OperationEndSuccessfuly"], "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    IsRuning = false;
+                    
+                    MessageBox.Show((string)Application.Current.Resources["OperationEndSuccessfuly"], "", MessageBoxButton.OK, MessageBoxImage.Information,MessageBoxResult.OK,MessageBoxOptions.DefaultDesktopOnly);
                 }
                 catch (Exception e)
                 {
-                  
+                    ErrorHandler.WriteErrorLog(e);
                     MessageBox.Show((string)Application.Current.Resources["ErrorMarketCheckerDataUncorrect"], (string)Application.Current.Resources["ErrorTitle"], MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-            });
-
-
+            }, cancelTokenSource.Token);
+            
+            IsRuning = true;
+            marketChecker.Start();
+            
 
         }
     }

@@ -24,7 +24,6 @@ namespace TradeUpHelper.Views
         public InventoryPage()
         {
             InitializeComponent();
-            DataContext = new InventoryPageVM();
         }
     }
 }

@@ -55,7 +55,7 @@ namespace TradeUpHelper.ViewModels
 
                     Application.Current.MainWindow.Close();
                 });
-                
+
             }
         }
 
@@ -102,6 +102,17 @@ namespace TradeUpHelper.ViewModels
         }
 
 
+        public ICommand ShowFeedbackWindow
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    new FeedbackWindow().Show();
+
+                });
+            }
+        }
         public ICommand UpdateProgram
         {
             get
@@ -142,13 +153,13 @@ namespace TradeUpHelper.ViewModels
             PageController.mainWindow = this;
             SettingController.Load();
 
-           // InventoryPage = new InventoryPage();
+            // InventoryPage = new InventoryPage();
             TradeUpPage = new TradeUpPage();
             MainMenuPage = new MainMenuPage();
 
             CurrentPage = MainMenuPage;
 
-            
+
         }
 
         public void SelectTradeUpPage()
@@ -160,7 +171,7 @@ namespace TradeUpHelper.ViewModels
 
         public void SelectInventoryPage()
         {
-            if(SettingController.UserInventoryURL.Length<5)
+            if (SettingController.UserInventoryURL.Length < 5)
             {
                 MessageBox.Show((string)Application.Current.Resources["ErrorWithSteamInventoryURL"]);
                 return;

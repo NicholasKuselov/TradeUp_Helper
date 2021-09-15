@@ -21,6 +21,7 @@ namespace TradeUpHelper
         public static PreviewWindow previewWindow;
         static void Exception(object sender, UnhandledExceptionEventArgs args)
         {
+            MessageBox.Show("FATAL ERROR", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             ErrorHandler.WriteErrorLog((Exception)args.ExceptionObject);
         }
         public App()

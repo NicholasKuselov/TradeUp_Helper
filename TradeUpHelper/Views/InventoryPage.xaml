@@ -59,7 +59,8 @@
 
             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
                 <Label Content="{DynamicResource InventoryPrice}" Foreground="White" FontSize="10"/>
-                <Label Content="{Binding InventoryPrice}" ContentStringFormat="{}{0}$" Foreground="White" FontSize="10"/>
+                <Label Content="{Binding InventoryPrice}" ContentStringFormat="{}{0}" Foreground="White" FontSize="10"/>
+                <Label Content="{DynamicResource CurrencyIco}" Foreground="White" FontSize="10"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
@@ -132,12 +133,16 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Row="5">
                             <Label Content="{DynamicResource InventoryPrice}" Foreground="Silver" FontSize="12"/>
-                            <Label Content="{Binding SelectedItem.price}" ContentStringFormat="{}{0:F2}$" Foreground="White" FontSize="12"/>
+                            <Label Content="{Binding SelectedItem.price}" ContentStringFormat="{}{0:F2}" Foreground="White" FontSize="12"/>
+                            <Label Content="{DynamicResource CurrencyIco}" Foreground="Silver" FontSize="12"/>
+
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="6">
                             <Label Content="{DynamicResource InventoryPriceClear}" Foreground="Silver" FontSize="12"/>
-                            <Label Content="{Binding SelectedItem.GetClearPrice}" ContentStringFormat="{}{0:F2}$" Foreground="White" FontSize="12"/>
+                            <Label Content="{Binding SelectedItem.GetClearPrice}" ContentStringFormat="{}{0:F2}" Foreground="White" FontSize="12"/>
+                            <Label Content="{DynamicResource CurrencyIco}" Foreground="Silver" FontSize="12"/>
+
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="7">

@@ -10,6 +10,6 @@ namespace TradeUpHelper.Models.Cache
     class InventoryCache
     {
         public List<Scin> Scins { get; set; } = InventoryHandler.items;
-        public string LoadDate = DateTime.Now.ToString();
+        public string LoadDate { get; set; } = DateTime.Now.ToString();
     }
 }

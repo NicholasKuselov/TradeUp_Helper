@@ -54,7 +54,7 @@
             </Grid>
 
             <StackPanel Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Width="80" Height="26" Command="{Binding StartChecking}" VerticalAlignment="Center" Template="{DynamicResource StartButton}"/>
+                <ToggleButton IsChecked="{Binding IsRuning}" Width="80" Height="26" Command="{Binding StartChecking}" VerticalAlignment="Center" Template="{DynamicResource StartButton}"/>
                 <!--<ComboBox ItemsSource="{Binding ScinsNameWithRarityPaintSeeds}" SelectedItem="{Binding SelectedWeapon}" Margin="0,0,5,0" SelectedIndex="0" Style="{DynamicResource comboBoxStyle}" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment ="Center" VerticalAlignment="Center" Background="Transparent" Height="25"/>-->
                 <Button Width="140" Margin="5,0,5,0" Height="25" Padding="0,0,0,0" Template="{DynamicResource SelectPatternButton}" Command="{Binding OpenPatternScinWindow}"/>
                 <Grid>

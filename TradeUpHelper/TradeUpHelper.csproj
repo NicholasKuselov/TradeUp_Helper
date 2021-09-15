@@ -186,6 +186,7 @@
     <Compile Include="Constants\WebPath.cs" />
     <Compile Include="Constants\SteamPath.cs" />
     <Compile Include="Controllers\Cache\InventoryCacheController.cs" />
+    <Compile Include="Controllers\Cache\ProgramCache.cs" />
     <Compile Include="Controllers\ChangeLogEntryHandler.cs" />
     <Compile Include="Controllers\ContractStats.cs" />
     <Compile Include="Controllers\CraftHistoryHandler.cs" />
@@ -267,6 +268,9 @@
     </Compile>
     <Compile Include="Views\CraftHistoryWindow.xaml.cs">
       <DependentUpon>CraftHistoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FeedbackWindow.xaml.cs">
+      <DependentUpon>FeedbackWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\FroatRangeCalcWindow.xaml.cs">
       <DependentUpon>FroatRangeCalcWindow.xaml</DependentUpon>
@@ -410,6 +414,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FeedbackWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FroatRangeCalcWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -528,6 +536,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\feedback.png" />
+    <Resource Include="Resources\Images\feedbackFocus.png" />
+    <Resource Include="Resources\Images\start.png" />
+    <Resource Include="Resources\Images\stop.png" />
     <Resource Include="Resources\Images\RUB.png" />
     <Resource Include="Resources\Images\UAH.png" />
     <Resource Include="Resources\Images\USD.png" />

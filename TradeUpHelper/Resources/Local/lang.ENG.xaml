@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v1.4</v:String>
+    <v:String x:Key="Version">v1.4.1</v:String>
 
     <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
 
@@ -47,6 +47,9 @@
     <v:String x:Key="MessageWindowTitle">Messages</v:String>
     <v:String x:Key="MessageWindowOF">of</v:String>
 
+    <!--Feedback Window-->
+    <v:String x:Key="FeedbackWindowTitle">Feedback</v:String>
+    <v:String x:Key="FeedbackSendButton">Send</v:String>
 
     <!--Info-->
     <v:String x:Key="InfoFloat">Float :</v:String>
@@ -143,7 +146,8 @@
     <v:String x:Key = "MCPaintSeedFoundCount">Rare patterns found:</v:String>
     <v:String x:Key="MCTotalScanedScinCount">Scaned scin count:</v:String>
     <v:String x:Key = "MCSelectScinError">Select a skin for pattern search, or turn off the pattern search function</v:String>
-
+    <v:String x:Key="MCCancelCheckTitle">Cancel</v:String>
+    <v:String x:Key="MCCancelCheckText">Cancel check process?</v:String>
     <v:String x:Key = "SteamInventoryURL">Steam inventory link</v:String>
 
     <v:String x:Key = "MessageTitle">Notification</v:String>

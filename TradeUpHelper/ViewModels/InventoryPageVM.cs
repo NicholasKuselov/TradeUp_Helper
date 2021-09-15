@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace TradeUpHelper.ViewModels
 {
     class InventoryPageVM : ViewModelBase
     {
-        public List<Scin> Scins { get; set; } = InventoryHandler.items;
+        public BindingList<Scin> Scins { get; set; }
 
         public int ScinOverlayWidth { get; set; } = 0;
 
@@ -49,7 +50,8 @@ namespace TradeUpHelper.ViewModels
 
         public InventoryPageVM()
         {
-            SelectedItem = Scins[0];
+            Scins = new BindingList<Scin>(InventoryHandler.items);
+            SelectedItem = null;
         }
         public ICommand UpdateInventory
         {
@@ -78,13 +80,14 @@ namespace TradeUpHelper.ViewModels
         private void Update()
         {
             InventoryHandler.LoadItems();
-            Scins = InventoryHandler.items;
+            Scins = new BindingList<Scin>(InventoryHandler.items);
             InventoryLoadingDate = InventoryHandler.CacheWritingTime;
             MessageBox.Show((string)Application.Current.Resources["OperationEndSuccessfuly"],"",MessageBoxButton.OK,MessageBoxImage.Information);
         }
 
         private void Switch()
         {
+            if (SelectedItem == null) return;
             if (ScinOverlayWidth == 0) ScinOverlayWidth = 250;
             else ScinOverlayWidth = 0;
         }

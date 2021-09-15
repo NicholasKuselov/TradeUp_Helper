@@ -33,7 +33,7 @@ namespace TradeUpHelper.Views
     public partial class MainWindow : Window, IWinOwnerCollection
     {
         public List<Window> WinOwnerCollection { get; private set; }
-        bool _shown;
+        bool _shown = false;
 
         private Task PreviewWindowTask;
         public MainWindow()
@@ -65,12 +65,13 @@ namespace TradeUpHelper.Views
 
             _shown = true;
 
-            UserMessagesController.Show();
+            
         }
 
         private async void Window1_SourceInitialized(object sender, EventArgs e)
         {
             DEBUG.TEST();
+            
             App.Current.MainWindow.Hide();
             this.Visibility = Visibility.Collapsed;
            // App.Current.MainWindow.Hide();
@@ -107,11 +108,7 @@ namespace TradeUpHelper.Views
             {
                 ProgramKeyHandler.Check();
 
-                if (SettingController.IsFirstStartAfterUpdate)
-                {
-                    new ChangeLogWindow().Show();
-                    SettingController.IsFirstStartAfterUpdate = false;
-                }
+                
 
                 if (SettingController.IsFirstStart)
                 {
@@ -142,6 +139,12 @@ namespace TradeUpHelper.Views
 
 
             WindowSizing.WindowInitialized(this);
+            UserMessagesController.Show();
+            if (SettingController.IsFirstStartAfterUpdate)
+            {
+                new ChangeLogWindow().Show();
+                SettingController.IsFirstStartAfterUpdate = false;
+            }
         }
 
 

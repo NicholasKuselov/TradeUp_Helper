@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v1.4</v:String>
+    <v:String x:Key="Version">v1.4.1</v:String>
 
     <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
     
@@ -47,7 +47,11 @@
     <v:String x:Key="MessageWindowTitle">Сообщения</v:String>
     <v:String x:Key="MessageWindowOF">из</v:String>
 
-    
+    <!--Feedback Window-->
+    <v:String x:Key="FeedbackWindowTitle">Послание разработчикам</v:String>
+    <v:String x:Key="FeedbackSendButton">Отправить</v:String>
+
+
     <!--Info-->
     <v:String x:Key="InfoFloat">Float :</v:String>
     <v:String x:Key="InfoPrice">Цена :</v:String>
@@ -95,7 +99,7 @@
     <v:String x:Key="SWCurrency">Валюта</v:String>
     <v:String x:Key="SWbSetTheme">Выбрать тему</v:String>
     <v:String x:Key="SWbSave">Сохранить</v:String>
-    <v:String x:Key="SWPermissionToSendErrorLogToServer">Автоматически отправлять лог ошибок кпрограммы на сервер</v:String>
+    <v:String x:Key="SWPermissionToSendErrorLogToServer">Автоматически отправлять лог ошибок программы на сервер</v:String>
 
     <!--Load Stages-->
     <v:String x:Key="LSStart">Запуск приложения</v:String>
@@ -143,6 +147,8 @@
     <v:String x:Key="MCPaintSeedFoundCount">Найдено редких паттернов: </v:String>
     <v:String x:Key="MCTotalScanedScinCount">Просканировано скинов:</v:String>
     <v:String x:Key="MCSelectScinError">Выберете скин для поиска паттернов, или выключите функцию поиска паттернов</v:String>
+    <v:String x:Key="MCCancelCheckTitle">Отмена</v:String>
+    <v:String x:Key="MCCancelCheckText">Отменить процесс поиска?</v:String>
 
     <v:String x:Key="SteamInventoryURL">Ссылка на инвентарь стим</v:String>
 

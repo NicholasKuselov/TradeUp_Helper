@@ -31,7 +31,7 @@
     <v:SolidColorBrush x:Key="Color_lb_buttonBorder" Color="#ecca7b"/>
     <v:SolidColorBrush x:Key="Color_lb_buttonBackground" Color="#140112"/>
     <v:SolidColorBrush x:Key="Color_lb_devider" Color="#1f272a"/>
-    <v:SolidColorBrush x:Key="Color_lb_buttonBackgroundFocus" Color="#20242e"/>
+    <v:SolidColorBrush x:Key="Color_lb_buttonBackgroundFocus" Color="#42033c"/>
     <v:SolidColorBrush x:Key="Color_lb_Background" Color="#0a0009"/>
 
     <v:SolidColorBrush x:Key="Color_Rare_Consumer" Color="#afafaf"/>
