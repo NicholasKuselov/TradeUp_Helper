@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v1.4.1</v:String>
+    <v:String x:Key="Version">v1.4.2</v:String>
 
     <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
 
@@ -75,8 +75,8 @@
 
     <v:String x:Key="StatContractCount">Количество контрактов :</v:String>
     <v:String x:Key="StatAllPrice">Общая стоимость контрактов :</v:String>
-    <v:String x:Key="StatAllOutcomePrice">Всего скрафчено (грн) :</v:String>
-    <v:String x:Key="StatAllProfit">Общий чистый профит (грн) :</v:String>
+    <v:String x:Key="StatAllOutcomePrice">Всего скрафчено :</v:String>
+    <v:String x:Key="StatAllProfit">Общий чистый профит :</v:String>
     <v:String x:Key="StatInfoContracts">Контракты</v:String>
     <v:String x:Key="StatInfoStat">Статистика</v:String>
 

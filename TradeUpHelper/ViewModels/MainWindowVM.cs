@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using TradeUpHelper.Constants;
 using TradeUpHelper.Controllers;
 using TradeUpHelper.Controllers.Cache;
 using TradeUpHelper.Models;
@@ -148,6 +150,17 @@ namespace TradeUpHelper.ViewModels
             }
         }
 
+        public ICommand ShowHelperSite
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    Process.Start(WebPath.TradeUpHelperSite);
+                });
+            }
+        }
+        
         public MainWindowVM()
         {
             PageController.mainWindow = this;

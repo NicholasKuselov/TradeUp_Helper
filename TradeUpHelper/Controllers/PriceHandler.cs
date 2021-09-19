@@ -16,7 +16,7 @@ namespace TradeUpHelper.Controllers
         private static PriceDBLootFarm[] priceDBLootFarms;
 
         public static List<SteamPriceCache> SteamPriceCaches;
-
+        private const int STEAM_PRICE_CACHE_LIFE_TIME = 5;
         public static void Load()
         {
             try
@@ -41,6 +41,24 @@ namespace TradeUpHelper.Controllers
             {
                 string data = ProgramCache.SteamPrice.Read();
                 SteamPriceCaches = JsonSerializer.Deserialize<List<SteamPriceCache>>(data);
+                
+                for (int i = 0; i < SteamPriceCaches.Count; i++)
+                {
+                    try
+                    {
+                        string[] dateSp = SteamPriceCaches[i].Date.Split('.');
+                        if (DateTime.Today > new DateTime(Convert.ToInt32(dateSp[2]), Convert.ToInt32(dateSp[1]), Convert.ToInt32(dateSp[0])).AddDays(STEAM_PRICE_CACHE_LIFE_TIME))
+                        {
+                            SteamPriceCaches.RemoveAt(i);
+                            i--;
+                        }
+                    }
+                    catch {
+                        SteamPriceCaches.RemoveAt(i);
+                        i--;
+                    }
+                }
+                ProgramCache.SteamPrice.Write(JsonSerializer.Serialize(SteamPriceCaches));
             }
             catch
             {

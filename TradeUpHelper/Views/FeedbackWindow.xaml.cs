@@ -34,16 +34,30 @@ namespace TradeUpHelper.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (tbFeedBack.Text.Length > 2)
+            if (tbFeedBack.Text.Length > 5)
             {
                 try
                 {
                     TradeUpHelper.Constants.TradeUpHelperAPI.AddFeedback(tbFeedBack.Text);
+                    MessageBox.Show((string)Application.Current.Resources["OperationEndSuccessfuly"], "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
+                    tbFeedBack.Text = "";
                 }
                 catch (Exception ex)
                 {
                     ErrorHandler.WriteErrorLog(ex);
                 }
+            }
+        }
+
+        private void tbFeedBack_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (tbFeedBack.Text.Length > 5)
+            {
+                bSend.IsEnabled = true;
+            }
+            else
+            {
+                bSend.IsEnabled = false;
             }
         }
     }

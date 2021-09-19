@@ -536,6 +536,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\backFocus.png" />
+    <Resource Include="Resources\Images\infoFocus.png" />
     <Resource Include="Resources\Images\feedback.png" />
     <Resource Include="Resources\Images\feedbackFocus.png" />
     <Resource Include="Resources\Images\start.png" />

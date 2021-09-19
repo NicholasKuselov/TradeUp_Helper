@@ -5,6 +5,9 @@
     <v:SolidColorBrush x:Key="Color_WindowControlButtonsFocus" Color="#66FFFFFF"/>
     <v:SolidColorBrush x:Key="Color_WindowControlButtonsPressed" Color="#CCFFFFFF"/>
 
+    <v:SolidColorBrush x:Key="Color_ButtonsFocus" Color="#22FFFFFF"/>
+    <v:SolidColorBrush x:Key="Color_ButtonsPressed" Color="#44FFFFFF"/>
+
     <v:SolidColorBrush x:Key="Color_WindowTopBar" Color="#361436"/>
     <v:SolidColorBrush x:Key="Color_WindowBackground" Color="#0f090f"/>
     <v:SolidColorBrush x:Key="Color_NewsBlockBackground" Color="#241124"/>

@@ -43,19 +43,18 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+
     <ControlTemplate x:Key="GoBackButton" TargetType="{x:Type Button}">
-        <Border   Name="border" Background="Transparent" Padding="2,2,2,2">
-            <!--<svgc:SvgViewbox HorizontalAlignment="Center" VerticalAlignment="Center" Source="pack://application:,,,/Resources/Icons/BackIco.svg"/>-->
-            <Image Source="/TradeUpHelper;component/Resources/Images/back.png"/>
+        <Border   Name="border" Background="Transparent" Padding="0">
+            <Image Name="image" Source="/TradeUpHelper;component/Resources/Images/back.png"/>
         </Border>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
+                <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/backFocus.png"></Setter>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
+                <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/backFocus.png"></Setter>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-
 </ResourceDictionary>

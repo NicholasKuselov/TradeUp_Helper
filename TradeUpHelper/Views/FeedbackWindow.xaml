@@ -65,12 +65,12 @@
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="0">
-                <TextBox Name="tbFeedBack" AcceptsReturn="True" AcceptsTab="True" AutoWordSelection="True" Foreground="White" TextWrapping="Wrap" Background="{DynamicResource Color_lb_Background}">
+                <TextBox Name="tbFeedBack" AcceptsReturn="True" AcceptsTab="True" AutoWordSelection="True" Foreground="White" TextWrapping="Wrap" Background="{DynamicResource Color_lb_Background}" TextChanged="tbFeedBack_TextChanged">
                     
                 </TextBox>
             </Grid>
 
-            <Button Grid.Row ="2" Template="{DynamicResource GreenButton}" Content="{DynamicResource FeedbackSendButton}" Click="Button_Click_1"/>
+            <Button Name="bSend" IsEnabled="False" Grid.Row ="2" Template="{DynamicResource GreenButton}" Content="{DynamicResource FeedbackSendButton}" Click="Button_Click_1"/>
         </Grid>
     </Border>
 </Window>

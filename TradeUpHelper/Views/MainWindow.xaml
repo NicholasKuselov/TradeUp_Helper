@@ -55,7 +55,7 @@
 
             <Grid Grid.Row="0" Background="{DynamicResource Color_WindowTopBar}" Name="TopBar" PreviewMouseLeftButtonDown="TopBar_PreviewMouseLeftButtonDown">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="350"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
@@ -63,6 +63,7 @@
                     <Button Width="80" Command="{Binding UpdateProgram}" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource UpdateButton}" />
                     <Button Width="25" Command="{Binding ShowFeedbackWindow}" Margin="10,0,2,0" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" Template="{DynamicResource FeedBackButton}" />
                     <Button Width="25" Command="{Binding ShowSettingWindow}" Margin="10,0,10,0" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" Template="{DynamicResource SettingButton}" />
+                    <Button Width="25" Command="{Binding ShowHelperSite}" Margin="10,0,10,0" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" Template="{DynamicResource InfoButton}" />
                     <Button Width="50" Command="{Binding MinimizeWindowCommand}" Height="30"  HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MinimizeButton}" />
                     <Button Width="50" Command="{Binding MaximizeWindowCommand}" Height="30"  HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource MaximizeButton}" />
                     <Button Width="50" Command="{Binding CloseWindowCommand}" Height="30"  HorizontalAlignment="Right" VerticalAlignment="Top" Template="{DynamicResource ExitButton}" />

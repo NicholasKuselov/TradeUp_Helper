@@ -8,6 +8,8 @@ namespace TradeUpHelper.Constants
 {
     class WebPath
     {
+        public const string TradeUpHelperSite = "https://tradeuphelper-csgo.site/#start";
+
         public static string CSGOFloat = "https://api.csgofloat.com/?url=";
         public static string Steam = "https://steamcommunity.com";
         public static string SteamMarket = "https://www.steamcommunity.com/market/search?q=";

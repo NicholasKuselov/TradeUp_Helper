@@ -31,18 +31,27 @@
 
     <ControlTemplate x:Key="GreenButton" TargetType="{x:Type Button}">
         <Border   Name="border" Background="#13d419">
-            <Label Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            <Grid Name="grid" Background="Transparent">
+                <Label Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            </Grid>
         </Border>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsFocus}"></Setter>
+                <Setter TargetName="border" Property="Background" Value="#6ded71"></Setter>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
+                <Setter TargetName="border" Property="Background" Value="#5cbf5f"></Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="True">
+                <Setter TargetName="grid" Property="Background" Value="Transparent"></Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="grid" Property="Background" Value="#077a0b"></Setter>
             </Trigger>
         </ControlTemplate.Triggers>
+
     </ControlTemplate>
-    
+
     <ControlTemplate x:Key="SelectButton" TargetType="{x:Type Button}">
         <Border   Name="border" Background="#13d419" CornerRadius="15">
             <Label Content="{DynamicResource bSelect}" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
@@ -157,7 +166,7 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    
+
     <ControlTemplate x:Key="SelectPatternButton" TargetType="{x:Type Button}">
         <Border   Name="border" Background="Transparent" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="0,0,0,0">
             <Label Content="{Binding SelectedWeapon.Name}" HorizontalAlignment="Center" FontSize="10" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="White"/>
@@ -171,7 +180,7 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    
+
     <ControlTemplate x:Key="TransparentButton" TargetType="{x:Type Button}">
         <Border   Name="border" Background="Transparent" Padding="0">
             <Label Content="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}" Margin="0" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="LightGray"/>
@@ -214,6 +223,19 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <ControlTemplate x:Key="InfoButton" TargetType="{x:Type Button}">
+        <Border   Name="border" Background="Transparent" Padding="0">
+            <Image Name="image" Source="/TradeUpHelper;component/Resources/Images/info.png"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/infoFocus.png"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/infoFocus.png"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
 
     <ControlTemplate x:Key="ChangeLogButton" TargetType="{x:Type Button}">
         <Border   Name="border" Background="Transparent">
@@ -297,7 +319,7 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    
+
     <ControlTemplate x:Key="UpdateButton" TargetType="{x:Type Button}">
         <Border   Name="border" Background="Transparent">
             <Label Content="{DynamicResource bCheckUpdate}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="LightGray"/>
