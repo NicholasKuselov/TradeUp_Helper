@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using TradeUpHelper.Constants;
 using TradeUpHelper.Controllers;
-using TradeUpHelper.ViewModels;
 using TradeUpHelper.Views;
+
 
 namespace TradeUpHelper
 {
@@ -27,6 +24,8 @@ namespace TradeUpHelper
         public App()
         {
             previewWindow = new PreviewWindow();
+            
+            previewWindow.grid.Background = LoadPreviewBunner(TradeUpHelper.Properties.Settings.Default.Theme);
             previewWindow.Show();
             InitializeComponent();
             Color = TradeUpHelper.Properties.Settings.Default.Theme;
@@ -173,6 +172,23 @@ namespace TradeUpHelper
                     Application.Current.Resources.MergedDictionaries.Add(dict);
                 }
             }
+        }
+
+        private static ImageBrush LoadPreviewBunner(string theme)
+        {
+            if (theme.Equals(Themes.BLACK))
+            {
+                ImageBrush imgBr = new ImageBrush();
+                imgBr.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/TradeUpHelperBannerDark.png"));
+                return imgBr;
+            }
+            else
+            {
+                ImageBrush imgBr = new ImageBrush();
+                imgBr.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Images/TradeUpHelperBanner.png"));
+                return imgBr;
+            }
+            
         }
     }
 }
