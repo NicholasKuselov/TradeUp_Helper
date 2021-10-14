@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v1.4.2</v:String>
+    <v:String x:Key="Version">v1.4.3</v:String>
 
     <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
 
@@ -17,6 +17,8 @@
 
     <v:String x:Key="Float">Float</v:String>
     <v:String x:Key="Price">Price</v:String>
+
+    <v:String x:Key="WaitPlease">One moment...</v:String>
 
     <v:String x:Key="dontKnow">NN</v:String>
 
@@ -98,7 +100,7 @@
     <v:String x:Key="SWCurrency">Currency</v:String>
     <v:String x:Key="SWbSetTheme">Select theme</v:String>
     <v:String x:Key="SWbSave">Save</v:String>
-    <v:String x:Key="SWPermissionToSendErrorLogToServer">Automatically send the error log to the program to the server</v:String> 
+    <v:String x:Key="SWPermissionToSendErrorLogToServer">Automatically send the error log to the program to the server</v:String>
 
     <!--Load Stages-->
     <v:String x:Key="LSStart">App start</v:String>
@@ -127,11 +129,12 @@
     <v:String x:Key = "FRWearImpossible">There is no quality on this skin</v:String>
 
     <!-- Market Checker page -->
+    <v:String x:Key="MCNoFoundedScins">The list of found skins is empty ... To see the skin of the section, start a new search</v:String>
     <v:String x:Key = "MCRarityPainSeed">Rare Patterns</v:String>
     <v:String x:Key = "MCSearchSticker">Scan Stickers</v:String>
     <v:String x:Key = "MCSearchPainSeed">Search for rare patterns</v:String>
     <v:String x:Key = "MCSIHWarning">For the system to work correctly, you must have SIH enabled and all other extensions disabled!</v:String>
-    <v:String x:Key = "MCSIHPage">SIH market text or link to scin</v:String>
+    <v:String x:Key = "MCSIHPage">Link to scin at Steam Market</v:String>
     <v:String x:Key = "MCNeedScinCount">Need scin count</v:String>
     <v:String x:Key = "MCFindedScinsWithStickers">Found skins with stickers</v:String>
     <v:String x:Key = "MCFindedScinsWithRarityPainrSeed">Found skins with rare patterns</v:String>
@@ -174,11 +177,6 @@
 
     <v:String x:Key = "NetworkDisable">No internet connection, check the connection and try again</v:String>
 
-    <v:String x:Key = "FAQ">
-        Instructions
-        The program has 10 Float fields and 10 price fields
-
-    </v:String>
 
     <!--Info-->
     <v:String x:Key="ChangeLogAllLog">All versions</v:String>

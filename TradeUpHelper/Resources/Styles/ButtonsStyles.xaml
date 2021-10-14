@@ -388,7 +388,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="StartButton" TargetType="{x:Type ToggleButton}">
+    <ControlTemplate x:Key="StartButton" TargetType="{x:Type Button}">
         <Border Padding="5,5,5,5"  Name="border" Background="Transparent" BorderBrush="Silver" BorderThickness="1">
             <Image Name="image" Source="/TradeUpHelper;component/Resources/Images/start.png"/>
         </Border>
@@ -399,10 +399,10 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter TargetName="border" Property="Background" Value="{DynamicResource ResourceKey=Color_WindowControlButtonsPressed}"></Setter>
             </Trigger>
-            <Trigger Property="IsChecked" Value="False">
+            <Trigger Property="IsDefault" Value="False">
                 <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/start.png"></Setter>
             </Trigger>
-            <Trigger Property="IsChecked" Value="True">
+            <Trigger Property="IsDefault" Value="True">
                 <Setter TargetName="image" Property="Source" Value="/TradeUpHelper;component/Resources/Images/stop.png"></Setter>
             </Trigger>
         </ControlTemplate.Triggers>

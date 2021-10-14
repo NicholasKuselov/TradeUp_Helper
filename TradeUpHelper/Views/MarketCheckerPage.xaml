@@ -5,12 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels" xmlns:converters="clr-namespace:TradeUpHelper.DataConverters"
       mc:Ignorable="d" 
+      xmlns:uc="clr-namespace:TradeUpHelper.Resources.Controls"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MarketCheckerPage" Loaded="Page_Loaded">
 
     <Page.Resources>
         <ResourceDictionary>
             <converters:ShortWearConverter x:Key="shortWearConverter"/>
+            <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+            <converters:BoolToVisibilityInvertedConverter x:Key="BoolToVisibilityInvertedConverter"/>
+            <converters:ScinsListVisibilityConverter x:Key="ScinsListVisibilityConverter"/>
+            <converters:ScinsListVisibilityInvertedConverter x:Key="ScinsListVisibilityInvertedConverter"/>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/Styles/WindowControlButtons.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/TextBoxesStyles.xaml"/>
@@ -26,18 +31,20 @@
         <viewmodels:MarketCheckerPageVM/>
     </Page.DataContext>
 
-    <Grid>
+    <Grid  Background="{DynamicResource Color_WindowBackground}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="14"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <Label  Background="{DynamicResource Color_WindowBackground}" Grid.Row ="0" FontSize="10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="0,0,0,0" Padding="0,0,0,0" Content="{DynamicResource MCSIHWarning}" Foreground="White"/>
+        <Grid.Resources>
+            <converters:TaskStatusToBoolConverter x:Key="TaskStatusConverter"/>
+        </Grid.Resources>
 
+        <Label Visibility="Hidden" Background="{DynamicResource Color_WindowBackground}" Grid.Row ="0" FontSize="10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="0,0,0,0" Padding="0,0,0,0" Content="{DynamicResource MCSIHWarning}" Foreground="White"/>
 
-        <Grid Grid.Row="1" Background="{DynamicResource Color_WindowBackground}">
+        <Grid Grid.Row="0" Background="{DynamicResource Color_WindowBackground}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="*"/>
@@ -54,9 +61,9 @@
             </Grid>
 
             <StackPanel Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
-                <ToggleButton IsChecked="{Binding IsRuning}" Width="80" Height="26" Command="{Binding StartChecking}" VerticalAlignment="Center" Template="{DynamicResource StartButton}"/>
-                <!--<ComboBox ItemsSource="{Binding ScinsNameWithRarityPaintSeeds}" SelectedItem="{Binding SelectedWeapon}" Margin="0,0,5,0" SelectedIndex="0" Style="{DynamicResource comboBoxStyle}" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment ="Center" VerticalAlignment="Center" Background="Transparent" Height="25"/>-->
+                <Button IsDefault="{Binding IsSearchRuning, Mode=OneWay}" Width="80" Height="26" Command="{Binding StartChecking}" VerticalAlignment="Center" Template="{DynamicResource StartButton}"/>
                 <Button Width="140" Margin="5,0,5,0" Height="25" Padding="0,0,0,0" Template="{DynamicResource SelectPatternButton}" Command="{Binding OpenPatternScinWindow}"/>
+
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -66,29 +73,51 @@
                     <CheckBox Grid.Row="0" IsChecked="{Binding IsStickerNeed}" Content="{DynamicResource MCSearchSticker}" Foreground="White"/>
                     <CheckBox Grid.Row="1" IsChecked="{Binding IsPaintSeedNeed}" Content="{DynamicResource MCSearchPainSeed}" Foreground="White"/>
                 </Grid>
-
-
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="2" Background="{DynamicResource Color_WindowBackground}">
-            <ScrollViewer>
-                <StackPanel Orientation="Vertical">
-                    <Label Content="{DynamicResource MCFindedScinsWithStickers}" Foreground="White" FontSize="20" HorizontalContentAlignment="Center"/>
-                    <ListBox  HorizontalAlignment="Stretch" ItemsSource="{Binding ScinsWithStickers}" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemContainerStyle="{DynamicResource Lststyle}" Background="{DynamicResource Color_WindowBackground}" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <uc:ProgressRing Grid.Row="1" Width="220" Height="200"  Visibility="{Binding IsSearchRuning, Mode=OneWay,Converter={StaticResource BoolToVisibilityConverter}}" CaptionText="{DynamicResource WaitPlease}" TextFontSize="25"/>
 
-                    </ListBox>
-                    <Label Content="{DynamicResource MCFindedScinsWithRarityPainrSeed}" Foreground="White" FontSize="20" HorizontalContentAlignment="Center"/>
-                    <ListBox  HorizontalAlignment="Stretch" ItemsSource="{Binding ScinsWithRarityPaintSeeds}" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemContainerStyle="{DynamicResource RarityPainSeedList}" Background="{DynamicResource Color_WindowBackground}" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <Grid Grid.Row="1" Background="{DynamicResource Color_WindowBackground}">
+            <Grid.Visibility>
+                <MultiBinding Converter="{StaticResource ScinsListVisibilityInvertedConverter}">
+                    <Binding Path="ScinsWithStickers.Count" />
+                    <Binding Path="ScinsWithRarityPaintSeeds.Count" />
+                    <Binding Path="IsSearchRuning"/>
+                </MultiBinding>
+            </Grid.Visibility>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-                    </ListBox>
-                </StackPanel>
-
-            </ScrollViewer>
+            <Image Grid.Row="0" Grid.RowSpan="3" Source="/TradeUpHelper;component/Resources/Images/not_found.png"/>
+            <TextBlock Grid.Row="3" Text="{DynamicResource MCNoFoundedScins}" Foreground="Silver" TextWrapping="WrapWithOverflow" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
 
         </Grid>
 
-        <Border Grid.Row="3" BorderBrush="Silver" BorderThickness="1">
+
+        <Grid Grid.Row="1" Background="{DynamicResource Color_WindowBackground}">
+            <Grid.Visibility>
+                <MultiBinding Converter="{StaticResource ScinsListVisibilityConverter}">
+                    <Binding Path="ScinsWithStickers.Count" />
+                    <Binding Path="ScinsWithRarityPaintSeeds.Count" />
+                    <Binding Path="IsSearchRuning"/>
+                </MultiBinding>
+            </Grid.Visibility>
+            <ScrollViewer>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="{DynamicResource MCFindedScinsWithStickers}" Foreground="White" FontSize="20" HorizontalContentAlignment="Center"/>
+                    <ListBox  HorizontalAlignment="Stretch" ItemsSource="{Binding ScinsWithStickers}" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemContainerStyle="{DynamicResource Lststyle}" Background="{DynamicResource Color_WindowBackground}" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+                    <Label Content="{DynamicResource MCFindedScinsWithRarityPainrSeed}" Foreground="White" FontSize="20" HorizontalContentAlignment="Center"/>
+                    <ListBox  HorizontalAlignment="Stretch" ItemsSource="{Binding ScinsWithRarityPaintSeeds}" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemContainerStyle="{DynamicResource RarityPainSeedList}" Background="{DynamicResource Color_WindowBackground}" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
+        <Border Grid.Row="2" BorderBrush="Silver" BorderThickness="1">
             <StackPanel Orientation="Horizontal" Background="{DynamicResource Color_WindowBackground}">
                 <ProgressBar Margin="10,0,0,0" Height="12" Width="200" VerticalAlignment="Center" Maximum="100" Background="Transparent" Value="{Binding CheckProgress}" />
                 <Label Content="{DynamicResource MCStickerFoundCount}" Foreground="White" Margin="10,0,0,0" FontSize="10" VerticalContentAlignment="Center" Width="98"/>
