@@ -25,9 +25,9 @@ namespace TradeUpHelper.ViewModels
             token = cancelTokenSource.Token;
         }
 
-        public bool IsRuning { get; set; } = false;
+        public bool IsSearchRuning { get; set; } = false;
 
-        Task marketChecker = new Task(()=> { });
+        public Task marketChecker { get; set; } = new Task(() => { });
         public int StickersFounded { get; set; } = 0;
         public double CheckProgressCountStages = 1;
         public int TotalScanedScinCount { get; set; } = 0;
@@ -102,10 +102,10 @@ namespace TradeUpHelper.ViewModels
             {
                 if (MessageBoxResult.No.Equals(MessageBox.Show((string)Application.Current.Resources["MCCancelCheckText"], (string)Application.Current.Resources["MCCancelCheckTitle"], MessageBoxButton.YesNo, MessageBoxImage.Question)))
                 {
-                    IsRuning = true;
+                    IsSearchRuning = true;
                     return;
                 }
-                
+
                 cancelTokenSource.Cancel();
                 CheckProgress += 100;
                 return;
@@ -145,7 +145,7 @@ namespace TradeUpHelper.ViewModels
             MarketChecker.parent = this;
             StickersFounded = 0;
             TotalScanedScinCount = 0;
-            IsRuning = true;
+            //IsRuning = true;
             marketChecker = new Task(() =>
             {
 
@@ -165,15 +165,21 @@ namespace TradeUpHelper.ViewModels
                     }
                     else
                     {
-                        Scins = MarketChecker.GetScinsAlternative(Data, IsStickerNeed, token);
-                        if (Scins.Count == 0)
-                        {
-                            MessageBox.Show((string)Application.Current.Resources["ErrorMarketCheckerDataUncorrect"], (string)Application.Current.Resources["ErrorTitle"], MessageBoxButton.OK, MessageBoxImage.Error);
-                            return;
-                        }
-                        if (IsPaintSeedNeed) ScinsWithRarityPaintSeeds = MarketChecker.CheckPaintSeed(Scins, SelectedWeapon, token);
-                        if (IsStickerNeed) ScinsWithStickers = MarketChecker.GetStickerPrice(MarketChecker.GetScinsWithSticker(Scins, token), token);
+                        MessageBox.Show((string)Application.Current.Resources["ErrorMarketCheckerDataUncorrect"], (string)Application.Current.Resources["ErrorTitle"], MessageBoxButton.OK, MessageBoxImage.Error);
+                        IsSearchRuning = false;
+                        return;
                     }
+                    //else
+                    //{
+                    //    Scins = MarketChecker.GetScinsAlternative(Data, IsStickerNeed, token);
+                    //    if (Scins.Count == 0)
+                    //    {
+                    //        MessageBox.Show((string)Application.Current.Resources["ErrorMarketCheckerDataUncorrect"], (string)Application.Current.Resources["ErrorTitle"], MessageBoxButton.OK, MessageBoxImage.Error);
+                    //        return;
+                    //    }
+                    //    if (IsPaintSeedNeed) ScinsWithRarityPaintSeeds = MarketChecker.CheckPaintSeed(Scins, SelectedWeapon, token);
+                    //    if (IsStickerNeed) ScinsWithStickers = MarketChecker.GetStickerPrice(MarketChecker.GetScinsWithSticker(Scins, token), token);
+                    //}
 
                     foreach (MarketCheckerScin item in ScinsWithStickers)
                     {
@@ -186,20 +192,22 @@ namespace TradeUpHelper.ViewModels
 
 
                     CheckProgress += 10.0;
-                    IsRuning = false;
-                    
-                    MessageBox.Show((string)Application.Current.Resources["OperationEndSuccessfuly"], "", MessageBoxButton.OK, MessageBoxImage.Information,MessageBoxResult.OK,MessageBoxOptions.DefaultDesktopOnly);
+                    IsSearchRuning = false;
+
+                    MessageBox.Show((string)Application.Current.Resources["OperationEndSuccessfuly"], "", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                 }
                 catch (Exception e)
                 {
                     ErrorHandler.WriteErrorLog(e);
                     MessageBox.Show((string)Application.Current.Resources["ErrorMarketCheckerDataUncorrect"], (string)Application.Current.Resources["ErrorTitle"], MessageBoxButton.OK, MessageBoxImage.Error);
+                    IsSearchRuning = false;
+
                 }
             }, cancelTokenSource.Token);
-            
-            IsRuning = true;
+
+            IsSearchRuning = true;
             marketChecker.Start();
-            
+
 
         }
     }
