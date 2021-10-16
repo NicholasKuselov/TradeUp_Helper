@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TradeUpHelper.ViewModels;
 
 namespace TradeUpHelper.Views
 {
@@ -39,6 +40,11 @@ namespace TradeUpHelper.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+            ((ChangeLogWindowVM)DataContext).SetNNIcon();
         }
     }
 }
