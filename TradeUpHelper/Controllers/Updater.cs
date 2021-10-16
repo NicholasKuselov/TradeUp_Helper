@@ -22,7 +22,7 @@ namespace TradeUpHelper.Controllers
         public static void checkUpdates()
         {
 
-            if(!WebController.CheckConnection())
+            if (!WebController.CheckConnection())
             {
                 MessageBox.Show((string)Application.Current.Resources["NetworkDisable"]);
                 return;
@@ -33,11 +33,11 @@ namespace TradeUpHelper.Controllers
 
             XmlDocument docLocalVersion = new XmlDocument();
             docLocalVersion.LoadXml(File.ReadAllText("version.xml"));
-            
+
 
             Version remoteVersion = new Version(docRemoteVersion.GetElementsByTagName("myprogram")[0].InnerText);
             Version localVersion = new Version(docLocalVersion.GetElementsByTagName("myprogram")[0].InnerText);
-           
+
             if (localVersion < remoteVersion)
             {
                 Update();
@@ -50,27 +50,36 @@ namespace TradeUpHelper.Controllers
 
         private static void Update()
         {
-            UpdateWindow updateWindow = new UpdateWindow(GetUpdateLog());
-            if (updateWindow.ShowDialog() == false) return;
-            try
+            Application.Current.Dispatcher.Invoke(() =>
             {
-                if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
-                Download();
+                UpdateWindow updateWindow = null;
+                updateWindow = new UpdateWindow(GetUpdateLog());
 
-            }
-            catch (Exception)
-            {
-                if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
-                Download();
-            }
+
+                if (updateWindow.ShowDialog() == false) return;
+                try
+                {
+                    if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
+                    Download();
+
+                }
+                catch (Exception)
+                {
+                    if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
+                    Download();
+                }
+            });
         }
 
         private static ChangeLogEntry GetUpdateLog()
         {
+            XmlDocument docRemoteVersion = new XmlDocument();
+            docRemoteVersion.Load(WebPath.UPDATE_CHANGE_LOG_PATH);
+            File.WriteAllText("lastupdatechange.xml", docRemoteVersion.OuterXml);
+
             ChangeLogEntry changeLogEntry;
             XmlSerializer formatter = new XmlSerializer(typeof(ChangeLogEntry));
-
-            using (FileStream fs = new FileStream(FilePath.ChangeLogFilePath, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream("lastupdatechange.xml", FileMode.OpenOrCreate))
             {
                 changeLogEntry = (ChangeLogEntry)formatter.Deserialize(fs);
             }
@@ -104,7 +113,7 @@ namespace TradeUpHelper.Controllers
 
                 SettingController.IsFirstStartAfterUpdate = true;
                 //Process.Start("updater.exe", "TradeUpHelper.update TradeUpHelper.exe");
-                Process.Start("updater.exe", Assembly.GetExecutingAssembly().Location.Replace("TradeUpHelper.exe", "").Replace(" ","|"));
+                Process.Start("updater.exe", Assembly.GetExecutingAssembly().Location.Replace("TradeUpHelper.exe", "").Replace(" ", "|"));
                 Process.GetCurrentProcess().Kill();
             }
             catch (Exception ex)

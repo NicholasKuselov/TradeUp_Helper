@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TradeUpHelper.Views"
         xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
         mc:Ignorable="d"
-        Title="ChangeLogWindow" Height="600" Width="600" ResizeMode="NoResize" WindowStyle="None" Topmost="True">
+        Title="{DynamicResource UWNewUpdate}" Height="600" Width="600" ResizeMode="NoResize" WindowStyle="None" Topmost="True" WindowStartupLocation="CenterScreen">
 
     <Window.Style>
         <Style TargetType="{x:Type Window}">
@@ -59,14 +59,12 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Image Grid.Row="1" Width="450" Height="300" Source="{Binding UpdateIcoPath}" ImageFailed="Image_ImageFailed" Stretch="Fill"/>
-                <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="18">
-                    <Label.Content>
-                        <MultiBinding StringFormat="{}{0} {1}}">
-                            <Binding Path="UWNewUpdate"/>
-                            <Binding Path="ChangeLog.Version"/>
-                        </MultiBinding>
-                    </Label.Content>
-                </Label>
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <Label Grid.Row="0" Content="{DynamicResource UWNewUpdate}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="16"/>
+                    <Label Grid.Row="0" Content="{Binding ChangeLog.Version}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="16"/>
+
+                </StackPanel>
+                
                 <ScrollViewer x:Name="sv_changeLog" Grid.Row="2" VerticalScrollBarVisibility="Auto">
                     <TextBlock HorizontalAlignment="Stretch" Text="{Binding ChangeLog.Description}" Grid.Row="1" Background="{DynamicResource Color_WindowBackground}" Name="tb_changeLog" Foreground="White" VerticalAlignment="Stretch" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False" TextWrapping="Wrap"/>
                 </ScrollViewer>
@@ -77,7 +75,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="{DynamicResource UWYes}" FontSize="20" FontWeight="Heavy" Template="{DynamicResource GreenButton}"/>
+                <Button Grid.Column="0" Content="{DynamicResource UWYes}" FontSize="20" FontWeight="Heavy" Template="{DynamicResource GreenButton}" Click="Button_Click"/>
                 <Button Grid.Column="1" Content="{DynamicResource UWNo}" FontSize="20" FontWeight="Normal" Template="{DynamicResource GreyPoorButton}" IsCancel="True"/>
 
             </Grid>
