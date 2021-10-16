@@ -39,6 +39,8 @@ namespace TradeUpHelper.Controllers
             }
         }
 
+        
+
         public static string GetItemProp(string itemOverlayURL)
         {
             string data = "";
@@ -234,6 +236,28 @@ namespace TradeUpHelper.Controllers
             return data;
         }
 
+        public static bool IsFileExist(string url)
+        {
+            try
+            {
+                WebRequest request = WebRequest.Create(url);
+                request.Timeout = 5000;
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                if (response.StatusDescription == "OK")
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (WebException ex) when ((ex.Response as HttpWebResponse)?.StatusCode == HttpStatusCode.NotFound)
+            {
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         [DllImport("wininet.dll", SetLastError = true)]
         private static extern bool InternetSetOption(
