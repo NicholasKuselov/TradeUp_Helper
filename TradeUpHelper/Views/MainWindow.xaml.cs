@@ -83,6 +83,11 @@ namespace TradeUpHelper.Views
                     MessageBox.Show((string)Application.Current.Resources["ErrorNetworkDissableText"], (string)Application.Current.Resources["ErrorNetworkDissableTitle"], MessageBoxButton.OK, MessageBoxImage.Error);
                     App.Current.Shutdown();
                 }
+                if (!WebController.CheckTradeUpHelperServer())
+                {
+                    MessageBox.Show((string)Application.Current.Resources["ErrorTradeUpHelperSiteCrash"], (string)Application.Current.Resources["ErrorTitle"], MessageBoxButton.OK, MessageBoxImage.Error);
+                    App.Current.Shutdown();
+                }
             });
             ((PreviewWindowVM)App.previewWindow.DataContext).LoadStatus = (string)Application.Current.Resources["LSCheckUpdates"];
             await Task.Run(() =>

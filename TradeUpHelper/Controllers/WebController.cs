@@ -39,7 +39,21 @@ namespace TradeUpHelper.Controllers
             }
         }
 
-        
+        public static bool CheckTradeUpHelperServer()
+        {
+            WebClient client = new WebClient();
+            try
+            {
+                using (client.OpenRead(WebPath.TradeUpHelperSite))
+                {
+                }
+                return true;
+            }
+            catch (WebException)
+            {
+                return false;
+            }
+        }
 
         public static string GetItemProp(string itemOverlayURL)
         {
