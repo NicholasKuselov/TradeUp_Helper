@@ -94,6 +94,11 @@
     <v:String x:Key="MainMenuMarketAnalizText">Маркет чекер</v:String>
     <v:String x:Key="MainMenuInvestorPortfolioText">Инвестиции</v:String>
 
+    <!--Update Window-->
+    <v:String x:Key="UWYes">Обновить!</v:String>
+    <v:String x:Key="UWNo">Нет</v:String>
+    <v:String x:Key="UWNewUpdate">Доступно новое обновление</v:String>
+    
     <!--Setting Window-->
     <v:String x:Key="SWSteamSetting">Настройки стима</v:String>
     <v:String x:Key="SWLanguages">Язык</v:String>

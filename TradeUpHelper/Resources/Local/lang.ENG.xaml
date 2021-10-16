@@ -93,6 +93,11 @@
     <v:String x:Key="MainMenuMarketAnalizText">Market checker</v:String>
     <v:String x:Key="MainMenuInvestorPortfolioText">Investments</v:String>
 
+    <!--Update Window-->
+    <v:String x:Key="UWYes">Update!</v:String>
+    <v:String x:Key="UWNo">No</v:String>
+    <v:String x:Key="UWNewUpdate">Have a new version</v:String>
+
     <!--Setting Window-->
     <v:String x:Key="SWSteamSetting">Steam settings</v:String>
     <v:String x:Key="SWLanguages">Language</v:String>

@@ -10,7 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Xml;
+using System.Xml.Serialization;
 using TradeUpHelper.Constants;
+using TradeUpHelper.Models;
+using TradeUpHelper.Views;
 
 namespace TradeUpHelper.Controllers
 {
@@ -47,7 +50,8 @@ namespace TradeUpHelper.Controllers
 
         private static void Update()
         {
-            if (MessageBoxResult.No.Equals(MessageBox.Show((string)Application.Current.Resources["UpdateNewVersion"], (string)Application.Current.Resources["bCheckUpdate"], MessageBoxButton.YesNo, MessageBoxImage.Information))) return;
+            UpdateWindow updateWindow = new UpdateWindow(GetUpdateLog());
+            if (updateWindow.ShowDialog() == false) return;
             try
             {
                 if (File.Exists("TradeUpHelper.update")) { File.Delete("TradeUpHelper.update"); }
@@ -61,7 +65,18 @@ namespace TradeUpHelper.Controllers
             }
         }
 
-     
+        private static ChangeLogEntry GetUpdateLog()
+        {
+            ChangeLogEntry changeLogEntry;
+            XmlSerializer formatter = new XmlSerializer(typeof(ChangeLogEntry));
+
+            using (FileStream fs = new FileStream(FilePath.ChangeLogFilePath, FileMode.OpenOrCreate))
+            {
+                changeLogEntry = (ChangeLogEntry)formatter.Deserialize(fs);
+            }
+
+            return changeLogEntry;
+        }
 
         private static void Download()
         {
@@ -77,15 +92,6 @@ namespace TradeUpHelper.Controllers
             }
             catch (Exception) { }
         }
-
-        //private void download_ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        //progressBar1.Value = e.ProgressPercentage;
-        //    }
-        //    catch (Exception) { }
-        //}
 
         private static void download_Completed(object sender, AsyncCompletedEventArgs e)
         {
