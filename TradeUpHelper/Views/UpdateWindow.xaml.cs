@@ -40,7 +40,14 @@ namespace TradeUpHelper.Views
 
         private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
-            ((UpdateWindowVM)DataContext).SetNNIcon();
+            try
+            {
+                ((UpdateWindowVM)DataContext).SetNNIcon();
+            }
+            catch(StackOverflowException ex)
+            {
+                ((UpdateWindowVM)DataContext).UpdateIcoPath = "";
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

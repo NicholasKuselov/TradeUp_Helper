@@ -31,10 +31,6 @@ namespace TradeUpHelper.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //text = ((string)Application.Current.Resources["ChangeLog"]).Replace('|', '\n').Replace('/', ' ');
-            //tb_changeLog.Text = text.Split('%').Last();
-
-            //sv_changeLog.ScrollToEnd();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -44,7 +40,14 @@ namespace TradeUpHelper.Views
 
         private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
-            ((ChangeLogWindowVM)DataContext).SetNNIcon();
+            try
+            {
+                ((ChangeLogWindowVM)DataContext).SetNNIcon();
+            }
+            catch (StackOverflowException ex)
+            {
+                ((ChangeLogWindowVM)DataContext).UpdateIcoPath = "";
+            }
         }
     }
 }
