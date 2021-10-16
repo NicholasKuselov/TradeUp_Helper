@@ -11,7 +11,7 @@
         <viewmodels:PreviewWindowVM/>
     </Window.DataContext>
     
-    <Grid>
+    <Grid x:Name="grid">
         <Grid.Background>
             <ImageBrush ImageSource="/TradeUpHelper;component/Resources/Images/TradeUpHelperBanner.png"/>
         </Grid.Background>
