@@ -19,7 +19,7 @@ namespace TradeUpHelper
         static void Exception(object sender, UnhandledExceptionEventArgs args)
         {
             MessageBox.Show("FATAL ERROR", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            ErrorHandler.WriteErrorLog((Exception)args.ExceptionObject);
+            ErrorHandler.WriteErrorLog((Exception)args.ExceptionObject,args.ExceptionObject.ToString());
         }
         public App()
         {

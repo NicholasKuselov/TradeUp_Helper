@@ -10,13 +10,24 @@ namespace TradeUpHelper.Controllers
 {
     class ErrorHandler
     {
-        public static void WriteErrorLog(Exception e)
+        public static void WriteErrorLog(Exception e, string where)
         {          
-            File.WriteAllText(FilePath.ERROR_LOG_DIRECTORY+DateTime.Now.ToString().Replace('.','_').Replace(':','_').Replace(' ','_')+".txt","MESSAGE : \n" + e.GetBaseException().Message + "\nTRACE : \n" + e.GetBaseException().StackTrace + "\nSource :\n"+ e.GetBaseException().Source);
+            File.WriteAllText(FilePath.ERROR_LOG_DIRECTORY+DateTime.Now.ToString().Replace('.','_').Replace(':','_').Replace(' ','_')+".txt","MESSAGE : \n" + e.GetBaseException().Message + "\nTRACE : \n" + e.GetBaseException().StackTrace + "\nSource :\n"+ e.GetBaseException().Source + "\nWhere :\n" + where);
             if (SettingController.IsSendErrorLog)
             {
                 TradeUpHelperAPI.AddErrorLog(e.GetBaseException().Message, e.GetBaseException().StackTrace);
             }
         }
+
+        public static void WriteErrorLog(Exception e)
+        {
+            File.WriteAllText(FilePath.ERROR_LOG_DIRECTORY + DateTime.Now.ToString().Replace('.', '_').Replace(':', '_').Replace(' ', '_') + ".txt", "MESSAGE : \n" + e.GetBaseException().Message + "\nTRACE : \n" + e.GetBaseException().StackTrace + "\nSource :\n" + e.GetBaseException().Source);
+            if (SettingController.IsSendErrorLog)
+            {
+                TradeUpHelperAPI.AddErrorLog(e.GetBaseException().Message, e.GetBaseException().StackTrace);
+            }
+        }
+
+        
     }
 }
