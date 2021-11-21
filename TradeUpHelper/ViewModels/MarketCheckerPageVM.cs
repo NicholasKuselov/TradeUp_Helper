@@ -79,15 +79,8 @@ namespace TradeUpHelper.ViewModels
             {
                 return new RelayCommand(() =>
                 {
-                    if (patternScinSelectWindow != null)
-                    {
-                        patternScinSelectWindow.Show();
-                    }
-                    else
-                    {
-                        patternScinSelectWindow = new PatternScinSelectWindow();
-                        patternScinSelectWindow.Show();
-                    }
+                    patternScinSelectWindow = new PatternScinSelectWindow();
+                    patternScinSelectWindow.Show();
                 });
             }
         }
