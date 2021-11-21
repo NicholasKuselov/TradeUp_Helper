@@ -75,6 +75,29 @@
 
     </ControlTemplate>
 
+    <ControlTemplate x:Key="DarkGreyButton" TargetType="{x:Type Button}">
+        <Border   Name="border" Background="#171717">
+            <Grid Name="grid" Background="Transparent">
+                <Label Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="#666666"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="border" Property="Background" Value="#333333"></Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="True">
+                <Setter TargetName="grid" Property="Background" Value="Transparent"></Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="grid" Property="Background" Value="#222"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+
+    </ControlTemplate>
+
     <ControlTemplate x:Key="SelectButton" TargetType="{x:Type Button}">
         <Border   Name="border" Background="#13d419" CornerRadius="15">
             <Label Content="{DynamicResource bSelect}" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Foreground="White"/>

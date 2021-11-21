@@ -55,18 +55,18 @@
             <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource Color_WindowBackground}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
-                    <RowDefinition Height="300"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="1" Width="450" Height="300" Source="{Binding UpdateIcoPath}" ImageFailed="Image_ImageFailed" Stretch="Fill"/>
-                <StackPanel Orientation="Horizontal" Grid.Row="0">
-                    <Label Grid.Row="0" Content="{DynamicResource UWNewUpdate}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="16"/>
-                    <Label Grid.Row="0" Content="{Binding ChangeLog.Version}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="16"/>
-
-                </StackPanel>
-                
-                <ScrollViewer x:Name="sv_changeLog" Grid.Row="2" VerticalScrollBarVisibility="Auto">
-                    <TextBlock HorizontalAlignment="Stretch" Text="{Binding ChangeLog.Description}" Grid.Row="1" Background="{DynamicResource Color_WindowBackground}" Name="tb_changeLog" Foreground="White" VerticalAlignment="Stretch" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False" TextWrapping="Wrap"/>
+                <Label Grid.Row="0" Content="{Binding ChangeLog.Version}"  ContentStringFormat="v{0}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="18"/>
+                <ScrollViewer x:Name="sv_changeLog" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="300"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Width="450" Height="300" Source="{Binding UpdateIcoPath}" ImageFailed="Image_ImageFailed" />
+                        <TextBlock HorizontalAlignment="Stretch" Text="{Binding ChangeLog.Description}" Grid.Row="1" Background="{DynamicResource Color_WindowBackground}" Name="tb_changeLog" Foreground="White" VerticalAlignment="Stretch" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False" TextWrapping="Wrap"/>
+                    </Grid>
                 </ScrollViewer>
             </Grid>
 
@@ -75,8 +75,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="{DynamicResource UWYes}" FontSize="20" FontWeight="Heavy" Template="{DynamicResource GreenButton}" Click="Button_Click"/>
-                <Button Grid.Column="1" Content="{DynamicResource UWNo}" FontSize="20" FontWeight="Normal" Template="{DynamicResource GreyPoorButton}" IsCancel="True"/>
+                <Button Grid.Column="0" Content="{DynamicResource UWYes}" FontSize="20" FontWeight="Heavy" Template="{DynamicResource DarkGreyButton}" Click="Button_Click"/>
+                <Button Grid.Column="1" Content="{DynamicResource UWNo}" FontSize="20" FontWeight="Normal" Template="{DynamicResource DarkGreyButton}" IsCancel="True"/>
 
             </Grid>
         </Grid>
