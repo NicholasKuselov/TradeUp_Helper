@@ -170,6 +170,8 @@
     <v:String x:Key="ErrorNetworkDissableTitle">Ошибка</v:String>
     <v:String x:Key="ErrorEmptyKey">Отсутвстует ключ программы! Переустановите программу!</v:String>
     <v:String x:Key="ErrorWrongKey">Поддельный ключ программы!</v:String>
+    <v:String x:Key="ErrorWrongInventoryURL">Неверная ссылка на инвентарь!</v:String>
+    <v:String x:Key="ErrorWrongInventoryURLText">Откройте свой инвентарь в браузере и скопируйте адресную строку!</v:String>
     <v:String x:Key="ErrorServerDissable">Сервера TradeUp Helper не отвечают!</v:String>
     <v:String x:Key="ErrorNetworkDissableText">Отсутвует подключение к интернету, проверьте соеденение и повторите попытку! Для работы приложения необходимо устойчивое интернет соеденение</v:String>
     <v:String x:Key="ErrorWithSteamInventoryURL">Для пользования функциями инвентаря, зайдите в НАСТРОЙКИ и установите ссылку на ваш инвентарь</v:String>

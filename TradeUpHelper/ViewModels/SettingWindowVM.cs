@@ -144,7 +144,13 @@ namespace TradeUpHelper.ViewModels
             {
                 return new RelayCommand(() =>
                 {
-                    if (!SteamInventoryURL.Equals(SettingController.UserInventoryURL))
+                    if (!SteamInventoryURL.Contains("steamcommunity.com/profiles/"))
+                    {
+                        ///TradeUpHelper;component/Resources/Images/info.png
+                        UserMessagesController.AddMessageInQuerry(Translator.GetTextByKey("ErrorWrongInventoryURL"), Translator.GetTextByKey("ErrorWrongInventoryURLText"), "/TradeUpHelper;component/Resources/Images/FAQ/InventoryURL.png");
+                        UserMessagesController.Show();
+                    }
+                    else if (!SteamInventoryURL.Equals(SettingController.UserInventoryURL))
                     {
                         SettingController.UserInventoryURL = SteamInventoryURL;
                     }

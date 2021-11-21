@@ -168,6 +168,8 @@
     <v:String x:Key = "ErrorNetworkDissableTitle">Error</v:String>
     <v:String x:Key = "ErrorEmptyKey">Missing program key! Reinstall the program!</v:String>
     <v:String x:Key = "ErrorWrongKey">Fake application key!</v:String>
+    <v:String x:Key="ErrorWrongInventoryURL">Wrong steam inventory URL!</v:String>
+    <v:String x:Key="ErrorWrongInventoryURLText">Open your inventory in a browser and copy the address bar!</v:String>
     <v:String x:Key = "ErrorServerDissable">TradeUp Helper servers are not responding!</v:String>
     <v:String x:Key = "ErrorNetworkDissableText">No internet connection, please check your connection and try again! The application requires a stable internet connection</v:String>
     <v:String x:Key = "ErrorWithSteamInventoryURL">To use the inventory functions, go to SETTINGS and link to your inventory</v:String>
