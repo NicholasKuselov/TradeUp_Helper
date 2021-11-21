@@ -41,6 +41,11 @@ namespace TradeUpHelper.Controllers
             Querry.Add(new MessageForUser() {Title = title, Text = text });
         }
 
+        public static void AddMessageInQuerry(string title, string text, string imageSource)
+        {
+            Querry.Add(new MessageForUser() { Title = title, Text = text, ImageSource = imageSource });
+        }
+
         public static void AddMessageInQuerry(MessageForUser messageForUser)
         {
             Querry.Add(messageForUser);

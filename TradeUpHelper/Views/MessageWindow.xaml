@@ -91,7 +91,10 @@
                 </Grid.RowDefinitions>
                 <Label  Grid.Row="0" Padding="0" Margin="10,0,0,0"  Content="{Binding CurrentMessage.Title}"  HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="16"/>
                 <ScrollViewer x:Name="sv_changeLog" Grid.Row="1" VerticalScrollBarVisibility="Auto">
-                    <TextBlock Margin="10,0,0,0" HorizontalAlignment="Stretch" FontSize="14" Text="{Binding CurrentMessage.Text}" Grid.Row="1" Background="{DynamicResource Color_lb_Background}" Name="tb_changeLog" Foreground="White" VerticalAlignment="Stretch" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False" TextWrapping="Wrap"/>
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="{Binding CurrentMessage.ImageSource}" Margin="10,0,10,10"/>
+                        <TextBlock Margin="10,0,0,0" HorizontalAlignment="Stretch" FontSize="14" Text="{Binding CurrentMessage.Text}" Grid.Row="1" Background="{DynamicResource Color_lb_Background}" Name="tb_changeLog" Foreground="White" VerticalAlignment="Stretch" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False" TextWrapping="Wrap"/>
+                    </StackPanel>
                 </ScrollViewer>
             </Grid>
 
