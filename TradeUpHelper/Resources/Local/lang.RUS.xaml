@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v1.4.3</v:String>
+    <v:String x:Key="Version">v1.5</v:String>
 
     <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
     
@@ -163,8 +163,8 @@
     <v:String x:Key="MessageTitle">Уведомление</v:String>
     <v:String x:Key="MessageProgramRegistredSuccessful">Программа успешно зарегистрирована!</v:String>
 
-
     <v:String x:Key="ErrorTitle">Ошибка</v:String>
+    <v:String x:Key="ErrorTradeUpHelperSiteCrash">Усе погано, мы упали... Скоро будем</v:String>
     <v:String x:Key="ErrorMarketCheckerDataEmpty">Вставьте скопированную страницу стим в поле в верхнем левом углу окна</v:String>
     <v:String x:Key="ErrorMarketCheckerDataUncorrect">Введены не корректные данные!</v:String>
     <v:String x:Key="ErrorNetworkDissableTitle">Ошибка</v:String>

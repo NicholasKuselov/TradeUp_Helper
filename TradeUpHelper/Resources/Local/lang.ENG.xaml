@@ -4,7 +4,7 @@
 
 
     <v:String x:Key="ProgramName">TradeUp Helper</v:String>
-    <v:String x:Key="Version">v1.4.3</v:String>
+    <v:String x:Key="Version">v1.5</v:String>
 
     <v:String x:Key="AllRightsLabel">All rights reserved (almost)</v:String>
 
@@ -163,6 +163,7 @@
 
 
     <v:String x:Key = "ErrorTitle">Error</v:String>
+    <v:String x:Key="ErrorTradeUpHelperSiteCrash">All bad... Coming soon</v:String>
     <v:String x:Key = "ErrorMarketCheckerDataEmpty">Paste the copied steam page into the box in the upper left corner of the window</v:String>
     <v:String x:Key = "ErrorMarketCheckerDataUncorrect">Invalid data entered!</v:String>
     <v:String x:Key = "ErrorNetworkDissableTitle">Error</v:String>

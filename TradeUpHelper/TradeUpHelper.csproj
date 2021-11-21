@@ -204,14 +204,20 @@
     <Compile Include="Controllers\PriceHandler.cs" />
     <Compile Include="Controllers\ProgramKeyHandler.cs" />
     <Compile Include="Controllers\SettingController.cs" />
+    <Compile Include="Controllers\Translator.cs" />
     <Compile Include="Controllers\UserMessagesController.cs" />
     <Compile Include="Controllers\UserMessagesFromAPIController.cs" />
+    <Compile Include="DataConverters\BoolToVisibilityInvertedConverter.cs" />
+    <Compile Include="DataConverters\BoolToVisibilityConverter.cs" />
     <Compile Include="DataConverters\ContractResultColorConverter.cs" />
     <Compile Include="DataConverters\ImageConverter.cs" />
     <Compile Include="DataConverters\RarityColorConverter.cs" />
+    <Compile Include="DataConverters\ScinsListVisibilityInvertedConverter.cs" />
+    <Compile Include="DataConverters\ScinsListVisibilityConverter.cs" />
     <Compile Include="DataConverters\StringConverter.cs" />
     <Compile Include="Controllers\Updater.cs" />
     <Compile Include="Controllers\WebController.cs" />
+    <Compile Include="DataConverters\TaskStatusToBoolConverter.cs" />
     <Compile Include="DataConverters\Wears.cs" />
     <Compile Include="Models\Cache\InventoryCache.cs" />
     <Compile Include="Models\ChangeLogEntry.cs" />
@@ -241,6 +247,9 @@
     <Compile Include="Models\TradeUpHelperAPI\ResponseStickerRus.cs" />
     <Compile Include="Models\Wear.cs" />
     <Compile Include="Models\Setting.cs" />
+    <Compile Include="Resources\Controls\ProgressRing.xaml.cs">
+      <DependentUpon>ProgressRing.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\AuthWindowVM.cs" />
     <Compile Include="ViewModels\ChangeLogWindowVM.cs" />
     <Compile Include="ViewModels\CraftHistoryWindowVM.cs" />
@@ -257,6 +266,7 @@
     <Compile Include="ViewModels\RarePatternAddingWindowVM.cs" />
     <Compile Include="ViewModels\ScinFloatRangeWindowVM.cs" />
     <Compile Include="ViewModels\SettingWindowVM.cs" />
+    <Compile Include="ViewModels\UpdateWindowVM.cs" />
     <Compile Include="Views\AuthWindow.xaml.cs">
       <DependentUpon>AuthWindow.xaml</DependentUpon>
     </Compile>
@@ -314,6 +324,9 @@
     <Compile Include="Views\TradeUpPage.xaml.cs">
       <DependentUpon>TradeUpPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpdateWindow.xaml.cs">
+      <DependentUpon>UpdateWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Resources\Colors\Colors.black.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -327,6 +340,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\Colors\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Controls\ProgressRing.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -488,6 +505,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\UpdateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -536,6 +557,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\FAQ\InventoryURL.png" />
+    <Resource Include="Resources\Images\not_found.png" />
+    <Resource Include="Resources\Images\TradeUpHelperBannerDark.png" />
     <Resource Include="Resources\Images\backFocus.png" />
     <Resource Include="Resources\Images\infoFocus.png" />
     <Resource Include="Resources\Images\feedback.png" />
@@ -570,12 +594,14 @@
     <Resource Include="Resources\Icons\start.svg" />
     <Resource Include="Resources\Images\padlock.png" />
     <Resource Include="logo.ico" />
+    <Resource Include="Resources\Images\close.png" />
     <Content Include="Resources\Icons\TradeIco.svg" />
     <Resource Include="Resources\Icons\TraderIco.svg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Icons\InvestorIco.svg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.5.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.5.0\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
