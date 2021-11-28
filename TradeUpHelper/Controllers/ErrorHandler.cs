@@ -12,7 +12,7 @@ namespace TradeUpHelper.Controllers
     {
         public static void WriteErrorLog(Exception e, string where)
         {          
-            File.WriteAllText(FilePath.ERROR_LOG_DIRECTORY+DateTime.Now.ToString().Replace('.','_').Replace(':','_').Replace(' ','_')+".txt","MESSAGE : \n" + e.GetBaseException().Message + "\nTRACE : \n" + e.GetBaseException().StackTrace + "\nSource :\n"+ e.GetBaseException().Source + "\nWhere :\n" + where);
+            File.WriteAllText(FilePath.ERROR_LOG_DIRECTORY + CreateLogName(DateTime.Now.ToString()) + ".txt","MESSAGE : \n" + e.GetBaseException().Message + "\nTRACE : \n" + e.GetBaseException().StackTrace + "\nSource :\n"+ e.GetBaseException().Source + "\nWhere :\n" + where);
             if (SettingController.IsSendErrorLog)
             {
                 TradeUpHelperAPI.AddErrorLog(e.GetBaseException().Message, e.GetBaseException().StackTrace);
@@ -21,13 +21,29 @@ namespace TradeUpHelper.Controllers
 
         public static void WriteErrorLog(Exception e)
         {
-            File.WriteAllText(FilePath.ERROR_LOG_DIRECTORY + DateTime.Now.ToString().Replace('.', '_').Replace(':', '_').Replace(' ', '_') + ".txt", "MESSAGE : \n" + e.GetBaseException().Message + "\nTRACE : \n" + e.GetBaseException().StackTrace + "\nSource :\n" + e.GetBaseException().Source);
+            File.WriteAllText(FilePath.ERROR_LOG_DIRECTORY + CreateLogName(DateTime.Now.ToString()) + ".txt", "MESSAGE : \n" + e.GetBaseException().Message + "\nTRACE : \n" + e.GetBaseException().StackTrace + "\nSource :\n" + e.GetBaseException().Source);
             if (SettingController.IsSendErrorLog)
             {
                 TradeUpHelperAPI.AddErrorLog(e.GetBaseException().Message, e.GetBaseException().StackTrace);
             }
         }
 
+        private static string CreateLogName(string dateTime)
+        {
+            string name = "";
+            for (int i = 0; i < dateTime.Length; i++)
+            {
+                if (Char.IsDigit(dateTime[i]))
+                {
+                    name += dateTime[i];
+                }
+                else
+                {
+                    name += "_";
+                }
+            }
+            return name;
+        }
         
     }
 }
