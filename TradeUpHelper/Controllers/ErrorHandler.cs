@@ -45,5 +45,10 @@ namespace TradeUpHelper.Controllers
             return name;
         }
         
+        public static void ShowError(string title,string text)
+        {
+            UserMessagesController.AddMessageInQuerry(title, text);
+            UserMessagesController.Show();
+        }
     }
 }

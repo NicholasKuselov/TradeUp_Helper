@@ -176,6 +176,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Constants\Errors.cs" />
     <Compile Include="Constants\FilePath.cs" />
     <Compile Include="Constants\Languages.cs" />
     <Compile Include="Constants\Themes.cs" />
