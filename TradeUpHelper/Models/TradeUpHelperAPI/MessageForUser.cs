@@ -8,6 +8,14 @@ namespace TradeUpHelper.Models.TradeUpHelperAPI
 {
     public class MessageForUser
     {
+        public enum MessageTypes
+        {
+            Error,
+            Warning,
+            Info
+        }
+
+        public MessageTypes Type { get; set; }
         public int Id { get; set; }
         public string ImageSource { get; set; }
         public string Title { get; set; }

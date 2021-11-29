@@ -47,7 +47,7 @@ namespace TradeUpHelper.Controllers
         
         public static void ShowError(string title,string text)
         {
-            UserMessagesController.AddMessageInQuerry(title, text);
+            UserMessagesController.AddMessageInQuerry(title, text, "", Models.TradeUpHelperAPI.MessageForUser.MessageTypes.Error);
             UserMessagesController.Show();
         }
     }

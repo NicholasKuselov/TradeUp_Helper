@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TradeUpHelper.Views" xmlns:viewmodels="clr-namespace:TradeUpHelper.ViewModels"
         mc:Ignorable="d"
-        xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation" xmlns:converters="clr-namespace:TradeUpHelper.DataConverters"
         Title="{DynamicResource MessageWindowTitle}" Height="250" Width="500" ResizeMode="NoResize" WindowStyle="None" Topmost="True" WindowStartupLocation="CenterScreen">
 
     <Window.Style>
@@ -48,6 +48,7 @@
 
             <Grid Grid.Row="0"  Grid.ColumnSpan="2" Background="{DynamicResource Color_WindowTopBar}">
                 <Grid.Resources>
+                    <converters:MessageTypeConverter x:Key="MessageTypeConverter"/>
                     <ControlTemplate x:Key="ExitButton" TargetType="{x:Type Button}">
                         <Border   Name="border" Background="Transparent">
                             <ContentPresenter Content="{DynamicResource ExitIco2}" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -75,7 +76,7 @@
                     <Button HorizontalAlignment="Right" Visibility="{Binding NextButtonVisibility}" Template="{StaticResource NextButton}" Width="50" Command="{Binding bNextMessage}"/>
                 </StackPanel>
                 <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Image Height="30" Width="30" Margin="5,0,0,0" Source="/TradeUpHelper;component/Resources/Images/info.png"/>
+                    <Image Height="26" Width="26" Margin="5,0,0,0" Source="{Binding CurrentMessage.Type, Converter={StaticResource MessageTypeConverter}}"/>
                     <Label Content="{DynamicResource MessageWindowTitle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,0,10,0" Foreground="White"/>
                     <Label Content="{Binding CurrentMessageIndex}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Padding="0" Foreground="White"/>
                     <Label Content="{DynamicResource MessageWindowOF}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="White"/>

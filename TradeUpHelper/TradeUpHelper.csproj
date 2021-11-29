@@ -212,6 +212,7 @@
     <Compile Include="DataConverters\BoolToVisibilityConverter.cs" />
     <Compile Include="DataConverters\ContractResultColorConverter.cs" />
     <Compile Include="DataConverters\ImageConverter.cs" />
+    <Compile Include="DataConverters\MessageTypeConverter.cs" />
     <Compile Include="DataConverters\RarityColorConverter.cs" />
     <Compile Include="DataConverters\ScinsListVisibilityInvertedConverter.cs" />
     <Compile Include="DataConverters\ScinsListVisibilityConverter.cs" />
@@ -558,6 +559,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\error.png" />
+    <Resource Include="Resources\Images\warning.png" />
     <Resource Include="Resources\Images\FAQ\InventoryURL.png" />
     <Resource Include="Resources\Images\not_found.png" />
     <Resource Include="Resources\Images\TradeUpHelperBannerDark.png" />
