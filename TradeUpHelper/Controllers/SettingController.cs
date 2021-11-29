@@ -15,11 +15,13 @@ namespace TradeUpHelper.Controllers
     {
         public static string UserProfileId { get { return setting.UserProfileId; } }
         public static string UserInventoryURL { get { return setting.UserInventoryURL; } set {
+                string oldValue = setting.UserInventoryURL;
+
                 setting.UserInventoryURL = value;
                 string[] tmp = value.Split('/');
                 setting.UserProfileId = tmp[tmp.Length-3];
                 File.WriteAllText(FilePath.settingFile, JsonSerializer.Serialize(setting));
-                InventoryHandler.LoadItems();
+                if (!InventoryHandler.LoadItems()) setting.UserInventoryURL = oldValue;
             } }
 
         public static bool IsFirstStart

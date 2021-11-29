@@ -8,6 +8,8 @@ namespace TradeUpHelper.Models.SteamAPI
 {
     class SteamInventoryJson
     {
+        public bool success { get; set; }
+        public string Error { get; set; }
         public Dictionary<long, ScinShort> rgInventory { get; set; }
         public Dictionary<String, ScinFull> rgDescriptions {get; set; }
     }

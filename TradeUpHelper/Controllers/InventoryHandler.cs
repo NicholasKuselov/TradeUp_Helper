@@ -21,44 +21,55 @@ namespace TradeUpHelper.Controllers
         public static List<Scin> items = new List<Scin>();
         public static string CacheWritingTime = "";
         private static Random random = new Random();
-        public static void LoadItems()
+        public static bool LoadItems()
         {
-            if (SettingController.UserInventoryURL.Length < 5) return;
-            items.Clear();
-            string inventoryJson = WebController.GetInventory();
-            SteamInventoryJson data = JsonSerializer.Deserialize<SteamInventoryJson>(inventoryJson);
-            for (int i = 0; i < data.rgInventory.Count; i++)
+            try
             {
-                if(data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].actions != null)
+                if (SettingController.UserInventoryURL.Length < 5) return false;
+                items.Clear();
+                string inventoryJson = WebController.GetInventory();
+                SteamInventoryJson data = JsonSerializer.Deserialize<SteamInventoryJson>(inventoryJson);
+                if (!data.success)
                 {
-                    string url = data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].actions[0].link;
-                    string[] dataSp = url.Split('%');
-                    url = dataSp[0] + "%" + dataSp[1] + SettingController.UserProfileId + dataSp[3] + data.rgInventory[data.rgInventory.Keys.ElementAt(i)].id + dataSp[5];
-                    string itemJson = WebController.GetItemProp(url);
-                    Scin tmp = JsonSerializer.Deserialize<Scin>(itemJson);
-                    tmp.imageurl = SteamPath.BaseImageUrl + data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].icon_url;
-                    tmp.price = PriceHandler.GetPrice(tmp.full_item_name);
-                    
-                    items.Add(tmp);
-                    
+                    ErrorHandler.ShowError(Errors.ERROR, data.Error);
+                    return false;
                 }
-                else
+                for (int i = 0; i < data.rgInventory.Count; i++)
                 {
-                    Scin tmp = new Scin();
-                    tmp.full_item_name = data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].market_hash_name;
-                    tmp.Name = data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].market_hash_name;
-                    tmp.imageurl = SteamPath.BaseImageUrl + data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].icon_url;
-                    tmp.price = PriceHandler.GetPrice(tmp.full_item_name);
-                    items.Add(tmp);
+                    if (data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].actions != null)
+                    {
+                        string url = data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].actions[0].link;
+                        string[] dataSp = url.Split('%');
+                        url = dataSp[0] + "%" + dataSp[1] + SettingController.UserProfileId + dataSp[3] + data.rgInventory[data.rgInventory.Keys.ElementAt(i)].id + dataSp[5];
+                        string itemJson = WebController.GetItemProp(url);
+                        Scin tmp = JsonSerializer.Deserialize<Scin>(itemJson);
+                        tmp.imageurl = SteamPath.BaseImageUrl + data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].icon_url;
+                        tmp.price = PriceHandler.GetPrice(tmp.full_item_name);
+
+                        items.Add(tmp);
+                    }
+                    else
+                    {
+                        Scin tmp = new Scin();
+                        tmp.full_item_name = data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].market_hash_name;
+                        tmp.Name = data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].market_hash_name;
+                        tmp.imageurl = SteamPath.BaseImageUrl + data.rgDescriptions[data.rgDescriptions.Keys.ElementAt(i)].icon_url;
+                        tmp.price = PriceHandler.GetPrice(tmp.full_item_name);
+                        items.Add(tmp);
+                    }
+                    Task.Run(() =>
+                    {
+                        InventoryCacheController.Save();
+                    });
+                    return true;
                 }
- 
+            }catch(Exception e)
+            {
+                ErrorHandler.WriteErrorLog(e,typeof(InventoryHandler).Name);
+                return false;
             }
 
-            Task.Run(() =>
-            {
-                InventoryCacheController.Save();
-            });
-            
+            return false;       
         }
 
         public static double GetPrice2(string itemName)
@@ -108,17 +119,24 @@ namespace TradeUpHelper.Controllers
 
         static double ConvertFloatToDouble(string Float)
         {
-            Float = Float.Replace('.', ',');
-            string newFloat = "";
-            for (int i = 0; i < Float.Length; i++)
+            try
             {
-                if (Char.IsDigit(Float[i]) || Float[i].Equals(','))
+                Float = Float.Replace('.', ',');
+                string newFloat = "";
+                for (int i = 0; i < Float.Length; i++)
                 {
-                    newFloat = newFloat + Float[i];
+                    if (Char.IsDigit(Float[i]) || Float[i].Equals(','))
+                    {
+                        newFloat = newFloat + Float[i];
+                    }
                 }
+                if (newFloat.Length == 0) return 0.0;
+                return Convert.ToDouble(newFloat);
             }
-            if (newFloat.Length == 0) return 0.0;
-            return Convert.ToDouble(newFloat);
+            catch
+            {
+                return -1.0;
+            }
         }
     }
 }

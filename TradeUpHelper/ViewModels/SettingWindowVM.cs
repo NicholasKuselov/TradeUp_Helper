@@ -152,8 +152,9 @@ namespace TradeUpHelper.ViewModels
                     }
                     else if (!SteamInventoryURL.Equals(SettingController.UserInventoryURL))
                     {
-                        SettingController.UserInventoryURL = SteamInventoryURL;
+                        SettingController.UserInventoryURL = SteamInventoryURL; 
                     }
+                    SteamInventoryURL = SettingController.UserInventoryURL;
                 });
             }
         }
